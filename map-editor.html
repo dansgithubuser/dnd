@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01//EN'>
+<html>
+	<head>
+		<script type='text/javascript'>
+
+const QUANTUM_SIZE=4
+
+gCanvas=null
+gContext=null
+
+gEntities=[]
+gSelected=new Set()
+gDragging=false
+gDragXi=0
+gDragYi=0
+gMoveXp=0
+gMoveYp=0
+
+window.onload=init
+
+function e(name){ return document.getElementById(name) }
+function v(name){ return e(name).value }
+
+function drawSquare(x, y, color, size){
+	gContext.beginPath()
+	gContext.fillStyle=color
+	gContext.rect(x-size/2, y-size/2, size, size)
+	gContext.fill()
+	gContext.closePath()
+}
+
+function drawText(x, y, text){
+	gContext.beginPath()
+	gContext.font='12px sans-serif'
+	gContext.fillStyle='black'
+	var u=gContext.measureText('_').width
+	var s=gContext.measureText(' ').width
+	gContext.rect(x-s, y-u, gContext.measureText(text).width+s*2, u*2)
+	gContext.fill()
+	gContext.fillStyle='white'
+	gContext.textBaseline='middle'
+	gContext.fillText(text, x, y)
+	gContext.closePath()
+}
+
+function drawLine(xi, yi, xf, yf, color){
+	gContext.beginPath()
+	gContext.strokeStyle=color
+	gContext.moveTo(xi, yi)
+	gContext.lineTo(xf, yf)
+	gContext.stroke()
+	gContext.closePath()
+}
+
+function Point(x, y, name=v('name')){
+	this.x=x
+	this.y=y
+	this.name=name
+	this.draw=function(){
+		drawSquare(this.x, this.y, 'black', QUANTUM_SIZE*2)
+		drawSquare(this.x, this.y, gSelected.has(this)?'magenta':'white', QUANTUM_SIZE)
+	}
+	this.drawName=function(){
+		drawText(this.x+QUANTUM_SIZE*2, this.y, this.name)
+	}
+	this.getPointNear=function(x, y){
+		dx=this.x-x
+		dy=this.y-y
+		return Math.pow(dx, 2)+Math.pow(dy, 2)<Math.pow(QUANTUM_SIZE*4, 2)?this:null
+	}
+	this.getPointsIn=function(xi, yi, xf, yf){
+		function between(x, a, b){ return a<=x&&x<=b||b<=x&&x<=a }
+		return between(this.x, xi, xf)&&between(this.y, yi, yf)?[this]:[]
+	}
+}
+
+function Line(x, y){
+	this.points=[new Point(x, y, '')]
+	this.name=v('name')
+	this.color=v('color')
+	this.draw=function(){
+		for(var i=0; i<this.points.length-1; ++i) drawLine(
+			this.points[i+0].x, this.points[i+0].y,
+			this.points[i+1].x, this.points[i+1].y,
+			this.color
+		)
+		for(var i=0; i<this.points.length; ++i)
+			if(gSelected.has(this)||gSelected.has(this.points[i]))
+				this.points[i].draw()
+	}
+	this.drawName=function(){
+		if(this.name==''&&this.points.length>1) return;
+		var m=this.points[Math.floor(this.points.length/2)]
+		drawText(m.x, m.y, this.name)
+	}
+	this.add=function(x, y){
+		this.points.push(new Point(x, y, ''))
+	}
+	this.getPointNear=function(x, y){
+		for(var i=0; i<this.points.length; ++i)
+			if(this.points[i].getPointNear(x, y)) return this.points[i]
+		return null
+	}
+	this.getPointsIn=function(xi, yi, xf, yf){
+		var result=[]
+		for(var i=0; i<this.points.length; ++i)
+			if(this.points[i].getPointsIn(xi, yi, xf, yf).length)
+				result.push(this.points[i])
+		return result
+	}
+}
+
+function Plane(x, y){
+	this.points=[new Point(x, y, '')]
+	this.name=v('name')
+	this.color=v('color')
+	this.draw=function(){
+		gContext.beginPath()
+		gContext.moveTo(this.points[0].x, this.points[0].y)
+		for(var i=1; i<this.points.length; ++i)
+			gContext.lineTo(this.points[i].x, this.points[i].y)
+		gContext.fillStyle=this.color
+		gContext.fill()
+		gContext.closePath()
+		for(var i=0; i<this.points.length; ++i)
+			if(gSelected.has(this)||gSelected.has(this.points[i]))
+				this.points[i].draw()
+	}
+	this.drawName=function(){
+		if(this.name==''&&this.points.length>2) return;
+		var x=0, y=0
+		for(var i=0; i<this.points.length; ++i){
+			x+=this.points[i].x
+			y+=this.points[i].y
+		}
+		x/=this.points.length
+		y/=this.points.length
+		drawText(x, y, this.name)
+	}
+	this.add=function(x, y){
+		this.points.push(new Point(x, y, ''))
+	}
+	this.getPointNear=function(x, y){
+		for(var i=0; i<this.points.length; ++i)
+			if(this.points[i].getPointNear(x, y)) return this.points[i]
+		return null
+	}
+	this.getPointsIn=function(xi, yi, xf, yf){
+		var result=[]
+		for(var i=0; i<this.points.length; ++i)
+			if(this.points[i].getPointsIn(xi, yi, xf, yf).length)
+				result.push(this.points[i])
+		return result
+	}
+}
+
+function deselect(){
+	gSelected.clear()
+	draw()
+}
+
+function rename(){
+	gSelected.forEach(function(value, key, set){ value.name=v('name') })
+	draw()
+}
+
+function recolor(){
+	gSelected.forEach(function(value, key, set){ value.color=v('color') })
+	draw()
+}
+
+function setBackground(){ gCanvas.style.backgroundColor=v('color') }
+
+function resize(){
+	gCanvas.width=v('width')
+	gCanvas.height=v('height')
+	draw()
+}
+
+function draw(){
+	gContext.clearRect(0, 0, canvas.width, canvas.height)
+	for(var i=0; i<gEntities.length; ++i) gEntities[i].draw()
+	for(var i=0; i<gEntities.length; ++i) gEntities[i].drawName()
+}
+
+function handleMouseDown(event){
+	var x=event.x+document.body.scrollLeft-gCanvas.offsetLeft
+	var y=event.y+document.body.scrollTop-gCanvas.offsetTop
+	gDragging=true
+	gDragXi=x
+	gDragYi=y
+	gMoveXp=x
+	gMoveYp=y
+	if(e('select').checked){
+		for(var i=0; i<gEntities.length; ++i)
+			if(!gSelected.has(gEntities[i])&&gEntities[i].getPointNear(x, y)){
+				gSelected.add(gEntities[i])
+				break
+			}
+	}
+	if(e('select_point').checked){
+		for(var i=0; i<gEntities.length; ++i){
+			p=gEntities[i].getPointNear(x, y)
+			if(p&&!gSelected.has(p)){
+				gSelected.add(p)
+				break
+			}
+		}
+	}
+	if(e('point').checked){
+		gEntities.push(new Point(x, y))
+		gSelected.clear()
+		gSelected.add(gEntities[gEntities.length-1])
+	}
+	if(e('line').checked){
+		var selected=null
+		gSelected.forEach(function(value, key, set){
+			if(value instanceof Line) selected=value
+		})
+		if(selected) selected.add(x, y)
+		else gEntities.push(new Line(x, y))
+		gSelected.clear()
+		gSelected.add(gEntities[gEntities.length-1])
+	}
+	if(e('plane').checked){
+		var selected=null
+		gSelected.forEach(function(value, key, set){
+			if(value instanceof Plane) selected=value
+		})
+		if(selected) selected.add(x, y)
+		else gEntities.push(new Plane(x, y))
+		gSelected.clear()
+		gSelected.add(gEntities[gEntities.length-1])
+	}
+	draw()
+}
+
+function handleMouseUp(event){
+	var x=event.x+document.body.scrollLeft-gCanvas.offsetLeft
+	var y=event.y+document.body.scrollTop-gCanvas.offsetTop
+	if(gDragging)
+		for(var i=0; i<gEntities.length; ++i){
+			p=gEntities[i].getPointsIn(gDragXi, gDragYi, x, y)
+			if(e('select').checked&&p.length)
+				gSelected.add(gEntities[i])
+			if(e('select_point').checked) for(var j=0; j<p.length; ++j)
+				gSelected.add(p[j])
+		}
+	gDragging=false
+	draw()
+}
+
+function handleMouseMove(event){
+	var x=event.x+document.body.scrollLeft-gCanvas.offsetLeft
+	var y=event.y+document.body.scrollTop-gCanvas.offsetTop
+	if(gDragging){
+		if((e('select').checked||e('select_point').checked)){
+			draw()
+			gContext.beginPath()
+			gContext.strokeStyle='magenta'
+			gContext.rect(gDragXi, gDragYi, x-gDragXi, y-gDragYi)
+			gContext.stroke()
+			gContext.closePath()
+		}
+		if(e('move').checked){
+			var a=new Set()
+			gSelected.forEach(function(value, key, set){
+				if(value instanceof Line||value instanceof Plane)
+					for(var i=0; i<value.points.length; ++i)
+						a.add(value.points[i])
+				else a.add(value)
+			})
+			a.forEach(function(value, key, set){
+				value.x+=x-gMoveXp
+				value.y+=y-gMoveYp
+			})
+			draw()
+		}
+	}
+	gMoveXp=x
+	gMoveYp=y
+}
+
+function handleKeyDown(event){
+	function getKeyCode(c){ return c.charCodeAt(0) }
+	switch(String.fromCharCode(event.keyCode)){
+		case 'A': e('select'      ).checked=true; break
+		case 'S': e('select_point').checked=true; break
+		case 'D': e('move'        ).checked=true; break
+		case 'F': e('point'       ).checked=true; break
+		case 'G': e('line'        ).checked=true; break
+		case 'H': e('plane'       ).checked=true; break
+		case 'Z': deselect(); break
+		case 'X': rename(); break
+		case 'C': recolor(); break
+		case 'V': setBackground(); break
+	}
+}
+
+function init(){
+	gCanvas=e('canvas')
+	gContext=gCanvas.getContext('2d')
+	gCanvas.addEventListener('mousedown', handleMouseDown)
+	gCanvas.addEventListener('mouseup'  , handleMouseUp)
+	gCanvas.addEventListener('mousemove', handleMouseMove)
+	gCanvas.addEventListener('keydown'  , handleKeyDown)
+	draw()
+}
+
+		</script>
+	</head>
+	<body>
+		<canvas
+			id='canvas'
+			width='500'
+			height='500'
+			tabindex='1'
+			style='border:1px solid'
+		>
+			<p>Your browser does not support the canvas element.</p>
+		</canvas>
+		<br>
+		name<input type='text' id='name'/>
+		&nbsp;
+		color<input type='text' value='rgb(0, 0, 64)' id='color'/>
+		<br>
+		<input type='radio' name='tool' id='select' checked>select
+		<input type='radio' name='tool' id='select_point'>select point
+		<input type='radio' name='tool' id='move'>move
+		<input type='radio' name='tool' id='point'>point
+		<input type='radio' name='tool' id='line'>line
+		<input type='radio' name='tool' id='plane'>plane
+		<br>
+		<input type='button' value='deselect' onClick='deselect()'>
+		<input type='button' value='rename' onClick='rename()'>
+		<input type='button' value='recolor' onClick='recolor()'>
+		<input type='button' value='set background' onClick='setBackground()'>
+		<br>
+		width<input type='text' value='500' id='width'/>
+		height<input type='text' value='500' id='height'/>
+		<input type='button' value='resize' onClick='resize()'>
+		<br>
+		<br>
+		Keyboard shortcuts:<br>
+		a: select<br>
+		s: select-point<br>
+		d: move<br>
+		f: point<br>
+		g: line<br>
+		h: plane<br>
+		z: deselect<br>
+		x: rename<br>
+		c: recolor<br>
+		v: set background<br>
+	</body>
+</html>
