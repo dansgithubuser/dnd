@@ -4,6 +4,7 @@
 		<script type='text/javascript'>
 
 const QUANTUM_SIZE=4
+const FILE=window.location.search.substring(1)
 
 gCanvas=null
 gContext=null
@@ -17,6 +18,11 @@ gMoveXp=0
 gMoveYp=0
 
 window.onload=init
+
+function transceive(message, callback){
+	gSocket.onmessage=function(event){ callback(JSON.parse(event.data).result) }
+	gSocket.send(JSON.stringify(message))
+}
 
 function e(name){ return document.getElementById(name) }
 function v(name){ return e(name).value }
@@ -53,6 +59,7 @@ function drawLine(xi, yi, xf, yf, color){
 }
 
 function Point(x, y, name=v('name')){
+	this.type='point'
 	this.x=x
 	this.y=y
 	this.name=name
@@ -74,10 +81,11 @@ function Point(x, y, name=v('name')){
 	}
 }
 
-function Line(x, y){
+function Line(x, y, name=v('name'), color=v('color')){
+	this.type='line'
 	this.points=[new Point(x, y, '')]
-	this.name=v('name')
-	this.color=v('color')
+	this.name=name
+	this.color=color
 	this.draw=function(){
 		for(var i=0; i<this.points.length-1; ++i) drawLine(
 			this.points[i+0].x, this.points[i+0].y,
@@ -110,10 +118,11 @@ function Line(x, y){
 	}
 }
 
-function Plane(x, y){
+function Plane(x, y, name=v('name'), color=v('color')){
+	this.type='plane'
 	this.points=[new Point(x, y, '')]
-	this.name=v('name')
-	this.color=v('color')
+	this.name=name
+	this.color=color
 	this.draw=function(){
 		gContext.beginPath()
 		gContext.moveTo(this.points[0].x, this.points[0].y)
@@ -169,12 +178,70 @@ function recolor(){
 	draw()
 }
 
-function setBackground(){ gCanvas.style.backgroundColor=v('color') }
+function setBackground(color=v('color')){
+	gCanvas.style.backgroundColor=color
+	e('color').value=color
+}
 
-function resize(){
-	gCanvas.width=v('width')
-	gCanvas.height=v('height')
+function resize(width=v('width'), height=v('height')){
+	gCanvas.width=width
+	gCanvas.height=height
+	e('width').value=width
+	e('height').value=height
 	draw()
+}
+
+function load(){
+	transceive({'command': 'load', 'path': FILE},
+		function(result){
+			if(!result.success) return;
+			gEntities=[]
+			var j=JSON.parse(result.contents)
+			for(var i=0; i<j.entities.length; ++i){
+				var e=j.entities[i]
+				switch(e.type){
+					case 'point':
+						gEntities.push(new Point(e.x, e.y, e.name))
+						break
+					case 'line':
+						var p=e.points[0]
+						var a=new Line(p.x, p.y, e.name, e.color)
+						gEntities.push(a)
+						for(var k=1; k<e.points.length; ++k)
+							a.points.push(new Point(e.points[k].x, e.points[k].y, ''))
+						break
+					case 'plane':
+						var p=e.points[0]
+						var a=new Plane(p.x, p.y, e.name, e.color)
+						gEntities.push(a)
+						for(var k=1; k<e.points.length; ++k)
+							a.points.push(new Point(e.points[k].x, e.points[k].y, ''))
+						break
+				}
+			}
+			setBackground(j.background)
+			resize(j.width, j.height)
+			draw()
+		}
+	)
+}
+
+function save(){
+	transceive(
+		{
+			'command': 'save',
+			'path': FILE,
+			'contents': JSON.stringify({
+				'entities': gEntities,
+				'background': gCanvas.style.backgroundColor,
+				'width': gCanvas.width,
+				'height': gCanvas.height
+			})
+		},
+		function(result){
+			if(!result.success) alert(result.error)
+		}
+	)
 }
 
 function draw(){
@@ -208,9 +275,10 @@ function handleMouseDown(event){
 		}
 	}
 	if(e('point').checked){
-		gEntities.push(new Point(x, y))
+		var a=new Point(x, y)
+		gEntities.push(a)
 		gSelected.clear()
-		gSelected.add(gEntities[gEntities.length-1])
+		gSelected.add(a)
 	}
 	if(e('line').checked){
 		var selected=null
@@ -218,9 +286,12 @@ function handleMouseDown(event){
 			if(value instanceof Line) selected=value
 		})
 		if(selected) selected.add(x, y)
-		else gEntities.push(new Line(x, y))
-		gSelected.clear()
-		gSelected.add(gEntities[gEntities.length-1])
+		else{
+			var a=new Line(x, y)
+			gEntities.push(a)
+			gSelected.clear()
+			gSelected.add(a)
+		}
 	}
 	if(e('plane').checked){
 		var selected=null
@@ -228,9 +299,12 @@ function handleMouseDown(event){
 			if(value instanceof Plane) selected=value
 		})
 		if(selected) selected.add(x, y)
-		else gEntities.push(new Plane(x, y))
-		gSelected.clear()
-		gSelected.add(gEntities[gEntities.length-1])
+		else{
+			var a=new Plane(x, y)
+			gEntities.push(a)
+			gSelected.clear()
+			gSelected.add(a)
+		}
 	}
 	draw()
 }
@@ -294,17 +368,22 @@ function handleKeyDown(event){
 		case 'X': rename(); break
 		case 'C': recolor(); break
 		case 'V': setBackground(); break
+		case 'B': save(); break
+		case 'N': load(); break
 	}
 }
 
 function init(){
+	var loaded=false
+	gSocket=new WebSocket('ws://localhost:9160')
+	gSocket.onopen=function(){ load(); loaded=true }
 	gCanvas=e('canvas')
-	gContext=gCanvas.getContext('2d')
 	gCanvas.addEventListener('mousedown', handleMouseDown)
 	gCanvas.addEventListener('mouseup'  , handleMouseUp)
 	gCanvas.addEventListener('mousemove', handleMouseMove)
 	gCanvas.addEventListener('keydown'  , handleKeyDown)
-	draw()
+	gContext=gCanvas.getContext('2d')
+	if(!loaded&&gSocket.readyState==1) load()
 }
 
 		</script>
@@ -335,6 +414,8 @@ function init(){
 		<input type='button' value='rename' onClick='rename()'>
 		<input type='button' value='recolor' onClick='recolor()'>
 		<input type='button' value='set background' onClick='setBackground()'>
+		<input type='button' value='save' onClick='save()'>
+		<input type='button' value='load' onClick='load()'>
 		<br>
 		width<input type='text' value='500' id='width'/>
 		height<input type='text' value='500' id='height'/>
@@ -352,5 +433,7 @@ function init(){
 		x: rename<br>
 		c: recolor<br>
 		v: set background<br>
+		b: save<br>
+		n: load<br>
 	</body>
 </html>
