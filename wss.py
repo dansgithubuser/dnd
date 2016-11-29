@@ -12,6 +12,9 @@ def handle_message(client, server, message):
 		if j['command']=='load':
 			with open(j['path'], 'r') as file: j['result']['contents']=file.read()
 		if j['command']=='save':
+			import os
+			try: os.makedirs(os.path.split(j['path'])[0])
+			except: pass
 			with open(j['path'], 'w') as file: file.write(j['contents'])
 	except Exception as e:
 		j['result']['success']=False
