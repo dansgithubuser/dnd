@@ -178,6 +178,14 @@ function recolor(){
 	draw()
 }
 
+function remove(){
+	gSelected.forEach(function(value, key, set){
+		var i=gEntities.indexOf(value)
+		if(i>=0) gEntities.splice(i, 1)
+	})
+	draw()
+}
+
 function setBackground(color=v('color')){
 	gCanvas.style.backgroundColor=color
 	e('color').value=color
@@ -367,9 +375,10 @@ function handleKeyDown(event){
 		case 'Z': deselect(); break
 		case 'X': rename(); break
 		case 'C': recolor(); break
-		case 'V': setBackground(); break
-		case 'B': save(); break
-		case 'N': load(); break
+		case 'V': remove(); break
+		case 'B': setBackground(); break
+		case 'N': save(); break
+		case 'M': load(); break
 	}
 }
 
@@ -413,6 +422,7 @@ function init(){
 		<input type='button' value='deselect' onClick='deselect()'>
 		<input type='button' value='rename' onClick='rename()'>
 		<input type='button' value='recolor' onClick='recolor()'>
+		<input type='button' value='remove' onClick='remove()'>
 		<input type='button' value='set background' onClick='setBackground()'>
 		<input type='button' value='save' onClick='save()'>
 		<input type='button' value='load' onClick='load()'>
@@ -432,8 +442,9 @@ function init(){
 		z: deselect<br>
 		x: rename<br>
 		c: recolor<br>
-		v: set background<br>
-		b: save<br>
-		n: load<br>
+		v: remove<br>
+		b: set background<br>
+		n: save<br>
+		m: load<br>
 	</body>
 </html>
