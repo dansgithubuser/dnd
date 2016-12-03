@@ -35,10 +35,10 @@ function drawSquare(x, y, color, size){
 	gContext.closePath()
 }
 
-function drawText(x, y, text){
+function drawText(x, y, text, selected=false){
 	gContext.beginPath()
 	gContext.font='12px sans-serif'
-	gContext.fillStyle='black'
+	gContext.fillStyle=selected?'magenta':'black'
 	var u=gContext.measureText('_').width
 	var s=gContext.measureText(' ').width
 	gContext.rect(x-s, y-u, gContext.measureText(text).width+s*2, u*2)
@@ -68,7 +68,7 @@ function Point(x, y, name=v('name')){
 		drawSquare(this.x, this.y, gSelected.has(this)?'magenta':'white', QUANTUM_SIZE)
 	}
 	this.drawName=function(){
-		drawText(this.x+QUANTUM_SIZE*2, this.y, this.name)
+		drawText(this.x+QUANTUM_SIZE*2, this.y, this.name, gSelected.has(this))
 	}
 	this.getPointNear=function(x, y){
 		dx=this.x-x
@@ -99,7 +99,7 @@ function Line(x, y, name=v('name'), color=v('color')){
 	this.drawName=function(){
 		if(this.name==''&&this.points.length>1) return;
 		var m=this.points[Math.floor(this.points.length/2)]
-		drawText(m.x, m.y, this.name)
+		drawText(m.x, m.y, this.name, gSelected.has(this))
 	}
 	this.add=function(x, y){
 		this.points.push(new Point(x, y, ''))
@@ -144,7 +144,7 @@ function Plane(x, y, name=v('name'), color=v('color')){
 		}
 		x/=this.points.length
 		y/=this.points.length
-		drawText(x, y, this.name)
+		drawText(x, y, this.name, gSelected.has(this))
 	}
 	this.add=function(x, y){
 		this.points.push(new Point(x, y, ''))
@@ -266,21 +266,25 @@ function handleMouseDown(event){
 	gDragYi=y
 	gMoveXp=x
 	gMoveYp=y
+	addToSelection=function(potentials){
+		if(!potentials.length) return
+		gSelected.add(potentials[Math.floor(Math.random()*potentials.length)])
+	}
 	if(e('select').checked){
-		for(var i=0; i<gEntities.length; ++i)
-			if(!gSelected.has(gEntities[i])&&gEntities[i].getPointNear(x, y)){
-				gSelected.add(gEntities[i])
-				break
-			}
+		var potentials=[]
+		for(var i=0; i<gEntities.length; ++i){
+			var p=gEntities[i].getPointNear(x, y)
+			if(p) potentials.push(gEntities[i])
+		}
+		addToSelection(potentials)
 	}
 	if(e('select_point').checked){
+		var potentials=[]
 		for(var i=0; i<gEntities.length; ++i){
-			p=gEntities[i].getPointNear(x, y)
-			if(p&&!gSelected.has(p)){
-				gSelected.add(p)
-				break
-			}
+			var p=gEntities[i].getPointNear(x, y)
+			if(p) potentials.push(p)
 		}
+		addToSelection(potentials)
 	}
 	if(e('point').checked){
 		var a=new Point(x, y)
