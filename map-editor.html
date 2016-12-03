@@ -4,7 +4,7 @@
 		<script type='text/javascript'>
 
 const QUANTUM_SIZE=4
-const FILE=window.location.search.substring(1)
+const FILE=typeof file!='undefined'?file:window.location.search.substring(1)
 
 gCanvas=null
 gContext=null
