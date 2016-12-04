@@ -236,7 +236,7 @@ function save(){
 				'background': gCanvas.style.backgroundColor,
 				'width': gCanvas.width,
 				'height': gCanvas.height
-			})
+			}).split(',').join(',\n')
 		},
 		function(result){
 			if(!result.success) alert(result.error)
