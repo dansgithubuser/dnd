@@ -28,34 +28,27 @@ function e(name){ return document.getElementById(name) }
 function v(name){ return e(name).value }
 
 function drawSquare(x, y, color, size){
-	gContext.beginPath()
 	gContext.fillStyle=color
-	gContext.rect(x-size/2, y-size/2, size, size)
-	gContext.fill()
-	gContext.closePath()
+	gContext.fillRect(x-size/2, y-size/2, size, size)
 }
 
 function drawText(x, y, text, selected=false){
-	gContext.beginPath()
-	gContext.font='12px sans-serif'
 	gContext.fillStyle=selected?'magenta':'black'
 	var u=gContext.measureText('_').width
 	var s=gContext.measureText(' ').width
-	gContext.rect(x-s, y-u, gContext.measureText(text).width+s*2, u*2)
-	gContext.fill()
+	gContext.fillRect(x-s, y-u, gContext.measureText(text).width+s*2, u*2)
 	gContext.fillStyle='white'
+	gContext.font='12px sans-serif'
 	gContext.textBaseline='middle'
 	gContext.fillText(text, x, y)
-	gContext.closePath()
 }
 
 function drawLine(xi, yi, xf, yf, color){
-	gContext.beginPath()
 	gContext.strokeStyle=color
+	gContext.beginPath()
 	gContext.moveTo(xi, yi)
 	gContext.lineTo(xf, yf)
 	gContext.stroke()
-	gContext.closePath()
 }
 
 function Point(x, y, name=v('name')){
@@ -124,13 +117,12 @@ function Plane(x, y, name=v('name'), color=v('color')){
 	this.name=name
 	this.color=color
 	this.draw=function(){
+		gContext.fillStyle=this.color
 		gContext.beginPath()
 		gContext.moveTo(this.points[0].x, this.points[0].y)
 		for(var i=1; i<this.points.length; ++i)
 			gContext.lineTo(this.points[i].x, this.points[i].y)
-		gContext.fillStyle=this.color
 		gContext.fill()
-		gContext.closePath()
 		for(var i=0; i<this.points.length; ++i)
 			if(gSelected.has(this)||gSelected.has(this.points[i]))
 				this.points[i].draw()
@@ -342,11 +334,8 @@ function handleMouseMove(event){
 	if(gDragging){
 		if((e('select').checked||e('select_point').checked)){
 			draw()
-			gContext.beginPath()
 			gContext.strokeStyle='magenta'
-			gContext.rect(gDragXi, gDragYi, x-gDragXi, y-gDragYi)
-			gContext.stroke()
-			gContext.closePath()
+			gContext.strokeRect(gDragXi, gDragYi, x-gDragXi, y-gDragYi)
 		}
 		if(e('move').checked){
 			var a=new Set()
