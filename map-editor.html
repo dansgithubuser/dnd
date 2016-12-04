@@ -245,8 +245,13 @@ function save(){
 }
 
 function draw(){
-	gContext.clearRect(0, 0, canvas.width, canvas.height)
+	gContext.clearRect(0, 0, gCanvas.width, gCanvas.height)
 	for(var i=0; i<gEntities.length; ++i) gEntities[i].draw()
+	var size=QUANTUM_SIZE*5
+	if(e('grid').checked) for(var i=size; i<gCanvas.width; i+=size){
+		drawLine(0, i, gCanvas.width,              i, 'grey')
+		drawLine(i, 0,             i, gCanvas.height, 'grey')
+	}
 	for(var i=0; i<gEntities.length; ++i) gEntities[i].drawName()
 }
 
@@ -404,6 +409,8 @@ function init(){
 		name<input type='text' id='name'/>
 		&nbsp;
 		color<input type='text' value='rgb(0, 0, 64)' id='color'/>
+		&nbsp;
+		grid<input type='checkbox' onClick='draw()' id='grid'/>
 		<br>
 		<input type='radio' name='tool' id='select' checked>select
 		<input type='radio' name='tool' id='select_point'>select point
