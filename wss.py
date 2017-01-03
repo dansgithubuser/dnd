@@ -1,4 +1,8 @@
-from websocket_server import WebsocketServer
+try: from websocket_server import WebsocketServer
+except:
+	print('websocket-server must be installed')
+	sys.exit(1)
+
 import json
 
 def handle_message(client, server, message):
