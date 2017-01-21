@@ -1,0 +1,5 @@
+darkvision='Colorless sight in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light.'
+fey_ancestry='Advantage on saving throws against being charmed, and can’t be put to sleep by magic.'
+trance='Instead of sleeping, meditate deeply, remaining semiconscious, for 4 hours.'
+mask_of_the_wild='Attempt to hide even when only lightly obscured by foliage, heavy rain, falling snow, mist, or other natural phenomena.'
+keen_smell='Advantage on wisdom checks that rely on smell.'
