@@ -1,3 +1,7 @@
+#general formula for background:
+#2 skill proficiencies
+#2 language or tool proficiencies
+
 class FolkHero:
 	def __init__(self):
 		self.proficiencies+=['animal_handling', 'survival', 'land_vehicles']
