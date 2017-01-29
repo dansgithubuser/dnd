@@ -25,9 +25,11 @@ def d20(vantage=0):
 def modifier(stat): return (stat-10)//2
 
 class Entity:
-	def show(self):
+	def show(self, do_print=True):
 		import pprint
-		pprint.pprint(vars(self))
+		x=pprint.pformat(sorted(vars(self).items()))
+		if do_print: print(x)
+		return x
 
 	def roll_stats(self):
 		self.max_hp=roll(self.hit_dice)
