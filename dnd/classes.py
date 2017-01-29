@@ -15,6 +15,8 @@ class Progression:
 		for i in range(0, level):
 			for j in list[i]: self.x[j]+=1
 
+	def __repr__(self): return repr(dict(self.x))
+
 	def __add__(self, other):
 		result=Progression([], 0)
 		result.x=self.x

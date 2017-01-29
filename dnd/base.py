@@ -27,7 +27,24 @@ def modifier(stat): return (stat-10)//2
 class Entity:
 	def show(self, do_print=True):
 		import pprint
-		x=pprint.pformat(sorted(vars(self).items()))
+		def numbered_section(i): return '{:01}'.format(i)
+		def divine_key(attribute):
+			name=attribute[0]
+			groups=[
+				['name', 'level', 'type', 'alignment', 'size', 'hit_dice', 'max_hp', 'speed', 'age', 'height', 'weight'],
+				['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma', '1'],
+				['proficiency_bonus', 'proficiencies', 'expertise', 'languages', 'slots', 'spells', 'features', 'special_qualities'],
+				['natural_armor', 'environment', 'organization'],
+				[],
+			]
+			groups=[[numbered_section(i)]+groups[i] for i in range(len(groups))]
+			for i in range(len(groups)):
+				if name in groups[i]:
+					return '___{:02}.{:02}'.format(i, groups[i].index(name))
+			return name
+		sections=['overall', 'stats', 'abilities', 'nature', 'other']
+		separators=[(numbered_section(i), '-'*20+sections[i]+'-'*20) for i in range(len(sections))]
+		x=pprint.pformat(sorted(vars(self).items()+separators, key=divine_key))
 		if do_print: print(x)
 		return x
 
