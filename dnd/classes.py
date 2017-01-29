@@ -82,6 +82,28 @@ class Cleric(Spellcaster):
 			'simple_weapons',
 			'wisdom_saving_throw', 'charisma_saving_throw',
 		], union)
+		add(self, 'features', Progression([
+			['spellcasting', 'divine_domain'],
+			['channel_divinity', 'divine_domain'],
+			[],
+			['ability_score_improvement'],
+			['destroy_undead'],
+			['channel_divinity', 'divine_domain'],
+			[],
+			['ability_score_improvement', 'destroy_undead', 'divine_domain'],
+			[],
+			['divine_intervention'],
+			['destroy_undead'],
+			['ability_score_improvement'],
+			[],
+			['destroy_undead'],
+			[],
+			['ability_score_improvement'],
+			['destroy_undead', 'divine_domain'],
+			['channel_divinity'],
+			['ability_score_improvement'],
+			['divine_intervention_improvement'],
+		], level), plus)
 		add(self, 'spells', [
 			[],
 			['burning_hands', 'faerie_fire', 'bane', 'bless', 'cure_wounds', 'guiding_bolt', 'healing_word', 'protection_from_evil_and_good', 'sanctuary', 'shield_of_faith'],
@@ -110,6 +132,28 @@ class Rogue(Standard):
 			'thieves_tools',
 			'dexterity_saving_throw', 'intelligence_saving_throw',
 		], union)
+		add(self, 'features', Progression([
+			['expertise', 'sneak_attack', 'thieves_cant'],
+			['cunning_action'],
+			['roguish_archetype'],
+			['ability_score_improvement'],
+			['uncanny_dodge'],
+			['expertise'],
+			['evasion'],
+			['ability_score_improvement'],
+			['roguish_archetype'],
+			['ability_score_improvement'],
+			['reliable_talent'],
+			['ability_score_improvement'],
+			['roguish_archetype'],
+			['blindsense'],
+			['slippery_mind'],
+			['ability_score_improvement'],
+			['roguish_archetype'],
+			['elusive'],
+			['ability_score_improvement'],
+			['stroke_of_luck'],
+		], level), plus)
 
 	def sneak_attack(self): return '{}d6'.format((self.level-1)//2)
 
