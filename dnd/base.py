@@ -25,6 +25,21 @@ def d20(vantage=0):
 def modifier(stat): return (stat-10)//2
 
 class Entity:
+	def __getattr__(self, attr):
+		aliases={
+			'str': self.strength,
+			'dex': self.dexterity,
+			'con': self.constitution,
+			'int': self.intelligence,
+			'wis': self.wisdom,
+			'cha': self.charisma,
+			'ac': self.armor_class,
+		}
+		if attr in aliases:
+			x=aliases[attr]
+			return x() if callable(x) else x
+		raise AttributeError
+
 	def show(self, do_print=True):
 		import pprint
 		def numbered_section(i): return '{:01}'.format(i)
