@@ -20,6 +20,7 @@ An object that bears no resemblance to a weapon deals 1d4 damage (the GM assigns
 
 items={
 	'scale_mail': {'type': 'medium armor', 'armor_class': 14, 'weight': 45, 'disadvantages': ['stealth']},
+	'breastplate': {'type': 'medium armor', 'armor_class': 14, 'weight': 20},
 	'shield': {'type': 'shield', 'armor_class': 2, 'weight': 6},
 	'mace': {'type': 'melee weapon', 'damage': 'd6', 'damage_type': 'bludgeoning', 'weight': 4},
 	'dagger': {'type': 'melee weapon', 'damage': 'd4', 'damage_type': 'piercing', 'range': (20, 60), 'weight': 1, 'properties': ['finesse', 'light', 'range', 'thrown']},
