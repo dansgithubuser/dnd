@@ -59,7 +59,10 @@ class Entity:
 			return name
 		sections=['overall', 'stats', 'abilities', 'nature', 'other']
 		separators=[(numbered_section(i), '-'*20+sections[i]+'-'*20) for i in range(len(sections))]
-		x=pprint.pformat(sorted(vars(self).items()+separators, key=divine_key))
+		derived=[(i, getattr(self, i)()) for i in [
+			'armor_class',
+		]]
+		x=pprint.pformat(sorted(vars(self).items()+separators+derived, key=divine_key))
 		if do_print: print(x)
 		return x
 
