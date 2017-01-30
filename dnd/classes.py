@@ -70,12 +70,13 @@ class Spellcaster(Standard):
 	def spell_attack_bonus(self):
 		return self.proficiency_bonus+base.modifier(self.spellcasting_ability())
 
+class SpellPreparer(Spellcaster):
 	def prepared_spells(self):
 		return max(base.modifier(self.spellcasting_ability())+self.level, 1)
 
-class Cleric(Spellcaster):
+class Cleric(SpellPreparer):
 	def __init__(self, level):
-		Spellcaster.__init__(self, level)
+		SpellPreparer.__init__(self, level)
 		add(self, 'hit_dice', '{}d8'.format(level), plus_string)
 		add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shields',
@@ -111,9 +112,9 @@ class Cleric(Spellcaster):
 
 	def spellcasting_ability(self): return self.wisdom
 
-class Wizard(Spellcaster):
+class Wizard(SpellPreparer):
 	def __init__(self, level):
-		Spellcaster.__init__(self, level)
+		SpellPreparer.__init__(self, level)
 		add(self, 'hit_dice', '{}d6'.format(level), plus_string)
 		add(self, 'proficiencies', [
 			'daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows',
@@ -211,9 +212,9 @@ class Fighter(Standard):
 			['extra_attack'],
 		], level), plus)
 
-class Druid(Spellcaster):
+class Druid(SpellPreparer):
 	def __init__(self, level):
-		Spellcaster.__init__(self, level)
+		SpellPreparer.__init__(self, level)
 		add(self, 'hit_dice', '{}d8'.format(level), plus_string)
 		add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shields',
