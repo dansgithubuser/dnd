@@ -9,18 +9,22 @@ def parse_roll_request(request):
 
 def roll(request):
 	import random
-	dice, sides, bonus=parse_roll_request(request)
-	if sides:
-		rolls=[random.randint(1, sides) for i in range(dice)]
-		print(rolls)
-		return sum(rolls)+bonus
-	return None
+	x=[]
+	for i in request.split('+'):
+		if 'd' in i:
+			dice, sides=i.split('d')
+			if not dice: dice=1
+			x.append((i, [random.randint(1, int(sides)) for i in range(int(dice))]))
+		else: x.append((i, [int(i)]))
+	print(x)
+	return sum([sum(i[1]) for i in x])
 
 def d20(vantage=0):
-	r=[roll('d20') for i in range(2)]
-	if vantage<0 and r[1]<r[0]: return r[1]
-	if vantage>0 and r[1]>r[0]: return r[1]
-	return r[0]
+	a=roll('d20')
+	if not vantage: return a
+	b=roll('d20')
+	if vantage<0: return min(a, b)
+	if vantage>0: return max(a, b)
 
 def modifier(stat): return (stat-10)//2
 
