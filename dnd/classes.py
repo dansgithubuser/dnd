@@ -277,7 +277,7 @@ class Bard(Spellcaster):
 			['superior_inspiration'],
 		], level), plus)
 
-class Sorceror(Spellcaster):
+class Sorcerer(Spellcaster):
 	def __init__(self, level):
 		Spellcaster.__init__(self, level)
 		add(self, 'hit_dice', '{}d6'.format(level), plus_string)
