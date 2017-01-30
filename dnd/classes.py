@@ -119,6 +119,28 @@ class Wizard(Spellcaster):
 			'daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows',
 			'wisdom_saving_throw', 'intelligence_saving_throw',
 		], union)
+		add(self, 'features', Progression([
+			['spellcasting', 'arcane_recovery'],
+			['arcane_tradition'],
+			[],
+			['ability_score_improvement'],
+			[],
+			['arcane_tradition'],
+			[],
+			['ability_score_improvement'],
+			[],
+			['arcane_tradition'],
+			[],
+			['ability_score_improvement'],
+			[],
+			['arcane_tradition'],
+			[],
+			['ability_score_improvement'],
+			[],
+			['spell_mastery'],
+			['ability_score_improvement'],
+			['signature_spell'],
+		], level), plus)
 
 	def spellcasting_ability(self): return self.intelligence
 
