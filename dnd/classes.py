@@ -308,3 +308,35 @@ class Sorcerer(Spellcaster):
 			['ability_score_improvement'],
 			['sorcerous_restoration'],
 		], level), plus)
+
+class Ranger(Spellcaster):
+	def __init__(self, level):
+		Spellcaster.__init__(self, level)
+		add(self, 'hit_dice', '{}d10'.format(level), plus_string)
+		add(self, 'proficiencies', [
+			'light_armor', 'medium_armor', 'shields',
+			'simple_weapons', 'martial_weapons',
+			'dexterity_saving_throw', 'strength_saving_throw',
+		], union)
+		add(self, 'features', Progression([
+			['favored_enemy', 'natural_explorer'],
+			['spellcasting', 'fighting_style'],
+			['ranger_archetype', 'primeval_awareness'],
+			['ability_score_improvement'],
+			['extra_attack'],
+			['favored_enemy', 'natural_explorer'],
+			['ranger_archetype'],
+			['ability_score_improvement', 'lands_stride'],
+			[],
+			['natural_explorer', 'hide_in_plain_sight'],
+			['ranger_archetype'],
+			['ability_score_improvement'],
+			[''],
+			['favored_enemy', 'vanish'],
+			['ranger_archetype'],
+			['ability_score_improvement'],
+			[],
+			['feral_senses'],
+			['ability_score_improvement'],
+			['foe_slayer'],
+		], level), plus)
