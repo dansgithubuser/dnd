@@ -107,7 +107,15 @@ class Cleric(SpellPreparer):
 		], level), plus)
 		add(self, 'spells', [
 			[],
-			['burning_hands', 'faerie_fire', 'bane', 'bless', 'cure_wounds', 'guiding_bolt', 'healing_word', 'protection_from_evil_and_good', 'sanctuary', 'shield_of_faith'],
+			['bane', 'bless', 'command', 'create_or_destroy_water', 'cure_wounds', 'detect_evil_and_good', 'detect_magic', 'detect_poison_and_disease', 'guiding_bolt', 'healing_word', 'inflict_wounds', 'protection_from_evil_and_good', 'purify_food_and_drink', 'sanctuary', 'shield_of_faith'],
+			['aid', 'augury', 'blindness_deafness', 'calm_emotions', 'continual_flame', 'enhance_ability', 'find_traps', 'gentle_repose', 'hold_person', 'lesser_restoration', 'locate_object', 'prayer_of_healing', 'protection_from_poison', 'silence', 'spiritual_weapon', 'warding_bond', 'zone_of_truth'],
+			['animate_dead', 'beacon_of_hope', 'bestow_curse', 'clairvoyance', 'create_food_and_water', 'daylight', 'dispel_magic', 'glyph_of_warding', 'magic_circle', 'mass_healing_word', 'meld_into_stone', 'protection_from_energy', 'remove_curse', 'revivify', 'sending', 'speak_with_dead', 'spirit_guardians', 'tongues', 'water_walk'],
+			['banishment', 'control_water', 'death_ward', 'divination', 'freedom_of_movement', 'guardian_of_faith', 'locate_creature', 'stone_shape'],
+			['commune', 'contagion', 'dispel_evil_and_good', 'flame_strike', 'geas', 'greater_restoration', 'hallow', 'insect_plague', 'legend_lore', 'mass_cure_wounds', 'planar_binding', 'raise_dead', 'scrying'],
+			['blade_barrier', 'create_undead', 'find_the_path', 'forbiddance', 'harm', 'heal', 'heroes_feast', 'planar_ally', 'true_seeing', 'word_of_recall'],
+			['conjure_celestial', 'divine_word', 'etherealness', 'fire_storm', 'plane_shift', 'regenerate', 'resurrection', 'symbol'],
+			['antimagic_field', 'control_weather', 'earthquake', 'holy_aura'],
+			['astral_projection', 'gate', 'mass_heal', 'true_resurrection'],
 		], lambda old, new: [union(old[i], new[i]) for i in range(9)])
 
 	def spellcasting_ability(self): return self.wisdom
