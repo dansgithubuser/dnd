@@ -31,6 +31,7 @@ A dire badger can use a full turn to attack with both claws and bite.'''
 		self.organization=['1', '1d4+1']
 		self.challenge_rating=2
 		self.raged=False
+		self.roll_stats()
 
 	def damage(self, amount):
 		if not self.raged:
@@ -61,6 +62,7 @@ If burnt, toxic fumes are released. DC 13 constitution check or 3d12 poision dam
 		self.wisdom=3
 		self.charisma=1
 		self.environment=['temperate_forest']
+		self.roll_stats()
 
 class ShockerLizard(base.Entity):
 	'''A shocker lizard can shock an opponent. 2d8 damage, half if opponent makes a DC 12 dex saving throw.
@@ -87,6 +89,7 @@ Shoulder is 1 foot off the ground. Blue or gray.'''
 		self.environment=['temperate_forest']
 		self.organization=['1', '2', '1d3+2']
 		self.challenge_rating=1
+		self.roll_stats()
 
 class GiantVenemousSnake(base.Entity):
 	'''Actions:
@@ -109,6 +112,7 @@ Bite. Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 1d4+4 pierc
 		self.charisma=3
 		self.proficiencies=['perception']
 		self.challenge_rating=1
+		self.roll_stats()
 
 class GiantAntWorker(base.Entity):
 	def __init__(self):
@@ -129,6 +133,7 @@ class GiantAntWorker(base.Entity):
 		self.proficiencies=['perception', 'constitution_saving_throw']
 		self.challenge_rating=1
 		self.environment=['temperate_plains']
+		self.roll_stats()
 
 class GrayOozeling(base.Entity):
 	'''Amorphous. The oozeling can move through a space as narrow as 1 inch wide without squeezing.
@@ -164,6 +169,7 @@ Pseudopod. Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 2 (1d
 		self.condition_immunities=['blinded', 'charmed', 'deafened', 'exhaustion', 'frightened', 'prone']
 		self.challenge_rating=1
 		self.environment=['temperate_plains']
+		self.roll_stats()
 
 class DireWolverine(base.Entity):
 	'''Dire wolverines grow to about 12 feet in length and can weigh as much as 2,000 pounds. Dire wolverines attack opponents wantonly, fearing no other creatures.
@@ -194,6 +200,7 @@ A dire badger can use a full turn to attack with both claws.'''
 		self.organization=['1d2']
 		self.challenge_rating=4
 		self.raged=False
+		self.roll_stats()
 
 	def damage(self, amount):
 		if not self.raged:
@@ -232,6 +239,7 @@ Talons. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1
 		self.resistances=['fire']
 		self.challenge_rating=1
 		self.environment=['mountains']
+		self.roll_stats()
 
 class StoneGiant(base.Entity):
 	'''Stone giants are reclusive, quiet, and peaceful as long as they are left alone. Their granite-gray skin, gaunt features, and black, sunken eyes endow stone giants with a stern countenance. They are private creatures, hiding their lives and art away from the world.
@@ -270,3 +278,4 @@ Rock Catching. If a rock or similar object is hurled at the giant, the giant can
 		self.proficiency_bonus=3
 		self.challenge_rating=7
 		self.environment=['mountains']
+		self.roll_stats()
