@@ -1,7 +1,14 @@
+try: input=raw_input
+except: pass
+
 try: from websocket_server import WebsocketServer
 except:
-	print('websocket-server must be installed')
-	sys.exit(1)
+	print('I need to install websocket-server. Enter y if this is OK.')
+	if input()!='y': import sys; sys.exit(1)
+	import subprocess
+	subprocess.check_call('pip install websocket-server', shell=True)
+
+from websocket_server import WebsocketServer
 
 import json
 
