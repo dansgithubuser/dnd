@@ -254,6 +254,8 @@ class Druid(SpellPreparer):
 			['archdruid'],
 		], level), plus)
 
+	def spellcasting_ability(self): return self.wisdom
+
 class Bard(Spellcaster):
 	def __init__(self, level):
 		Spellcaster.__init__(self, level)
@@ -286,6 +288,8 @@ class Bard(Spellcaster):
 			['superior_inspiration'],
 		], level), plus)
 
+	def spellcasting_ability(self): return self.charisma
+
 class Sorcerer(Spellcaster):
 	def __init__(self, level):
 		Spellcaster.__init__(self, level)
@@ -316,6 +320,8 @@ class Sorcerer(Spellcaster):
 			['ability_score_improvement'],
 			['sorcerous_restoration'],
 		], level), plus)
+
+	def spellcasting_ability(self): return self.charisma
 
 class Ranger(Spellcaster):
 	def __init__(self, level):
@@ -348,3 +354,5 @@ class Ranger(Spellcaster):
 			['ability_score_improvement'],
 			['foe_slayer'],
 		], level), plus)
+
+	def spellcasting_ability(self): return self.wisdom
