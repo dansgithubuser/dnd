@@ -15,9 +15,9 @@ A dire badger can use a full turn to attack with both claws and bite.'''
 		self.speed=30
 		self.natural_armor=3
 		self.attacks=[
-			('l claw', 4, '1d4+2'),
-			('r claw', 4, '1d4+2'),
-			('bite', -1, '1d6+1'),
+			('l claw', 1, '1d4 SLASHING'),
+			('r claw', 1, '1d4 SLASHING'),
+			('bite', -1, '1d6+-1 PIERCING'),
 		]
 		self.special_qualities=['darkvision', 'keen_smell']
 		self.strength=14
@@ -52,9 +52,7 @@ If burnt, toxic fumes are released. DC 13 constitution check or 3d12 poision dam
 		self.type='plant'
 		self.hit_dice='1d4'
 		self.speed=0
-		self.attacks=[
-			('frond', 2, '1'),
-		]
+		self.attacks=[('frond', 7, '5 POISON')]
 		self.strength=3
 		self.dexterity=1
 		self.constitution=10
@@ -74,9 +72,7 @@ Shoulder is 1 foot off the ground. Blue or gray.'''
 		self.hit_dice='2d10+2'
 		self.speed=40
 		self.natural_armor=3
-		self.attacks=[
-			('bite', 3, '1d4'),
-		]
+		self.attacks=[('bite', 1, '1d4 PIERCING')]
 		self.spells=[['shock']]
 		self.special_qualities=['darkvision']
 		self.strength=10
@@ -101,7 +97,7 @@ Bite. Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 1d4+4 pierc
 		self.hit_dice='2d8+2'
 		self.speed={'land': 30, 'swim': 30}
 		self.attacks=[
-			('bite', 6, '1d4+4'),
+			('bite', 3, '1d4+4 PIERCING POISONOUS'),
 		]
 		self.special_qualities={'blindsight': 10}
 		self.strength=10
@@ -155,7 +151,7 @@ Pseudopod. Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 2 (1d
 		self.hit_dice='3d4+9'
 		self.speed={'land': 20, 'climb': 20}
 		self.attacks=[
-			('pseudopod', 3, '2d4'),
+			('pseudopod', 4, '1d4 BLUDGEONING+1d4 ACID CORROSIVE'),
 		]
 		self.special_qualities={'blindsight': 60}
 		self.strength=11
@@ -176,7 +172,7 @@ class DireWolverine(base.Entity):
 
 A dire wolverine that takes damage in combat flies into a berserk rage on its next turn, clawing and biting madly until either it or its opponent is dead. An enraged dire wolverine gains +4 Strength, +4 Constitution, and -2 AC. The creature cannot end its rage voluntarily.
 
-A dire badger can use a full turn to attack with both claws.'''
+A dire wolverine can use a full turn to attack with both claws.'''
 	def __init__(self):
 		self.type='animal'
 		self.size='large'
@@ -184,8 +180,8 @@ A dire badger can use a full turn to attack with both claws.'''
 		self.speed={'land': 30, 'climb': 10}
 		self.natural_armor=4
 		self.attacks=[
-			('l claw', 8, '1d6+6'),
-			('r claw', 8, '1d6+6'),
+			('l claw', 5, '1d6 SLASHING'),
+			('r claw', 5, '1d6 SLASHING'),
 		]
 		self.special_qualities=['darkvision', 'keen_smell']
 		self.strength=22
@@ -224,8 +220,8 @@ Talons. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1
 		self.speed={'land': 10, 'fly': 60}
 		self.natural_armor=1
 		self.attacks=[
-			('beak', 3, '1d4+1+1d8'),
-			('talons', 3, '2d4+1+1d8'),
+			('beak', 2, '1d4+2 PIERCING+1d8 FIRE'),
+			('talons', 2, '2d4+2 SLASHING+1d8 FIRE'),
 		]
 		self.special_qualities=['darkvision']
 		self.strength=9
@@ -264,8 +260,8 @@ Rock Catching. If a rock or similar object is hurled at the giant, the giant can
 		self.speed=40
 		self.natural_armor=5
 		self.attacks=[
-			('greatclub', 9, '3d8+6'),
-			('rock', 9, '4d10+6'),
+			('greatclub', 6, '3d8 BLUDGEONING'),
+			('rock', 6, '4d10 BLUDGEONING'),
 		]
 		self.special_qualities=['darkvision']
 		self.strength=23

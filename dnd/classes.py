@@ -1,4 +1,4 @@
-import base
+import base, items
 
 def add(object, member, value, method=lambda old, new: old):
 	if hasattr(object, member): value=method(getattr(object, member), value)
@@ -29,11 +29,11 @@ class Standard:
 		add(self, 'proficiency_bonus', 2+(level-1)//4, plus)
 
 	def first_level_hp(self):
-		return parse_roll_request(self.hit_dice)[1]+base.modifier(self.constitution)
+		return dice_sides_type(self.hit_dice)[1]+base.modifier(self.constitution)
 
 	def level_up(self, roll=False):
-		sides=parse_roll_request(self.hit_dice)[1]
-		if roll: x=sides
+		sides=dice_sides_type(self.hit_dice)[1]
+		if roll: x=roll('d{}'.format(sides))
 		else: x=sides//2+1
 		self.max_hp+=x+base.modifier(self.constitution)
 
@@ -79,10 +79,9 @@ class Cleric(SpellPreparer):
 		SpellPreparer.__init__(self, level)
 		add(self, 'hit_dice', '{}d8'.format(level), plus_string)
 		add(self, 'proficiencies', [
-			'light_armor', 'medium_armor', 'shields',
-			'simple_weapons',
+			'light_armor', 'medium_armor', 'shield',
 			'wisdom_saving_throw', 'charisma_saving_throw',
-		], union)
+		]+items.simple_weapons, union)
 		add(self, 'features', Progression([
 			['spellcasting', 'divine_domain'],
 			['channel_divinity', 'divine_domain'],
@@ -125,7 +124,7 @@ class Wizard(SpellPreparer):
 		SpellPreparer.__init__(self, level)
 		add(self, 'hit_dice', '{}d6'.format(level), plus_string)
 		add(self, 'proficiencies', [
-			'daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows',
+			'dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow',
 			'wisdom_saving_throw', 'intelligence_saving_throw',
 		], union)
 		add(self, 'features', Progression([
@@ -159,10 +158,10 @@ class Rogue(Standard):
 		add(self, 'hit_dice', '{}d8'.format(level), plus_string)
 		add(self, 'proficiencies', [
 			'light_armor',
-			'simple_weapons', 'hand_crossbows', 'longswords', 'rapiers', 'shortswords',
+			'hand_crossbow', 'longsword', 'rapier', 'shortsword',
 			'thieves_tools',
 			'dexterity_saving_throw', 'intelligence_saving_throw',
-		], union)
+		]+items.simple_weapons, union)
 		add(self, 'features', Progression([
 			['expertise', 'sneak_attack', 'thieves_cant'],
 			['cunning_action'],
@@ -193,10 +192,9 @@ class Fighter(Standard):
 		Standard.__init__(self, level)
 		add(self, 'hit_dice', '{}d10'.format(level), plus_string)
 		add(self, 'proficiencies', [
-			'all_armor', 'shields',
-			'simple_weapons', 'martial_weapons',
+			'light_armor', 'medium_armor', 'heavy_armor', 'shield',
 			'strength_saving_throw', 'constitution_saving_throw',
-		], union)
+		]+items.simple_weapons+items.martial_weapons, union)
 		add(self, 'features', Progression([
 			['fighting_style', 'second_wind'],
 			['action_surge'],
@@ -219,15 +217,23 @@ class Fighter(Standard):
 			['ability_score_improvement'],
 			['extra_attack'],
 		], level), plus)
+		import types
+		self.attack=types.MethodType(Fighter.attack, self, Fighter)
+
+	def attack(self, method=None, vantage=0):
+		critical_hit=20
+		if hasattr(self, 'martial_archetype') and self.martial_archetype=='champion' and self.level>=3:
+			critical_hit=19
+		return base.Entity.attack(self, method, vantage, critical_hit)
 
 class Druid(SpellPreparer):
 	def __init__(self, level):
 		SpellPreparer.__init__(self, level)
 		add(self, 'hit_dice', '{}d8'.format(level), plus_string)
 		add(self, 'proficiencies', [
-			'light_armor', 'medium_armor', 'shields',
-			'clubs', 'daggers', 'darts', 'javelins', 'maces', 'quarterstaffs',
-			'scimitars', 'sickles', 'slings', 'spears',
+			'light_armor', 'medium_armor', 'shield',
+			'club', 'dagger', 'dart', 'javelin', 'mace', 'quarterstaff',
+			'scimitar', 'sickle', 'sling', 'spear',
 			'herbalism_kit',
 			'intelligence_saving_throw', 'wisdom_saving_throw',
 		], union)
@@ -262,9 +268,9 @@ class Bard(Spellcaster):
 		add(self, 'hit_dice', '{}d8'.format(level), plus_string)
 		add(self, 'proficiencies', [
 			'light_armor',
-			'simple_weapons', 'hand_crossbows', 'longswords', 'rapiers', 'shortswords',
+			'hand_crossbow', 'longsword', 'rapier', 'shortsword',
 			'dexterity_saving_throw', 'charisma_saving_throw',
-		], union)
+		]+items.simple_weapons, union)
 		add(self, 'features', Progression([
 			['bardic_inspiration', 'spellcasting'],
 			['jack_of_all_trades', 'song_of_rest'],
@@ -295,7 +301,7 @@ class Sorcerer(Spellcaster):
 		Spellcaster.__init__(self, level)
 		add(self, 'hit_dice', '{}d6'.format(level), plus_string)
 		add(self, 'proficiencies', [
-			'daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows',
+			'dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow',
 			'constitution_saving_throw', 'charisma_saving_throw',
 		], union)
 		add(self, 'features', Progression([
@@ -328,10 +334,9 @@ class Ranger(Spellcaster):
 		Spellcaster.__init__(self, level)
 		add(self, 'hit_dice', '{}d10'.format(level), plus_string)
 		add(self, 'proficiencies', [
-			'light_armor', 'medium_armor', 'shields',
-			'simple_weapons', 'martial_weapons',
+			'light_armor', 'medium_armor', 'shield',
 			'dexterity_saving_throw', 'strength_saving_throw',
-		], union)
+		]+items.simple_weapons+items.martial_weapons, union)
 		add(self, 'features', Progression([
 			['favored_enemy', 'natural_explorer'],
 			['spellcasting', 'fighting_style'],

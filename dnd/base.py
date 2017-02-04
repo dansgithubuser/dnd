@@ -1,30 +1,75 @@
 from items import items
 from skills import skills
 
-def parse_roll_request(request):
-	import re
-	match=re.match(r'([0-9]+)?d([0-9]+)([+-][0-9]+)?', request)
-	if match: return [int(match.groups()[i] or [1, None, 0][i]) for i in range(3)]
-	return [None, None, None]
+def split_roll_request(request): return request.split('+')
 
-def roll(request):
-	import random
-	x=[]
-	for i in request.split('+'):
-		if 'd' in i:
-			dice, sides=i.split('d')
-			if not dice: dice=1
-			x.append((i, [random.randint(1, int(sides)) for i in range(int(dice))]))
-		else: x.append((i, [int(i)]))
-	print(x)
-	return sum([sum(i[1]) for i in x])
+def number_and_type(request):
+	x=request.split()
+	number=int(x[0])
+	type=''
+	if len(x)==2: type=x[1]
+	return number, type
 
-def d20(vantage=0):
-	a=roll('d20')
-	if not vantage: return a
-	b=roll('d20')
-	if vantage<0: return min(a, b)
-	if vantage>0: return max(a, b)
+def dice_sides_type(request):
+	dice=1
+	type=''
+	x=request.split('d')
+	dice=int(x[0]) if x[0] else 1
+	sides, type=number_and_type(x[1])
+	return dice, sides, type
+
+def typical_roll(sides, roll, critical_hit=20, critical_miss=1):
+	if len(roll)==1 and sides==20:
+		if roll[0]<=critical_miss: print('critical miss!')
+		if roll[0]>=critical_hit : print('critical hit!')
+	return roll
+
+class AttackRoll:
+	def __init__(self, critical_hit=20, critical_miss=1):
+		self.critical=0
+		self.critical_hit=critical_hit
+		self.critical_miss=critical_miss
+
+	def __call__(self, sides, roll):
+		if roll<=self.critical_miss: self.critical=-1
+		if roll>=self.critical_hit : self.critical= 1
+		return typical_roll(sides, roll, self.critical_hit, self.critical_miss)
+
+class DamageRoll:
+	def __init__(self, critical, multiplier=2):
+		self.critical=critical
+		self.multiplier=multiplier
+
+	def __call__(self, sides, roll):
+		if self.critical>0: return [self.multiplier*i for i in roll]
+		return roll
+
+def roll(request, vantage=0, on_roll=typical_roll):
+	print(request)
+	if vantage>0: print('with advantage')
+	if vantage<0: print('with disadvantage')
+	def inner(request, vantage):
+		import random
+		x=[]
+		for i in split_roll_request(request):
+			if 'd' in i:
+				dice, sides, type=dice_sides_type(i)
+				x.append([
+					i,
+					[random.randint(1, sides) for i in range(dice)],
+				])
+			else: x.append((i, [number_and_type(i)[0]]))
+		print(x)
+		return x
+	def total(x): return sum([sum(i[1]) for i in x])
+	a=inner(request, vantage)
+	if vantage:
+		b=inner(request, vantage)
+		if vantage<0 and total(b)<total(a): a=b
+		if vantage>0 and total(b)>total(a): a=b
+	for i in a:
+		if 'd' in i[0]: i[1]=on_roll(dice_sides_type(i[0])[1], i[1])
+	return total(a)
 
 def modifier(stat): return (stat-10)//2
 
@@ -75,7 +120,36 @@ class Entity:
 		self.hp=self.max_hp
 
 	def roll_initiative(self):
-		return d20()+modifier(self.dexterity)
+		return roll('d20+{}'.format(modifier(self.dexterity)))
+
+	def attack(self, method=None, vantage=0, critical_hit=20):
+		#method
+		attack='d20'
+		if method=='unarmed': damage='1'
+		elif method in items:
+			if method not in self.wearing: print('not wearing')
+			damage=items[method]['damage']
+		elif hasattr(self, 'attacks'):
+			try:
+				i=[i[0] for i in self.attacks].index(method)
+				attack+='+{}'.format(self.attacks[i][1])
+				damage=self.attacks[i][2]
+			except: pass
+		if 'damage' not in locals(): raise Exception('no such attack method "{}"'.format(method))
+		#attack
+		attack_roll=AttackRoll(critical_hit)
+		p=0
+		if hasattr(self, 'proficiencies') and method in self.proficiencies: p=self.proficiency_bonus
+		a=roll('{}+{}+{}'.format(attack, modifier(self.dexterity), p), vantage, attack_roll)
+		#damage
+		stat_mod=modifier(self.strength)
+		if method in items and 'properties' in items[method] and 'finesse' in items[method]['properties']:
+			stat_mod=max(stat_mod, modifier(self.dexterity))
+		d=roll('{}+{}'.format(damage, stat_mod), on_roll=DamageRoll(attack_roll.critical))
+		return (a, d)
+
+	def full_attack(self, vantage=0):
+		for i in self.attacks: self.attack(i[0], vantage)
 
 	def proficiency(self, what):
 		if not hasattr(self, 'proficiencies'): return 0
@@ -88,6 +162,8 @@ class Entity:
 		if hasattr(self, 'wearing'):
 			for i in self.wearing:
 				result+=items[i].get('disadvantages', [])
+				if 'armor' in i or 'shield' in i and i not in self.proficiencies:
+					result+=['unproficient_armor']
 		return result
 
 	def armor_class(self):
@@ -113,12 +189,18 @@ class Entity:
 		if old_hp>=max_hp>self.hp: print('bloodied')
 		if self.hp<0: print('unconscious')
 
-	def saving_throw(self, type):
-		return d20()+modifier(getattr(self, type))+self.proficiency(type+'_saving_throw')
+	def saving_throw(self, type, vantage=0):
+		return roll('d20+{}+{}'.format(
+			modifier(getattr(self, type)),
+			self.proficiency(type+'_saving_throw'),
+		), vantage)
 
-	def check(self, skill):
-		r=d20(-1 if skill in self.disadvantages() else 0)
-		return r+modifier(getattr(self, skills[skill]))+self.proficiency(skill)
+	def check(self, skill, vantage=0):
+		if skill in self.disadvantages(): vantage-=1
+		return roll('d20+{}+{}'.format(
+			modifier(getattr(self, skills[skill])),
+			self.proficiency(skill),
+		), vantage)
 
 	def passive_perception(self):
 		x=0
