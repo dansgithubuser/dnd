@@ -15,8 +15,8 @@ A dire badger can use a full turn to attack with both claws and bite.'''
 		self.speed=30
 		self.natural_armor=3
 		self.attacks=[
-			('l claw', 1, '1d4 SLASHING'),
-			('r claw', 1, '1d4 SLASHING'),
+			('l claw', 1, '1d4 SLASHING', 'finesse'),
+			('r claw', 1, '1d4 SLASHING', 'finesse'),
 			('bite', -1, '1d6+-1 PIERCING'),
 		]
 		self.special_qualities=['darkvision', 'keen_smell']
@@ -180,8 +180,8 @@ A dire wolverine can use a full turn to attack with both claws.'''
 		self.speed={'land': 30, 'climb': 10}
 		self.natural_armor=4
 		self.attacks=[
-			('l claw', 5, '1d6 SLASHING'),
-			('r claw', 5, '1d6 SLASHING'),
+			('l claw', 5, '1d6 SLASHING', 'finesse'),
+			('r claw', 5, '1d6 SLASHING', 'finesse'),
 		]
 		self.special_qualities=['darkvision', 'keen_smell']
 		self.strength=22
@@ -220,8 +220,8 @@ Talons. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1
 		self.speed={'land': 10, 'fly': 60}
 		self.natural_armor=1
 		self.attacks=[
-			('beak', 2, '1d4+2 PIERCING+1d8 FIRE'),
-			('talons', 2, '2d4+2 SLASHING+1d8 FIRE'),
+			('beak', 2, '1d4+2 PIERCING+1d8 FIRE', 'finesse'),
+			('talons', 2, '2d4+2 SLASHING+1d8 FIRE', 'finesse'),
 		]
 		self.special_qualities=['darkvision']
 		self.strength=9

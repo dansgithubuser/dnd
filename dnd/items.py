@@ -19,18 +19,18 @@ An object that bears no resemblance to a weapon deals 1d4 damage (the GM assigns
 }
 
 items={
-	'scale_mail': {'type': 'medium armor', 'armor_class': 14, 'weight': 45, 'disadvantages': ['stealth']},
-	'breastplate': {'type': 'medium armor', 'armor_class': 14, 'weight': 20},
+	'scale_mail': {'type': 'medium_armor', 'armor_class': 14, 'weight': 45, 'disadvantages': ['stealth']},
+	'breastplate': {'type': 'medium_armor', 'armor_class': 14, 'weight': 20},
 	'shield': {'type': 'shield', 'armor_class': 2, 'weight': 6},
-	'mace': {'type': 'melee weapon', 'damage': 'd6 BLUDGEONING', 'weight': 4},
-	'dagger': {'type': 'melee weapon', 'damage': 'd4 PIERCING', 'range': (20, 60), 'weight': 1, 'properties': ['finesse', 'light', 'range', 'thrown']},
-	'shortsword': {'type': 'melee weapon', 'damage': 'd6 PIERCING', 'weight': 2, 'properties': ['finesse', 'light']},
-	'chain_mail': {'type': 'heavy armor', 'armor_class': 16, 'disadvantages': ['stealth'], 'weight': 55},
-	'longsword': {'type': 'melee weapon', 'damage': 'd8 SLASHING', 'secondary_damage': 'd10 SLASHING', 'weight': 3, 'properties': 'versatile'},
-	'pike': {'type': 'melee weapon', 'damage': 'd10 PIERCING', 'properties': ['heavy', 'reach', 'two-handed'], 'weight': 18},
-	'leather_armor': {'type': 'light armor', 'armor_class': 11, 'weight': 10},
-	'shortbow': {'type': 'ranged weapon', 'damage': 'd6 PIERCING', 'range': (80, 320), 'weight': 2, 'properties': ['range', 'two-handed']},
-	'improvised': {'damage': 'd4', 'range': (20, 60), 'properties': ['range', 'improvised']},
+	'mace': {'type': 'melee_weapon', 'damage': 'd6 BLUDGEONING', 'weight': 4},
+	'dagger': {'type': 'melee_weapon', 'damage': 'd4 PIERCING', 'range': (20, 60), 'weight': 1, 'properties': ['finesse', 'light', 'range', 'thrown']},
+	'shortsword': {'type': 'melee_weapon', 'damage': 'd6 PIERCING', 'weight': 2, 'properties': ['finesse', 'light']},
+	'chain_mail': {'type': 'heavy_armor', 'armor_class': 16, 'disadvantages': ['stealth'], 'weight': 55},
+	'longsword': {'type': 'melee_weapon', 'damage': 'd8 SLASHING', 'secondary_damage': 'd10 SLASHING', 'weight': 3, 'properties': 'versatile'},
+	'pike': {'type': 'melee_weapon', 'damage': 'd10 PIERCING', 'properties': ['heavy', 'reach', 'two-handed'], 'weight': 18},
+	'leather_armor': {'type': 'light_armor', 'armor_class': 11, 'weight': 10},
+	'shortbow': {'type': 'ranged_weapon', 'damage': 'd6 PIERCING', 'range': (80, 320), 'weight': 2, 'properties': ['range', 'two-handed']},
+	'improvised': {'type': 'improvised', 'damage': 'd4', 'range': (20, 60), 'properties': ['range', 'improvised']},
 }
 
 simple_weapons=[

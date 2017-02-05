@@ -125,26 +125,32 @@ class Entity:
 	def attack(self, method=None, vantage=0, critical_hit=20):
 		#method
 		attack='d20'
+		stat_mod=modifier(self.strength)
 		if method=='unarmed': damage='1'
 		elif method in items:
 			if method not in self.wearing: print('not wearing')
 			damage=items[method]['damage']
+			if 'finesse' in items[method]['properties']:
+				stat_mod=max(stat_mod, modifier(self.dexterity))
+			elif items[method]['type']=='ranged_weapon':
+				stat_mod=modifier(self.dexterity)
 		elif hasattr(self, 'attacks'):
 			try:
 				i=[i[0] for i in self.attacks].index(method)
 				attack+='+{}'.format(self.attacks[i][1])
 				damage=self.attacks[i][2]
+				if 'finesse' in self.attacks[i]:
+					stat_mod=max(stat_mod, modifier(self.dexterity))
+				elif 'range' in self.attacks[i]:
+					stat_mod=modifier(self.dexterity)
 			except: pass
 		if 'damage' not in locals(): raise Exception('no such attack method "{}"'.format(method))
 		#attack
 		attack_roll=AttackRoll(critical_hit)
 		p=0
 		if hasattr(self, 'proficiencies') and method in self.proficiencies: p=self.proficiency_bonus
-		a=roll('{}+{}+{}'.format(attack, modifier(self.dexterity), p), vantage, attack_roll)
+		a=roll('{}+{}+{}'.format(attack, stat_mod, p), vantage, attack_roll)
 		#damage
-		stat_mod=modifier(self.strength)
-		if method in items and 'properties' in items[method] and 'finesse' in items[method]['properties']:
-			stat_mod=max(stat_mod, modifier(self.dexterity))
 		d=roll('{}+{}'.format(damage, stat_mod), on_roll=DamageRoll(attack_roll.critical))
 		return (a, d)
 
