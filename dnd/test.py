@@ -15,5 +15,4 @@ def test():
 	print('creatures full attacks')
 	import inspect
 	for i in [i[1] for i in inspect.getmembers(creatures) if inspect.isclass(i[1])]:
-		print(i.__name__)
-		i().full_attack()
+		i().test()

@@ -152,10 +152,17 @@ class Entity:
 		a=roll('{}+{}+{}'.format(attack, stat_mod, p), vantage, attack_roll)
 		#damage
 		d=roll('{}+{}'.format(damage, stat_mod), on_roll=DamageRoll(attack_roll.critical))
+		#
+		self.print_notes('attack')
 		return (a, d)
 
 	def full_attack(self, vantage=0):
-		for i in self.attacks: self.attack(i[0], vantage)
+		if hasattr(self, 'attacks'):
+			for i in self.attacks: print('----> {}'.format(self.attack(i[0], vantage)))
+		if hasattr(self, 'wearing'):
+			for i in self.wearing:
+				if i in items and 'weapon' in items[i]['type']:
+					print('-----> {}'.format(self.attack(i)))
 
 	def proficiency(self, what):
 		if not hasattr(self, 'proficiencies'): return 0
@@ -187,6 +194,7 @@ class Entity:
 		elif 'medium' in armor_type: result+=min(modifier(self.dexterity), 2)
 		else: result+=modifier(self.dexterity)
 		if hasattr(self, 'natural_armor'): result+=self.natural_armor
+		self.print_notes('armor_class')
 		return result
 
 	def damage(self, amount):
@@ -222,3 +230,14 @@ class Entity:
 		return r
 
 	def push_drag_lift(self): return self.carrying_capacity()*2
+
+	def print_notes(self, topic):
+		if hasattr(self, 'notes'):
+			if topic in self.notes: print(self.notes[topic])
+
+	def test(self):
+		print('===== {} ====='.format(self.__class__))
+		print('----- full attack -----')
+		self.full_attack()
+		print('----- armor class -----')
+		print(self.armor_class())

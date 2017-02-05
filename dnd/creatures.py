@@ -45,14 +45,12 @@ A dire badger can use a full turn to attack with both claws and bite.'''
 class Witherweed(base.Entity):
 	'''Thistle-like plant that grows in mounds.
 
-Attacks with 1d4 fronds. Each hit reduces dexterity by 1d4. Target is stunned on a 4. Dexterity resets after a short rest.
-
 If burnt, toxic fumes are released. DC 13 constitution check or 3d12 poision damage.'''
 	def __init__(self):
 		self.type='plant'
 		self.hit_dice='1d4'
 		self.speed=0
-		self.attacks=[('frond', 7, '5 POISON')]
+		self.attacks=[('frond', 7, '1d4 DEXTERITY+5 POISON')]
 		self.strength=3
 		self.dexterity=1
 		self.constitution=10
@@ -61,6 +59,7 @@ If burnt, toxic fumes are released. DC 13 constitution check or 3d12 poision dam
 		self.charisma=1
 		self.environment=['temperate_forest']
 		self.roll_stats()
+		self.notes={'attack': 'Attacks with 1d4 fronds. Target is stunned if a frond deals 4 dexterity damage. Dexterity resets after a short rest.'}
 
 class ShockerLizard(base.Entity):
 	'''A shocker lizard can shock an opponent. 2d8 damage, half if opponent makes a DC 12 dex saving throw.
