@@ -31,18 +31,9 @@ class AttackRoll:
 		self.critical_miss=critical_miss
 
 	def __call__(self, sides, roll):
-		if roll<=self.critical_miss: self.critical=-1
-		if roll>=self.critical_hit : self.critical= 1
+		if roll[0]<=self.critical_miss: self.critical=-1
+		if roll[0]>=self.critical_hit : self.critical= 1
 		return typical_roll(sides, roll, self.critical_hit, self.critical_miss)
-
-class DamageRoll:
-	def __init__(self, critical, multiplier=2):
-		self.critical=critical
-		self.multiplier=multiplier
-
-	def __call__(self, sides, roll):
-		if self.critical>0: return [self.multiplier*i for i in roll]
-		return roll
 
 def roll(request, vantage=0, on_roll=typical_roll):
 	print(request)
@@ -151,7 +142,15 @@ class Entity:
 		if hasattr(self, 'proficiencies') and method in self.proficiencies: p=self.proficiency_bonus
 		a=roll('{}+{}+{}'.format(attack, stat_mod, p), vantage, attack_roll)
 		#damage
-		d=roll('{}+{}'.format(damage, stat_mod), on_roll=DamageRoll(attack_roll.critical))
+		if attack_roll.critical:
+			critical_damage=[]
+			for i in split_roll_request(damage):
+				if 'd' in i:
+					dice, sides=dice_sides_type(i)[0:2]
+					critical_damage.append('{}d{}'.format(2*dice, sides))
+				else: critical_damage.append(i)
+			damage='+'.join(critical_damage)
+		d=roll('{}+{}'.format(damage, stat_mod))
 		#
 		self.print_notes('attack')
 		return (a, d)
