@@ -246,16 +246,42 @@ function load(){
 }
 
 function save(){
+	j=JSON.stringify({
+		'entities': gEntities,
+		'background': gCanvas.style.backgroundColor,
+		'width': gCanvas.width,
+		'height': gCanvas.height
+	})
+	indent=0
+	in_string=false
+	in_escape=false
+	newline=false
+	k=''
+	for(var i=0; i<j.length; ++i){
+		c=j.charAt(i)
+		if(!in_string){
+			if(c=='"') in_string=true
+			else if(c.match(/[{\[\(]/)) ++indent
+			else if(c.match(/[}\]\)]/)) --indent
+			else if(c==',') newline=true
+		}
+		else if(!in_escape){
+			if(c=='\\') in_escape=true
+			else if(c=='"') in_string=false
+		}
+		else in_escape=false
+		k+=c
+		if(newline){
+			k+='\n'
+			newline=false
+			k+='\t'.repeat(indent)
+		}
+	}
 	transceive(
 		{
 			'command': 'save',
 			'path': FILE,
-			'contents': JSON.stringify({
-				'entities': gEntities,
-				'background': gCanvas.style.backgroundColor,
-				'width': gCanvas.width,
-				'height': gCanvas.height
-			}).split(',').join(',\n')
+			'contents': k
 		},
 		function(result){
 			if(!result.success) alert(result.error)
