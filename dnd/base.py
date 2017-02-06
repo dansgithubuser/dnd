@@ -1,6 +1,12 @@
 from items import items
 from skills import skills
 
+def key(dict, default, *keys):
+	for key in keys:
+		if key in dict: dict=dict[key]
+		else: return default
+	return dict
+
 def split_roll_request(request): return request.split('+')
 
 def number_and_type(request):
@@ -121,9 +127,9 @@ class Entity:
 		elif method in items:
 			if method not in self.wearing: print('not wearing')
 			damage=items[method]['damage']
-			if 'finesse' in items[method]['properties']:
+			if 'finesse' in key(items, None, method, 'properties'):
 				stat_mod=max(stat_mod, modifier(self.dexterity))
-			elif items[method]['type']=='ranged_weapon':
+			elif key(items, None, method, 'type')=='ranged_weapon':
 				stat_mod=modifier(self.dexterity)
 		elif hasattr(self, 'attacks'):
 			try:
@@ -222,6 +228,21 @@ class Entity:
 		x=0
 		if 'perception' in self.proficiencies: x=self.proficiency_bonus
 		return 10+modifier(self.wisdom)+x
+
+	def carrying_load(self):
+		print('capacity {}'.format(self.carrying_capacity()))
+		x=[]
+		if hasattr(self, 'wearing'): x+=self.wearing
+		if hasattr(self, 'carrying'): x+=self.carrying
+		r=0
+		for i in x:
+			m=1
+			if   type(i)==dict: s, m=i.items()[0]
+			elif type(i)==str: s=i
+			w=m*key(items, 0, s, 'weight')
+			print(m, s, w)
+			r+=w
+		return r
 
 	def carrying_capacity(self):
 		r=self.strength*15
