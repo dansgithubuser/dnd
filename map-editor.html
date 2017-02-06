@@ -74,6 +74,10 @@ function Point(x, y, name=v('name')){
 		function between(x, a, b){ return a<=x&&x<=b||b<=x&&x<=a }
 		return between(this.x, xi, xf)&&between(this.y, yi, yf)?[this]:[]
 	}
+	this.snap=function(){
+		this.x=Math.floor(this.x/20.0+0.5)*20
+		this.y=Math.floor(this.y/20.0+0.5)*20
+	}
 }
 
 function Line(x, y, name=v('name'), color=v('color')){
@@ -110,6 +114,9 @@ function Line(x, y, name=v('name'), color=v('color')){
 			if(this.points[i].getPointsIn(xi, yi, xf, yf).length)
 				result.push(this.points[i])
 		return result
+	}
+	this.snap=function(){
+		this.points.forEach(function(value, key, set){ value.snap() })
 	}
 }
 
@@ -155,6 +162,16 @@ function Plane(x, y, name=v('name'), color=v('color')){
 				result.push(this.points[i])
 		return result
 	}
+	this.snap=function(){
+		this.points.forEach(function(value, key, set){ value.snap() })
+	}
+}
+
+function snap(){
+	if(gSelected.size) x=gSelected
+	else x=gEntities
+	x.forEach(function(value, key, set){ value.snap() })
+	draw()
 }
 
 function deselect(){
@@ -366,6 +383,7 @@ function handleMouseMove(event){
 function handleKeyDown(event){
 	function getKeyCode(c){ return c.charCodeAt(0) }
 	switch(String.fromCharCode(event.keyCode)){
+		case 'Y': snap(); break
 		case 'A': e('select'      ).checked=true; break
 		case 'S': e('select_point').checked=true; break
 		case 'D': e('move'        ).checked=true; break
@@ -412,6 +430,8 @@ function init(){
 		&nbsp;
 		grid<input type='checkbox' onClick='draw()' id='grid'/>
 		<br>
+		<input type='button' value='snap' onClick='snap()'>
+		<br>
 		<input type='radio' name='tool' id='select' checked>select
 		<input type='radio' name='tool' id='select_point'>select point
 		<input type='radio' name='tool' id='move'>move
@@ -433,6 +453,7 @@ function init(){
 		<br>
 		<br>
 		Keyboard shortcuts:<br>
+		y: snap<br>
 		a: select<br>
 		s: select-point<br>
 		d: move<br>
