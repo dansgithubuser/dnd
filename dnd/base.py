@@ -157,10 +157,13 @@ class Entity:
 
 	def full_attack(self, vantage=0):
 		if hasattr(self, 'attacks'):
-			for i in self.attacks: print('----> {}'.format(self.attack(i[0], vantage)))
+			for i in self.attacks:
+				print(i[0])
+				print('----> {}'.format(self.attack(i[0], vantage)))
 		if hasattr(self, 'wearing'):
 			for i in self.wearing:
 				if i in items and 'weapon' in items[i]['type']:
+					print(i)
 					print('-----> {}'.format(self.attack(i)))
 
 	def proficiency(self, what):
