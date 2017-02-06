@@ -29,6 +29,7 @@ items={
 	'chain_mail': {'type': 'heavy_armor', 'armor_class': 16, 'disadvantages': ['stealth'], 'weight': 55},
 	'longsword': {'type': 'melee_weapon', 'damage': 'd8 SLASHING', 'secondary_damage': 'd10 SLASHING', 'weight': 3, 'properties': 'versatile'},
 	'pike': {'type': 'melee_weapon', 'damage': 'd10 PIERCING', 'properties': ['heavy', 'reach', 'two-handed'], 'weight': 18},
+	'maul': {'type': 'melee_weapon', 'damage': '2d6 BLUDGEONING', 'properties': ['heavy', 'two-handed'], 'weight': 10},
 	'javelin': {'type': 'melee_weapon', 'damage': 'd6 PIERCING', 'range': (30, 120), 'properties': ['range', 'thrown'], 'weight': 2},
 	'leather_armor': {'type': 'light_armor', 'armor_class': 11, 'weight': 10},
 	'shortbow': {'type': 'ranged_weapon', 'damage': 'd6 PIERCING', 'range': (80, 320), 'weight': 2, 'properties': ['range', 'two-handed']},
