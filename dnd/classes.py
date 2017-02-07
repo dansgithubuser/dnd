@@ -220,11 +220,11 @@ class Fighter(Standard):
 		import types
 		self.attack=types.MethodType(Fighter.attack, self, Fighter)
 
-	def attack(self, method=None, vantage=0):
+	def attack(self, *args, **kwargs):
 		critical_hit=20
 		if hasattr(self, 'martial_archetype') and self.martial_archetype=='champion' and self.level>=3:
 			critical_hit=19
-		return base.Entity.attack(self, method, vantage, critical_hit)
+		return base.Entity.attack(self, *args, **kwargs)
 
 class Druid(SpellPreparer):
 	def __init__(self, level):

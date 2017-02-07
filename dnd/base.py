@@ -1,11 +1,17 @@
 from items import items
 from skills import skills
 
-def key(dict, default, *keys):
-	for key in keys:
-		if key in dict: dict=dict[key]
+def key(x, default, *indices):
+	for i in indices:
+		if type(i)==dict and i in x: x=x[i]
+		elif type(i)==str and hasattr(x, i): x=getattr(x, i)
 		else: return default
-	return dict
+	return x
+
+def get(x, condition):
+	for i in x:
+		if condition(i): return i
+	return None
 
 def split_roll_request(request): return request.split('+')
 
@@ -72,18 +78,13 @@ def modifier(stat): return (stat-10)//2
 
 class Entity:
 	def __getattr__(self, attr):
-		aliases={
-			'str': self.strength,
-			'dex': self.dexterity,
-			'con': self.constitution,
-			'int': self.intelligence,
-			'wis': self.wisdom,
-			'cha': self.charisma,
-			'ac': self.armor_class,
-		}
-		if attr in aliases:
-			x=aliases[attr]
-			return x() if callable(x) else x
+		if attr=='str': return self.strength
+		if attr=='dex': return self.dexterity
+		if attr=='con': return self.constitution
+		if attr=='int': return self.intelligence
+		if attr=='wis': return self.wisdom
+		if attr=='cha': return self.charisma
+		if attr=='ac': return self.armor_class()
 		raise AttributeError
 
 	def show(self, do_print=True):
@@ -119,17 +120,21 @@ class Entity:
 	def roll_initiative(self):
 		return roll('d20+{}'.format(modifier(self.dexterity)))
 
-	def attack(self, method=None, vantage=0, critical_hit=20):
+	def attack(self, method=None, vantage=0, critical_hit=20, target=None):
 		#method
 		attack='d20'
 		stat_mod=modifier(self.strength)
+		if method==None:
+			if hasattr(self, wearing):
+				method=self.wearing
+		print(method)
 		if method=='unarmed': damage='1'
 		elif method in items:
 			if method not in self.wearing: print('not wearing')
 			damage=items[method]['damage']
-			if 'finesse' in key(items, None, method, 'properties'):
+			if 'finesse' in key(items, '', method, 'properties'):
 				stat_mod=max(stat_mod, modifier(self.dexterity))
-			elif key(items, None, method, 'type')=='ranged_weapon':
+			elif key(items, '', method, 'type')=='ranged_weapon':
 				stat_mod=modifier(self.dexterity)
 		elif hasattr(self, 'attacks'):
 			try:
@@ -144,8 +149,7 @@ class Entity:
 		if 'damage' not in locals(): raise Exception('no such attack method "{}"'.format(method))
 		#attack
 		attack_roll=AttackRoll(critical_hit)
-		p=0
-		if hasattr(self, 'proficiencies') and method in self.proficiencies: p=self.proficiency_bonus
+		p=self.proficiency(method)
 		a=roll('{}+{}+{}'.format(attack, stat_mod, p), vantage, attack_roll)
 		#damage
 		if attack_roll.critical:
@@ -157,58 +161,56 @@ class Entity:
 				else: critical_damage.append(i)
 			damage='+'.join(critical_damage)
 		d=roll('{}+{}'.format(damage, stat_mod))
+		#target
+		if target:
+			if target.armor_class()<=a:
+				print('hit')
+				target.damage(d)
+			else: print('miss')
 		#
 		self.print_notes('attack')
 		return (a, d)
 
 	def full_attack(self, vantage=0):
-		if hasattr(self, 'attacks'):
-			for i in self.attacks:
-				print(i[0])
-				print('----> {}'.format(self.attack(i[0], vantage)))
-		if hasattr(self, 'wearing'):
-			for i in self.wearing:
-				if i in items and 'weapon' in items[i]['type']:
-					print(i)
-					print('-----> {}'.format(self.attack(i)))
+		for i in key(self, [], 'attacks'):
+			print('----> {}'.format(self.attack(i[0], vantage)))
+		for i in key(self, [], 'wearing'):
+			if 'weapon' in key(items, '', i, 'type'):
+				print('-----> {}'.format(self.attack(i)))
 
 	def proficiency(self, what):
-		if not hasattr(self, 'proficiencies'): return 0
-		if what not in self.proficiencies: return 0
-		if not hasattr(self, 'proficiency_bonus'): return 2
-		return self.proficiency_bonus
+		if what not in key(self, [], 'proficiencies'): return 0
+		return key(self, 2, 'proficiency_bonus')
 
 	def disadvantages(self):
 		result=[]
-		if hasattr(self, 'wearing'):
-			for i in self.wearing:
-				result+=items[i].get('disadvantages', [])
-				if 'armor' in i or 'shield' in i and i not in self.proficiencies:
-					result+=['unproficient_armor']
+		for i in key(self, [], 'wearing'):
+			result+=items[i].get('disadvantages', [])
+			if 'armor' in i or 'shield' in i and i not in self.proficiencies:
+				result+=['unproficient_armor']
 		return result
 
 	def armor_class(self):
 		result=0
 		armor_type=''
 		shield=False
-		if hasattr(self, 'wearing'):
-			for i in self.wearing:
-				result+=items[i].get('armor_class', 0)
-				x=items[i].get('type', '')
-				if 'armor' in x: armor_type=x
-				if 'shield' in x: shield=True
+		for i in key(self, [], 'wearing'):
+			result+=items[i].get('armor_class', 0)
+			x=items[i].get('type', '')
+			if 'armor' in x: armor_type=x
+			if 'shield' in x: shield=True
 		if not shield and not armor_type: result=10
 		if 'heavy' in armor_type: pass
 		elif 'medium' in armor_type: result+=min(modifier(self.dexterity), 2)
 		else: result+=modifier(self.dexterity)
-		if hasattr(self, 'natural_armor'): result+=self.natural_armor
+		result+=key(self, 0, 'natural_armor')
 		self.print_notes('armor_class')
 		return result
 
 	def damage(self, amount):
-		old_hp==self.hp
+		old_hp=self.hp
 		self.hp-=amount
-		if old_hp>=max_hp>self.hp: print('bloodied')
+		if old_hp>=self.max_hp/2>self.hp: print('bloodied')
 		if self.hp<0: print('unconscious')
 
 	def saving_throw(self, type, vantage=0):
@@ -232,8 +234,8 @@ class Entity:
 	def carrying_load(self):
 		print('capacity {}'.format(self.carrying_capacity()))
 		x=[]
-		if hasattr(self, 'wearing'): x+=self.wearing
-		if hasattr(self, 'carrying'): x+=self.carrying
+		x+=key(self, [], 'wearing')
+		x+=key(self, [], 'carrying')
 		r=0
 		for i in x:
 			m=1
@@ -264,3 +266,7 @@ class Entity:
 		self.full_attack()
 		print('----- armor class -----')
 		print(self.armor_class())
+		print('----- passive perception -----')
+		print(self.passive_perception)
+		print('----- carrying load -----')
+		self.carrying_load()

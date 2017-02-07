@@ -1,4 +1,10 @@
-import base
+import base, classes, races
+
+import random
+
+def rn(m): return random.randint(0, m-1)
+def maybe(): return rn(2)
+def swap(list, i, j): x=list[i]; list[i]=list[j]; list[j]=x
 
 class DireBadger(base.Entity):
 	'''These vicious creatures tolerate no intrusions. They cannot burrow into solid rock, but can move through just about any material softer than that. A dire badger usually leaves behind a usable tunnel 5 feet in diameter when burrowing unless the material it's moving through is very loose.
@@ -48,6 +54,7 @@ class Witherweed(base.Entity):
 If burnt, toxic fumes are released. DC 13 constitution check or 3d12 poision damage.'''
 	def __init__(self):
 		self.type='plant'
+		self.size='tiny'
 		self.hit_dice='1d4'
 		self.speed=0
 		self.attacks=[('frond', 7, '1d4 DEXTERITY+5 POISON')]
@@ -274,3 +281,19 @@ Rock Catching. If a rock or similar object is hurled at the giant, the giant can
 		self.challenge_rating=7
 		self.environment=['mountains']
 		self.roll_stats()
+
+class TypicalHumanArcher(races.Human):
+	def __init__(self):
+		stats=sorted([base.roll('3d6') for i in range(6)])
+		for i in range(3):
+			if maybe(): swap(stats, rn(6), rn(6))
+		self.charisma, self.wisdom, self.intelligence, self.strength, self.constitution, self.dexterity=stats
+		if self.dexterity<12: self.dexterity=12
+		self.max_hp=10+base.modifier(self.constitution)
+		self.hp=self.max_hp
+		races.Human.__init__(self)
+		self.proficiencies=['longbow', 'shortbow', 'dagger', 'medium_armor', 'light_armor']
+		self.wearing=['leather_armor', 'longbow', 'dagger', 'quiver']
+		self.carrying=[]
+		if maybe(): self.carrying+=[{'gp': rn(5)}]
+		if maybe(): self.carrying+=[{'sp': rn(20)}]

@@ -32,7 +32,8 @@ items={
 	'maul': {'type': 'melee_weapon', 'damage': '2d6 BLUDGEONING', 'properties': ['heavy', 'two-handed'], 'weight': 10},
 	'javelin': {'type': 'melee_weapon', 'damage': 'd6 PIERCING', 'range': (30, 120), 'properties': ['range', 'thrown'], 'weight': 2},
 	'leather_armor': {'type': 'light_armor', 'armor_class': 11, 'weight': 10},
-	'shortbow': {'type': 'ranged_weapon', 'damage': 'd6 PIERCING', 'range': (80, 320), 'weight': 2, 'properties': ['range', 'two-handed']},
+	'shortbow': {'type': 'ranged_weapon', 'damage': 'd6 PIERCING', 'range': (80, 320), 'weight': 2, 'properties': ['range', 'two-handed', 'ammunition']},
+	'longbow': {'type': 'ranged_weapon', 'damage': 'd8 PIERCING', 'range': (150, 600), 'weight': 2, 'properties': ['range', 'two-handed', 'ammunition', 'heavy']},
 	'improvised': {'damage': 'd4', 'range': (20, 60), 'properties': ['range', 'improvised']},
 	'ball_bearings': {'weight': 2, 'target': 'Each creature in a 10-foot square centered on a point within range', 'save': '10 DEXTERITY'},
 	'backpack': {'weight': 5, 'description': 'A backpack can hold one cubic foot or 30 pounds of gear. You can also strap items, such as a Bedroll or a coil of rope, to the outside of a backpack.'},
@@ -60,6 +61,7 @@ items={
 	'alchemists_supplies': {'weight': 8},
 	'shovel': {'weight': 5},
 	'iron_pot': {'weight': 10},
+	'quiver': {'weight': 1, 'description': 'holds 20 arrows'},
 }
 
 simple_weapons=[
