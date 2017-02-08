@@ -6,7 +6,17 @@ import random
 def rn(m): return random.randint(0, m-1)
 def maybe(unlikeliness=2): return not rn(unlikeliness)
 def swap(list, i, j): x=list[i]; list[i]=list[j]; list[j]=x
-def pick(list): return list[rn(len(list))]
+
+def pick(list, n=1):
+	if n==1: return list[rn(len(list))]
+	import copy
+	list=copy.deepcopy(list)
+	result=[]
+	for i in range(n):
+		j=rn(len(list))
+		result.append(list[j])
+		del list[j]
+	return result
 
 def key(x, default, *indices):
 	for i in indices:
