@@ -2,10 +2,6 @@ import base, classes, races
 
 import random
 
-def rn(m): return random.randint(0, m-1)
-def maybe(): return rn(2)
-def swap(list, i, j): x=list[i]; list[i]=list[j]; list[j]=x
-
 class DireBadger(base.Entity):
 	'''These vicious creatures tolerate no intrusions. They cannot burrow into solid rock, but can move through just about any material softer than that. A dire badger usually leaves behind a usable tunnel 5 feet in diameter when burrowing unless the material it's moving through is very loose.
 
@@ -286,7 +282,7 @@ class TypicalHumanArcher(races.Human):
 	def __init__(self):
 		stats=sorted([base.roll('3d6') for i in range(6)])
 		for i in range(3):
-			if maybe(): swap(stats, rn(6), rn(6))
+			if base.maybe(): base.swap(stats, base.rn(6), base.rn(6))
 		self.charisma, self.wisdom, self.intelligence, self.strength, self.constitution, self.dexterity=stats
 		if self.dexterity<12: self.dexterity=12
 		self.max_hp=10+base.modifier(self.constitution)
@@ -295,5 +291,5 @@ class TypicalHumanArcher(races.Human):
 		self.proficiencies=['longbow', 'shortbow', 'dagger', 'medium_armor', 'light_armor']
 		self.wearing=['leather_armor', 'longbow', 'dagger', 'quiver']
 		self.carrying=[]
-		if maybe(): self.carrying+=[{'gp': rn(5)}]
-		if maybe(): self.carrying+=[{'sp': rn(20)}]
+		if base.maybe(): self.carrying+=[{'gp': base.rn(5)}]
+		if base.maybe(): self.carrying+=[{'sp': base.rn(20)}]

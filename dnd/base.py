@@ -1,6 +1,13 @@
 from items import items
 from skills import skills
 
+import random
+
+def rn(m): return random.randint(0, m-1)
+def maybe(unlikeliness=2): return not rn(unlikeliness)
+def swap(list, i, j): x=list[i]; list[i]=list[j]; list[j]=x
+def pick(list): return list[rn(len(list))]
+
 def key(x, default, *indices):
 	for i in indices:
 		if type(i)==dict and i in x: x=x[i]
@@ -52,7 +59,6 @@ def roll(request, vantage=0, on_roll=typical_roll):
 	if vantage>0: print('with advantage')
 	if vantage<0: print('with disadvantage')
 	def inner(request, vantage):
-		import random
 		x=[]
 		for i in split_roll_request(request):
 			if 'd' in i:
