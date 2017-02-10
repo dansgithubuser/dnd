@@ -404,5 +404,31 @@ def dwarf(gender):
 	if last.endswith('eer'): last=last[:-2]+last[-1]
 	return unpack_qs(first+' '+last)
 
-
-#goblins - zz
+def goblin():
+	a=[
+		'al',
+		'bog', 'brod', 'brown',
+		'drizz',
+		'ear',
+		'gor', 'grip', 'gnar', 'grin', 'grizz', 'grins',
+		'mez',
+		'pig',
+		'rag',
+		'snizz', 'shizz',
+		'tur',
+		'nag',
+		'ug',
+	]
+	b=[
+		'',
+		'bat', 'bot', 'bart', 'bort', 'bag', 'barg', 'borg', 'bog',
+		'dag',
+		'ek',
+		'guff', 'grod', 'git', 'gott',
+		'hook',
+		'lak', 'ler', 'let',
+		'nuk', 'nok', 'nak',
+		'rod', 'rig',
+		'tooth',
+	]
+	return base.pick(a)+base.pick(b)
