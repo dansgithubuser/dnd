@@ -280,6 +280,129 @@ def elf():
 	last =remove_weird(last1+last2)
 	return unpack_qs(first+' '+last)
 
+def dwarf(gender):
+	if gender=='m':
+		first1=[
+			'ad', 'alber',
+			'ba', 'bar', 'brot', 'brue',
+			'da', 'dar', 'del',
+			'eb', 'ein', 'far',
+			'flin',
+			'gar',
+			'har',
+			'kil',
+			'mor',
+			'or', 'os',
+			'ran',
+			'ru',
+			'tak', 'thora', 'thor', 'tor', 'trau', 'tra',
+			'ulf',
+			've',
+			'von',
+		]
+		first2=[
+			'bek', 'bon',
+			'dain', 'drak', 'din', 'dek', 'dal',
+			'ern', 'endd', 'eg', 'erk',
+			'grim', 'gran', 'gar',
+			'in', 'it',
+			'kil', 'kar',
+			'linn',
+			'nor',
+			'rik', 'rich', 'rak',
+			'sik',
+			'tor',
+			'vok',
+		]
+	else:
+		first1=[
+			'am', 'ar', 'aud',
+			'bar',
+			'dag', 'die',
+			'eld',
+			'falk', 'finel',
+			'gunn', 'gur',
+			'hel',
+			'kath', 'kris',
+			'il',
+			'lift',
+			'mar',
+			'ris',
+			'san',
+			'tor', 'torg',
+			'vis',
+		]
+		first2=[
+			'ber', 'bera',
+			'dryn', 'dis', 'de', 'dred',
+			'eth',
+			'ga',
+			'hild',
+			'ja',
+			'len', 'loda', 'lin',
+			'nal',
+			'runn', 'ra', 'rasa',
+			'sa',
+			'tin', 'tryd', 'tra',
+			'wynn',
+		]
+	last1=[
+		'abysso', 'angle',
+		'bed', 'brine', 'bronze', 'brass', 'battle', 'brawn',
+		'cave', 'copper',
+		'dark', 'diamond', 'dank',
+		'earth', 'emerald',
+		'far', 'fix',
+		'granite', 'gold', 'gore',
+		'hang', 'hall',
+		'inner', 'iron',
+		'jack',
+		'kraken', 'kit',
+		'lawful', 'lode',
+		'moss', 'musk',
+		'nor', 'nix',
+		'old',
+		'pack', 'phase',
+		'qarry', 'qartz',
+		'rock', 'ruby', 'rune', 'rum',
+		'stone', 'strong', 'stal',
+		'tin', 'tungsten',
+		'under', 'ultra',
+		'vole', 'vast',
+		'wax', 'well',
+		'yest', 'yam',
+	]
+	last2=[
+		'anvill',
+		'beard', 'bring',
+		'cutt', 'chuck',
+		'dwell', 'dirk',
+		'foot', 'fair', 'fix', 'forge',
+		'grott',
+		'haus', 'hamm', 'hold', 'heim',
+		'jutt',
+		'knuckle',
+		'lord',
+		'mite',
+		'nix',
+		'panz',
+		'rock',
+		'seek', 'stone', 'stock',
+		'tite',
+		'vole',
+		'walk',
+		'yard',
+		'zone',
+	]
+	first=base.pick(first1)+base.pick(first2)
+	last1=base.pick(last1)
+	while True:
+		x=base.pick(last2)
+		if x!=last1: last2=x; break
+	if last2=='i': import pdb; pdb.set_trace()
+	last=last1+last2+base.pick(['', 'er'])
+	if last.endswith('eer'): last=last[:-2]+last[-1]
+	return unpack_qs(first+' '+last)
 
-#dwarf - stones and stuff
+
 #goblins - zz
