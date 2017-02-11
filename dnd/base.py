@@ -20,7 +20,7 @@ def pick(list, n=1):
 
 def key(x, default, *indices):
 	for i in indices:
-		if type(i)==dict and i in x: x=x[i]
+		if type(x)==dict and i in x: x=x[i]
 		elif type(i)==str and hasattr(x, i): x=getattr(x, i)
 		else: return default
 	return x
@@ -141,8 +141,8 @@ class Entity:
 		attack='d20'
 		stat_mod=modifier(self.strength)
 		if method==None:
-			if hasattr(self, wearing):
-				method=self.wearing
+			if hasattr(self, 'wearing'):
+				method=[i for i in self.wearing if 'weapon' in key(items.items, '', i, 'type')][0]
 		print(method)
 		if method=='unarmed': damage='1'
 		elif method in items:
