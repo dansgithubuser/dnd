@@ -1,5 +1,4 @@
-from items import items
-from skills import skills
+import items, skills
 
 import random
 
@@ -145,12 +144,12 @@ class Entity:
 				method=[i for i in self.wearing if 'weapon' in key(items.items, '', i, 'type')][0]
 		print(method)
 		if method=='unarmed': damage='1'
-		elif method in items:
+		elif method in items.items:
 			if method not in self.wearing: print('not wearing')
-			damage=items[method]['damage']
-			if 'finesse' in key(items, '', method, 'properties'):
+			damage=items.items[method]['damage']
+			if 'finesse' in key(items.items, '', method, 'properties'):
 				stat_mod=max(stat_mod, modifier(self.dexterity))
-			elif key(items, '', method, 'type')=='ranged_weapon':
+			elif key(items.items, '', method, 'type')=='ranged_weapon':
 				stat_mod=modifier(self.dexterity)
 		elif hasattr(self, 'attacks'):
 			try:
@@ -191,7 +190,7 @@ class Entity:
 		for i in key(self, [], 'attacks'):
 			print('----> {}'.format(self.attack(i[0], vantage)))
 		for i in key(self, [], 'wearing'):
-			if 'weapon' in key(items, '', i, 'type'):
+			if 'weapon' in key(items.items, '', i, 'type'):
 				print('-----> {}'.format(self.attack(i)))
 
 	def proficiency(self, what):
@@ -201,7 +200,7 @@ class Entity:
 	def disadvantages(self):
 		result=[]
 		for i in key(self, [], 'wearing'):
-			result+=items[i].get('disadvantages', [])
+			result+=items.items[i].get('disadvantages', [])
 			if 'armor' in i or 'shield' in i and i not in self.proficiencies:
 				result+=['unproficient_armor']
 		return result
@@ -211,8 +210,8 @@ class Entity:
 		armor_type=''
 		shield=False
 		for i in key(self, [], 'wearing'):
-			result+=items[i].get('armor_class', 0)
-			x=items[i].get('type', '')
+			result+=items.items[i].get('armor_class', 0)
+			x=items.items[i].get('type', '')
 			if 'armor' in x: armor_type=x
 			if 'shield' in x: shield=True
 		if not shield and not armor_type: result=10
@@ -238,7 +237,7 @@ class Entity:
 	def check(self, skill, vantage=0):
 		if skill in self.disadvantages(): vantage-=1
 		return roll('d20+{}+{}'.format(
-			modifier(getattr(self, skills[skill])),
+			modifier(getattr(self, skills.skills[skill])),
 			self.proficiency(skill),
 		), vantage)
 
@@ -257,7 +256,7 @@ class Entity:
 			m=1
 			if   type(i)==dict: s, m=i.items()[0]
 			elif type(i)==str: s=i
-			w=m*key(items, 0, s, 'weight')
+			w=m*key(items.items, 0, s, 'weight')
 			print(m, s, w)
 			r+=w
 		return r
