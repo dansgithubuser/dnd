@@ -286,3 +286,18 @@ class Entity:
 		print(self.passive_perception)
 		print('----- carrying load -----')
 		self.carrying_load()
+
+class Group:
+	def __init__(self, entities): self.entities=entities
+
+	def __getattr__(self, attr):
+		x=[getattr(i, attr) for i in self.entities]
+		if callable(x[0]):
+			class Caller:
+				def __init__(self, entities): self.entities=entities
+				def __call__(self, *args, **kwargs): return [i(*args, **kwargs) for i in self.entities]
+			return Caller(x)
+		else:
+			return x
+
+	def __getitem__(self, i): return self.entities[i]
