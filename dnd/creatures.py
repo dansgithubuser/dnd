@@ -1,4 +1,4 @@
-import base, classes, races
+import base, classes, names, races
 
 import random
 
@@ -279,7 +279,8 @@ Rock Catching. If a rock or similar object is hurled at the giant, the giant can
 		self.roll_stats()
 
 class TypicalHumanArcher(races.Human):
-	def __init__(self):
+	def __init__(self, gender):
+		self.name=names.human(gender)
 		stats=sorted([base.roll('3d6') for i in range(6)])
 		for i in range(3):
 			if base.maybe(): base.swap(stats, base.rn(6), base.rn(6))
