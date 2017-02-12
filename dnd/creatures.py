@@ -279,8 +279,7 @@ Rock Catching. If a rock or similar object is hurled at the giant, the giant can
 		self.roll_stats()
 
 class TypicalHumanArcher(races.Human):
-	def __init__(self, gender):
-		self.name=names.human(gender)
+	def __init__(self, **kwargs):
 		stats=sorted([base.roll('3d6') for i in range(6)])
 		for i in range(3):
 			if base.maybe(): base.swap(stats, base.rn(6), base.rn(6))
@@ -288,7 +287,8 @@ class TypicalHumanArcher(races.Human):
 		if self.dexterity<12: self.dexterity=12
 		self.max_hp=10+base.modifier(self.constitution)
 		self.hp=self.max_hp
-		races.Human.__init__(self)
+		races.Human.__init__(self, **kwargs)
+		self.name=names.human(self.gender)
 		self.proficiencies=['longbow', 'shortbow', 'dagger', 'medium_armor', 'light_armor']
 		self.wearing=['leather_armor', 'longbow', 'dagger', 'quiver']
 		self.carrying=[]

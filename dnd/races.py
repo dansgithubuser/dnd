@@ -1,7 +1,13 @@
 import base
 
-class Human(base.Entity):
-	def __init__(self):
+class Gendered(base.Entity):
+	def __init__(self, gender='mf'):
+		if len(gender)>1: gender=base.pick(gender)
+		self.gender=gender
+
+class Human(Gendered):
+	def __init__(self, **kwargs):
+		Gendered.__init__(self, **kwargs)
 		self.type='human'
 		self.size='medium'
 		self.speed=30
@@ -13,8 +19,9 @@ class Human(base.Entity):
 		self.charisma+=1
 		self.languages=['common']
 
-class Elf(base.Entity):
-	def __init__(self):
+class Elf(Gendered):
+	def __init__(self, **kwargs):
+		Gendered.__init__(self, **kwargs)
 		self.type='elf'
 		self.size='medium'
 		self.speed=30
@@ -24,14 +31,14 @@ class Elf(base.Entity):
 		self.languages=['common', 'elvish']
 
 class HighElf(Elf):
-	def __init__(self):
-		Elf.__init__(self)
+	def __init__(self, **kwargs):
+		Elf.__init__(self, **kwargs)
 		self.intelligence+=1
 		self.proficiencies+=['longsword', 'shortsword', 'shortbow', 'longbow']
 
 class WoodElf(Elf):
-	def __init__(self):
-		Elf.__init__(self)
+	def __init__(self, **kwargs):
+		Elf.__init__(self, **kwargs)
 		self.proficiencies+=['longsword', 'shortsword', 'shortbow', 'longbow']
 		self.speed+=5
 		self.wisdom+=1
