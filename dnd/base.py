@@ -245,9 +245,7 @@ class Entity:
 		), vantage)
 
 	def passive_perception(self):
-		x=0
-		if 'perception' in self.proficiencies: x=self.proficiency_bonus
-		return 10+modifier(self.wisdom)+x
+		return 10+modifier(self.wisdom)+self.proficiency('perception')
 
 	def carrying_load(self):
 		print('capacity {}'.format(self.carrying_capacity()))
@@ -285,7 +283,7 @@ class Entity:
 		print('----- armor class -----')
 		print(self.armor_class())
 		print('----- passive perception -----')
-		print(self.passive_perception)
+		print(self.passive_perception())
 		print('----- carrying load -----')
 		self.carrying_load()
 
