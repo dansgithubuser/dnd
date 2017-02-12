@@ -136,6 +136,9 @@ class Entity:
 		return roll('d20+{}'.format(modifier(self.dexterity)))
 
 	def attack(self, method=None, vantage=0, critical_hit=20, target=None):
+		if self.hp<=0:
+			print('unconscious')
+			return (0, 0)
 		#method
 		attack='d20'
 		stat_mod=modifier(self.strength)
