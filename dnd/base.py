@@ -143,8 +143,8 @@ class Entity:
 		attack='d20'
 		stat_mod=modifier(self.strength)
 		if method==None:
-			if hasattr(self, 'wearing'):
-				method=[i for i in self.wearing if 'weapon' in key(items.items, '', i, 'type')][0]
+			method=key(self, '', 'attacks', 0)
+			method=[i for i in key(self, [], 'wearing') if 'weapon' in key(items.items, '', i, 'type')][0]
 		print(method)
 		if method=='unarmed': damage='1'
 		elif method in items.items:
