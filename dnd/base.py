@@ -2,6 +2,8 @@ import items, skills
 
 import random
 
+log=False
+
 def rn(m): return random.randint(0, m-1)
 def maybe(unlikeliness=2): return not rn(unlikeliness)
 def swap(list, i, j): x=list[i]; list[i]=list[j]; list[j]=x
@@ -16,6 +18,13 @@ def pick(list, n=1):
 		result.append(list[j])
 		del list[j]
 	return result
+
+def timestamp(ambiguous=True):
+	import datetime
+	format='{:%Y-%m'
+	if not ambiguous: format+='-%b'
+	format+='-%d %H:%M:%S.%f}'
+	return format.format(datetime.datetime.now()).lower()
 
 def key(x, default, *indices):
 	for i in indices:
@@ -101,6 +110,16 @@ class Entity:
 		if attr=='cha': return self.charisma
 		if attr=='ac': return self.armor_class()
 		raise AttributeError
+
+	def __setattr__(self, attr, value):
+		if log:
+			with open('log.txt', 'a') as file: file.write('{} {} {}={}\n'.format(
+				timestamp(),
+				key(self, '{} {}'.format(self.__class__, hex(id(self))), 'name'),
+				attr,
+				value
+			))
+		self.__dict__[attr]=value
 
 	def show(self, do_print=True):
 		import pprint
@@ -236,6 +255,11 @@ class Entity:
 			modifier(getattr(self, type)),
 			self.proficiency(type+'_saving_throw'),
 		), vantage)
+
+	def move(self, x, y, z=0):
+		self.x=x
+		self.y=y
+		self.z=z
 
 	def check(self, skill, vantage=0):
 		if skill in self.disadvantages(): vantage-=1
