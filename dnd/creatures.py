@@ -1,4 +1,4 @@
-import base, classes, names, races
+import base, classes, names, races, spells
 
 import random
 
@@ -54,6 +54,13 @@ If burnt, toxic fumes are released. DC 13 constitution check or 3d12 poision dam
 		self.hit_dice='1d4'
 		self.speed=0
 		self.attacks=[('frond', 7, '1d4 DEXTERITY+5 POISON')]
+		self.spells=[['witherweed_fumes']]
+		spells.spells['witherweed_fumes']={
+			'damage': '3d12 POISON',
+			'save': '13 CONSTITUTION',
+			'save_effect': lambda damage: 0,
+			'area': ('sphere', 10),
+		}
 		self.strength=3
 		self.dexterity=1
 		self.constitution=10
@@ -65,9 +72,7 @@ If burnt, toxic fumes are released. DC 13 constitution check or 3d12 poision dam
 		self.notes={'attack': 'Attacks with 1d4 fronds. Target is stunned if a frond deals 4 dexterity damage. Dexterity resets after a short rest.'}
 
 class ShockerLizard(base.Entity):
-	'''A shocker lizard can shock an opponent. 2d8 damage, half if opponent makes a DC 12 dex saving throw.
-
-Shoulder is 1 foot off the ground. Blue or gray.'''
+	'''Shoulder is 1 foot off the ground. Blue or gray.'''
 	def __init__(self):
 		self.type='magical beast'
 		self.size='small'
@@ -75,7 +80,12 @@ Shoulder is 1 foot off the ground. Blue or gray.'''
 		self.speed=40
 		self.natural_armor=3
 		self.attacks=[('bite', 1, '1d4 PIERCING')]
-		self.spells=[['shock']]
+		self.spells=[['shocker_lizard_shock']]
+		spells.spells['shocker_lizard_shock']={
+			'damage': '2d8 LIGHTNING',
+			'save': '12 DEXTERITY',
+			'save_effect': lambda damage: damage//2,
+		}
 		self.special_qualities=['darkvision']
 		self.strength=10
 		self.dexterity=15

@@ -1,4 +1,10 @@
 skills={
+	'strength': 'strength',
+	'dexterity': 'dexterity',
+	'constitution': 'constitution',
+	'intelligence': 'intelligence',
+	'wisdom': 'wisdom',
+	'charisma': 'charisma',
 	'athletics': 'strength',
 	'acrobatics': 'dexterity',
 	'sleight_of_hand': 'dexterity',

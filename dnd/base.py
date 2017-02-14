@@ -1,8 +1,9 @@
-import items, skills
+import items, skills, spells
 
-import random
+import math, random
 
 log=False
+placed_entities=set()
 
 def rn(m): return random.randint(0, m-1)
 def maybe(unlikeliness=2): return not rn(unlikeliness)
@@ -215,6 +216,19 @@ class Entity:
 			if 'weapon' in key(items.items, '', i, 'type'):
 				print('-----> {}'.format(self.attack(i)))
 
+	def cast(self, spell, origin=None):
+		if spell not in spells.spells:
+			raise Exception('no such spell "{}"'.format(spell))
+		if origin==None: origin=(self.x, self.y, self.z)
+		entities=spells.get_affected(spell, origin, placed_entities)
+		spell=spells.spells[spell]
+		damage=roll(spell['damage'])
+		if 'save' in spell: dc, type=number_and_type(spell['save'])
+		for i in entities:
+			x=damage
+			if 'save' in spell and i.check(type.lower())>=dc: x=spell['save_effect'](damage)
+			i.damage(x)
+
 	def proficiency(self, what):
 		if what not in key(self, [], 'proficiencies'): return 0
 		return key(self, 2, 'proficiency_bonus')
@@ -247,6 +261,7 @@ class Entity:
 	def damage(self, amount):
 		old_hp=self.hp
 		self.hp-=amount
+		print('{0}/{2} --> {1}/{2}'.format(old_hp, self.hp, self.max_hp))
 		if old_hp>=self.max_hp/2>self.hp: print('bloodied')
 		if self.hp<0: print('unconscious')
 
@@ -260,6 +275,10 @@ class Entity:
 		self.x=x
 		self.y=y
 		self.z=z
+		placed_entities.add(self)
+
+	def distance(self, x, y, z=0):
+		return math.sqrt((self.x-x)**2+(self.y-y)**2+(self.z-z)**2)
 
 	def check(self, skill, vantage=0):
 		if skill in self.disadvantages(): vantage-=1
