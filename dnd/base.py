@@ -41,6 +41,11 @@ def get(x, condition):
 
 def split_roll_request(request): return request.split('+')
 
+def split_type(request):
+	x=request.split()
+	if len(x)>1: return x[1]
+	return ''
+
 def number_and_type(request):
 	x=request.split()
 	number=int(x[0])
@@ -97,7 +102,15 @@ def roll(request, vantage=0, on_roll=typical_roll):
 		if vantage>0 and total(b)>total(a): a=b
 	for i in a:
 		if 'd' in i[0]: i[1]=on_roll(dice_sides_type(i[0])[1], i[1])
-	return total(a)
+	import collections
+	x=collections.defaultdict(int)
+	t=''
+	for i in range(len(a)-1, -1, -1):
+		y=split_type(a[i][0])
+		if y: t=y
+		x[t]+=sum(a[i][1])
+	if len(x)==1 and not x.items()[0][0]: return x.items()[0][1]
+	return x
 
 def modifier(stat): return (stat-10)//2
 
@@ -258,12 +271,18 @@ class Entity:
 		self.print_notes('armor_class')
 		return result
 
-	def damage(self, amount):
+	def damage(self, points):
 		old_hp=self.hp
-		self.hp-=amount
+		if type(points)==int: self.hp-=points
+		else:
+			for t, p in points.items():
+				if t in key(self, [], 'resistances'): p/=2
+				if t in key(self, [], 'damage_immunities'): p=0
+				self.hp-=p
 		print('{0}/{2} --> {1}/{2}'.format(old_hp, self.hp, self.max_hp))
 		if old_hp>=self.max_hp/2>self.hp: print('bloodied')
 		if self.hp<0: print('unconscious')
+		self.print_notes('damage')
 
 	def saving_throw(self, type, vantage=0):
 		return roll('d20+{}+{}'.format(

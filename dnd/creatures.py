@@ -5,11 +5,7 @@ import random
 class DireBadger(base.Entity):
 	'''These vicious creatures tolerate no intrusions. They cannot burrow into solid rock, but can move through just about any material softer than that. A dire badger usually leaves behind a usable tunnel 5 feet in diameter when burrowing unless the material it's moving through is very loose.
 
-A dire badger is from 5 to 7 feet in length and can weigh up to 500 pounds.
-
-A dire badger that takes damage in combat flies into a berserk rage on its next turn, clawing and biting madly until either it or its opponent is dead. It gains +4 Strength, +4 Constitution, and -2 AC. The creature cannot end its rage voluntarily.
-
-A dire badger can use a full turn to attack with both claws and bite.'''
+A dire badger is from 5 to 7 feet in length and can weigh up to 500 pounds.'''
 	def __init__(self):
 		self.type='animal'
 		self.size='medium'
@@ -47,7 +43,7 @@ A dire badger can use a full turn to attack with both claws and bite.'''
 class Witherweed(base.Entity):
 	'''Thistle-like plant that grows in mounds.
 
-If burnt, toxic fumes are released. DC 13 constitution check or 3d12 poision damage.'''
+If burnt, toxic fumes are released.'''
 	def __init__(self):
 		self.type='plant'
 		self.size='tiny'
@@ -84,7 +80,7 @@ class ShockerLizard(base.Entity):
 		spells.spells['shocker_lizard_shock']={
 			'damage': '2d8 LIGHTNING',
 			'save': '12 DEXTERITY',
-			'save_effect': lambda damage: damage//2,
+			'save_effect': spells.half,
 		}
 		self.special_qualities=['darkvision']
 		self.strength=10
@@ -100,9 +96,6 @@ class ShockerLizard(base.Entity):
 		self.roll_stats()
 
 class GiantVenemousSnake(base.Entity):
-	'''Actions:
-
-Bite. Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 1d4+4 piercing damage, and the target must make a DC 11 Constitution saving throw, taking 3d6 poison damage on a failed save, or half as much damage on a successful one.'''
 	def __init__(self):
 		self.type='beast'
 		self.size='medium'
@@ -121,6 +114,7 @@ Bite. Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 1d4+4 pierc
 		self.proficiencies=['perception']
 		self.challenge_rating=1
 		self.roll_stats()
+		self.notes={'attack': '3d6 poison damage, half on DC 11 constitution saving throw'}
 
 class GiantAntWorker(base.Entity):
 	def __init__(self):
@@ -130,7 +124,7 @@ class GiantAntWorker(base.Entity):
 		self.speed={'land': 50, 'climb': 20}
 		self.natural_armor=7
 		self.attacks=[
-			('bite', 1, '1d6'),
+			('bite', 1, '1d6 PIERCING'),
 		]
 		self.special_qualities={'darkvision': None}
 		self.strength=10
@@ -146,24 +140,18 @@ class GiantAntWorker(base.Entity):
 class GrayOozeling(base.Entity):
 	'''Amorphous. The oozeling can move through a space as narrow as 1 inch wide without squeezing.
 
-Corrode Metal. Any nonmagical weapon made of metal that hits the oozeling corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to damage rolls. If its penalty drops to -5, the weapon is destroyed. Nonmagical ammunition made of metal that hits the ooze is destroyed after dealing damage.
 The oozeling can eat through 1-inch-thick, nonmagical metal in 1 round.
 
 Spider Climb. The oozeling can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.
 
-False Appearance. While the oozeling remains motionless, it is indistinguishable from an oily pool or wet rock.
-
-Actions:
-
-Pseudopod. Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 2 (1d4) bludgeoning damage plus 2 (1d4) acid damage and if the target is wearing nonmagical metal armor, its armor is partly corroded and takes a permanent and cumulative -1 penalty to the AC it offers. The armor is destroyed if the penalty reduces its AC to 10.
-'''
+False Appearance. While the oozeling remains motionless, it is indistinguishable from an oily pool or wet rock.'''
 	def __init__(self):
 		self.type='ooze'
 		self.size='small'
 		self.hit_dice='3d4+9'
 		self.speed={'land': 20, 'climb': 20}
 		self.attacks=[
-			('pseudopod', 4, '1d4 BLUDGEONING+1d4 ACID CORROSIVE'),
+			('pseudopod', 4, '1d4 BLUDGEONING+1d4 ACID'),
 		]
 		self.special_qualities={'blindsight': 60}
 		self.strength=11
@@ -178,13 +166,13 @@ Pseudopod. Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 2 (1d
 		self.challenge_rating=1
 		self.environment=['temperate_plains']
 		self.roll_stats()
+		self.notes={
+			'attack': 'If the target is wearing nonmagical metal armor, its armor is partly corroded and takes a permanent and cumulative -1 penalty to the AC it offers. The armor is destroyed if the penalty reduces its AC to 10.',
+			'damage': 'Any nonmagical weapon made of metal that hits the oozeling corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to damage rolls. If its penalty drops to -5, the weapon is destroyed. Nonmagical ammunition made of metal that hits the ooze is destroyed after dealing damage.'
+		}
 
 class DireWolverine(base.Entity):
-	'''Dire wolverines grow to about 12 feet in length and can weigh as much as 2,000 pounds. Dire wolverines attack opponents wantonly, fearing no other creatures.
-
-A dire wolverine that takes damage in combat flies into a berserk rage on its next turn, clawing and biting madly until either it or its opponent is dead. An enraged dire wolverine gains +4 Strength, +4 Constitution, and -2 AC. The creature cannot end its rage voluntarily.
-
-A dire wolverine can use a full turn to attack with both claws.'''
+	'''Dire wolverines grow to about 12 feet in length and can weigh as much as 2,000 pounds. Dire wolverines attack opponents wantonly, fearing no other creatures.'''
 	def __init__(self):
 		self.type='animal'
 		self.size='large'
@@ -220,11 +208,7 @@ A dire wolverine can use a full turn to attack with both claws.'''
 		Entity.damage(self, amount)
 
 class Blazehawk(base.Entity):
-	'''Blazehawks are red birds that resemble hawks that are enwreathed in flame, and the effects of fire have dampened effect on them. They build nests in high mountains, but rarely attack travellers, sometimes even assisting them in severe cold by starting small fires. Understands primordial language but can't speak it.
-ACTIONS
-Beak. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage plus 4 (1d8) fire damage.
-Talons. Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) slashing damage plus 4 (1d8) fire damage.
-'''
+	'''Blazehawks are red birds that resemble hawks that are enwreathed in flame, and the effects of fire have dampened effect on them. They build nests in high mountains, but rarely attack travellers, sometimes even assisting them in severe cold by starting small fires. Understands primordial language but can't speak it.'''
 	def __init__(self):
 		self.type='magical beast'
 		self.size='small'
@@ -256,10 +240,6 @@ The giant has advantage on Dexterity (Stealth) checks made to hide in rocky terr
 
 ACTIONS
 Multiattack. The giant makes two greatclub attacks.
-
-Greatclub. Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 19 (3d8 + 6) bludgeoning damage.
-
-Rock. Ranged Weapon Attack: +9 to hit, range 60/240 ft., one target. Hit: 28 (4d10 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 17 Strength saving throw or be knocked prone.
 
 REACTIONS
 Rock Catching. If a rock or similar object is hurled at the giant, the giant can, with a successful DC 10 Dexterity saving throw, catch the missile and take no bludgeoning damage from it.
