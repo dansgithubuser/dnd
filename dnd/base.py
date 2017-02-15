@@ -179,7 +179,7 @@ class Entity:
 			method=key(self, '', 'attacks', 0)
 			method=[i for i in key(self, [], 'wearing') if 'weapon' in key(items.items, '', i, 'type')][0]
 		print(method)
-		if method=='unarmed': damage='1'
+		if method=='unarmed': damage='1 BLUDGEONING'
 		elif method in items.items:
 			if method not in self.wearing: print('not wearing')
 			damage=items.items[method]['damage']
