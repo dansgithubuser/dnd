@@ -8,3 +8,5 @@ dwarven_resilience='Advantage on saving throws against poision, and resistance a
 stonecunning='Doubly proficient in history checks related to stonework.'
 dwarven_toughness='+1 hp per level.'
 dwarf_speed="Heavy armor does not reduce your speed if you don't meet it's strength requirement."
+gnome_cunning='Avantage on mental saving throws.'
+artificers_lore='Double proficiency to history checks related to magic items, alchemical objects, and tech.'

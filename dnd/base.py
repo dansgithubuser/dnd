@@ -382,3 +382,10 @@ def create_character(stats, race, classes_, background=backgrounds.Generic):
 		g
 	)
 	return g['Character']()
+
+def random_heroic_stats():
+	s=['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma']
+	while True:
+		r={j: sum(sorted([roll('d6') for i in range(4)])[1:]) for j in s}
+		if sum([v for k, v in r.items()])>=72: break
+	return r

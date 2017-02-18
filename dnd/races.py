@@ -21,6 +21,7 @@ class Human(Gendered):
 		if kwargs.get('new', False): self.choices={
 			'age': (18, 80),
 			'height': (5, 6),
+			'weight': (100, 180),
 			'language': 'one extra language',
 		}
 
@@ -79,3 +80,69 @@ class HillDwarf(Dwarf):
 		Dwarf.__init__(self, **kwargs)
 		self.wisdom+=1
 		self.special_qualities+=['dwarven_toughness']
+
+class Dragonborn(Gendered):
+	def __init__(self, **kwargs):
+		Gendered.__init__(self, **kwargs)
+		self.type='dragonborn'
+		self.size='medium'
+		self.speed=30
+		self.strength+=2
+		self.charisma+=1
+		if kwargs.get('new', False): self.choices={
+			'age': (15, 80),
+			'height': (6, 8),
+			'weight': (250, 250),
+			'draconic ancestry': [
+				'black', 'blue', 'brass', 'bronze', 'copper', 'gold', 'green',
+				'red', 'silver', 'white',
+			],
+		}
+
+class Gnome(Gendered):
+	def __init__(self, **kwargs):
+		Gendered.__init__(self, **kwargs)
+		self.type='gnome'
+		self.size='small'
+		self.speed=25
+		self.intelligence+=2
+		self.special_qualities=['darkvision', 'gnome_cunning']
+		self.languages=['common', 'gnomish']
+		if kwargs.get('new', False): self.choices={
+			'age': (40, 350),
+			'height': (3, 4),
+			'weight': (40, 40),
+			'draconic ancestry': [
+				'black', 'blue', 'brass', 'bronze', 'copper', 'gold', 'green',
+				'red', 'silver', 'white',
+			],
+		}
+
+class RockGnome(Gnome):
+	def __init__(self, **kwargs):
+		Gnome.__init__(self, **kwargs)
+		self.proficiencies=['tinkers_tools']
+		self.constitution+=1
+		self.special_qualities+=['artificers_lore']
+
+class Tiefling(Gendered):
+	def __init__(self, **kwargs):
+		Gendered.__init__(self, **kwargs)
+		self.type='tiefling'
+		self.size='medium'
+		self.speed=30
+		self.charisma+=2
+		self.intelligence+=1
+		self.special_qualities=['darkvision']
+		self.resistances=['fire']
+		self.spells=[[] for i in range(9)]
+		self.spells[0].append('thaumaturgy')
+		l=kwargs.get('level', 1)
+		if l>=2: self.spells[2].append('hellish_rebuke')
+		if l>=5: self.spells[2].append('darkness')
+		self.languages=['common', 'infernal']
+		if kwargs.get('new', False): self.choices={
+			'age': (18, 85),
+			'height': (5, 6),
+			'weight': (100, 180),
+		}
