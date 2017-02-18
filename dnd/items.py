@@ -28,6 +28,7 @@ items={
 	'shortsword': {'type': 'melee_weapon', 'damage': 'd6 PIERCING', 'weight': 2, 'properties': ['finesse', 'light']},
 	'chain_mail': {'type': 'heavy_armor', 'armor_class': 16, 'disadvantages': ['stealth'], 'weight': 55},
 	'longsword': {'type': 'melee_weapon', 'damage': 'd8 SLASHING', 'secondary_damage': 'd10 SLASHING', 'weight': 3, 'properties': 'versatile'},
+	'scimitar': {'type': 'melee_weapon', 'damage': 'd6 SLASHING', 'weight': 3, 'properties': ['finesse', 'light']},
 	'pike': {'type': 'melee_weapon', 'damage': 'd10 PIERCING', 'properties': ['heavy', 'reach', 'two-handed'], 'weight': 18},
 	'maul': {'type': 'melee_weapon', 'damage': '2d6 BLUDGEONING', 'properties': ['heavy', 'two-handed'], 'weight': 10},
 	'javelin': {'type': 'melee_weapon', 'damage': 'd6 PIERCING', 'range': (30, 120), 'properties': ['range', 'thrown'], 'weight': 2},
@@ -62,6 +63,13 @@ items={
 	'shovel': {'weight': 5},
 	'iron_pot': {'weight': 10},
 	'quiver': {'weight': 1, 'description': 'holds 20 arrows'},
+	'string': {'description': '10 ft.'},
+	'chest': {'weight': 25, 'description': '12 cubic ft, 300 lbs.'},
+	'scroll_case': {'weight': 1, 'description': 'This cylindrical leather case can hold up to ten rolled-up sheets of paper or five rolled-up sheets of Parchment.'},
+	'fine_clothes': {'weight': 6},
+	'lamp': {'weight': 1, 'range': (15, 45), 'duration': '6h', 'description': 'Once lit, it burns for 6 hours on a flask (1 pint) of oil.'},
+	'costume': {'weight': 4},
+	'blanket': {'weight': 3},
 }
 
 simple_weapons=[
@@ -105,4 +113,41 @@ martial_weapons=[
 	'heavy_crossbow',
 	'longbow',
 	'net'
+]
+
+burglars_pack=[
+	'backpack', 'ball_bearings', 'string', 'bell', {'candle': 5}, 'crowbar',
+	'hammer', {'piton': 10}, 'hooded_lantern', {'oil': 2}, {'rations': 5},
+	'tinderbox', 'waterskin', 'hempen_rope',
+]
+
+diplomats_pack=[
+	'chest', {'scroll_case': 2}, 'fine_clothes', 'ink', 'pen', 'lamp',
+	{'oil': 2}, {'paper': 5}, 'perfume', 'sealing_wax', 'soap',
+]
+
+dungeoneers_pack=[
+	'backpack', 'crowbar', 'hammer', {'piton': 10}, {'torch': 10}, 'tinderbox',
+	{'rations': 10}, 'waterskin', 'hempen_rope',
+]
+
+entertainers_pack=[
+	'backpack', 'bedroll', {'costume': 2}, {'candle': 5}, {'rations': 5},
+	'waterskin', 'disguise_kit',
+]
+
+explorers_pack=[
+	'backpack', 'bedroll', 'mess_kit', 'tinderbox',
+	{'torch': 10}, {'rations': 10},
+	'waterskin', 'hempen_rope',
+]
+
+priests_pack=[
+	'backpack', 'blanket', {'candle': 10}, 'tinderbox', 'alms_box',
+	{'incense': 2}, 'censer', 'vestments', {'rations': 2}, 'waterskin',
+]
+
+scholars_pack=[
+	'backpack', 'book_of_lore', 'ink', 'pen', {'parchment': 10}, 'bag_of_sand',
+	'knife',
 ]
