@@ -1,4 +1,4 @@
-import items, skills, spells
+import backgrounds, classes, items, skills, spells
 
 import math, random
 
@@ -363,3 +363,22 @@ class Group:
 			return x
 
 	def __getitem__(self, i): return self.entities[i]
+
+def create_character(stats, race, classes_, background=backgrounds.Generic):
+	x='''class Character(race, {}, background):
+		def __init__(self):
+			self.strength={strength}
+			self.dexterity={dexterity}
+			self.constitution={constitution}
+			self.intelligence={intelligence}
+			self.wisdom={wisdom}
+			self.charisma={charisma}
+			race.__init__(self, new=True)
+			for c, l in classes_.items(): getattr(classes, c).__init__(self, l, new=True)
+			background.__init__(self, new=True)'''
+	g={'race': race, 'classes_': classes_, 'classes': classes, 'background': background}
+	exec(
+		x.format(','.join(['classes.'+i for i in classes_.keys()]), **stats),
+		g
+	)
+	return g['Character']()
