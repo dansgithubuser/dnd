@@ -1,9 +1,12 @@
+import base
+
 class Generic:
 	def __init__(self, **kwargs):
-		if kwargs.get('new', False): self.choices.update({
-			'background skills': 'any 2',
-			'background languages or tools': 'any 2',
-		})
+		if kwargs.get('new', False):
+			base.add(self, 'choices', {
+				'background skills': 'any 2',
+				'background languages or tools': 'any 2',
+			}, base.dict_add)
 
 class FolkHero:
 	def __init__(self):

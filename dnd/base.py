@@ -34,6 +34,15 @@ def key(x, default, *indices):
 		else: return default
 	return x
 
+def add(object, member, value, method=lambda old, new: old):
+	if hasattr(object, member): value=method(getattr(object, member), value)
+	setattr(object, member, value)
+
+def union(x, y): return x+[i for i in y if i not in x]
+def plus(x, y): return x+y
+def plus_string(x, y): return x+'+'+y
+def dict_add(x, y): return dict(x, **y)
+
 def get(x, condition):
 	for i in x:
 		if condition(i): return i
@@ -181,7 +190,7 @@ class Entity:
 		print(method)
 		if method=='unarmed': damage='1 BLUDGEONING'
 		elif method in items.items:
-			if method not in self.wearing: print('not wearing')
+			if method not in key(self, [], 'wearing'): print('not wearing')
 			damage=items.items[method]['damage']
 			if 'finesse' in key(items.items, '', method, 'properties'):
 				stat_mod=max(stat_mod, modifier(self.dexterity))
@@ -333,6 +342,12 @@ class Entity:
 		return r
 
 	def push_drag_lift(self): return self.carrying_capacity()*2
+
+	def spell_save_difficulty_class(self):
+		return 8+self.proficiency_bonus+modifier(self.spellcasting_ability())
+
+	def spell_attack_bonus(self):
+		return self.proficiency_bonus+modifier(self.spellcasting_ability())
 
 	def print_notes(self, topic):
 		if hasattr(self, 'notes'):

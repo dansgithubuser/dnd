@@ -1,15 +1,6 @@
 import base, items
 
-def add(object, member, value, method=lambda old, new: old):
-	if hasattr(object, member): value=method(getattr(object, member), value)
-	setattr(object, member, value)
-
-def union(x, y): return x+[i for i in y if i not in x]
-def plus(x, y): return x+y
-def plus_string(x, y): return x+'+'+y
-def dict_add(x, y): return dict(x, **y)
-
-class Progression:
+class _Progression:
 	def __init__(self, list, level):
 		import collections
 		self.x=collections.defaultdict(int)
@@ -19,15 +10,15 @@ class Progression:
 	def __repr__(self): return repr(dict(self.x))
 
 	def __add__(self, other):
-		result=Progression([], 0)
+		result=_Progression([], 0)
 		result.x=self.x
 		for k, v in other.x.items(): result.x[k]+=v
 		return result
 
 class Standard:
-	def __init__(self, level):
-		add(self, 'level', level, plus)
-		add(self, 'proficiency_bonus', 2+(level-1)//4, plus)
+	def __init__(self, level, **kwargs):
+		base.add(self, 'level', level, base.plus)
+		base.add(self, 'proficiency_bonus', 2+(level-1)//4, base.plus)
 
 	def first_level_hp(self):
 		return dice_sides_type(self.hit_dice)[1]+base.modifier(self.constitution)
@@ -41,7 +32,7 @@ class Standard:
 class Spellcaster(Standard):
 	def __init__(self, level, **kwargs):
 		Standard.__init__(self, level)
-		add(self, 'slots', [
+		base.add(self, 'slots', [
 			[0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[2, 0, 0, 0, 0, 0, 0, 0, 0],
 			[3, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -67,28 +58,22 @@ class Spellcaster(Standard):
 		self.cantrips=3
 		if level>=4: self.cantrips+=1
 		if level>=10: self.cantrips+=1
-		add(self, 'choices', {'cantrips': self.cantrips}, dict_add)
-
-	def spell_save_difficulty_class(self):
-		return 8+self.proficiency_bonus+base.modifier(self.spellcasting_ability())
-
-	def spell_attack_bonus(self):
-		return self.proficiency_bonus+base.modifier(self.spellcasting_ability())
+		base.add(self, 'choices', {'cantrips': self.cantrips}, base.dict_add)
 
 class SpellPreparer(Spellcaster):
-	def prepared_spells(self):
+	def prepared_spells(self, **kwargs):
 		return max(base.modifier(self.spellcasting_ability())+self.level, 1)
 
 class Cleric(SpellPreparer):
 	def __init__(self, level, **kwargs):
 		SpellPreparer.__init__(self, level, **kwargs)
-		add(self, 'hit_dice', '{}d8'.format(level), plus_string)
-		add(self, 'proficiencies', [
+		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
 			'wisdom_saving_throw', 'charisma_saving_throw',
-		]+items.simple_weapons, union)
-		add(self, 'special_qualities', ['ritual_casting'], union)
-		add(self, 'features', Progression([
+		]+items.simple_weapons, base.union)
+		base.add(self, 'special_qualities', ['ritual_casting'], base.union)
+		base.add(self, 'features', _Progression([
 			['spellcasting', 'divine_domain'],
 			['channel_divinity', 'divine_domain'],
 			[],
@@ -109,8 +94,8 @@ class Cleric(SpellPreparer):
 			['channel_divinity'],
 			['ability_score_improvement'],
 			['divine_intervention_improvement'],
-		], level), plus)
-		add(self, 'spells', [
+		], level), base.plus)
+		base.add(self, 'spells', [
 			[],
 			['bane', 'bless', 'command', 'create_or_destroy_water', 'cure_wounds', 'detect_evil_and_good', 'detect_magic', 'detect_poison_and_disease', 'guiding_bolt', 'healing_word', 'inflict_wounds', 'protection_from_evil_and_good', 'purify_food_and_drink', 'sanctuary', 'shield_of_faith'],
 			['aid', 'augury', 'blindness_deafness', 'calm_emotions', 'continual_flame', 'enhance_ability', 'find_traps', 'gentle_repose', 'hold_person', 'lesser_restoration', 'locate_object', 'prayer_of_healing', 'protection_from_poison', 'silence', 'spiritual_weapon', 'warding_bond', 'zone_of_truth'],
@@ -121,16 +106,16 @@ class Cleric(SpellPreparer):
 			['conjure_celestial', 'divine_word', 'etherealness', 'fire_storm', 'plane_shift', 'regenerate', 'resurrection', 'symbol'],
 			['antimagic_field', 'control_weather', 'earthquake', 'holy_aura'],
 			['astral_projection', 'gate', 'mass_heal', 'true_resurrection'],
-		], lambda old, new: [union(old[i], new[i]) for i in range(9)])
+		], lambda old, new: [base.union(old[i], new[i]) for i in range(9)])
 		if kwargs.get('new', False):
-			add(self, 'choices', {
+			base.add(self, 'choices', {
 				'2 cleric skills': ['history', 'insight', 'medicine', 'persuasion', 'religion'],
 				'cleric weapon': ['mace', 'warhammer'],
 				'cleric armor': ['scale_mail', 'leather_armor', 'chain_mail'],
 				'cleric weapon 2': ['light_crossbow']+items.simple_weapons,
 				'cleric pack': ['priests_pack', 'explorers_pack'],
 				'cleric alternate gp': '5d4*10',
-			}, dict_add)
+			}, base.dict_add)
 			self.wearing=['shield']
 
 	def spellcasting_ability(self): return self.wisdom
@@ -138,12 +123,12 @@ class Cleric(SpellPreparer):
 class Wizard(SpellPreparer):
 	def __init__(self, level, **kwargs):
 		SpellPreparer.__init__(self, level, **kwargs)
-		add(self, 'hit_dice', '{}d6'.format(level), plus_string)
-		add(self, 'proficiencies', [
+		base.add(self, 'hit_dice', '{}d6'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
 			'dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow',
 			'wisdom_saving_throw', 'intelligence_saving_throw',
-		], union)
-		add(self, 'features', Progression([
+		], base.union)
+		base.add(self, 'features', _Progression([
 			['spellcasting', 'arcane_recovery'],
 			['arcane_tradition'],
 			[],
@@ -164,15 +149,15 @@ class Wizard(SpellPreparer):
 			['spell_mastery'],
 			['ability_score_improvement'],
 			['signature_spell'],
-		], level), plus)
+		], level), base.plus)
 		if kwargs.get('new', False):
-			add(self, 'choices', {
+			base.add(self, 'choices', {
 				'2 wizard skills': ['arcana', 'history', 'insight', 'investigation', 'medicine', 'religion'],
 				'wizard weapon': ['quarterstaff', 'dagger'],
 				'wizard junk': ['component_pouch', 'arcane_focus'],
 				'wizard pack': ['scholars_pack', 'explorers_pack'],
 				'wizard alternate gp': '4d4*10',
-			}, dict_add)
+			}, base.dict_add)
 			self.carrying=['spellbook']
 
 	def spellcasting_ability(self): return self.intelligence
@@ -180,14 +165,14 @@ class Wizard(SpellPreparer):
 class Rogue(Standard):
 	def __init__(self, level, **kwargs):
 		Standard.__init__(self, level)
-		add(self, 'hit_dice', '{}d8'.format(level), plus_string)
-		add(self, 'proficiencies', [
+		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
 			'light_armor',
 			'hand_crossbow', 'longsword', 'rapier', 'shortsword',
 			'thieves_tools',
 			'dexterity_saving_throw', 'intelligence_saving_throw',
-		]+items.simple_weapons, union)
-		add(self, 'features', Progression([
+		]+items.simple_weapons, base.union)
+		base.add(self, 'features', _Progression([
 			['expertise', 'sneak_attack', 'thieves_cant'],
 			['cunning_action'],
 			['roguish_archetype'],
@@ -208,9 +193,9 @@ class Rogue(Standard):
 			['elusive'],
 			['ability_score_improvement'],
 			['stroke_of_luck'],
-		], level), plus)
+		], level), base.plus)
 		if kwargs.get('new', False):
-			add(self, 'choices', {
+			base.add(self, 'choices', {
 				'4 rogue skills': [
 					'acrobatics', 'athletics', 'deception', 'insight',
 					'intimidation', 'investigation', 'perception', 'performance',
@@ -220,7 +205,7 @@ class Rogue(Standard):
 				'rogue weapon 2': [['shortbow', 'quiver'], 'shortsword'],
 				'rogue pack': ['burglars_pack', 'dungeoneers_pack', 'explorers_pack'],
 				'rogue alternate gp': '4d4*10',
-			}, dict_add)
+			}, base.dict_add)
 			self.wearing=['leather_armor', 'dagger', 'dagger']
 			self.carrying=['thieves_tools']
 
@@ -229,12 +214,12 @@ class Rogue(Standard):
 class Fighter(Standard):
 	def __init__(self, level, **kwargs):
 		Standard.__init__(self, level)
-		add(self, 'hit_dice', '{}d10'.format(level), plus_string)
-		add(self, 'proficiencies', [
+		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'heavy_armor', 'shield',
 			'strength_saving_throw', 'constitution_saving_throw',
-		]+items.simple_weapons+items.martial_weapons, union)
-		add(self, 'features', Progression([
+		]+items.simple_weapons+items.martial_weapons, base.union)
+		base.add(self, 'features', _Progression([
 			['fighting_style', 'second_wind'],
 			['action_surge'],
 			['martial_archetype'],
@@ -255,22 +240,22 @@ class Fighter(Standard):
 			['martial_archetype'],
 			['ability_score_improvement'],
 			['extra_attack'],
-		], level), plus)
+		], level), base.plus)
 		import types
 		self.attack=types.MethodType(Fighter.attack, self, Fighter)
 		if kwargs.get('new', False):
-			add(self, 'choices', {
+			base.add(self, 'choices', {
 				'2 fighter skills': [
 					'acrobatics', 'athletics', 'animal_handling', 'history',
 					'insight', 'intimidation', 'perception', 'survival',
 				],
 				'fighter armor': ['chain_mail', ['leather_armor', 'longbow', 'quiver']],
-				'fighter weapon': items.martial_weapon,
-				'fighter shield': ['shield']+items.martial_weapon,
+				'fighter weapon': items.martial_weapons,
+				'fighter shield': ['shield']+items.martial_weapons,
 				'fighter weapon 2': [['light_crossbow', 'quiver'], {'handaxe': 2}],
 				'fighter pack': ['dungeoneers_pack', 'explorers_pack'],
 				'fighter alternate gp': '5d4*10',
-			}, dict_add)
+			}, base.dict_add)
 
 	def attack(self, *args, **kwargs):
 		critical_hit=20
@@ -281,15 +266,15 @@ class Fighter(Standard):
 class Druid(SpellPreparer):
 	def __init__(self, level, **kwargs):
 		SpellPreparer.__init__(self, level, **kwargs)
-		add(self, 'hit_dice', '{}d8'.format(level), plus_string)
-		add(self, 'proficiencies', [
+		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
 			'club', 'dagger', 'dart', 'javelin', 'mace', 'quarterstaff',
 			'scimitar', 'sickle', 'sling', 'spear',
 			'herbalism_kit',
 			'intelligence_saving_throw', 'wisdom_saving_throw',
-		], union)
-		add(self, 'features', Progression([
+		], base.union)
+		base.add(self, 'features', _Progression([
 			['druidic', 'spellcasting'],
 			['wild_shape', 'druid_circle'],
 			[],
@@ -310,17 +295,17 @@ class Druid(SpellPreparer):
 			['timeless_body', 'beast_spells'],
 			['ability_score_improvement'],
 			['archdruid'],
-		], level), plus)
+		], level), base.plus)
 		if kwargs.get('new', False):
-			add(self, 'choices', {
+			base.add(self, 'choices', {
 				'2 druid skills': [
 					'arcana', 'animal_handling', 'insight', 'medicine',
 					'nature', 'perception', 'religion', 'survival',
 				],
 				'druid shield': ['shield']+items.simple_weapons,
-				'druid weapon': ['scimitar']+items.simple_weapon,
+				'druid weapon': ['scimitar']+items.simple_weapons,
 				'druid alternate gp': '2d4*10',
-			}, dict_add)
+			}, base.dict_add)
 			self.wearing=['leather_armor']
 			self.carrying=items.explorers_pack+['druidic_focus']
 
@@ -329,13 +314,13 @@ class Druid(SpellPreparer):
 class Bard(Spellcaster):
 	def __init__(self, level, **kwargs):
 		Spellcaster.__init__(self, level, **kwargs)
-		add(self, 'hit_dice', '{}d8'.format(level), plus_string)
-		add(self, 'proficiencies', [
+		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
 			'light_armor',
 			'hand_crossbow', 'longsword', 'rapier', 'shortsword',
 			'dexterity_saving_throw', 'charisma_saving_throw',
-		]+items.simple_weapons, union)
-		add(self, 'features', Progression([
+		]+items.simple_weapons, base.union)
+		base.add(self, 'features', _Progression([
 			['bardic_inspiration', 'spellcasting'],
 			['jack_of_all_trades', 'song_of_rest'],
 			['bard_college', 'expertise'],
@@ -356,16 +341,16 @@ class Bard(Spellcaster):
 			['magical_secrets'],
 			['ability_score_improvement'],
 			['superior_inspiration'],
-		], level), plus)
+		], level), base.plus)
 		if kwargs.get('new', False):
-			add(self, 'choices', {
+			base.add(self, 'choices', {
 				'3 bard skills': 'any',
 				'3 bard tools': 'musical instruments',
 				'bard weapon': ['rapier', 'longsword']+items.simple_weapons,
 				'bard pack': ['diplomats_pack', 'entertainers_pack'],
 				'bard instrument': 'musical instrument',
 				'bard alternate gp': '5d4*10',
-			}, dict_add)
+			}, base.dict_add)
 			self.wearing=['leather_armor', 'dagger']
 
 	def spellcasting_ability(self): return self.charisma
@@ -373,12 +358,12 @@ class Bard(Spellcaster):
 class Sorcerer(Spellcaster):
 	def __init__(self, level, **kwargs):
 		Spellcaster.__init__(self, level, **kwargs)
-		add(self, 'hit_dice', '{}d6'.format(level), plus_string)
-		add(self, 'proficiencies', [
+		base.add(self, 'hit_dice', '{}d6'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
 			'dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow',
 			'constitution_saving_throw', 'charisma_saving_throw',
-		], union)
-		add(self, 'features', Progression([
+		], base.union)
+		base.add(self, 'features', _Progression([
 			['sorcerous_origin', 'spellcasting'],
 			['font_of_magic'],
 			['metamagic'],
@@ -399,9 +384,9 @@ class Sorcerer(Spellcaster):
 			['sorcerous_origin'],
 			['ability_score_improvement'],
 			['sorcerous_restoration'],
-		], level), plus)
+		], level), base.plus)
 		if kwargs.get('new', False):
-			add(self, 'choices', {
+			base.add(self, 'choices', {
 				'2 sorceror skills': [
 					'arcana', 'deception', 'insight', 'intimidation',
 					'persuasion', 'religion',
@@ -410,7 +395,7 @@ class Sorcerer(Spellcaster):
 				'sorceror pack': ['dungeoneers_pack', 'explorers_pack'],
 				'sorceror junk': ['component_pouch', 'arcane_focus'],
 				'sorceror alternate gp': '3d4*10',
-			}, dict_add)
+			}, base.dict_add)
 			self.wearing=['dagger', 'dagger']
 
 	def spellcasting_ability(self): return self.charisma
@@ -418,12 +403,12 @@ class Sorcerer(Spellcaster):
 class Ranger(Spellcaster):
 	def __init__(self, level, **kwargs):
 		Spellcaster.__init__(self, level, **kwargs)
-		add(self, 'hit_dice', '{}d10'.format(level), plus_string)
-		add(self, 'proficiencies', [
+		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
 			'dexterity_saving_throw', 'strength_saving_throw',
-		]+items.simple_weapons+items.martial_weapons, union)
-		add(self, 'features', Progression([
+		]+items.simple_weapons+items.martial_weapons, base.union)
+		base.add(self, 'features', _Progression([
 			['favored_enemy', 'natural_explorer'],
 			['spellcasting', 'fighting_style'],
 			['ranger_archetype', 'primeval_awareness'],
@@ -444,9 +429,9 @@ class Ranger(Spellcaster):
 			['feral_senses'],
 			['ability_score_improvement'],
 			['foe_slayer'],
-		], level), plus)
+		], level), base.plus)
 		if kwargs.get('new', False):
-			add(self, 'choices', {
+			base.add(self, 'choices', {
 				'3 ranger skills': [
 					'animal_handling', 'athletics', 'insight', 'investigation',
 					'nature', 'perception', 'stealth', 'survival',
@@ -456,8 +441,183 @@ class Ranger(Spellcaster):
 				'ranger weapon 2': items.simple_weapons,
 				'ranger pack': ['dungeoneers_pack', 'explorers_pack'],
 				'ranger alternate gp': '5d4*10',
-			}, dict_add)
+			}, base.dict_add)
 			self.wearing=['longbow']
 			self.carrying=['quiver']
 
 	def spellcasting_ability(self): return self.wisdom
+
+class Barbarian(Standard):
+	def __init__(self, level, **kwargs):
+		Standard.__init__(self, level)
+		base.add(self, 'hit_dice', '{}d12'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
+			'light_armor', 'medium_armor', 'shield',
+			'strength_saving_throw', 'constitution_saving_throw',
+		]+items.martial_weapons, base.union)
+		base.add(self, 'features', _Progression([
+			['rage', 'unarmored_defense'],
+			['reckless_attack', 'danger_sense'],
+			['primal_path'],
+			['ability_score_improvement'],
+			['extra_attack', 'fast_movement'],
+			['primal_path'],
+			['feral_instinct'],
+			['ability_score_improvement'],
+			['brutal_critical'],
+			['primal_path'],
+			['relentless'],
+			['ability_score_improvement'],
+			['brutal_critical'],
+			['primal_path'],
+			['persistent_rage'],
+			['ability_score_improvement'],
+			['brutal_critical'],
+			['indomitable_might'],
+			['ability_score_improvement'],
+			['primal_champion'],
+		], level), base.plus)
+		self.rages=2
+		if level>=3: self.rages+=1
+		if level>=6: self.rages+=1
+		if level>=12: self.rages+=1
+		if level>=17: self.rages+=1
+		if level>=20: self.rages=float('inf')
+		self.rage_damage=2
+		if level>=9: self.rage_damage+=1
+		if level>=16: self.rage_damage+=1
+		if kwargs.get('new', False):
+			base.add(self, 'choices', {
+				'2 barbarian skills': [
+					'animal_handling', 'athletics', 'intimidation', 'nature',
+					'perception', 'survival',
+				],
+				'barbarian weapon': [i for i in items.martial_weapons if 'melee' in items.items[i]['type']],
+				'barbarian weapon 2': [{'handaxe': 2}]+items.simple_weapons,
+			}, base.dict_add)
+			self.carrying=items.explorers_pack+[{'javelins': 4}]
+
+class Monk(Standard):
+	def __init__(self, level, **kwargs):
+		Standard.__init__(self, level)
+		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
+			'shortsword',
+			'strength_saving_throw', 'dexterity_saving_throw',
+		]+items.simple_weapons, base.union)
+		base.add(self, 'features', _Progression([
+			['martial_arts', 'unarmored_defense'],
+			['ki', 'unarmored_movement'],
+			['monastic_tradition', 'deflect_missiles'],
+			['ability_score_improvement', 'slow_fall'],
+			['extra_attack', 'stunning_strike'],
+			['ki_empowered_strikes', 'monastic_tradition'],
+			['evasion', 'stillness_of_mind'],
+			['ability_score_improvement'],
+			['unarmored_movement'],
+			['purity_of_body'],
+			['monastic_tradition'],
+			['ability_score_improvement'],
+			['tongue_of_sun_and_moon'],
+			['diamond_soul'],
+			['timeless_body'],
+			['ability_score_improvement'],
+			['monastic_tradition'],
+			['empty_body'],
+			['ability_score_improvement'],
+			['perfect_self'],
+		], level), base.plus)
+		self.martial_arts='d4'
+		if level>=5: self.martial_arts='d6'
+		if level>=11: self.martial_arts='d8'
+		if level>=17: self.martial_arts='d10'
+		self.ki_points=0
+		if level>=2: self.ki_points=level
+		self.unarmored_movement=0
+		if level>=2: self.unarmored_movement=10
+		if level>=6: self.unarmored_movement=15
+		if level>=10: self.unarmored_movement=20
+		if level>=14: self.unarmored_movement=25
+		if level>=18: self.unarmored_movement=30
+		if kwargs.get('new', False):
+			base.add(self, 'choices', {
+				'2 monk skills': [
+					'acrobatics', 'athletics', 'history', 'insight', 'religion',
+					'stealth',
+				],
+				'monk tools': "any artisan's tools or musical instrument",
+				'monk weapon': ['shortsword']+items.simple_weapons,
+				'monk pack': ['dungeoneers_pack', 'explorers_pack'],
+				'monk alternate gp': '5d4',
+			}, base.dict_add)
+			self.carrying=[{'darts': 10}]
+
+class Paladin(Standard):
+	def __init__(self, level, **kwargs):
+		Standard.__init__(self, level)
+		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
+			'light_armor', 'medium_armor', 'heavy_armor', 'shield',
+			'wisdom_saving_throw', 'charisma_saving_throw',
+		]+items.simple_weapons+items.martial_weapons, base.union)
+		base.add(self, 'features', _Progression([
+			['divine_sense', 'lay_on_hands'],
+			['fighting_style', 'spellcasting', 'divine_smite'],
+			['divine_health', 'sacred_oath'],
+			['ability_score_improvement'],
+			['extra_attack'],
+			['aura_of_protection'],
+			['sacred_oath'],
+			['ability_score_improvement'],
+			[],
+			['aura_of_courage'],
+			['divine_smite'],
+			['ability_score_improvement'],
+			[],
+			['cleansing_touch'],
+			['sacred_oath'],
+			['ability_score_improvement'],
+			[],
+			['aura_improvements'],
+			['ability_score_improvement'],
+			['sacred_oath'],
+		], level), base.plus)
+		base.add(self, 'slots', [
+			[0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[2, 0, 0, 0, 0, 0, 0, 0, 0],
+			[3, 0, 0, 0, 0, 0, 0, 0, 0],
+			[3, 0, 0, 0, 0, 0, 0, 0, 0],
+			[4, 2, 0, 0, 0, 0, 0, 0, 0],
+			[4, 2, 0, 0, 0, 0, 0, 0, 0],
+			[4, 3, 0, 0, 0, 0, 0, 0, 0],
+			[4, 3, 0, 0, 0, 0, 0, 0, 0],
+			[4, 3, 2, 0, 0, 0, 0, 0, 0],
+			[4, 3, 2, 0, 0, 0, 0, 0, 0],
+			[4, 3, 3, 0, 0, 0, 0, 0, 0],
+			[4, 3, 3, 0, 0, 0, 0, 0, 0],
+			[4, 3, 3, 1, 0, 0, 0, 0, 0],
+			[4, 3, 3, 1, 0, 0, 0, 0, 0],
+			[4, 3, 3, 2, 0, 0, 0, 0, 0],
+			[4, 3, 3, 2, 0, 0, 0, 0, 0],
+			[4, 3, 3, 3, 1, 0, 0, 0, 0],
+			[4, 3, 3, 3, 1, 0, 0, 0, 0],
+			[4, 3, 3, 3, 2, 0, 0, 0, 0],
+			[4, 3, 3, 3, 2, 0, 0, 0, 0],
+		][level], lambda old, new: [old[i]+new[i] for i in range(9)])
+		if kwargs.get('new', False):
+			base.add(self, 'choices', {
+				'2 paladin skills': [
+					'athletics', 'insight', 'intimidation', 'medicine',
+					'persuasion', 'religion',
+				],
+				'paladin weapon': items.martial_weapons,
+				'paladin shield': ['shield']+items.martial_weapons,
+				'paladin weapon 2': [{'javelin': 5}]+[i for i in items.simple_weapons if 'melee' in items.items[i]['type']],
+				'paladin pack': ['priests_pack', 'explorers_pack'],
+				'paladin alternate gp': '5d4',
+			}, base.dict_add)
+			self.wearing=['chain_mail']
+			self.carrying=['holy_symbol']
+
+	def spellcasting_ability(self): return self.charisma
