@@ -4,3 +4,7 @@ trance='Instead of sleeping, meditate deeply, remaining semiconscious, for 4 hou
 mask_of_the_wild='Attempt to hide even when only lightly obscured by foliage, heavy rain, falling snow, mist, or other natural phenomena.'
 keen_smell='Advantage on wisdom checks that rely on smell.'
 blindsight='Perceive surroundings without relying on sight, within a specific radius.'
+dwarven_resilience='Advantage on saving throws against poision, and resistance against poison damage.'
+stonecunning='Doubly proficient in history checks related to stonework.'
+dwarven_toughness='+1 hp per level.'
+dwarf_speed="Heavy armor does not reduce your speed if you don't meet it's strength requirement."

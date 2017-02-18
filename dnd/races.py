@@ -56,3 +56,26 @@ class WoodElf(Elf):
 		self.speed+=5
 		self.wisdom+=1
 		self.special_qualities+=['mask_of_the_wild']
+
+class Dwarf(Gendered):
+	def __init__(self, **kwargs):
+		Gendered.__init__(self, **kwargs)
+		self.type='dwarf'
+		self.size='medium'
+		self.speed=25
+		self.constitution+=2
+		self.special_qualities=['darkvision', 'dwarven_resilience', 'stonecunning', 'dwarf_speed']
+		self.proficiencies=['battleaxe', 'handaxe', 'light_hammer', 'warhammer']
+		self.languages=['common', 'dwarvish']
+		if kwargs.get('new', False): self.choices={
+			'age': (50, 350),
+			'height': (4, 5),
+			'weight': (150, 150),
+			'tool proficiency': ['smiths_tools', 'brewers_supplies', 'masons_tools'],
+		}
+
+class HillDwarf(Dwarf):
+	def __init__(self, **kwargs):
+		Dwarf.__init__(self, **kwargs)
+		self.wisdom+=1
+		self.special_qualities+=['dwarven_toughness']
