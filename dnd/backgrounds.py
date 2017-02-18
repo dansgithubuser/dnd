@@ -1,6 +1,9 @@
-#general formula for background:
-#2 skill proficiencies
-#2 language or tool proficiencies
+class Generic:
+	def __init__(self, **kwargs):
+		if kwargs.get('new', False): self.choices.update({
+			'background skills': 'any 2',
+			'background languages or tools': 'any 2',
+		})
 
 class FolkHero:
 	def __init__(self):

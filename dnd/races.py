@@ -1,7 +1,7 @@
 import base
 
 class Gendered(base.Entity):
-	def __init__(self, gender='mf'):
+	def __init__(self, gender='mf', **kwargs):
 		if len(gender)>1: gender=base.pick(gender)
 		self.gender=gender
 
@@ -18,6 +18,11 @@ class Human(Gendered):
 		self.wisdom+=1
 		self.charisma+=1
 		self.languages=['common']
+		if kwargs.get('new', False): self.choices={
+			'age': (18, 80),
+			'height': (5, 6),
+			'language': 'one extra language',
+		}
 
 class Elf(Gendered):
 	def __init__(self, **kwargs):
@@ -29,12 +34,20 @@ class Elf(Gendered):
 		self.special_qualities=['darkvision', 'fey_ancestry', 'trance']
 		self.proficiencies=['perception']
 		self.languages=['common', 'elvish']
+		if kwargs.get('new', False): self.choices={
+			'age': (100, 750),
+			'height': (5, 6),
+		}
 
 class HighElf(Elf):
 	def __init__(self, **kwargs):
 		Elf.__init__(self, **kwargs)
 		self.intelligence+=1
 		self.proficiencies+=['longsword', 'shortsword', 'shortbow', 'longbow']
+		if kwargs.get('new', False): self.choices.update({
+			'cantrip': 'one wizard cantrip',
+			'language': 'one extra language',
+		})
 
 class WoodElf(Elf):
 	def __init__(self, **kwargs):
