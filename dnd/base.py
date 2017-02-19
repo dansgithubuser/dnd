@@ -254,7 +254,9 @@ class Entity:
 
 	def proficiency(self, what):
 		if what not in key(self, [], 'proficiencies'): return 0
-		return key(self, 2, 'proficiency_bonus')
+		r=key(self, 2, 'proficiency_bonus')
+		if what in key(self, [], 'expertise'): r*=2
+		return r
 
 	def disadvantages(self):
 		result=[]
@@ -286,6 +288,7 @@ class Entity:
 		if type(points)==int: self.hp-=points
 		else:
 			for t, p in points.items():
+				if t in key(self, [], 'vulnerabilities'): p*=2
 				if t in key(self, [], 'resistances'): p/=2
 				if t in key(self, [], 'damage_immunities'): p=0
 				self.hp-=p

@@ -7,7 +7,7 @@ class Kobold(base.Entity):
 		self.type='kobold'
 		self.size='small'
 		self.hit_dice='2d6+-2'
-		self.alignment='lawful evil'
+		self.alignment=['lawful', 'evil']
 		self.proficiencies=['dagger', 'sling']
 		self.wearing=['dagger', 'sling']
 		self.speed=30
@@ -19,6 +19,7 @@ class Kobold(base.Entity):
 		self.charisma=8
 		self.special_qualities=['darkvision']
 		self.languages=['common', 'draconic']
+		self.challenge_rating=1.0/8
 		self.roll_stats()
 
 class DireBadger(base.Entity):
@@ -303,3 +304,103 @@ class TypicalHumanArcher(races.Human):
 		self.carrying=[]
 		if base.maybe(): self.carrying+=[{'gp': base.rn(5)}]
 		if base.maybe(): self.carrying+=[{'sp': base.rn(20)}]
+
+class Dretch(base.Entity):
+	'''A typical demon for practicing summoners to call forth. They are lazy, untrustworthy, and out to cause a ruckus. Their arms drag on the floor, they have a backward-hunched back, and ears as long as their head.'''
+	def __init__(self):
+		self.type='fiend'
+		self.size='small'
+		self.alignment=['chaotic', 'evil']
+		self.hit_dice='4d6+4'
+		self.speed=20
+		self.natural_armor=1
+		self.attacks=[
+			('bite', 2, '1d6 PIERCING'),
+			('claws', 2, '2d4 SLASHING'),
+		]
+		self.special_qualities=['darkvision']
+		self.spells=[['message']]
+		self.languages=['abyssal']
+		self.damage_immunities=['poison']
+		self.condition_immunities=['poison']
+		self.resistances=['cold', 'fire', 'lightning']
+		self.strength=11
+		self.dexterity=11
+		self.constitution=12
+		self.intelligence=5
+		self.wisdom=8
+		self.charisma=3
+		self.challenge_rating=1.0/4
+		self.roll_stats()
+
+class FlyingWeapon(base.Entity):
+	def __init__(self, type='dagger'):
+		self.type='construct'
+		self.size='small'
+		self.natural_armor=5
+		self.hit_dice='5d6'
+		self.speed={'land': 0, 'fly': 50}
+		self.strength=12
+		self.dexterity=15
+		self.constitution=11
+		self.intelligence=1
+		self.wisdom=5
+		self.charisma=1
+		self.proficiencies=['dexterity_saving_throw']
+		self.special_qualitites=['blindsight']
+		self.damage_immunities=['poision', 'psychic']
+		self.condition_immunities=[
+			'blinded', 'charmed', 'deafened', 'frightened', 'paralyzed',
+			'petrified', 'poisoned',
+		]
+		self.challenge_rating=1.0/4
+		self.wearing=[type]
+		self.roll_stats()
+
+class Goblin(races.Gendered):
+	def __init__(self, **kwargs):
+		self.type='goblin'
+		self.size='small'
+		self.alignment=['neutral', 'evil']
+		self.hit_dice='2d6'
+		self.speed=30
+		self.strength=8
+		self.dexterity=14
+		self.constitution=10
+		self.intelligence=10
+		self.wisdom=8
+		self.charisma=8
+		races.Gendered.__init__(self, **kwargs)
+		self.special_qualitites=['darkvision']
+		self.proficiencies=['stealth', 'shortbow', 'scimitar']
+		self.expertise=['stealth']
+		self.languages=['common', 'goblin']
+		self.challenge_rating=1.0/4
+		self.wearing=['leather_armor', 'shield', 'scimitar']
+		self.carrying=['shortbow']
+		self.name=names.goblin()
+		self.roll_stats()
+
+class Skeleton(base.Entity):
+	def __init__(self):
+		self.type='undead'
+		self.size='medium'
+		self.natural_armor=1
+		self.hit_dice='2d8+4'
+		self.speed=30
+		self.strength=10
+		self.dexterity=14
+		self.constitution=15
+		self.intelligence=6
+		self.wisdom=8
+		self.charisma=5
+		self.special_qualities=['darkvision']
+		self.condition_immunities=['exhaustion', 'poison']
+		self.damage_immunities=['poison']
+		self.vulnerabilities=['bludgeoning']
+		self.challenge_rating=1.0/4
+		self.proficiencies=['shortsword', 'shortbow']
+		self.wearing=['shortsword']
+		self.carrying=['shortbow']
+		self.proficiencies=['shortsword', 'shortbow']
+		self.roll_stats()
