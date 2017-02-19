@@ -6,7 +6,7 @@ except:
 	print('I need to install websocket-server. Enter y if this is OK.')
 	if input()!='y': import sys; sys.exit(1)
 	import subprocess
-	subprocess.check_call('pip install websocket-server', shell=True)
+	subprocess.check_call('sudo pip install websocket-server', shell=True)
 
 from websocket_server import WebsocketServer
 
