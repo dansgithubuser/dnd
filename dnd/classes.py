@@ -621,3 +621,77 @@ class Paladin(Standard):
 			self.carrying=['holy_symbol']
 
 	def spellcasting_ability(self): return self.charisma
+
+class Warlock(Standard):
+	def __init__(self, level, **kwargs):
+		Standard.__init__(self, level)
+		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		base.add(self, 'proficiencies', [
+			'light_armor',
+			'wisdom_saving_throw', 'charisma_saving_throw',
+		]+items.simple_weapons, base.union)
+		base.add(self, 'features', _Progression([
+			['otherworldly_patron', 'pact_magic'],
+			['eldritch_invocations'],
+			['pact_boon'],
+			['ability_score_improvement'],
+			[],
+			['otherworldly_patron'],
+			[],
+			['ability_score_improvement'],
+			[],
+			['otherworldly_patron'],
+			['mystic_arcanum'],
+			['ability_score_improvement'],
+			['mystic_arcanum'],
+			['otherworldly_patron'],
+			['mystic_arcanum'],
+			['ability_score_improvement'],
+			['mystic_arcanum'],
+			[],
+			['ability_score_improvement'],
+			['eldritch_master'],
+		], level), base.plus)
+		base.add(self, 'slots', [
+			[0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[1, 0, 0, 0, 0, 0, 0, 0, 0],
+			[2, 0, 0, 0, 0, 0, 0, 0, 0],
+			[0, 2, 0, 0, 0, 0, 0, 0, 0],
+			[0, 2, 0, 0, 0, 0, 0, 0, 0],
+			[0, 0, 2, 0, 0, 0, 0, 0, 0],
+			[0, 0, 2, 0, 0, 0, 0, 0, 0],
+			[0, 0, 0, 2, 0, 0, 0, 0, 0],
+			[0, 0, 0, 2, 0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 2, 0, 0, 0, 0],
+			[0, 0, 0, 0, 2, 0, 0, 0, 0],
+			[0, 0, 0, 0, 3, 0, 0, 0, 0],
+			[0, 0, 0, 0, 3, 0, 0, 0, 0],
+			[0, 0, 0, 0, 3, 0, 0, 0, 0],
+			[0, 0, 0, 0, 3, 0, 0, 0, 0],
+			[0, 0, 0, 0, 3, 0, 0, 0, 0],
+			[0, 0, 0, 0, 3, 0, 0, 0, 0],
+			[0, 0, 0, 0, 4, 0, 0, 0, 0],
+			[0, 0, 0, 0, 4, 0, 0, 0, 0],
+			[0, 0, 0, 0, 4, 0, 0, 0, 0],
+			[0, 0, 0, 0, 4, 0, 0, 0, 0],
+		][level], lambda old, new: [old[i]+new[i] for i in range(9)])
+		self.cantrips=2
+		if level>=4: self.cantrips+=1
+		if level>=10: self.cantrips+=1
+		self.spells=[0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15][level]
+		self.invocations=[0, 0, 2, 2, 2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8][level]
+		if kwargs.get('new', False):
+			base.add(self, 'choices', {
+				'2 warlock skills': [
+					'arcana', 'deception', 'history', 'intimidation',
+					'investigation', 'nature', 'religion',
+				],
+				'warlock weapon': [['light_crossbow', 'quiver']]+items.simple_weapons,
+				'warlock weapon 2': items.simple_weapons,
+				'warlock junk': ['component_pouch', 'arcane_focus'],
+				'warlock pack': ['scholars_pack', 'dungeoneers_pack'],
+				'warlock alternate gp': '4d4*10',
+			}, base.dict_add)
+			self.wearing=['leather_armor', 'dagger', 'dagger']
+
+	def spellcasting_ability(self): return self.charisma
