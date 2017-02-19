@@ -2,6 +2,25 @@ import base, classes, names, races, spells
 
 import random
 
+class Kobold(base.Entity):
+	def __init__(self):
+		self.type='kobold'
+		self.size='small'
+		self.hit_dice='2d6+-2'
+		self.alignment='lawful evil'
+		self.proficiencies=['dagger', 'sling']
+		self.wearing=['dagger', 'sling']
+		self.speed=30
+		self.strength=7
+		self.dexterity=15
+		self.constitution=9
+		self.intelligence=8
+		self.wisdom=7
+		self.charisma=8
+		self.special_qualities=['darkvision']
+		self.languages=['common', 'draconic']
+		self.roll_stats()
+
 class DireBadger(base.Entity):
 	'''These vicious creatures tolerate no intrusions. They cannot burrow into solid rock, but can move through just about any material softer than that. A dire badger usually leaves behind a usable tunnel 5 feet in diameter when burrowing unless the material it's moving through is very loose.
 

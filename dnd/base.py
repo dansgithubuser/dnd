@@ -119,6 +119,7 @@ def roll(request, vantage=0, on_roll=typical_roll):
 		if y: t=y
 		x[t]+=sum(a[i][1])
 	if len(x)==1 and not x.items()[0][0]: return x.items()[0][1]
+	if len(x)==2 and '' in x.keys(): return {[i for i in x.keys() if i][0]: sum([i for i in x.values()])}
 	return x
 
 def modifier(stat): return (stat-10)//2
