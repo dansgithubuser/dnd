@@ -291,6 +291,7 @@ class Entity:
 				n, t=number_and_type(points)
 				points={t: n}
 			for t, p in points.items():
+				t=t.lower()
 				if t in key(self, [], 'vulnerabilities'): p*=2
 				if t in key(self, [], 'resistances'): p/=2
 				if t in key(self, [], 'damage_immunities'): p=0
