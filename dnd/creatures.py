@@ -58,7 +58,7 @@ A dire badger is from 5 to 7 feet in length and can weigh up to 500 pounds.'''
 			self.constitution+=4
 			self.natural_armor-=2
 			print('raged')
-		Entity.damage(self, amount)
+		base.Entity.damage(self, amount)
 
 class Witherweed(base.Entity):
 	'''Thistle-like plant that grows in mounds.
@@ -225,7 +225,7 @@ class DireWolverine(base.Entity):
 			self.constitution+=4
 			self.natural_armor-=2
 			print('raged')
-		Entity.damage(self, amount)
+		base.Entity.damage(self, amount)
 
 class Blazehawk(base.Entity):
 	'''Blazehawks are red birds that resemble hawks that are enwreathed in flame, and the effects of fire have dampened effect on them. They build nests in high mountains, but rarely attack travellers, sometimes even assisting them in severe cold by starting small fires. Understands primordial language but can't speak it.'''
