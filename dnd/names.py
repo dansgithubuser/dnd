@@ -181,7 +181,7 @@ def human(gender):
 			'marcel', 'malcolm', 'milhous',
 			'nathaniel', 'neville', 'nigel',
 			'oswald', 'octavio',
-			'pierre', 'percy',
+			'pierre', 'percy', 'patrick',
 			'qentin', 'qincy',
 			'robert', 'raymond', 'rudolph',
 			'stephen', 'sebastian', 'stuart', 'sylvester',
