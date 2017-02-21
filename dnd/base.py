@@ -287,6 +287,9 @@ class Entity:
 		old_hp=self.hp
 		if type(points)==int: self.hp-=points
 		else:
+			if type(points)==str:
+				n, t=number_and_type(points)
+				points={t: n}
 			for t, p in points.items():
 				if t in key(self, [], 'vulnerabilities'): p*=2
 				if t in key(self, [], 'resistances'): p/=2
