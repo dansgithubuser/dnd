@@ -1,0 +1,28 @@
+Making a Character v1 (D&D 5e)
+
+A character in D&D is defined by a suite of "features". These features can be split into two categories: "hard" and "soft". Hard features figure into the mechanics of the game and need to be defined up front. Soft features are things like your character's backstory and personality, and they can change or gain further details as you play -- as long as you don't contradict the story so far.
+
+Your character sheet has a lot of features to fill in. Some of them are soft and they'll be left alone until you see fit. There are also plenty of hard features that are derived from other hard features. Let's call hard features that are not derived from other hard features "independent".
+
+Independent features are as follows: stats, race, class, and background.
+
+There are two particularly interesting ways to make a character. The first, called class-first, allows you to pick a playstyle and optimize your character's genetic traits for it. The second, called genes-first, forces you to have random genetic traits -- you lose control over your playstyle but may end up with a more powerful character.
+
+=====Class-First=====
+Look through the available classes and find the one that most appeals to you. You are that class, level 1.
+
+Your stats are the following numbers, filled in how you see fit: 15, 14, 13, 12, 10, 8. For example, a level 1 fighter might choose 15 str, 8 dex, 14 con, 10 int, 12 wis, 13 cha.
+
+Pick a race. You might want to choose based on how your race affects your stats.
+
+=====Genes-First=====
+Roll 4d6 and remove the lowest. Write that number into your str. Repeat for dex, con, int, wis, and cha.
+
+Roll a d6. Index this list by the roll: human, dwarf, elf, gnome, dragonborn, tiefling. If you want to be a race that isn't in this list, revise the list with the DM.
+
+Pick a class.
+
+=====Background=====
+All players can pick how their character's background affected their hard features, even if they haven't worked out the character's background yet. In particular:
+1) pick two skill proficiencies
+2) pick two language or tool proficiencies
