@@ -1,0 +1,9 @@
+=====Human=====
+You're a human, which is so refreshingly normal, unlike the rest of the junk in the world.
+
++1 to each stat
+age: 18 to 80
+height: 5 to 6
+weight: 100 to 180
+speed: 30
+languages: common, one of your choice

@@ -1,0 +1,41 @@
+=====Elf=====
+You don't work in a toy factory or serve humans -- you're a proper elf. You love things like plants, animals, complex etiquette, and being xenophobic. You're pretty androgynous to most other races. You'll engage anyone in a political debate, likely arguing for some typical elven brand of anarchy that you're convinced is unique and works really well.
+
++2 dex
+age: 100 to 750
+height: 5 to 6
+weight: 100 to 145
+languages: common, elven
+
+You have darkvision.
+You are proficient in perception.
+You have fey ancestry: you have advantage on saving throws against being charmed, and magic can't put you to sleep.
+Instead of sleeping like the rest of the world, you go into a trance for 4 hours.
+
+=====Subraces=====
+Elves are further split into subraces; pick one.
+
+-----High Elf-----
++1 int
+speed: 30
+You have proficiency with longsword, shortsword, shortbow, and longbow.
+You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.
+You know one extra language of your choice.
+
+-----Wood Elf-----
++1 wis
+speed: 35
+You have proficiency with longsword, shortsword, shortbow, and longbow.
+You can attempt to hide under minimal natural cover. You call this "Mask of the Wild".
+
+-----Dark Elf (Drow)-----
+Your skin is obsidian-black.
++1 cha
+speed: 30
+You have superior darkvision.
+You have sunlight sensitivity: you have disadvantage on attack rolls and perception checks that rely on sight where sunlight is involved.
+You know the dancing lights cantrip.
+When you reach 3rd level, you can cast faerie fire once per day.
+When you reach 5th level, you can cast the darkness spell once per day.
+Charisma is your spellcasting ability for the aforementioned spells.
+You have proficiency with rapiers, shortswords, and hand crossbows.

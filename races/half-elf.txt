@@ -1,0 +1,14 @@
+=====Half-Elf=====
+Despite your parents promise to be unlike every other human-elf parents they've heard of, your elf parent thinks you're a boor, and you bully your human parent. You're also probably infertile.
+
++2 cha
++1 to two other ability scores
+age: 20 to 180
+height: 5 to 6
+weight: 100 to 160
+speed: 30
+languages: common, elven, one of your choice
+
+You have darkvision.
+You have fey ancestry: you have advantage on saving throws against being charmed, and magic can't put you to sleep.
+You are proficient in two skills of your choice.

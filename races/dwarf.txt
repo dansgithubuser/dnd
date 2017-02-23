@@ -1,0 +1,27 @@
+=====Dwarf=====
+Beers, beards, battleaxes, and stalagmites. You're a dwarf. Most dwarves believe in order and fair play.
+
++2 con
+age: 50 to 350
+height: 4 to 5
+weight: about 150
+speed: 25
+languages: common, dwarvish
+
+You are uninhibited by heavy armor whose strength requirement exceeds your own.
+You have darkvision.
+You have dwarven resilience: advantage on saving throws against poison and resistance against poison damage.
+You have proficiency with battleaxes, handaxes, light hammers, and warhammers.
+You have proficiency with one of smith's, brewer's, or mason's tools.
+You are stonecunning: you are considered an expert when making a history check related to stonework.
+
+=====Subraces=====
+Dwarves are further split into subraces; pick one.
+
+-----Hill Dwarf-----
++1 wis
+You have dwarven toughness: your max hp increases by 1, and it increases by 1 every time you gain a level.
+
+-----Mountain Dwarf-----
++2 str
+You have proficiency with light and medium armor.

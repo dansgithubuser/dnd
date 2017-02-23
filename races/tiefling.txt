@@ -1,0 +1,17 @@
+=====Tiefling=====
+You're a demon-looking humanoid. Generations ago, your human ancestors made a deal with a devil.
+
++2 cha
++1 int
+age: 18 to 85
+height: 5 to 6
+weight: 100 to 180
+speed: 30
+languages: common, infernal
+
+You have darkvision.
+You have resistance to fire damage.
+You know the thaumaturgy cantrip.
+When you reach 3rd level, you can cast hellish rebuke as a 2nd-level spell. You cannot do this again until you finish a long rest.
+When you reach 5th level, you can cast darkness. You cannot do this again until you finish a long rest.
+Charisma is your spellcasting ability for the aforementioned spells.

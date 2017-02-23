@@ -1,0 +1,25 @@
+=====Gnome=====
+Gnomes tend to be playful inventors, explorers, and investigators. Some gnomes call their home (typically a burrow) their garden.
+
++2 int
+age: 40 to 350
+height: 3 to 4 (unlike the other commonly playable races, you are considered small)
+weight: about 40
+speed: 25
+languages: common, gnomish
+
+You have darkvision.
+You have gnome cunning: you have advantage on mental saving throws against magic.
+
+=====Subraces=====
+Gnomes are further split into subraces; pick one.
+
+-----Forest Gnome-----
++1 dex
+You know the minor illusion cantrip. Intelligence is your spellcasting ability for it.
+You can speak with small beasts.
+
+-----Rock Gnome-----
++1 con
+If you are proficient in history, when you make a history check related to magic items, alchemical objects, or technological devices, you are considered an expert.
+You have proficiency with tinker's tools.

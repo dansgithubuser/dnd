@@ -1,0 +1,28 @@
+=====Dragonborn=====
+A dragonborn is a humanoid reptilian. You look like a dinosaur doing people things. You don't have wings. Sometime long ago your human and dragon ancestors partook in some combination of love, magic, and alcohol. You tend toward extremes.
+
++2 str, +1 cha
+age: 15 to 80
+height: 6 to 7
+weight: about 250
+speed: 30
+languages: common, draconic
+
+You have a breath weapon; its traits are dictated by your skin color.
+COLOR  TYPE      SHAPE SAVE
+black  acid      line  dex
+blue   lightning line  dex
+brass  fire      line  dex
+bronze lightning line  dex
+copper acid      line  dex
+gold   fire      cone  dex
+green  poison    cone  con
+red    fire      cone  dex
+silver cold      cone  con
+white  cold      cone  con
+
+When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level.
+
+After you use your breath weapon, you can't use it again until you complete a short or Long Rest.
+
+You have resistance to the damage type of your breath weapon.

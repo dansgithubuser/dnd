@@ -48,6 +48,7 @@ class HighElf(Elf):
 		if kwargs.get('new', False): self.choices.update({
 			'cantrip': 'one wizard cantrip',
 			'language': 'one extra language',
+			'weight': (100, 145),
 		})
 
 class WoodElf(Elf):
