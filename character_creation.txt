@@ -1,6 +1,5 @@
-Making a Character v1 (D&D 5e)
-
-A character in D&D is defined by a suite of "features". These features can be split into two categories: "hard" and "soft". Hard features figure into the mechanics of the game and need to be defined up front. Soft features are things like your character's backstory and personality, and they can change or gain further details as you play -- as long as you don't contradict the story so far.
+=====Making a Character (v1)======
+A character in D&D 5e is defined by a suite of "features". These features can be split into two categories: "hard" and "soft". Hard features figure into the mechanics of the game and need to be defined up front. Soft features are things like your character's backstory and personality, and they can change or gain further details as you play -- as long as you don't contradict the story so far.
 
 Your character sheet has a lot of features to fill in. Some of them are soft and they'll be left alone until you see fit. There are also plenty of hard features that are derived from other hard features. Let's call hard features that are not derived from other hard features "independent".
 

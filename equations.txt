@@ -1,0 +1,28 @@
+=====Equations=====
+note: When dividing, round down.
+
+ability modifier = (ability score - 10) / 2
+initiative = dex modifier
+max hp at level 1 = hit dice + con modifier
+proficiency bonus = 2 + (level - 1) / 4
+x proficiency = proficiency bonus if proficient in x, otherwise 0
+skill modifier = corresponding ability modifier + skill proficiency
+passive perception = 10 + perception modifier
+
+melee attack bonus = str modifier + weapon proficiency
+finesse attack bonus = max(str modifier, dex modifier) + weapon proficiency
+ranged attack bonus = dex modifier + weapon proficiency
+
+melee attack damage = str modifier + weapon damage
+finesse attack damage = max(str modifier, dex modifier) + weapon damage
+ranged attack damage = dex modifier + weapon damage
+
+armor class
+if you are not wearing armor, start with 10
+otherwise start with the armor class of the armor you're wearing
+if you are wearing light armor, add your dex modifier
+if you are wearing medium armor, add min(dex modifier, 2)
+if you are using a shield, add 2
+
+spell attack bonus = spellcasting ability modifier + proficiency bonus
+spell save dc = 8 + spell attack bonus
