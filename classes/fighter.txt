@@ -1,0 +1,49 @@
+=====Fighter Class=====
+You use weapons and armor with exceptional skill.
+
+hit die: d10
+proficiencies
+	armor: light armor, medium armor, heavy armor, shields
+	weapons: simple weapons, martial weapons
+	saving throws: str, con
+	skills: choose 2 skills from
+		acrobatics
+		animal handling
+		athletics
+		history
+		insight
+		intimidation
+		perception
+		survival
+equipment
+	chain mail or leather armor and a longbow
+	a martial weapon
+	a shield or a martial weapon
+	a light crossbow or two handaxes
+	a dungeoneers's pack or an explorer's pack
+
+=====Second Wind=====
+You have a limited well of stamina that you can draw on to protect you rself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. Once you use this feature, you must finish a short or long rest before you can use it again.
+
+=====Fighting Style=====
+Choose a fighting style.
+
+-----Archery-----
++2 to attack rolls with ranged weapons
+
+-----Defense-----
++1 to AC while wearing armor
+
+-----Dueling-----
+When you are wielding a melee weapon in one hand and no other weapons, +2 to damage with that weapon.
+
+-----Great Weapon Fighting-----
+When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with
+two hands, you can reroll the die.
+
+-----Protection-----
+When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your
+reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+
+-----Two-Weapon Fighting-----
+When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.

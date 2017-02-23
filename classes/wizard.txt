@@ -1,0 +1,28 @@
+=====Wizard Class=====
+Your connection to magic was formed by hard work and study.
+
+hit die: d6
+proficiencies
+	weapons: daggers, darts, slings, quarterstaffs, light crossbows
+	saving throws: int, wis
+	skills: choose 2 skills from
+		arcana
+		history
+		insight
+		investigation
+		medicine
+		religion
+equipment
+	a quarterstaff or dagger
+	a component pouch or an arcane focus
+	a scholar's pack or an explorer's pack
+	a spellbook
+3 wizard cantrips of your choice
+6 level 1 wizard spells of your choice
+2 level 1 spell slots
+Your spellcasting ability is int.
+You can cast appropriate spells as rituals.
+You need to prepare spells to cast them. The number of spells you can prepare is max(int modifier, 0) + your wizard level.
+
+=====Arcane Recovery=====
+Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.

@@ -3,9 +3,12 @@ note: When dividing, round down.
 
 ability modifier = (ability score - 10) / 2
 initiative = dex modifier
-max hp at level 1 = hit dice + con modifier
+max hp at level 1 = hit die + con modifier
 proficiency bonus = 2 + (level - 1) / 4
-x proficiency = proficiency bonus if proficient in x, otherwise 0
+x proficiency =
+	2 x proficiency bonus if expert in x
+	proficiency bonus if proficient in x
+	otherwise 0
 skill modifier = corresponding ability modifier + skill proficiency
 passive perception = 10 + perception modifier
 saving throw modifier = corresponding ability modifier + saving throw proficiency

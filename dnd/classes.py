@@ -400,7 +400,7 @@ class Sorcerer(Spellcaster):
 
 	def spellcasting_ability(self): return self.charisma
 
-class Ranger(Spellcaster):
+class Ranger(Standard):
 	def __init__(self, level, **kwargs):
 		Spellcaster.__init__(self, level, **kwargs)
 		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
@@ -430,6 +430,29 @@ class Ranger(Spellcaster):
 			['ability_score_improvement'],
 			['foe_slayer'],
 		], level), base.plus)
+		base.add(self, 'slots', [
+			[0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[2, 0, 0, 0, 0, 0, 0, 0, 0],
+			[3, 0, 0, 0, 0, 0, 0, 0, 0],
+			[3, 0, 0, 0, 0, 0, 0, 0, 0],
+			[4, 2, 0, 0, 0, 0, 0, 0, 0],
+			[4, 2, 0, 0, 0, 0, 0, 0, 0],
+			[4, 3, 0, 0, 0, 0, 0, 0, 0],
+			[4, 3, 0, 0, 0, 0, 0, 0, 0],
+			[4, 3, 2, 0, 0, 0, 0, 0, 0],
+			[4, 3, 2, 0, 0, 0, 0, 0, 0],
+			[4, 3, 3, 0, 0, 0, 0, 0, 0],
+			[4, 3, 3, 0, 0, 0, 0, 0, 0],
+			[4, 3, 3, 1, 0, 0, 0, 0, 0],
+			[4, 3, 3, 1, 0, 0, 0, 0, 0],
+			[4, 3, 3, 2, 0, 0, 0, 0, 0],
+			[4, 3, 3, 2, 0, 0, 0, 0, 0],
+			[4, 3, 3, 3, 1, 0, 0, 0, 0],
+			[4, 3, 3, 3, 1, 0, 0, 0, 0],
+			[4, 3, 3, 3, 2, 0, 0, 0, 0],
+			[4, 3, 3, 3, 2, 0, 0, 0, 0],
+		][level], lambda old, new: [old[i]+new[i] for i in range(9)])
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'3 ranger skills': [
@@ -441,6 +464,9 @@ class Ranger(Spellcaster):
 				'ranger weapon 2': items.simple_weapons,
 				'ranger pack': ['dungeoneers_pack', 'explorers_pack'],
 				'ranger alternate gp': '5d4*10',
+			}, base.dict_add)
+			if level>1: base.add(self, 'choices', {
+				'ranger spells': 1+level//2
 			}, base.dict_add)
 			self.wearing=['longbow']
 			self.carrying=['quiver']

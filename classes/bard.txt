@@ -1,0 +1,27 @@
+=====Bard Class=====
+You have a connection with magic that you can harness with music and spoken word. Your brand of magic is mostly supportive.
+
+hit die: d8
+proficiencies
+	armor: light armor
+	weapons: simple weapons, hand crossbows, longswords, rapiers, shortswords
+	tools: 3 musical instruments of your choice
+	saving throws: dex, cha
+	skills: choose any 3
+equipment
+	rapier, longsword, or a simple weapon
+	diplomat's pack or entertainer's pack
+	a musical instrument of your choice
+	leather armor and a dagger
+2 bard cantrips of your choice
+4 level 1 bard spells of your choice
+2 level 1 spell slots
+Your spellcasting ability is cha.
+You can cast appropriate spells as rituals.
+
+=====Bardic Inspiration=====
+You can inspire others through stirring words or music. To do so, you use a bonus action to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one bardic inspiration die, a d6.
+
+Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the bardic inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the bardic inspiration die is rolled, it is lost. A creature can have only one bardic inspiration die at a time.
+
+You can use this feature a number of times equal to your cha modifier (a minimum of once). You regain any expended uses when you finish a long rest.

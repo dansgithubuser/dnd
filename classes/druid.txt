@@ -1,0 +1,30 @@
+=====Druid Class=====
+You access magic through a relationship with nature.
+
+hit die: d8
+proficiencies
+	armor: light armor, medium armor, shields
+	weapons: clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears
+	tools: herbalism kit
+	saving throws: int, wis
+	skills: choose 2 skills from
+		arcana
+		animal handling
+		insight
+		medicine
+		nature
+		perception
+		religion
+		survival
+equipment
+	a wooden shield or a simple weapon
+	a scimitar or any simple melee weapon
+	leather armor, an explorer's pack, and a druidic focus
+2 druid cantrips of your choice
+2 level 1 spell slots
+Your spellcasting ability is wis.
+You can cast appropriate spells as rituals.
+You need to prepare spells to cast them. The number of spells you can prepare is max(wis modifier, 0) + your druid level.
+
+=====Druidic=====
+You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 perception check but can't decipher it without magic.

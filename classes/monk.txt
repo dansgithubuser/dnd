@@ -1,0 +1,33 @@
+=====Monk Class=====
+You fight with your body.
+
+hit die: d8
+proficiencies
+	weapons: simple weapons, shortswords
+	tools: a type of artisan's tools or a musical instrument
+	saving throws: str, dex
+	skills: choose 2 skills from
+		acrobatics
+		athletics
+		history
+		insight
+		religion
+		stealth
+equipment
+	a shortsword or a simple weapon
+	a dungeoneers's pack or an explorer's pack
+	10 darts
+
+=====Unarmored Defense=====
+While you are wearing no armor and not wielding a shield, your AC equals 10 + dex modifier + wis modifier.
+
+=====Martial Arts=====
+Your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don't have the two-handed or heavy property.
+
+You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield.
+
+Unarmed strikes and monk weapons act as if they had the finesse property for you.
+
+You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon.
+
+When you attack with an unarmed strike or a monk weapon, you can make one unarmed strike as a bonus action.

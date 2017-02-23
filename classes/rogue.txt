@@ -1,0 +1,35 @@
+=====Rogue Class=====
+You're sneaky and skillful.
+
+hit die: d8
+proficiencies
+	armor: light armor
+	weapons: simple weapons, hand crossbows, longswords, rapiers, shortswords
+	tools: thieves' tools
+	saving throws: dex, int
+	skills: choose 4 skills from
+		acrobatics
+		athletics
+		deception
+		insight
+		intimidation
+		investigation
+		perception
+		performance
+		persuasion
+		sleight of hand
+		stealth
+equipment
+	a rapier or shortsword
+	a shortbow or a shortsword
+	a burglar's pack, a dungeoneers's pack, or an explorer's pack
+	leather armor, two daggers, and thieves' tools
+
+=====Expertise=====
+You are an expert in two skills of your choice that you are proficient in.
+
+=====Sneak Attack=====
+Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.
+
+=====Thieves' Cant=====
+During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves’ cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly. In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safehouse for thieves on the run.

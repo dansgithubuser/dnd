@@ -1,0 +1,41 @@
+=====Warlock Class=====
+You made a deal with a devil.
+
+hit die: d8
+proficiencies
+	armor: light armor
+	weapons: simple weapons
+	saving throws: wis, cha
+	skills: choose 2 skills from
+		arcana
+		deception
+		history
+		intimidation
+		investigation
+		nature
+		religion
+equipment
+	a light crossbow or a simple weapon
+	a simple weapon
+	a component pouch or an arcane focus
+	a scholar's pack or a dungeoneers's pack
+	leather armor and two daggers
+2 warlock cantrips of your choice
+2 level 1 warlock spells of your choice
+1 level 1 spell slots
+Your spellcasting ability is cha.
+
+=====Otherworldly Patrons=====
+Choose which otherworldly patron you made a pact with. Spells associated with a patron are also available for you to learn.
+
+-----The Archfey-----
+spells: faerie fire, sleep
+fey presence: As an action, you can cause each creature in a 10-foot cube originating from you to make a wis saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn. Once you use this feature, you can't use it again until you finish a short or long rest.
+
+-----The Fiend-----
+spells: burning hands, command
+dark one's blessing: when you reduce a hostile creature to 0 hp, you gain temporary hit points equal to your cha modifier + your warlock level (minimum of 1).
+
+-----The Great Old One-----
+spells: dissonant whispers, Tasha's hideous laughter
+awakened mind: You can communicate telepathically with any creature you can see within 30 feet of you. You don’t need to share a language with the creature for it to understand your telepathic utterances, but the creature must be able to understand at least one language.

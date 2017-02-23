@@ -1,0 +1,64 @@
+=====Cleric Class=====
+You access magic through a relationship with a deity.
+
+hit die: d8
+proficiencies
+	armor: light armor, medium armor, shields
+	weapons: simple weapons
+	saving throws: wis, cha
+	skills: choose 2 skills from
+		history
+		insight
+		medicine
+		persuasion
+		religion
+equipment
+	a mace or warhammer
+	scale mail, leather armor, or chain mail
+	light crossbow or a simple weapon
+	priest's pack or explorer's pack
+	a shield and a holy symbol
+3 cleric cantrips of your choice
+2 level 1 spell slots
+Your spellcasting ability is wis.
+You can cast appropriate spells as rituals.
+You need to prepare spells to cast them. The number of spells you can prepare is max(wis modifier, 0) + your cleric level.
+
+=====Divine Domain=====
+Choose a divine domain to focus on. Spells associated with a domain are always prepared and do not count toward your limit.
+
+-----Knowledge-----
+spells: command, identify
+proficiency in 2 languages of your choice
+expertise in 2 of arcana, history, nature, and religion
+
+-----Life-----
+spells: bless, cure wounds
+proficiency with heavy armor
+healing spells of first level and higher heal an extra 2 + spell's level hp
+
+-----Light-----
+spells: burning hands, faerie fire
+you gain the light cantrip
+warding flare: When you are attacked by a creature within 30 feet of you that you can see, you can use your reaction to impose disadvantage on the attack roll. An attacker that can't be blinded is immune to this. You can use this feature a number of times equal to your wis modifier (a minimum of once). You regain
+all expended uses when you finish a long rest.
+
+-----Nature-----
+spells: animal friendship, speak with animals
+one druid cantrip of your choice
+proficiency in one of animal handling, nature, or survival
+proficiency with heavy armor
+
+-----Tempest-----
+spells: fog cloud, thunderwave
+proficiency with martial weapons and heavy armor
+wrath of the storm: You can thunderously rebuke attackers. When a creature within 5 feet of you that you can see hits you with an attack, you can use your reaction to cause the creature to make a dex saving throw. The creature takes 2d8 lightning or thunder damage (your choice) on failure, and half as much on success. You can use this feature a number of times equal to your wis modifier (a minimum of once). You regain all expended uses when you finish a long rest.
+
+-----Trickery-----
+spells: charm person, disguise self
+blessing of the trickster: You can use your action to touch a willing creature other than yourself to give it advantage on stealth checks. This blessing lasts for 1 hour or until you use this feature again.
+
+-----War-----
+spells: divine favor, shield of faith
+proficiency with martial weapons and heavy armor
+war priest: When you attack, you can make one weapon attack as a bonus action. You can use this feature a number of times equal to your wis modifier (a minimum of once). You regain all expended uses when you finish a long rest.

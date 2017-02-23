@@ -1,0 +1,38 @@
+=====Sorceror Class=====
+You have an intuitive connection with magic.
+
+hit die: d6
+proficiencies
+	weapons: daggers, darts, slings, quarterstaffs, light crossbows
+	saving throws: con, cha
+	skills: choose 2 skills from
+		arcana
+		deception
+		insight
+		intimidation
+		persuasion
+		religion
+equipment
+	a light crossbow or a simple weapon
+	a component pouch or an arcane focus
+	a dungeoneer's pack or an explorer's pack
+	two daggers
+4 sorcerer cantrips of your choice
+2 level 1 sorceror spells of your choice
+2 level 1 spell slots
+Your spellcasting ability is cha.
+
+=====Sorcerous Origin=====
+Choose a sorcerous origin.
+
+-----Draconic Bloodline-----
+You know the draconic language.
+
+If you are proficient in some cha skill and use it while interacting with dragons, you are considered expert.
+
+You have draconic resilience: your max hp increases by 1, and it increases by 1 every time you gain a level. As well, if you are not wearing armor, your AC is 13 + dex modifier.
+
+-----Wild Magic-----
+You are prone to wild magic surges: from time to time the DM will inform you of random magical effects you accidentally loose.
+
+Tides of Chaos: You can manipulate the forces of chance and chaos to gain advantage on one attack roll, ability check, or saving throw. Once you do so, you must finish a long rest before you can use this feature again.

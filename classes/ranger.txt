@@ -1,0 +1,35 @@
+=====Ranger Class=====
+You're a hunter and you fight with a bow. You have some access to magic through a relationship with nature.
+
+hit die: d10
+proficiencies
+	armor: light armor, medium armor, shields
+	weapons: simple weapons, martial weapons
+	saving throws: str, dex
+	skills: choose 3 skills from
+		animal handling
+		athletics
+		insight
+		investigation
+		nature
+		perception
+		stealths
+		survival
+equipment
+	scale mail or leather armor
+	two shortswords or two simple melee weapons
+	a dungeoneer's pack or an explorer's pack
+	a longbow
+
+=====Favored Enemy=====
+Choose a type of favored enemy: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can select two races of humanoid (such as gnolls and orcs) as favored enemies. You have advantage on survival checks to track your favored enemies, as well as on int checks to recall information about them. You also learn one language of your choice that is spoken by your favored enemies, if they speak one at all.
+
+=====Natural Explorer=====
+You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, m ountain, swamp, or the underdark. When you make an int or wis check related to your favored terrain, your
+proficiency bonus is doubled if you are using a skill that you’re proficient in. While traveling for an hour or more in your favored terrain, you gain the following benefits:
+- Difficult terrain doesn't slow your group’s travel.
+- Your group can’t become lost except by magical means.
+- Even when you are engaged in another activity while traveling, you remain alert to danger.
+- If you are traveling alone, you can move stealthily at a normal pace.
+- When you forage, you find twice as much food as you normally would.
+- While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area.
