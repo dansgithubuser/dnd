@@ -1,4 +1,4 @@
-=====Gnome=====
+=====Gnome Race=====
 Gnomes tend to be playful inventors, explorers, and investigators. Some gnomes call their home (typically a burrow) their garden.
 
 +2 int

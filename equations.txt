@@ -8,6 +8,7 @@ proficiency bonus = 2 + (level - 1) / 4
 x proficiency = proficiency bonus if proficient in x, otherwise 0
 skill modifier = corresponding ability modifier + skill proficiency
 passive perception = 10 + perception modifier
+saving throw modifier = corresponding ability modifier + saving throw proficiency
 
 melee attack bonus = str modifier + weapon proficiency
 finesse attack bonus = max(str modifier, dex modifier) + weapon proficiency

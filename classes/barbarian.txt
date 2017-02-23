@@ -1,0 +1,13 @@
+=====Barbarian Class=====
+hit dice: 1d12
+proficiencies
+	armor: light armor, medium armor, shields
+	weapons: simple weapons, martial weapons
+	saving throws: str, con
+	skills: choose 2 skills
+		animal handling
+		athletics
+		intimidation
+		nature
+		perception
+		survival

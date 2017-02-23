@@ -1,0 +1,43 @@
+=====Weapons=====
+NAME            COST   DAMAGE           PROPERTIES
+-----simple melee-----
+club             1 sp  1d4 bludgeoning  light
+dagger           2 gp  1d4 piercing     finesse, light, thrown (range 20/60)
+greatclub        2 sp  1d8 bludgeoning  two-handed
+handaxe          5 gp  1d6 slashing     light, thrown (range 20/60)
+javelin          5 sp  1d6 piercing     thrown (range 30/120)
+light hammer     2 gp  1d4 bludgeoning  light, thrown (range 20/60)
+mace             5 gp  1d6 bludgeoning  —
+quarterstaff     2 sp  1d6 bludgeoning  versatile (1d8)
+sickle           1 gp  1d4 slashing     light
+spear            1 gp  1d6 piercing     thrown (range 20/60), versatile (1d8)
+-----simple ranged-----
+light crossbow  25 gp  1d8 piercing     ammunition (range 80/320), loading, two-handed
+dart             5 cp  1d4 piercing     finesse, thrown (range 20/60)
+shortbow        25 gp  1d6 piercing     ammunition (range 80/320), two-handed
+sling            1 sp  1d4 bludgeoning  ammunition (range 30/120)
+-----martial melee-----
+battleaxe       10 gp  1d8 slashing     versatile (1d10)
+flail           10 gp  1d8 bludgeoning
+glaive          20 gp  1d10 slashing    heavy, reach, two-handed
+greataxe        30 gp  1d12 slashing    heavy, two-handed
+greatsword      50 gp  2d6 slashing     heavy, two-handed
+halberd         20 gp  1d10 slashing    heavy, reach, two-handed
+lance           10 gp  1d12 piercing    reach, special
+longsword       15 gp  1d8 slashing     versatile (1d10)
+maul            10 gp  2d6 bludgeoning  heavy, two-handed
+morningstar     15 gp  1d8 piercing
+pike             5 gp  1d10 piercing    heavy, reach, two-handed
+rapier          25 gp  1d8 piercing     finesse
+scimitar        25 gp  1d6 slashing     finesse, light
+shortsword      10 gp  1d6 piercing     finesse, light
+trident          5 gp  1d6 piercing     thrown (range 20/60), versatile (1d8)
+war pick         5 gp  1d8 piercing
+warhammer       15 gp  1d8 bludgeoning  versatile (1d10)
+whip             2 gp  1d4 slashing     finesse, reach
+-----martial ranged-----
+blowgun         10 gp   1 piercing      ammunition (range 25/100), loading
+hand crossbow   75 gp   1d6 piercing    ammunition (range 30/120), light, loading
+heavy crossbow  50 gp   1d10 piercing   ammunition (range 100/400), heavy, loading, two-handed
+longbow         50 gp   1d8 piercing    ammunition (range 150/600), heavy, two-handed
+net              1 gp                   special, thrown (range 5/15)

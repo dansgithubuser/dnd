@@ -1,0 +1,26 @@
+=====Packs=====
+burglar's
+	backpack, ball bearings, string, bell, 5 candles, crowbar, hammer, 10 pitons,
+	hooded lantern, 2 flasks of oil, 5 rations, tinderbox, waterskin, hempen rope
+
+diplomat's
+	chest, 2 scroll cases, fine clothes, ink, pen, lamp, 2 flasks of oil,
+	5 sheets of paper, perfume, sealing wax, soap
+
+dungeoneer's
+	backpack, crowbar, hammer, 10 pitons, 10 torches, tinderbox, 10 rations,
+	waterskin, hempen rope
+
+entertainer's
+	backpack, bedroll, 2 costumes, 5 candle, 5 rations, waterskin, disguise kit
+
+explorer's
+	backpack, bedroll, mess kit, tinderbox, 10 torches, 10 rations, waterskin,
+	hempen rope
+
+priest's
+	backpack, blanket, 10 candles, tinderbox, alms box, 2 blocks of incense,
+	censer, vestments, 2 rations, waterskin
+
+scholar's
+	backpack, book of lore, ink, pen, 10 sheets of parchment, bag of sand, knife

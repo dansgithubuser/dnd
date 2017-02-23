@@ -1,0 +1,20 @@
+=====Armor=====
+A character wearing armor that they are not proficient with has disadvantage on all checks related to str or dex, and can't cast spells.
+A character wearing armor whose strength requirement exceeds their own loses 10 from their speed.
+
+NAME            COST    AC  STR  STEALTH
+-----light-----
+padded            5 gp  11       disadvantage
+leather          10 gp  11
+studded leather  45 gp  12
+-----medium-----
+hide             10 gp  12
+chain shirt      50 gp  13
+scale mail       50 gp  14       disadvantage
+breastplate     400 gp  14
+half plate      750 gp  15       disadvantage
+-----heavy-----
+ring mail        30 gp  14       disadvantage
+chain mail       75 gp  16  13   disadvantage
+splint          200 gp  17  15   disadvantage
+plate         1,500 gp  18  15   disadvantage
