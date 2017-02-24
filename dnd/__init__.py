@@ -1,5 +1,6 @@
 from base import *
-import backgrounds, classes, creatures, items, names, races, skills, test
+import backgrounds, classes, creatures, items, languages, names, races, skills
+import special_qualities, test, tools
 
 traveling={
 	'slow'  : ['200 ft/min', '2 mi/h', '18 mi/day', 'may stealth'],

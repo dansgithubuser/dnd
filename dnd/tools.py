@@ -44,4 +44,4 @@ tools={
 	'thieves_tools': [],
 	'land_vehicles': [],
 	'water_vehicles': [],
-]
+}

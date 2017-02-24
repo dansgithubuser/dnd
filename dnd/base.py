@@ -136,14 +136,15 @@ class Entity:
 		raise AttributeError
 
 	def __setattr__(self, attr, value):
+		self.__dict__[attr]=value
 		if log:
-			with open('log.txt', 'a') as file: file.write('{} {} {}={}\n'.format(
+			if type(value)==str: value="'"+value+"'"
+			with open('log.txt', 'a') as file: file.write("- {} '{}' {}={}\n".format(
 				timestamp(),
 				key(self, '{} {}'.format(self.__class__, hex(id(self))), 'name'),
 				attr,
 				value
 			))
-		self.__dict__[attr]=value
 
 	def show(self, do_print=True):
 		import pprint
@@ -371,6 +372,26 @@ class Entity:
 		print(self.passive_perception())
 		print('----- carrying load -----')
 		self.carrying_load()
+
+def entities_from_log(file_name):
+	import creatures, re
+	with open(file_name) as file:
+		entities={}
+		for line in file.readlines():
+			m=re.match(r"- \d+-\d+-\d+ \d+:\d+:\d+\.\d+ '([^']+)' ([^=]+)=(.+)", line)
+			if not m: continue
+			entity, attr, value=m.groups()
+			variable=entity.replace(' ', '_')
+			value=eval(value)
+			if variable not in entities:
+				class_name=entity.split()[0]
+				if class_name.startswith('dnd.'): class_name=class_name[4:]
+				entities[variable]=eval(class_name)()
+			setattr(entities[variable], attr, value)
+			if attr=='name':
+				entities[value.replace(' ', '_')]=entities[variable]
+				del entities[variable]
+	return entities
 
 class Group:
 	def __init__(self, entities): self.entities=entities
