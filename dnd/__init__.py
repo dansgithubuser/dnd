@@ -31,3 +31,21 @@ exhaustion=[
 ]
 
 def fall_damage(height): return '{}d6'.format(height//10)
+
+def roll_encounter(threshold, rolls):
+	encounters=0
+	for i in range(rolls):
+		if roll('d20')>=threshold: encounters+=1
+	return encounters
+
+def roll_encounter_dangerous(travel_hours=0, day_rest_hours=0, nights=0, sparse=False):
+	return roll_encounter(19 if sparse else 18, int(travel_hours+day_rest_hours*3+nights))
+
+def roll_encounter_uncivilized(days=0.5, sparse=False):
+	return roll_encounter(18 if sparse else 17, int(days*2))
+
+def roll_encounter_well_traveled(days=1):
+	return roll_encounter(20, int(days))
+
+def roll_encounter_hostile(hours=0.25, sparse=False):
+	return roll_encounter(18 if sparse else 17, int(hours*4))
