@@ -10,7 +10,6 @@ standard={
 	'giant': Traits(['ogres', 'giants'], 'common'),
 	'gnomish': Traits(['gnomes'], 'dwarvish'),
 	'goblin': Traits(['goblinoids'], 'dwarvish'),
-	'halfling': Traits(['halflings'], 'common'),
 	'orc': Traits(['orcs'], 'dwarvish'),
 }
 
