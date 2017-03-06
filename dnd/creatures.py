@@ -2,6 +2,28 @@ import base, classes, names, races, spells
 
 import random
 
+class PhaseCentipede(base.Entity):
+	'''A phase centipede will phase to an attacker that misses it. They attack by jumping at the target -- if they miss, they end up behind the target.'''
+	def __init__(self):
+		self.type='vermin'
+		self.size='small'
+		self.hit_dice='1d8+5'
+		self.speed=30
+		self.strength=10
+		self.dexterity=12
+		self.constitution=10
+		self.intelligence=5
+		self.wisdom=8
+		self.charisma=2
+		self.special_qualities=['phase']
+		self.challenge_rating=1.0/8
+		self.natural_armor=2
+		self.attacks=[
+			('jump and bite', 1, '1d4 PIERCING'),
+		]
+		self.organization=['1d20']
+		self.roll_stats()
+
 class Kobold(base.Entity):
 	def __init__(self):
 		self.type='kobold'

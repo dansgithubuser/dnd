@@ -30,6 +30,15 @@ exhaustion=[
 	'dead',
 ]
 
+sizes={
+	'tiny':       {'space':  2.5, 'examples': ['hawk', 'imp', 'rat', 'sprite']},
+	'small':      {'space':  5  , 'examples': ['giant rat', 'goblin', 'kobold', 'gnome']},
+	'medium':     {'space':  5  , 'examples': ['gnoll', 'orc', 'werewolf', 'human', 'elf', 'dwarf', 'dragonborn', 'tiefling']},
+	'large':      {'space': 10  , 'examples': ['chimera', 'hippogriff', 'ogre', 'dire wolverine']},
+	'huge':       {'space': 15  , 'examples': ['cyclops', 'stone giant', 'treant']},
+	'gargantuan': {'space': 20  , 'examples': ['ancient dragon', 'kraken']},
+}
+
 def fall_damage(height): return '{}d6'.format(height//10)
 
 def roll_encounter(threshold, rolls):
