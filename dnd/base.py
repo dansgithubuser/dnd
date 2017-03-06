@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import backgrounds, classes, items, skills, spells
 
 import math, random
@@ -30,6 +32,7 @@ def timestamp(ambiguous=True):
 def key(x, default, *indices):
 	for i in indices:
 		if type(x)==dict and i in x: x=x[i]
+		elif type(i)==int: x=x[i]
 		elif type(i)==str and hasattr(x, i): x=getattr(x, i)
 		else: return default
 	return x
@@ -88,7 +91,7 @@ class AttackRoll:
 		return typical_roll(sides, roll, self.critical_hit, self.critical_miss)
 
 def roll(request, vantage=0, on_roll=typical_roll):
-	print(request)
+	print(request, end=': ')
 	if vantage>0: print('with advantage')
 	if vantage<0: print('with disadvantage')
 	def inner(request, vantage):
@@ -101,7 +104,7 @@ def roll(request, vantage=0, on_roll=typical_roll):
 					[random.randint(1, sides) for i in range(dice)],
 				])
 			else: x.append((i, [number_and_type(i)[0]]))
-		print(x)
+		print(x, end=' --> ')
 		return x
 	def total(x): return sum([sum(i[1]) for i in x])
 	a=inner(request, vantage)
@@ -118,8 +121,9 @@ def roll(request, vantage=0, on_roll=typical_roll):
 		y=split_type(a[i][0])
 		if y: t=y
 		x[t]+=sum(a[i][1])
-	if len(x)==1 and not x.items()[0][0]: return x.items()[0][1]
-	if len(x)==2 and '' in x.keys(): return {[i for i in x.keys() if i][0]: sum([i for i in x.values()])}
+	if len(x)==1 and not x.items()[0][0]: x=x.items()[0][1]
+	elif len(x)==2 and '' in x.keys(): x={[i for i in x.keys() if i][0]: sum([i for i in x.values()])}
+	print(x)
 	return x
 
 def modifier(stat): return (stat-10)//2
@@ -187,8 +191,11 @@ class Entity:
 		attack='d20'
 		stat_mod=modifier(self.strength)
 		if method==None:
-			method=key(self, '', 'attacks', 0)
-			method=[i for i in key(self, [], 'wearing') if 'weapon' in key(items.items, '', i, 'type')][0]
+			method=(
+				key(self, '', 'attacks', 0, 0)
+				or
+				key([i for i in key(self, [], 'wearing') if 'weapon' in key(items.items, '', i, 'type')], '', 0)
+			)
 		print(method)
 		if method=='unarmed': damage='1 BLUDGEONING'
 		elif method in items.items:
