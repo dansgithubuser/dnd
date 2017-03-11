@@ -1,6 +1,6 @@
 import base, classes, names, races, spells
 
-import random
+import random, re
 
 class PhaseCentipede(base.Entity):
 	'''A phase centipede will phase to an attacker that misses it. They attack by jumping at the target -- if they miss, they end up behind the target.'''
@@ -403,26 +403,39 @@ class Goblin(races.Gendered):
 		self.name=names.goblin()
 		self.roll_stats()
 
-class Skeleton(base.Entity):
-	def __init__(self):
+class Skeleton(races.Human,
+	classes.Fighter, classes.Rogue, classes.Ranger, classes.Barbarian,
+	classes.Wizard, classes.Druid, classes.Monk, classes.Sorcerer,
+	classes.Warlock
+):
+	def __init__(self, level=1):
+		stats=base.random_typical_stats().items()
+		for stat, score in stats: setattr(self, stat, score)
+		potential_classes={
+			'strength':     ['Fighter'],
+			'dexterity':    ['Rogue'],
+			'constitution': ['Ranger', 'Barbarian'],
+			'intelligence': ['Wizard'],
+			'wisdom':       ['Druid', 'Monk'],
+			'charisma':     ['Sorcerer', 'Warlock'],
+		}[sorted(stats, key=lambda x: x[1])[0][0]]
+		c=getattr(classes, base.pick(potential_classes))
+		races.Human.__init__(self)
+		c.__init__(self, level, new=True)
+		for name, options in self.choices.items():
+			n=1
+			m=re.match(r'(\d+)', name)
+			if m: n=int(m.group(1))
+			if re.search('skill|weapon|armor', name):
+				picked=base.flatten(base.pick_n(options, n))
+				base.add(self, 'proficiencies', picked, base.union)
+				base.add(self, 'wearing', base.pick_n(picked, 1), base.union)
+			elif 'cantrip' in name:
+				base.add(self, 'spells', base.pick_n(options, n), base.union)
+				print self.spells
 		self.type='undead'
-		self.size='medium'
 		self.natural_armor=1
-		self.hit_dice='2d8+4'
-		self.speed=30
-		self.strength=10
-		self.dexterity=14
-		self.constitution=15
-		self.intelligence=6
-		self.wisdom=8
-		self.charisma=5
-		self.special_qualities=['darkvision']
 		self.condition_immunities=['exhaustion', 'poison']
 		self.damage_immunities=['poison']
 		self.vulnerabilities=['bludgeoning']
-		self.challenge_rating=1.0/4
-		self.proficiencies=['shortsword', 'shortbow']
-		self.wearing=['shortsword']
-		self.carrying=['shortbow']
-		self.proficiencies=['shortsword', 'shortbow']
 		self.roll_stats()

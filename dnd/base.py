@@ -11,8 +11,7 @@ def rn(m): return random.randint(0, m-1)
 def maybe(unlikeliness=2): return not rn(unlikeliness)
 def swap(list, i, j): x=list[i]; list[i]=list[j]; list[j]=x
 
-def pick(list, n=1):
-	if n==1: return list[rn(len(list))]
+def pick_n(list, n):
 	import copy
 	list=copy.deepcopy(list)
 	result=[]
@@ -22,6 +21,17 @@ def pick(list, n=1):
 		del list[j]
 	return result
 
+def pick(list, n=1):
+	if n==1: return list[rn(len(list))]
+	return pick_n(list, n)
+
+def flatten(list):
+	r=[]
+	for i in list:
+		if type(i)==list: r.extend(i)
+		else: r.append(i)
+	return r
+
 def timestamp(ambiguous=True):
 	import datetime
 	format='{:%Y-%m'
@@ -30,12 +40,14 @@ def timestamp(ambiguous=True):
 	return format.format(datetime.datetime.now()).lower()
 
 def key(x, default, *indices):
-	for i in indices:
-		if type(x)==dict and i in x: x=x[i]
-		elif type(i)==int: x=x[i]
-		elif type(i)==str and hasattr(x, i): x=getattr(x, i)
-		else: return default
-	return x
+	try:
+		for i in indices:
+			if type(x)==dict and i in x: x=x[i]
+			elif type(i)==int: x=x[i]
+			elif type(i)==str and hasattr(x, i): x=getattr(x, i)
+			else: return default
+		return x
+	except: return default
 
 def add(object, member, value, method=lambda old, new: old):
 	if hasattr(object, member): value=method(getattr(object, member), value)
@@ -279,8 +291,8 @@ class Entity:
 		armor_type=''
 		shield=False
 		for i in key(self, [], 'wearing'):
-			result+=items.items[i].get('armor_class', 0)
-			x=items.items[i].get('type', '')
+			result+=key(items.items, 0, i, 'armor_class')
+			x=key(items.items, '', i, 'type')
 			if 'armor' in x: armor_type=x
 			if 'shield' in x: shield=True
 		if not shield and not armor_type: result=10
@@ -443,4 +455,11 @@ def random_heroic_stats():
 	while True:
 		r={j: sum(sorted([roll('d6') for i in range(4)])[1:]) for j in s}
 		if sum([v for k, v in r.items()])>=72: break
+	return r
+
+def random_typical_stats():
+	s=['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma']
+	while True:
+		r={j: sum([roll('d6') for i in range(3)]) for j in s}
+		if sum([v for k, v in r.items()])>=60: break
 	return r
