@@ -380,7 +380,7 @@ class Entity:
 		print('----- carrying load -----')
 		self.carrying_load()
 
-def entities_from_log(file_name):
+def entities_from_log(file_name, modules={}):
 	import creatures, re
 	with open(file_name) as file:
 		entities={}
@@ -392,8 +392,12 @@ def entities_from_log(file_name):
 			value=eval(value)
 			if variable not in entities:
 				class_name=entity.split()[0]
-				if class_name.startswith('dnd.'): class_name=class_name[4:]
-				entities[variable]=eval(class_name)()
+				if class_name.split('.')[0] in modules:
+					entities[variable]=key(modules, None, *class_name.split('.'))()
+					assert entities[variable]!=None
+				else:
+					if class_name.startswith('dnd.'): class_name=class_name[4:]
+					entities[variable]=eval(class_name)()
 			setattr(entities[variable], attr, value)
 			if attr=='name':
 				entities[value.replace(' ', '_')]=entities[variable]
