@@ -294,8 +294,9 @@ function draw(){
 	for(var i=0; i<gEntities.length; ++i) gEntities[i].draw()
 	var size=QUANTUM_SIZE*5
 	if(e('grid').checked) for(var i=size; i<gCanvas.width; i+=size){
-		drawLine(0, i, gCanvas.width,              i, 'grey')
-		drawLine(i, 0,             i, gCanvas.height, 'grey')
+		color=i%(size*5)==0?'white':'grey'
+		drawLine(0, i, gCanvas.width,              i, color)
+		drawLine(i, 0,             i, gCanvas.height, color)
 	}
 	for(var i=0; i<gEntities.length; ++i) gEntities[i].drawName()
 }
