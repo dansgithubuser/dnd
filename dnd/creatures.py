@@ -431,8 +431,7 @@ class Skeleton(races.Human,
 				base.add(self, 'proficiencies', picked, base.union)
 				base.add(self, 'wearing', base.pick_n(picked, 1), base.union)
 			elif 'cantrip' in name:
-				base.add(self, 'spells', base.pick_n(options, n), base.union)
-				print self.spells
+				base.add(self, 'spells', options, base.union)
 		self.type='undead'
 		self.natural_armor=1
 		self.condition_immunities=['exhaustion', 'poison']

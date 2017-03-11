@@ -152,14 +152,12 @@ class Entity:
 		raise AttributeError
 
 	def __setattr__(self, attr, value):
+		name=key(self, '{} {}'.format(self.__class__, hex(id(self))), 'name')
 		self.__dict__[attr]=value
 		if log:
 			if type(value)==str: value="'"+value+"'"
 			with open('log.txt', 'a') as file: file.write("- {} '{}' {}={}\n".format(
-				timestamp(),
-				key(self, '{} {}'.format(self.__class__, hex(id(self))), 'name'),
-				attr,
-				value
+				timestamp(), name, attr, value
 			))
 
 	def show(self, do_print=True):
