@@ -403,11 +403,7 @@ class Goblin(races.Gendered):
 		self.name=names.goblin()
 		self.roll_stats()
 
-class Skeleton(races.Human,
-	classes.Fighter, classes.Rogue, classes.Ranger, classes.Barbarian,
-	classes.Wizard, classes.Druid, classes.Monk, classes.Sorcerer,
-	classes.Warlock
-):
+class Skeleton(races.Human):
 	def __init__(self, level=1):
 		stats=base.random_typical_stats().items()
 		for stat, score in stats: setattr(self, stat, score)
@@ -421,7 +417,7 @@ class Skeleton(races.Human,
 		}[sorted(stats, key=lambda x: x[1])[0][0]]
 		c=getattr(classes, base.pick(potential_classes))
 		races.Human.__init__(self)
-		c.__init__(self, level, new=True)
+		c.init(self, level, new=True)
 		for name, options in self.choices.items():
 			n=1
 			m=re.match(r'(\d+)', name)

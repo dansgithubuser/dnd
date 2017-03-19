@@ -16,9 +16,11 @@ class _Progression:
 		return result
 
 class Standard:
-	def __init__(self, level, **kwargs):
+	@staticmethod
+	def init(self, level, **kwargs):
 		base.add(self, 'level', level, base.plus)
 		base.add(self, 'proficiency_bonus', 2+(level-1)//4, base.plus)
+		base.set_methods(self, Standard)
 
 	def first_level_hp(self):
 		return dice_sides_type(self.hit_dice)[1]+base.modifier(self.constitution)
@@ -29,9 +31,10 @@ class Standard:
 		else: x=sides//2+1
 		self.max_hp+=x+base.modifier(self.constitution)
 
-class Spellcaster(Standard):
-	def __init__(self, level, **kwargs):
-		Standard.__init__(self, level)
+class Spellcaster:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Standard.init(self, level, **kwargs)
 		base.add(self, 'slots', [
 			[0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[2, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -55,18 +58,26 @@ class Spellcaster(Standard):
 			[4, 3, 3, 3, 3, 2, 1, 1, 1],
 			[4, 3, 3, 3, 3, 2, 1, 1, 1],
 		][level], lambda old, new: [old[i]+new[i] for i in range(9)])
-		self.cantrips=3
-		if level>=4: self.cantrips+=1
-		if level>=10: self.cantrips+=1
-		base.add(self, 'choices', {'cantrips': self.cantrips}, base.dict_add)
+		if kwargs.get('new', False):
+			cantrips=3
+			if level>=4: cantrips+=1
+			if level>=10: cantrips+=1
+			base.add(self, 'choices', {'cantrips': cantrips}, base.dict_add)
 
-class SpellPreparer(Spellcaster):
+class SpellPreparer:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Spellcaster.init(self, level, **kwargs)
+		base.set_methods(self, SpellPreparer)
+
 	def prepared_spells(self, **kwargs):
 		return max(base.modifier(self.spellcasting_ability())+self.level, 1)
 
-class Cleric(SpellPreparer):
-	def __init__(self, level, **kwargs):
-		SpellPreparer.__init__(self, level, **kwargs)
+class Cleric:
+	@staticmethod
+	def init(self, level, **kwargs):
+		SpellPreparer.init(self, level, **kwargs)
+		base.set_methods(self, Cleric)
 		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
@@ -120,9 +131,11 @@ class Cleric(SpellPreparer):
 
 	def spellcasting_ability(self): return self.wisdom
 
-class Wizard(SpellPreparer):
-	def __init__(self, level, **kwargs):
-		SpellPreparer.__init__(self, level, **kwargs)
+class Wizard:
+	@staticmethod
+	def init(self, level, **kwargs):
+		SpellPreparer.init(self, level, **kwargs)
+		base.set_methods(self, Wizard)
 		base.add(self, 'hit_dice', '{}d6'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow',
@@ -162,9 +175,11 @@ class Wizard(SpellPreparer):
 
 	def spellcasting_ability(self): return self.intelligence
 
-class Rogue(Standard):
-	def __init__(self, level, **kwargs):
-		Standard.__init__(self, level)
+class Rogue:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Standard.init(self, level)
+		base.set_methods(self, Rogue)
 		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'light_armor',
@@ -211,9 +226,11 @@ class Rogue(Standard):
 
 	def sneak_attack(self): return '{}d6'.format((self.level-1)//2)
 
-class Fighter(Standard):
-	def __init__(self, level, **kwargs):
-		Standard.__init__(self, level)
+class Fighter:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Standard.init(self, level)
+		base.set_methods(self, Fighter)
 		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'heavy_armor', 'shield',
@@ -263,9 +280,11 @@ class Fighter(Standard):
 			critical_hit=19
 		return base.Entity.attack(self, *args, **kwargs)
 
-class Druid(SpellPreparer):
-	def __init__(self, level, **kwargs):
-		SpellPreparer.__init__(self, level, **kwargs)
+class Druid:
+	@staticmethod
+	def init(self, level, **kwargs):
+		SpellPreparer.init(self, level, **kwargs)
+		base.set_methods(self, Druid)
 		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
@@ -311,9 +330,11 @@ class Druid(SpellPreparer):
 
 	def spellcasting_ability(self): return self.wisdom
 
-class Bard(Spellcaster):
-	def __init__(self, level, **kwargs):
-		Spellcaster.__init__(self, level, **kwargs)
+class Bard:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Spellcaster.init(self, level, **kwargs)
+		base.set_methods(self, Bard)
 		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'light_armor',
@@ -355,9 +376,11 @@ class Bard(Spellcaster):
 
 	def spellcasting_ability(self): return self.charisma
 
-class Sorcerer(Spellcaster):
-	def __init__(self, level, **kwargs):
-		Spellcaster.__init__(self, level, **kwargs)
+class Sorcerer:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Spellcaster.init(self, level, **kwargs)
+		base.set_methods(self, Sorcerer)
 		base.add(self, 'hit_dice', '{}d6'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow',
@@ -400,9 +423,11 @@ class Sorcerer(Spellcaster):
 
 	def spellcasting_ability(self): return self.charisma
 
-class Ranger(Standard):
-	def __init__(self, level, **kwargs):
-		Spellcaster.__init__(self, level, **kwargs)
+class Ranger:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Spellcaster.init(self, level, **kwargs)
+		base.set_methods(self, Ranger)
 		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
@@ -473,9 +498,11 @@ class Ranger(Standard):
 
 	def spellcasting_ability(self): return self.wisdom
 
-class Barbarian(Standard):
-	def __init__(self, level, **kwargs):
-		Standard.__init__(self, level)
+class Barbarian:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Standard.init(self, level)
+		base.set_methods(self, Barbarian)
 		base.add(self, 'hit_dice', '{}d12'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
@@ -523,9 +550,11 @@ class Barbarian(Standard):
 			}, base.dict_add)
 			self.carrying=items.explorers_pack+[{'javelins': 4}]
 
-class Monk(Standard):
-	def __init__(self, level, **kwargs):
-		Standard.__init__(self, level)
+class Monk:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Standard.init(self, level)
+		base.set_methods(self, Monk)
 		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'shortsword',
@@ -578,9 +607,11 @@ class Monk(Standard):
 			}, base.dict_add)
 			self.carrying=[{'darts': 10}]
 
-class Paladin(Standard):
-	def __init__(self, level, **kwargs):
-		Standard.__init__(self, level)
+class Paladin:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Standard.init(self, level)
+		base.set_methods(self, Paladin)
 		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'heavy_armor', 'shield',
@@ -648,9 +679,11 @@ class Paladin(Standard):
 
 	def spellcasting_ability(self): return self.charisma
 
-class Warlock(Standard):
-	def __init__(self, level, **kwargs):
-		Standard.__init__(self, level)
+class Warlock:
+	@staticmethod
+	def init(self, level, **kwargs):
+		Standard.init(self, level)
+		base.set_methods(self, Warlock)
 		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
 			'light_armor',

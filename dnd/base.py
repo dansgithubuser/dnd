@@ -2,7 +2,7 @@ from __future__ import print_function
 
 import backgrounds, classes, items, skills, spells
 
-import math, random
+import inspect, math, random
 
 log=False
 placed_entities=set()
@@ -57,6 +57,10 @@ def union(x, y): return x+[i for i in y if i not in x]
 def plus(x, y): return x+y
 def plus_string(x, y): return x+'+'+y
 def dict_add(x, y): return dict(x, **y)
+
+def set_methods(e, c):
+	for name, member in inspect.getmembers(c):
+		if inspect.ismethod(member): setattr(e, name, member)
 
 def get(x, condition):
 	for i in x:
@@ -439,8 +443,8 @@ def create_character(stats, race, classes_, background=backgrounds.Generic):
 			self.wisdom={wisdom}
 			self.charisma={charisma}
 			race.__init__(self, new=True)
-			for c, l in classes_.items(): getattr(classes, c).__init__(self, l, new=True)
-			background.__init__(self, new=True)'''
+			for c, l in classes_.items(): getattr(classes, c).init(self, l, new=True)
+			background.init(self, new=True)'''
 	g={'race': race, 'classes_': classes_, 'classes': classes, 'background': background}
 	exec(
 		x.format(','.join(['classes.'+i for i in classes_.keys()]), **stats),
