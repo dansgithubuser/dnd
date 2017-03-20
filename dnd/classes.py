@@ -117,7 +117,7 @@ class Cleric:
 			['conjure_celestial', 'divine_word', 'etherealness', 'fire_storm', 'plane_shift', 'regenerate', 'resurrection', 'symbol'],
 			['antimagic_field', 'control_weather', 'earthquake', 'holy_aura'],
 			['astral_projection', 'gate', 'mass_heal', 'true_resurrection'],
-		], lambda old, new: [base.union(old[i], new[i]) for i in range(9)])
+		], base.spell_add)
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'2 cleric skills': ['history', 'insight', 'medicine', 'persuasion', 'religion'],
@@ -130,6 +130,10 @@ class Cleric:
 			self.wearing=['shield']
 
 	def spellcasting_ability(self): return self.wisdom
+
+	spells=[
+		['guidance', 'light', 'mending', 'resistance', 'sacred_flame', 'thaumaturgy'],
+	]
 
 class Wizard:
 	@staticmethod
@@ -174,6 +178,14 @@ class Wizard:
 			self.carrying=['spellbook']
 
 	def spellcasting_ability(self): return self.intelligence
+
+	spells=[
+		[
+			'acid_splash', 'chill_touch', 'dancing_lights', 'light',
+			'mage_hand', 'mending', 'message', 'minor_illusion',
+			'prestidigitation', 'ray_of_frost', 'shocking_grasp', 'true_strike',
+		],
+	]
 
 class Rogue:
 	@staticmethod
@@ -330,6 +342,10 @@ class Druid:
 
 	def spellcasting_ability(self): return self.wisdom
 
+	spells=[
+		['guidance', 'mending', 'produce_flame', 'resistance', 'shillelagh'],
+	]
+
 class Bard:
 	@staticmethod
 	def init(self, level, **kwargs):
@@ -375,6 +391,13 @@ class Bard:
 			self.wearing=['leather_armor', 'dagger']
 
 	def spellcasting_ability(self): return self.charisma
+
+	spells=[
+		[
+			'dancing_lights', 'light', 'mage_hand', 'mending', 'message',
+			'minor_illusion', 'prestidigitation', 'true_strike',
+		]
+	]
 
 class Sorcerer:
 	@staticmethod
@@ -423,10 +446,18 @@ class Sorcerer:
 
 	def spellcasting_ability(self): return self.charisma
 
+	spells=[
+		[
+			'acid_splash', 'chill_touch', 'dancing_lights', 'light',
+			'mage_hand', 'mending', 'message', 'minor_illusion',
+			'prestidigitation', 'ray_of_frost', 'shocking_grasp', 'true_strike',
+		],
+	]
+
 class Ranger:
 	@staticmethod
 	def init(self, level, **kwargs):
-		Spellcaster.init(self, level, **kwargs)
+		Standard.init(self, level, **kwargs)
 		base.set_methods(self, Ranger)
 		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
 		base.add(self, 'proficiencies', [
@@ -734,10 +765,12 @@ class Warlock:
 			[0, 0, 0, 0, 4, 0, 0, 0, 0],
 			[0, 0, 0, 0, 4, 0, 0, 0, 0],
 		][level], lambda old, new: [old[i]+new[i] for i in range(9)])
-		self.cantrips=2
-		if level>=4: self.cantrips+=1
-		if level>=10: self.cantrips+=1
-		self.spells=[0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15][level]
+		if kwargs.get('new', False):
+			cantrips=2
+			if level>=4: cantrips+=1
+			if level>=10: cantrips+=1
+			base.add(self, 'choices', {'cantrips': cantrips}, base.dict_add)
+		self.known_spells=[0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15][level]
 		self.invocations=[0, 0, 2, 2, 2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8][level]
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
@@ -754,3 +787,10 @@ class Warlock:
 			self.wearing=['leather_armor', 'dagger', 'dagger']
 
 	def spellcasting_ability(self): return self.charisma
+
+	spells=[
+		[
+			'chill_touch', 'mage_hand', 'minor_illusion', 'prestidigitation',
+			'true_strike',
+		],
+	]

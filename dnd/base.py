@@ -2,7 +2,7 @@ from __future__ import print_function
 
 import backgrounds, classes, items, skills, spells
 
-import inspect, math, random
+import copy, inspect, math, random
 
 log=False
 placed_entities=set()
@@ -12,7 +12,6 @@ def maybe(unlikeliness=2): return not rn(unlikeliness)
 def swap(list, i, j): x=list[i]; list[i]=list[j]; list[j]=x
 
 def pick_n(list, n):
-	import copy
 	list=copy.deepcopy(list)
 	result=[]
 	for i in range(n):
@@ -66,6 +65,12 @@ def union(x, y): return x+[i for i in y if i not in x]
 def plus(x, y): return x+y
 def plus_string(x, y): return x+'+'+y
 def dict_add(x, y): return dict(x, **y)
+def spell_add(x, y):
+	r=[[] for i in range(9)]
+	for i in range(9):
+		if i<len(x): r[i]=x[i]
+		if i<len(y): r[i]=union(r[i], y[i])
+	return r
 
 def set_methods(e, c):
 	for name, member in inspect.getmembers(c):
@@ -188,7 +193,10 @@ class Entity:
 		derived=[(i, getattr(self, i)()) for i in [
 			'armor_class',
 		]]
-		x=pprint.pformat(sorted(vars(self).items()+separators+derived, key=divine_key))
+		x=pprint.pformat(sorted(
+			[i for i in vars(self).items() if not callable(i[1])]+separators+derived,
+			key=divine_key
+		))
 		if do_print: print(x)
 		return x
 
