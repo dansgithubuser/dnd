@@ -49,6 +49,15 @@ def key(x, default, *indices):
 		return x
 	except: return default
 
+def log_attr_set(self, attr, value):
+	name=key(self, '{} {}'.format(self.__class__, hex(id(self))), 'name')
+	self.__dict__[attr]=value
+	if log and not callable(value):
+		if type(value)==str: value="'"+value+"'"
+		with open('log.txt', 'a') as file: file.write("- {} '{}' {}={}\n".format(
+			timestamp(), name, attr, value
+		))
+
 def add(object, member, value, method=lambda old, new: old):
 	if hasattr(object, member): value=method(getattr(object, member), value)
 	setattr(object, member, value)
@@ -155,14 +164,7 @@ class Entity:
 		if attr=='ac': return self.armor_class()
 		raise AttributeError
 
-	def __setattr__(self, attr, value):
-		name=key(self, '{} {}'.format(self.__class__, hex(id(self))), 'name')
-		self.__dict__[attr]=value
-		if log:
-			if type(value)==str: value="'"+value+"'"
-			with open('log.txt', 'a') as file: file.write("- {} '{}' {}={}\n".format(
-				timestamp(), name, attr, value
-			))
+	def __setattr__(self, attr, value): log_attr_set(self, attr, value)
 
 	def show(self, do_print=True):
 		import pprint
@@ -398,11 +400,17 @@ def entities_from_log(file_name, modules={}):
 	import creatures, re
 	with open(file_name) as file:
 		entities={}
+		def to_var_name(x): return re.sub('[. ]', '_', x)
 		for line in file.readlines():
 			m=re.match(r"- \d+-\d+-\d+ \d+:\d+:\d+\.\d+ '([^']+)' ([^=]+)=(.+)", line)
 			if not m: continue
 			entity, attr, value=m.groups()
-			variable=entity.replace(' ', '_')
+			variable=to_var_name(entity)
+			value=re.sub(r'<([\S]+) instance at ([^>]+)>', r'entities["\1_\2"]', value)
+			while True:
+				old=value
+				value=re.sub(r'entities\["([^.]+)\.', r'entities["\1_', value)
+				if old==value: break
 			value=eval(value)
 			if variable not in entities:
 				class_name=entity.split()[0]
@@ -411,15 +419,16 @@ def entities_from_log(file_name, modules={}):
 					assert entities[variable]!=None
 				else:
 					if class_name.startswith('dnd.'): class_name=class_name[4:]
+					if class_name.startswith('base.'): class_name=class_name[5:]
 					entities[variable]=eval(class_name)()
 			setattr(entities[variable], attr, value)
-			if attr=='name':
-				entities[value.replace(' ', '_')]=entities[variable]
-				del entities[variable]
+			if attr=='name': entities[to_var_name(value)]=entities[variable]
 	return entities
 
 class Group:
-	def __init__(self, entities): self.entities=entities
+	def __init__(self, entities=[]): self.entities=entities
+
+	def __setattr__(self, attr, value): log_attr_set(self, attr, value)
 
 	def __getattr__(self, attr):
 		x=[getattr(i, attr) for i in self.entities]
