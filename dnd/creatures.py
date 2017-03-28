@@ -85,7 +85,7 @@ A dire badger is from 5 to 7 feet in length and can weigh up to 500 pounds.'''
 class Witherweed(base.Entity):
 	'''Thistle-like plant that grows in mounds.
 
-If burnt, toxic fumes are released.'''
+If burnt, toxic fumes are released. They linger for 1 minute.'''
 	def __init__(self):
 		self.type='plant'
 		self.size='tiny'

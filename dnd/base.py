@@ -167,6 +167,8 @@ class Entity:
 		if attr=='wis': return self.wisdom
 		if attr=='cha': return self.charisma
 		if attr=='ac': return self.armor_class()
+		if attr in ['spell_save_dc', 'ssdc', 'sdc']: return self.spell_save_difficulty_class()
+		if attr=='sab': return self.spell_attack_bonus()
 		raise AttributeError
 
 	def __setattr__(self, attr, value): log_attr_set(self, attr, value)
@@ -271,17 +273,23 @@ class Entity:
 			if 'weapon' in key(items.items, '', i, 'type'):
 				print('-----> {}'.format(self.attack(i)))
 
-	def cast(self, spell, origin=None):
+	def cast(self, spell=None, origin=None):
+		if spell==None:
+			for i in self.spells:
+				if len(i): spell=i[0]; break
 		if spell not in spells.spells:
 			raise Exception('no such spell "{}"'.format(spell))
-		if origin==None: origin=(self.x, self.y, self.z)
+		print(spell)
+		s=spells.spells[spell]
+		damage=roll(s['damage'])
+		if origin==None:
+			if not all([hasattr(self, i) for i in 'xyz']): return
+			origin=(self.x, self.y, self.z)
 		entities=spells.get_affected(spell, origin, placed_entities)
-		spell=spells.spells[spell]
-		damage=roll(spell['damage'])
-		if 'save' in spell: dc, type=number_and_type(spell['save'])
+		if 'save' in s: dc, type=number_and_type(s['save'])
 		for i in entities:
 			x=damage
-			if 'save' in spell and i.check(type.lower())>=dc: x=spell['save_effect'](damage)
+			if 'save' in s and i.check(type.lower())>=dc: x=s['save_effect'](damage)
 			i.damage(x)
 
 	def proficiency(self, what):
