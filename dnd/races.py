@@ -90,6 +90,7 @@ class Dragonborn(Gendered):
 		self.speed=30
 		self.strength+=2
 		self.charisma+=1
+		self.languages=['common', 'draconic']
 		if kwargs.get('new', False): self.choices={
 			'age': (15, 80),
 			'height': (6, 8),
