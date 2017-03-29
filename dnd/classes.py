@@ -270,8 +270,13 @@ class Fighter:
 			['ability_score_improvement'],
 			['extra_attack'],
 		], level), base.plus)
+		def attack(self, *args, **kwargs):
+			critical_hit=20
+			if hasattr(self, 'martial_archetype') and self.martial_archetype=='champion' and self.level>=3:
+				critical_hit=19
+			return base.Entity.attack(self, *args, **kwargs)
 		import types
-		self.attack=types.MethodType(Fighter.attack, self, Fighter)
+		self.attack=types.MethodType(attack, self)
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'2 fighter skills': [
@@ -285,12 +290,6 @@ class Fighter:
 				'fighter pack': ['dungeoneers_pack', 'explorers_pack'],
 				'fighter alternate gp': '5d4*10',
 			}, base.dict_add)
-
-	def attack(self, *args, **kwargs):
-		critical_hit=20
-		if hasattr(self, 'martial_archetype') and self.martial_archetype=='champion' and self.level>=3:
-			critical_hit=19
-		return base.Entity.attack(self, *args, **kwargs)
 
 class Druid:
 	@staticmethod
