@@ -118,6 +118,7 @@ class Cleric:
 			['antimagic_field', 'control_weather', 'earthquake', 'holy_aura'],
 			['astral_projection', 'gate', 'mass_heal', 'true_resurrection'],
 		], base.spell_add)
+		self.spellcasting_ability=lambda: self.wisdom
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'2 cleric skills': ['history', 'insight', 'medicine', 'persuasion', 'religion'],
@@ -128,8 +129,6 @@ class Cleric:
 				'cleric alternate gp': '5d4*10',
 			}, base.dict_add)
 			self.wearing=['shield']
-
-	def spellcasting_ability(self): return self.wisdom
 
 	spells=[
 		['guidance', 'light', 'mending', 'resistance', 'sacred_flame', 'thaumaturgy'],
@@ -167,6 +166,7 @@ class Wizard:
 			['ability_score_improvement'],
 			['signature_spell'],
 		], level), base.plus)
+		self.spellcasting_ability=lambda: self.intelligence
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'2 wizard skills': ['arcana', 'history', 'insight', 'investigation', 'medicine', 'religion'],
@@ -176,8 +176,6 @@ class Wizard:
 				'wizard alternate gp': '4d4*10',
 			}, base.dict_add)
 			self.carrying=['spellbook']
-
-	def spellcasting_ability(self): return self.intelligence
 
 	spells=[
 		[
@@ -326,6 +324,7 @@ class Druid:
 			['ability_score_improvement'],
 			['archdruid'],
 		], level), base.plus)
+		self.spellcasting_ability=lambda: self.wisdom
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'2 druid skills': [
@@ -338,8 +337,6 @@ class Druid:
 			}, base.dict_add)
 			self.wearing=['leather_armor']
 			self.carrying=items.explorers_pack+['druidic_focus']
-
-	def spellcasting_ability(self): return self.wisdom
 
 	spells=[
 		['guidance', 'mending', 'produce_flame', 'resistance', 'shillelagh'],
@@ -378,6 +375,7 @@ class Bard:
 			['ability_score_improvement'],
 			['superior_inspiration'],
 		], level), base.plus)
+		self.spellcasting_ability=lambda: self.charisma
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'3 bard skills': 'any',
@@ -388,8 +386,6 @@ class Bard:
 				'bard alternate gp': '5d4*10',
 			}, base.dict_add)
 			self.wearing=['leather_armor', 'dagger']
-
-	def spellcasting_ability(self): return self.charisma
 
 	spells=[
 		[
@@ -430,6 +426,7 @@ class Sorcerer:
 			['ability_score_improvement'],
 			['sorcerous_restoration'],
 		], level), base.plus)
+		self.spellcasting_ability=lambda: self.charisma
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'2 sorceror skills': [
@@ -442,8 +439,6 @@ class Sorcerer:
 				'sorceror alternate gp': '3d4*10',
 			}, base.dict_add)
 			self.wearing=['dagger', 'dagger']
-
-	def spellcasting_ability(self): return self.charisma
 
 	spells=[
 		[
@@ -508,6 +503,7 @@ class Ranger:
 			[4, 3, 3, 3, 2, 0, 0, 0, 0],
 			[4, 3, 3, 3, 2, 0, 0, 0, 0],
 		][level], lambda old, new: [old[i]+new[i] for i in range(9)])
+		self.spellcasting_ability=lambda: self.wisdom
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'3 ranger skills': [
@@ -525,8 +521,6 @@ class Ranger:
 			}, base.dict_add)
 			self.wearing=['longbow']
 			self.carrying=['quiver']
-
-	def spellcasting_ability(self): return self.wisdom
 
 class Barbarian:
 	@staticmethod
@@ -692,6 +686,7 @@ class Paladin:
 			[4, 3, 3, 3, 2, 0, 0, 0, 0],
 			[4, 3, 3, 3, 2, 0, 0, 0, 0],
 		][level], lambda old, new: [old[i]+new[i] for i in range(9)])
+		self.spellcasting_ability=lambda: self.charisma
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'2 paladin skills': [
@@ -706,8 +701,6 @@ class Paladin:
 			}, base.dict_add)
 			self.wearing=['chain_mail']
 			self.carrying=['holy_symbol']
-
-	def spellcasting_ability(self): return self.charisma
 
 class Warlock:
 	@staticmethod
@@ -771,6 +764,7 @@ class Warlock:
 			base.add(self, 'choices', {'cantrips': cantrips}, base.dict_add)
 		self.known_spells=[0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15][level]
 		self.invocations=[0, 0, 2, 2, 2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8][level]
+		self.spellcasting_ability=lambda: self.charisma
 		if kwargs.get('new', False):
 			base.add(self, 'choices', {
 				'2 warlock skills': [
@@ -784,8 +778,6 @@ class Warlock:
 				'warlock alternate gp': '4d4*10',
 			}, base.dict_add)
 			self.wearing=['leather_armor', 'dagger', 'dagger']
-
-	def spellcasting_ability(self): return self.charisma
 
 	spells=[
 		[
