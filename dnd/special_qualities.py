@@ -10,3 +10,4 @@ dwarven_toughness='+1 hp per level.'
 dwarf_speed="Heavy armor does not reduce your speed if you don't meet it's strength requirement."
 gnome_cunning='Avantage on mental saving throws.'
 artificers_lore='Double proficiency to history checks related to magic items, alchemical objects, and tech.'
+frightful_presence="Each creature of your choice that is within 120 feet and aware of you must succeed on a wisdom saving throw (DC is a parameter of this feature) or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to your frightful presence for the next 24 hours."
