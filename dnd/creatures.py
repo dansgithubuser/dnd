@@ -24,6 +24,37 @@ class PhaseCentipede(base.Entity):
 		self.organization=['1d20']
 		self.roll_stats()
 
+class Drider(base.Entity):
+	'''A Drider is like a centaur but with a spider's body instead of a horse's.
+Driders may bite once per turn.'''
+	def __init__(self):
+		self.size='large'
+		self.type='monstrosity'
+		self.alignment=['chaotic', 'evil']
+		self.hit_dice='13d10+52'
+		self.speed={'land': 30, 'climb': 30}
+		self.strength=16
+		self.dexterity=16
+		self.constitution=18
+		self.intelligence=13
+		self.wisdom=14
+		self.charisma=12
+		self.special_qualities=['fey_ancestry', 'spider_climb', 'sunlight_sensitivity', 'web_walker', 'superior_darkvision']
+		self.spells=[['dancing_lights'], ['darkness', 'faerie_fire']]
+		self.slots=[2]
+		self.challenge_rating=6
+		self.natural_armor=6
+		self.attacks=[
+			('bite', 3, '2d8 POISON+d4 PIERCING+-3'),
+		]
+		self.proficiency_bonus=3
+		self.proficiencies=['longsword', 'longbow', 'shortsword', 'shortbow', 'perception', 'stealth']
+		self.expertise=['stealth']
+		self.languages=['elvish', 'undercommon']
+		self.wearing=['longsword', 'longbow']
+		self.features={'extra_attack': 2}
+		self.roll_stats()
+
 class Kobold(base.Entity):
 	def __init__(self):
 		self.type='kobold'
@@ -57,7 +88,7 @@ A dire badger is from 5 to 7 feet in length and can weigh up to 500 pounds.'''
 		self.attacks=[
 			('l claw', 1, '1d4 SLASHING', 'finesse'),
 			('r claw', 1, '1d4 SLASHING', 'finesse'),
-			('bite', -1, '1d6+-1 PIERCING'),
+			('bite', -1, '1d6 PIERCING+-1'),
 		]
 		self.special_qualities=['darkvision', 'keen_smell']
 		self.strength=14
@@ -144,7 +175,7 @@ class GiantVenemousSnake(base.Entity):
 		self.hit_dice='2d8+2'
 		self.speed={'land': 30, 'swim': 30}
 		self.attacks=[
-			('bite', 3, '1d4+4 PIERCING POISONOUS'),
+			('bite', 3, '1d4 PIERCING+4'),
 		]
 		self.special_qualities={'blindsight': 10}
 		self.strength=10
@@ -193,7 +224,7 @@ False Appearance. While the oozeling remains motionless, it is indistinguishable
 		self.hit_dice='3d4+9'
 		self.speed={'land': 20, 'climb': 20}
 		self.attacks=[
-			('pseudopod', 4, '1d4 BLUDGEONING+1d4 ACID'),
+			('pseudopod', 4, 'd4 ACID+d4 BLUDGEONING'),
 		]
 		self.special_qualities={'blindsight': 60}
 		self.strength=11
@@ -258,8 +289,8 @@ class Blazehawk(base.Entity):
 		self.speed={'land': 10, 'fly': 60}
 		self.natural_armor=1
 		self.attacks=[
-			('beak', 2, '1d4+2 PIERCING+1d8 FIRE', 'finesse'),
-			('talons', 2, '2d4+2 SLASHING+1d8 FIRE', 'finesse'),
+			('beak', 2, '1d8 FIRE+1d4 PIERCING+2', 'finesse'),
+			('talons', 2, '1d8 FIRE+2d4 SLASHING+2', 'finesse'),
 		]
 		self.special_qualities=['darkvision']
 		self.strength=9

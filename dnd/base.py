@@ -147,12 +147,13 @@ def roll(request, vantage=0, on_roll=typical_roll):
 	import collections
 	x=collections.defaultdict(int)
 	t=''
-	for i in range(len(a)-1, -1, -1):
+	for i in range(len(a)):
 		y=split_type(a[i][0])
 		if y: t=y
 		x[t]+=sum(a[i][1])
 	if len(x)==1 and not x.items()[0][0]: x=x.items()[0][1]
 	elif len(x)==2 and '' in x.keys(): x={[i for i in x.keys() if i][0]: sum([i for i in x.values()])}
+	else: x=dict(x)
 	print(x)
 	return x
 

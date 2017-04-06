@@ -1,4 +1,5 @@
 darkvision='Colorless sight in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light.'
+superior_darkvision='Darkvision up to 120 feet.'
 fey_ancestry="Advantage on saving throws against being charmed, and can't be put to sleep by magic."
 trance='Instead of sleeping, meditate deeply, remaining semiconscious, for 4 hours.'
 mask_of_the_wild='Attempt to hide even when only lightly obscured by foliage, heavy rain, falling snow, mist, or other natural phenomena.'
@@ -11,3 +12,6 @@ dwarf_speed="Heavy armor does not reduce your speed if you don't meet it's stren
 gnome_cunning='Avantage on mental saving throws.'
 artificers_lore='Double proficiency to history checks related to magic items, alchemical objects, and tech.'
 frightful_presence="Each creature of your choice that is within 120 feet and aware of you must succeed on a wisdom saving throw (DC is a parameter of this feature) or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to your frightful presence for the next 24 hours."
+spider_climb='You can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.'
+sunlight_sensitivity='While in sunlight, you have disadvantage on attack rolls, as well as on perception checks that rely on sight.'
+web_walker='You ignore movement restrictions caused by webbing.'
