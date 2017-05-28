@@ -386,6 +386,37 @@ class Dretch(base.Entity):
 		self.challenge_rating=1.0/4
 		self.roll_stats()
 
+class Ettercap(base.Entity):
+	def __init__(self):
+		self.type='monstrosity'
+		self.size='medium'
+		self.alignment=['neutral', 'evil']
+		self.hit_dice='8d8+8'
+		self.speed={'land': 30, 'climb': 30}
+		self.natural_armor=1
+		self.attacks=[
+			('bite', 4, '1d8+2 PIERCING+1d8 POISON'),
+			('claws', 4, '2d4+2 SLASHING'),
+			('web', 4, '0'),
+			('web_garrote', 4, '1d4+2 BLUDGEONING'),
+		]
+		self.notes={'attack':
+'''multiattack: bite, claws
+bite: DC 11 constitution saving throw or poisoned for 1 minute
+web: recharge 5-6, range 30/60, large or smaller creature, causes restrained, DC 11 str, webbing has 10 ac, 5 hp, vulnerable to fire, immune to bludgeoning
+web garrote: melee, medium or small creature, ettercap must have advantage on attack roll, causes grappled + can't breath + ettercap has advantage on attacks on creature, DC 12 str'''
+}
+		self.special_qualities=['spider_climb', 'web_sense', 'web_walker']
+		self.proficiencies=['perception', 'stealth', 'survival']
+		self.strength=14
+		self.dexterity=15
+		self.constitution=13
+		self.intelligence=7
+		self.wisdom=12
+		self.charisma=8
+		self.challenge_rating=2
+		self.roll_stats()
+
 class FlyingWeapon(base.Entity):
 	def __init__(self, type='dagger'):
 		self.type='construct'
@@ -431,6 +462,30 @@ class Goblin(races.Gendered):
 		self.challenge_rating=1.0/4
 		self.wearing=['leather_armor', 'shield', 'scimitar']
 		self.carrying=['shortbow']
+		self.name=names.goblin()
+		self.roll_stats()
+
+class Bugbear(races.Gendered):
+	def __init__(self, **kwargs):
+		self.type='goblin'
+		self.size='medium'
+		self.alignment=['chaotic', 'evil']
+		self.hit_dice='5d8+5'
+		self.speed=30
+		self.strength=15
+		self.dexterity=14
+		self.constitution=13
+		self.intelligence=8
+		self.wisdom=11
+		self.charisma=9
+		races.Gendered.__init__(self, **kwargs)
+		self.special_qualitites=['brute', 'surprise_attack', 'darkvision']
+		self.proficiencies=['stealth', 'javelin', 'morningstar', 'survival']
+		self.expertise=['stealth']
+		self.languages=['common', 'goblin']
+		self.challenge_rating=1.0/4
+		self.wearing=['hide_armor', 'shield', 'morningstar']
+		self.carrying=['javelin']
 		self.name=names.goblin()
 		self.roll_stats()
 

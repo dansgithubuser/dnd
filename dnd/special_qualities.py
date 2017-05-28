@@ -15,3 +15,6 @@ frightful_presence="Each creature of your choice that is within 120 feet and awa
 spider_climb='You can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.'
 sunlight_sensitivity='While in sunlight, you have disadvantage on attack rolls, as well as on perception checks that rely on sight.'
 web_walker='You ignore movement restrictions caused by webbing.'
+web_sense='While in contact with a web, you know the location of other creatures in contact with the same web'
+brute='You deal an extra damage die with melee weapons.'
+surprise_attack='Attacks made during a surprise round deal 2d6 extra damage.'

@@ -19,6 +19,7 @@ An object that bears no resemblance to a weapon deals 1d4 damage (the GM assigns
 }
 
 items={
+	'hide_armor': {'type': 'medium_armor', 'armor_class': 12, 'weight': 12},
 	'scale_mail': {'type': 'medium_armor', 'armor_class': 14, 'weight': 45, 'disadvantages': ['stealth']},
 	'breastplate': {'type': 'medium_armor', 'armor_class': 14, 'weight': 20},
 	'shield': {'type': 'shield', 'armor_class': 2, 'weight': 6},
