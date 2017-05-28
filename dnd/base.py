@@ -325,6 +325,7 @@ class Entity:
 		return result
 
 	def damage(self, points):
+		if not hasattr(self, 'token'): print('warning: token attr not set, logs will not provide full context')
 		old_hp=self.hp
 		if type(points)==int: self.hp-=points
 		else:
