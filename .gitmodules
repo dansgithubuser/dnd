@@ -1,0 +1,6 @@
+[submodule "open5e"]
+	path = open5e
+	url = https://github.com/eepMoody/open5e
+[submodule "crangen"]
+	path = crangen
+	url = https://github.com/dansgithubuser/crangen
