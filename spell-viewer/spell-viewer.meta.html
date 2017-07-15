@@ -14,9 +14,19 @@ contents=contents.replace("'", r"\'")
 result="SPELLS='{}'".format(contents)
 \*/
 SPELLS=JSON.parse(SPELLS)
+CURRENT_SPELL_NAME=''
+KEEP=[]
 
 function e(name){ return document.getElementById(name) }
 function v(name){ return e(name).value }
+
+function keep(){
+	if(e('keep').checked) KEEP.push(CURRENT_SPELL_NAME)
+	else{
+		i=KEEP.indexOf(CURRENT_SPELL_NAME)
+		if(i>=0) KEEP.splice(i, 1)
+	}
+}
 
 function update(){
 	setTimeout(function(){
@@ -25,12 +35,14 @@ function update(){
 		filtered=[]
 		for(spellName in SPELLS) if(SPELLS.hasOwnProperty(spellName)){
 			spell=SPELLS[spellName]
-			if(!e('level '+spell.level).checked) continue
-			classes=spell.classes
-			good=false
-			for(i in classes) if(e(classes[i]).checked) good=true
-			if(!good) continue
-			spell.name=spellName
+			if(KEEP.indexOf(spellName)==-1){
+				if(!e('level '+spell.level).checked) continue
+				classes=spell.classes
+				good=false
+				for(i in classes) if(e(classes[i]).checked) good=true
+				if(!good) continue
+				spell.name=spellName
+			}
 			filtered.push(spell)
 		}
 		filtered.sort(function(a, b){
@@ -75,7 +87,12 @@ function update(){
 					x+='<b>'+list[i][0]+'</b>: '+list[i][1]+'<br>'
 				}
 				for(i=0; i<10; ++i) x+='<br>'
-				div.onclick=function(){ e('details').innerHTML=x }
+				var y=spell.name
+				div.onclick=function(){
+					e('details').innerHTML=x
+					CURRENT_SPELL_NAME=y
+					e('keep').checked=KEEP.indexOf(y)!=-1
+				}
 			}
 			f()
 			list.appendChild(div)
@@ -91,10 +108,15 @@ function update(){
 		['bard', 'cleric', 'druid', 'paladin', 'ranger', 'sorcerer', 'warlock', 'wizard'],
 		['level {}'.format(i) for i in range(10)],
 	]
-	for i in checkables:
+	extra=[
+		'<br><label><input type="checkbox" id="keep" onClick="keep()">keep</label>',
+		''
+	]
+	for i in range(len(checkables)):
 		result+='<div style="float: left">\n'
-		for j in i:
-			result+='''<label><input type="checkbox" id="{0}" onClick='update()'>{0}</label><br>\n'''.format(j)
+		for j in checkables[i]:
+			result+='<label><input type="checkbox" id="{0}" onClick="update()">{0}</label><br>\n'.format(j)
+		result+=extra[i]
 		result+='</div>\n'
 	\*/
 	<br style="clear: left;"/>
