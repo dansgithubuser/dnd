@@ -20,7 +20,6 @@ CURRENT_SPELL_NAME=''
 KEEP=[]
 
 function e(name){ return document.getElementById(name) }
-function v(name){ return e(name).value }
 
 function keep(){
 	if(e('keep').checked) KEEP.push(CURRENT_SPELL_NAME)
@@ -43,8 +42,8 @@ function update(){
 				good=false
 				for(i in classes) if(e(classes[i]).checked) good=true
 				if(!good) continue
-				spell.name=spellName
 			}
+			spell.name=spellName
 			filtered.push(spell)
 		}
 		filtered.sort(function(a, b){
@@ -102,6 +101,85 @@ function update(){
 	})
 }
 
+STATE_NAME_PREFIX='spell-viewer-state-'
+
+function save(){
+	name=window.prompt('save as which state?', '')
+	if(KEEP.length==0
+&&!e("bard").checked
+&&!e("cleric").checked
+&&!e("druid").checked
+&&!e("paladin").checked
+&&!e("ranger").checked
+&&!e("sorcerer").checked
+&&!e("warlock").checked
+&&!e("wizard").checked
+&&!e("level 0").checked
+&&!e("level 1").checked
+&&!e("level 2").checked
+&&!e("level 3").checked
+&&!e("level 4").checked
+&&!e("level 5").checked
+&&!e("level 6").checked
+&&!e("level 7").checked
+&&!e("level 8").checked
+&&!e("level 9").checked
+	){
+		localStorage.removeItem(STATE_NAME_PREFIX+name)
+		return
+	}
+	state={
+"bard": e("bard").checked,
+"cleric": e("cleric").checked,
+"druid": e("druid").checked,
+"paladin": e("paladin").checked,
+"ranger": e("ranger").checked,
+"sorcerer": e("sorcerer").checked,
+"warlock": e("warlock").checked,
+"wizard": e("wizard").checked,
+"level 0": e("level 0").checked,
+"level 1": e("level 1").checked,
+"level 2": e("level 2").checked,
+"level 3": e("level 3").checked,
+"level 4": e("level 4").checked,
+"level 5": e("level 5").checked,
+"level 6": e("level 6").checked,
+"level 7": e("level 7").checked,
+"level 8": e("level 8").checked,
+"level 9": e("level 9").checked,
+		'keep': KEEP
+	}
+	localStorage.setItem(STATE_NAME_PREFIX+name, JSON.stringify(state))
+}
+
+function load(){
+	name=window.prompt('load which state?', Object.keys(localStorage)
+		.filter(function(i){ return i.indexOf(STATE_NAME_PREFIX)==0 })
+		.map(function(i){ return i.slice(STATE_NAME_PREFIX.length) })
+	)
+	state=JSON.parse(localStorage.getItem(STATE_NAME_PREFIX+name))
+e("bard").checked=state["bard"]
+e("cleric").checked=state["cleric"]
+e("druid").checked=state["druid"]
+e("paladin").checked=state["paladin"]
+e("ranger").checked=state["ranger"]
+e("sorcerer").checked=state["sorcerer"]
+e("warlock").checked=state["warlock"]
+e("wizard").checked=state["wizard"]
+e("level 0").checked=state["level 0"]
+e("level 1").checked=state["level 1"]
+e("level 2").checked=state["level 2"]
+e("level 3").checked=state["level 3"]
+e("level 4").checked=state["level 4"]
+e("level 5").checked=state["level 5"]
+e("level 6").checked=state["level 6"]
+e("level 7").checked=state["level 7"]
+e("level 8").checked=state["level 8"]
+e("level 9").checked=state["level 9"]
+	KEEP=state['keep']
+	update()
+}
+
 		</script>
 	</head>
 	<body>
@@ -114,7 +192,11 @@ function update(){
 <label><input type="checkbox" id="sorcerer" onClick="update()">sorcerer</label><br>
 <label><input type="checkbox" id="warlock" onClick="update()">warlock</label><br>
 <label><input type="checkbox" id="wizard" onClick="update()">wizard</label><br>
-<br><label><input type="checkbox" id="keep" onClick="keep()">keep</label></div>
+
+		<br><label><input type="checkbox" id="keep" onClick="keep()">keep</label>
+		<br><input type="button" id="save" onClick="save()" value="save"/>
+		<br><input type="button" id="load" onClick="load()" value="load"/>
+	</div>
 <div style="float: left">
 <label><input type="checkbox" id="level 0" onClick="update()">level 0</label><br>
 <label><input type="checkbox" id="level 1" onClick="update()">level 1</label><br>

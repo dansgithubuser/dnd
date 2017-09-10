@@ -20,13 +20,16 @@ contents=contents.replace('\\n', '<br>')
 contents=contents.replace('\\', '\\\\')
 contents=contents.replace("'", r"\'")
 result="SPELLS='{}'".format(contents)
+store('checkables', [
+	['bard', 'cleric', 'druid', 'paladin', 'ranger', 'sorcerer', 'warlock', 'wizard'],
+	['level {}'.format(i) for i in range(10)],
+])
 \*/
 SPELLS=JSON.parse(SPELLS)
 CURRENT_SPELL_NAME=''
 KEEP=[]
 
 function e(name){ return document.getElementById(name) }
-function v(name){ return e(name).value }
 
 function keep(){
 	if(e('keep').checked) KEEP.push(CURRENT_SPELL_NAME)
@@ -49,8 +52,8 @@ function update(){
 				good=false
 				for(i in classes) if(e(classes[i]).checked) good=true
 				if(!good) continue
-				spell.name=spellName
 			}
+			spell.name=spellName
 			filtered.push(spell)
 		}
 		filtered.sort(function(a, b){
@@ -108,18 +111,59 @@ function update(){
 	})
 }
 
+STATE_NAME_PREFIX='spell-viewer-state-'
+
+function save(){
+	name=window.prompt('save as which state?', '')
+	if(KEEP.length==0
+		/*\
+		for i in load('checkables'):
+			for j in i:
+				result+='&&!e("{}").checked\n'.format(j)
+		\*/
+	){
+		localStorage.removeItem(STATE_NAME_PREFIX+name)
+		return
+	}
+	state={
+		/*\
+		for i in load('checkables'):
+			for j in i:
+				result+='"{0}": e("{0}").checked,\n'.format(j)
+		\*/
+		'keep': KEEP
+	}
+	localStorage.setItem(STATE_NAME_PREFIX+name, JSON.stringify(state))
+}
+
+function load(){
+	name=window.prompt('load which state?', Object.keys(localStorage)
+		.filter(function(i){ return i.indexOf(STATE_NAME_PREFIX)==0 })
+		.map(function(i){ return i.slice(STATE_NAME_PREFIX.length) })
+	)
+	state=JSON.parse(localStorage.getItem(STATE_NAME_PREFIX+name))
+	/*\
+	for i in load('checkables'):
+		for j in i:
+			result+='e("{0}").checked=state["{0}"]\n'.format(j)
+	\*/
+	KEEP=state['keep']
+	update()
+}
+
 		</script>
 	</head>
 	<body>
 	/*\
-	checkables=[
-		['bard', 'cleric', 'druid', 'paladin', 'ranger', 'sorcerer', 'warlock', 'wizard'],
-		['level {}'.format(i) for i in range(10)],
-	]
 	extra=[
-		'<br><label><input type="checkbox" id="keep" onClick="keep()">keep</label>',
+		'''
+			<br><label><input type="checkbox" id="keep" onClick="keep()">keep</label>
+			<br><input type="button" id="save" onClick="save()" value="save"/>
+			<br><input type="button" id="load" onClick="load()" value="load"/>
+		''',
 		''
 	]
+	checkables=load('checkables')
 	for i in range(len(checkables)):
 		result+='<div style="float: left">\n'
 		for j in checkables[i]:
