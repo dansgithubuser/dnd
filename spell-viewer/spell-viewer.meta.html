@@ -1,10 +1,18 @@
 <!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01//EN'>
-<html manifest="spell-viewer.appcache"><!-- offline javascript on mobile -->
+<html>
 	<head>
 		<meta name="viewport" content="width=device-width"><!-- responsive UI on mobile -->
 		<script type='text/javascript'>
 
 //only tested with chrome and LG4 browser
+
+this.addEventListener('install', function(event){
+	event.waitUntil(
+		caches.open('v1').then(function(cache){
+			return cache.addAll(['/dnd/spell-viewer/spell-viewer.html'])
+		})
+	)
+})
 
 /*\
 with open(os.path.join('..', 'spells.json')) as file: contents=file.read()
@@ -123,5 +131,6 @@ function update(){
 	<div id="list" style="width: 46%"></div>
 	<br style="clear: left;"/>
 	<div id="details" style="position: fixed; top: 2%; right: 2%; width: 46%; height: 100%; overflow: scroll"></div>
+	<div>v2</div>
 	</body>
 </html>
