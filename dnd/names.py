@@ -260,14 +260,17 @@ human_first_female=[
 	'zoe', 'zelda',
 ]
 
-def human(gender):
+def human(gender, normal=False):
 	if gender=='m': first=human_first_male
 	else: first=human_first_female
 	if gender=='m':
-		first=humanify(base.pick(first), 'o', friendly_consonants)
+		first=base.pick(first)
+		if not normal: first=humanify(first, 'o', friendly_consonants)
 	else:
-		first=humanify(base.pick(first), 'ai', 'ai')
-	last=humanify(base.pick(human_last), base.pick('aeiou'), friendly_consonants)
+		first=base.pick(first)
+		if not normal: first=humanify(first, 'ai', 'ai')
+	last=base.pick(human_last)
+	if not normal: last=humanify(last, base.pick('aeiou'), friendly_consonants)
 	if base.maybe(32): last=base.pick(['van', 'von'])+' '+last
 	return unpack_qs(first+' '+last)
 
