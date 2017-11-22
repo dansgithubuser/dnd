@@ -302,8 +302,11 @@ function draw(){
 }
 
 function handleMouseDown(event){
-	var x=event.x+document.body.scrollLeft-gCanvas.offsetLeft
-	var y=event.y+document.body.scrollTop-gCanvas.offsetTop
+	//var x=event.x+document.body.scrollLeft-gCanvas.offsetLeft
+	//var y=event.y+document.body.scrollTop-gCanvas.offsetTop
+	var x=event.pageX-gCanvas.offsetLeft
+	var y=event.pageY-gCanvas.offsetTop
+	console.log('mouse down ('+x+', '+y+')')
 	gDragging=true
 	gDragXi=x
 	gDragYi=y
