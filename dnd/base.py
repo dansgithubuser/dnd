@@ -24,6 +24,16 @@ def pick(list, n=1):
 	if n==1: return list[rn(len(list))]
 	return pick_n(list, n)
 
+def pick_weighted(item_to_weight):
+	items=item_to_weight.items()
+	pick=rn(sum([v for k, v in items]))
+	i=0
+	while True:
+		pick-=items[i][1]
+		if pick<=0: break
+		i+=1
+	return items[i][0]
+
 def flatten(list):
 	r=[]
 	for i in list:
@@ -57,7 +67,7 @@ def log_attr_set(self, attr, value):
 			timestamp(), name, attr, value
 		))
 
-def add(object, member, value, method=lambda old, new: old):
+def add(object, member, value, method):
 	if hasattr(object, member): value=method(getattr(object, member), value)
 	setattr(object, member, value)
 
@@ -173,6 +183,20 @@ class Entity:
 		raise AttributeError
 
 	def __setattr__(self, attr, value): log_attr_set(self, attr, value)
+
+	def set_stats(self, strength, dexterity, constitution, intelligence, wisdom, charisma):
+		self.strength=strength
+		self.dexterity=dexterity
+		self.constitution=constitution
+		self.intelligence=intelligence
+		self.wisdom=wisdom
+		self.charisma=charisma
+
+	def add_hit_dice(self, dice, sides):
+		add(self, 'hit_dice', '{}d{}'.format(dice, sides), plus_string)
+		if hasattr(self, 'constitution'):
+			if not hasattr(self, 'max_hp'): self.max_hp=sides+(sides//2+1)*(dice-1)+dice*modifier(self.constitution)
+			if not hasattr(self, 'hp'): self.hp=self.max_hp
 
 	def show(self, do_print=True):
 		import pprint

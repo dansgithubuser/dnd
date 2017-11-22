@@ -78,7 +78,7 @@ class Cleric:
 	def init(self, level, **kwargs):
 		SpellPreparer.init(self, level, **kwargs)
 		base.set_methods(self, Cleric)
-		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		self.add_hit_dice(level, 8)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
 			'wisdom_saving_throw', 'charisma_saving_throw',
@@ -139,7 +139,7 @@ class Wizard:
 	def init(self, level, **kwargs):
 		SpellPreparer.init(self, level, **kwargs)
 		base.set_methods(self, Wizard)
-		base.add(self, 'hit_dice', '{}d6'.format(level), base.plus_string)
+		self.add_hit_dice(level, 6)
 		base.add(self, 'proficiencies', [
 			'dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow',
 			'wisdom_saving_throw', 'intelligence_saving_throw',
@@ -190,7 +190,7 @@ class Rogue:
 	def init(self, level, **kwargs):
 		Standard.init(self, level)
 		base.set_methods(self, Rogue)
-		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		self.add_hit_dice(level, 8)
 		base.add(self, 'proficiencies', [
 			'light_armor',
 			'hand_crossbow', 'longsword', 'rapier', 'shortsword',
@@ -241,7 +241,7 @@ class Fighter:
 	def init(self, level, **kwargs):
 		Standard.init(self, level)
 		base.set_methods(self, Fighter)
-		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
+		self.add_hit_dice(level, 10)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'heavy_armor', 'shield',
 			'strength_saving_throw', 'constitution_saving_throw',
@@ -294,7 +294,7 @@ class Druid:
 	def init(self, level, **kwargs):
 		SpellPreparer.init(self, level, **kwargs)
 		base.set_methods(self, Druid)
-		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		self.add_hit_dice(level, 8)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
 			'club', 'dagger', 'dart', 'javelin', 'mace', 'quarterstaff',
@@ -347,7 +347,7 @@ class Bard:
 	def init(self, level, **kwargs):
 		Spellcaster.init(self, level, **kwargs)
 		base.set_methods(self, Bard)
-		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		self.add_hit_dice(level, 8)
 		base.add(self, 'proficiencies', [
 			'light_armor',
 			'hand_crossbow', 'longsword', 'rapier', 'shortsword',
@@ -399,7 +399,7 @@ class Sorcerer:
 	def init(self, level, **kwargs):
 		Spellcaster.init(self, level, **kwargs)
 		base.set_methods(self, Sorcerer)
-		base.add(self, 'hit_dice', '{}d6'.format(level), base.plus_string)
+		self.add_hit_dice(level, 6)
 		base.add(self, 'proficiencies', [
 			'dagger', 'dart', 'sling', 'quarterstaff', 'light_crossbow',
 			'constitution_saving_throw', 'charisma_saving_throw',
@@ -453,7 +453,7 @@ class Ranger:
 	def init(self, level, **kwargs):
 		Standard.init(self, level, **kwargs)
 		base.set_methods(self, Ranger)
-		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
+		self.add_hit_dice(level, 10)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
 			'dexterity_saving_throw', 'strength_saving_throw',
@@ -527,7 +527,7 @@ class Barbarian:
 	def init(self, level, **kwargs):
 		Standard.init(self, level)
 		base.set_methods(self, Barbarian)
-		base.add(self, 'hit_dice', '{}d12'.format(level), base.plus_string)
+		self.add_hit_dice(level, 12)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'shield',
 			'strength_saving_throw', 'constitution_saving_throw',
@@ -579,7 +579,7 @@ class Monk:
 	def init(self, level, **kwargs):
 		Standard.init(self, level)
 		base.set_methods(self, Monk)
-		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		self.add_hit_dice(level, 8)
 		base.add(self, 'proficiencies', [
 			'shortsword',
 			'strength_saving_throw', 'dexterity_saving_throw',
@@ -636,7 +636,7 @@ class Paladin:
 	def init(self, level, **kwargs):
 		Standard.init(self, level)
 		base.set_methods(self, Paladin)
-		base.add(self, 'hit_dice', '{}d10'.format(level), base.plus_string)
+		self.add_hit_dice(level, 10)
 		base.add(self, 'proficiencies', [
 			'light_armor', 'medium_armor', 'heavy_armor', 'shield',
 			'wisdom_saving_throw', 'charisma_saving_throw',
@@ -707,7 +707,7 @@ class Warlock:
 	def init(self, level, **kwargs):
 		Standard.init(self, level)
 		base.set_methods(self, Warlock)
-		base.add(self, 'hit_dice', '{}d8'.format(level), base.plus_string)
+		self.add_hit_dice(level, 8)
 		base.add(self, 'proficiencies', [
 			'light_armor',
 			'wisdom_saving_throw', 'charisma_saving_throw',
