@@ -167,6 +167,8 @@ def roll(request, vantage=0, on_roll=typical_roll):
 	print(x)
 	return x
 
+def d20(): return roll('d20')
+
 def modifier(stat): return (stat-10)//2
 
 class Entity:
