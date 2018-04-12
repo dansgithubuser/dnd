@@ -1,0 +1,27 @@
+=====MAP=====
+map maker
+https://www.reddit.com/r/DnD/comments/6z7zet/art_i_created_a_photoshop_template_to_make/
+
+ipad map
+
+=====AUDIO=====
+get dlal soundscape working
+	estimate amount of time that recording can work for
+	which mic got opened
+
+http://freetousesounds.com/
+
+voice modulator
+
+speech jammer
+	use dlal on 2nd computer, and earphone signal splitters
+	muddlemages - pranksters/thieves
+
+=====OTHER=====
+dynamic resolution semantics generator
+	generate a scope, be able to generate unexplored details as they are explored
+	example
+		generate a town
+		find the local social gathering place
+		talk to someone, find out a bit about them - say they have dealings with someone to the east
+		what's to the east? something that matches with the story of the original someone
