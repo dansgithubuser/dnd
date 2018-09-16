@@ -1,0 +1,113 @@
+Strongo McFadden the Dwarven Warrior's Dwarven Warrior
+Male Hill Dwarf
+{'dexterity': 14, 'strength': 15, 'constitution': 19, 'intelligence': 8, 'wisdom': 14, 'charisma': 12}
+48y, 5'9", 160 lbs, brown eyes, dark brown hair, tan skin
+25 speed
+proficiencies:
+	battleaxe, handaxe, light hammer, warhammer, smith's tools
+	athletics, sleight of hand, brewer's tools
+	medium armor
+languages: common, dwarvish, undercommon
+other: darkvision, dwarven resilience, stonecunning, dwarven toughness
+items: battleaxe, breastplate
+hp: 15
+armor class: 16
+Eldest of the McFadden brothers of Larkhill, Strongo, Bronto, and Plotto. Most people don't know about or mention Dongo. You embody all everything it means to be a dwarven warrior: axes, armor, hammers, ale, caves, loyalty, and altruism. Years ago you happened upon a cave near your hill and found a group of Grey Dwarves. You were cautious at first. You'd heard of a place called Cumberbolg that fit the description, a place to avoid. But they offered you what they were drinking and you thought it'd be wiser not to reject. The drink was good, as was the conversation. They won a slight amount of your trust, so you continued to visit.
+
+Bronto McFadden the Whispering Wizard
+Male Hill Dwarf
+{'dexterity': 12, 'strength': 11, 'constitution': 16, 'intelligence': 14, 'wisdom': 13, 'charisma': 10}
+45y, 5'8", 155 lbs, brown eyes, dark brown hair, tan skin
+25 speed
+proficiencies:
+	battleaxe, handaxe, light hammer, warhammer, mason's tools
+	arcana, insight, jeweler's tools, cartographer's tools
+languages: common, dwarvish
+other: darkvision, dwarven resilience, stonecunning, dwarven toughness
+cantrips: ray of frost, light, mage hand
+hp: 10
+armor class: 11
+Middle of the McFadden brothers of Larkhill, Strongo, Bronto, and Plotto. Most people don't know about or mention Dongo. As a dwarf and McFadden in particular, you're exceptionally loyal and altruistic. The booksmart one of the group, you find yourself attracted to books. You always whisper, even when people explicitly ask you not to. If you're drunk and a friend asks you to yell, you can exercise your immobilized-from-lack-of-use vocal cords, but not much more than a soft-spoken word comes out. So books also provided you an escape. When you were young, a traveling mage noticed your talent and pointed you toward magic. The material contained therein enthralled you with the power it gave you over the world that books usually didn't.
+
+Plotto McFadden the Steadfast Knight
+Male Hill Dwarf
+{'dexterity': 6, 'strength': 17, 'constitution': 13, 'intelligence': 11, 'wisdom': 14, 'charisma': 14}
+42y, 5'5", 140 lbs, brown eyes, dark brown hair, tan skin
+25 speed
+proficiencies:
+	battleaxe, handaxe, light hammer, warhammer, brewer's tools
+	persuasion, medicine
+	heavy armor
+languages: common, dwarvish, elvish, gnomish
+other: darkvision, dwarven resilience, stonecunning, dwarven toughness
+items: warhammer, chain mail
+hp: 12
+armor class: 16
+Youngest of the McFadden brothers of Larkhill, Strongo, Bronto, and Plotto. Most people don't know about or mention Dongo. You sought to be more McFadden than your brothers, and ended up swearing knightly allegiance to dwarven concepts of loyalty and altruism. As a knight, you skills are less distorted by dwarven values than Strongo, who you are particularly competitive with. You prefer to walk wherever you're going, including to, within, and from a battle. You will run if you need to. You are particularly disdainful of anyone who calls themself a warrior that jumps, thinking it whimsical and impractical.
+
+Cordelia Excellence the Flaming Sorceror
+Female Tiefling
+{'dexterity': 11, 'strength': 9, 'constitution': 13, 'intelligence': 17, 'wisdom': 11, 'charisma': 17}
+30y, 5'7", 115 lbs, red eyes, red hair, pale reddish skin
+30 speed
+proficiencies: deception, intimidation, glassblower's tools
+languages: common, infernal, draconic
+other: darkvision, hellish resistance
+cantrips: thaumaturgy, fire bolt, acid splash, shocking grasp, message
+hp: 7
+armor class: 10
+You're a Tiefling from far away, preferring not to say why. You'll offer details every now and then to those who you think can some day appreciate the full story. Fire is in your blood, body, hands, and mind. People often theorize you're not where you were before because of something to do with fire. Really, they can't be wrong. But you know fire can be destructive, and that's not what it is to you. Fire is change. You desperately want to show that you are a force of change, not a force of destruction. So you seek those looking for change.
+
+Bimpnottin Ningel the Vegan
+Female Forest Gnome
+{'dexterity': 13, 'strength': 15, 'constitution': 9, 'intelligence': 13, 'wisdom': 14, 'charisma': 11}
+83y, 3'6", 35 lbs, green eyes, black-blue hair, dark skin
+25 speed
+proficiencies: perception, animal handling, cook's utenstils, quarterstaff
+languages: common, gnomish, sylvan
+other: darkvision, gnome cunning, speak with small beasts
+cantrips: minor illusion, resistance, shillelagh
+items: quarterstaff
+hp: 7
+armor class: 11
+You grew up in Kindergarden. While many forest gnomes have practical relationships with their forest, you have always loved the forest far more. Your connection to it is unparalleled. You avoid cutting down trees in favor of growing them into bending compromises. You haven't hurt an animal directly to memory, and do your best not to indirectly. While you've learned to cook good-tasting food within your constraints, you've never talked with a gnomish dietitian, to your detriment.
+
+Alberdin Quartzbeard the Safety Sage
+Male Mountain Dwarf
+{'dexterity': 7, 'strength': 15, 'constitution': 14, 'intelligence': 13, 'wisdom': 15, 'charisma': 15}
+219y, 5'8", 150 lbs, grey eyes, light skin, greying hair
+25 speed
+proficiencies:
+	battleaxe, handaxe, light hammer, warhammer, light armor, medium armor
+	survival, persuasion, carpenter's tools, mason's tools
+	medium armor
+languages: common, dwarvish
+other: darkvision, dwarven resilience, stonecunning
+cantrips: mending, resistance, spare the dying
+items: warhammer, breastplate
+hp: 8
+armor class: 12
+You grew up in Hamilton. Your sister was taken by a cave collapse when you were young. You don't share this with anyone. You don't see your parents anymore. But you consistently insist on the safety of everyone around you, statically and dynamically. You've persued knowledge in construction, and sworn spiritual fealty to the concept of safety, granting you certain magical abilities. People find your vocation funny, and you prefer it this way. They tend to respect your ideas presented this way, and you can explain your motivation as, "Just keeping people laughing!".
+
+Helen Beers
+Female Human
+{'dexterity': 16, 'strength': 15, 'constitution': 15, 'intelligence': 10, 'wisdom': 10, 'charisma': 12}
+27y, 5'8", 125 lbs, brown eyes, dark skin, black hair
+30 speed
+proficiencies: acrobatics, stealth, thieves' tools, alchemist's supplies, long bow
+languages: common, dwarvish
+items: long bow
+hp: 10
+armor class: 13
+You're just a well-adjusted adventurer from Dawson City. You like being stealthy because it's practical for you, not because you don't mix with people -- you do fine with people. You also get along really well with your surname, to the point that you're an honorary clan member to the Hill Dwarves.
+
+
+Times are tough. For the past five years, drought has made food scarce in Dawson City and the surrounding establishments.
+
+And yet, a plan hatches in Larkhill. Old man Grasgo McFadden has called for adventurers. You find yourself in his struggling garden next to his shack on a small northern hill. Other adventurers have shown up too.
+
+Grasgo describes a time before the drought, much before, when magic was much more common in the area. The Mountain Dwarves of Hamilton delighted in the production of magical fireworks. These days, as Grasgo best understands, most firework guilds have disbanded. But rumors persist of The Order of Order, descended from one of the guilds, that they hide ancient fireworks somewhere in The Blue Mountain.
+
+Grasgo thinks the rumors might be real, and if so, reasons that the fireworks could be sold across the Great Lake, for something to help the people while the drought continues.
+
+What say you?
