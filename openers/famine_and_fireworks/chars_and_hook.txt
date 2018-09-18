@@ -80,13 +80,13 @@ Male Mountain Dwarf
 proficiencies:
 	battleaxe, handaxe, light hammer, warhammer, light armor, medium armor
 	survival, persuasion, carpenter's tools, mason's tools
-	medium armor
+	shields
 languages: common, dwarvish
 other: darkvision, dwarven resilience, stonecunning
 cantrips: mending, resistance, spare the dying
-items: warhammer, breastplate
+items: warhammer, breastplate, shield, shield
 hp: 8
-armor class: 12
+armor class: 14
 You grew up in Hamilton. Your sister was taken by a cave collapse when you were young. You don't share this with anyone. You don't see your parents anymore. But you consistently insist on the safety of everyone around you, statically and dynamically. You've persued knowledge in construction, and sworn spiritual fealty to the concept of safety, granting you certain magical abilities. People find your vocation funny, and you prefer it this way. They tend to respect your ideas presented this way, and you can explain your motivation as, "Just keeping people laughing!".
 
 Helen Beers
