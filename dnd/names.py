@@ -1,4 +1,4 @@
-import base
+from . import base
 
 vowels='aeiouy'
 friendly_consonants='bcdfghjklmnprstvwz'

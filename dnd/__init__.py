@@ -1,6 +1,4 @@
-from base import *
-import backgrounds, classes, creatures, items, languages, names, races, skills
-import special_qualities, test, tools
+from .base import *
 
 traveling={
 	'slow'  : ['200 ft/min', '2 mi/h', '18 mi/day', 'may stealth'],
@@ -126,3 +124,18 @@ concentration_breaks={
 	'death': "Being incapacitated or killed. You lose concentration on a spell if you are incapacitated or if you die.",
 	'environment': "The DM might also decide that certain environmental phenomena, such as a wave crashing over you while you're on a storm-tossed ship, require you to succeed on a DC 10 constitution saving throw to maintain concentration on a spell.",
 }
+
+__all__=[
+	'backgrounds',
+	'classes',
+	'creatures',
+	'items',
+	'languages',
+	'names',
+	'races',
+	'skills',
+	'special_qualities',
+	'spells',
+	'test',
+	'tools',
+]+[i for i in locals().keys() if not i.startswith('_')]

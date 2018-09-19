@@ -1,4 +1,4 @@
-import base
+from . import base
 
 class Gendered(base.Entity):
 	def __init__(self, gender='mf', **kwargs):

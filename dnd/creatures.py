@@ -1,4 +1,4 @@
-import base, classes, names, races, spells
+from . import base, classes, names, races, spells
 
 import random, re
 

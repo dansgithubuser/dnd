@@ -1,4 +1,4 @@
-import base
+from . import base
 
 class Traits:
 	def __init__(self, typical_speakers, script):

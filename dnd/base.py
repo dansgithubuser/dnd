@@ -1,6 +1,6 @@
 from __future__ import print_function
 
-import backgrounds, classes, items, skills, spells
+from . import backgrounds, classes, items, skills, spells
 
 import copy, inspect, math, random
 

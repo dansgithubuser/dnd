@@ -1,4 +1,4 @@
-import base, items
+from . import base, items
 
 class _Progression:
 	def __init__(self, list, level):

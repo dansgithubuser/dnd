@@ -1,4 +1,4 @@
-import base, classes, creatures, races, spells
+from . import base, classes, creatures, races, spells
 
 def test():
 	print('dice')
