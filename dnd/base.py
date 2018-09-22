@@ -31,7 +31,7 @@ def pick(list, n=1):
 	return pick_n(list, n)
 
 def pick_weighted(item_to_weight):
-	items=item_to_weight.items()
+	items=list(item_to_weight.items())
 	pick=rn(sum([v for k, v in items]))
 	i=0
 	while True:
@@ -191,7 +191,8 @@ and customizable on_roll behavior (default typical_roll)
 		y=split_type(a[i][0])
 		if y: t=y
 		x[t]+=sum(a[i][1])
-	if len(x)==1 and not x.items()[0][0]: x=x.items()[0][1]
+	items=list(x.items())
+	if len(x)==1 and not items[0][0]: x=items[0][1]
 	elif len(x)==2 and '' in x.keys(): x={[i for i in x.keys() if i][0]: sum([i for i in x.values()])}
 	else: x=dict(x)
 	print(x)
@@ -435,7 +436,7 @@ class Entity:
 		r=0
 		for i in x:
 			m=1
-			if   type(i)==dict: s, m=i.items()[0]
+			if   type(i)==dict: s, m=list(i.items())[0]
 			elif type(i)==str: s=i
 			w=m*key(items.items, 0, s, 'weight')
 			print(m, s, w)
