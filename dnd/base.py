@@ -2,16 +2,21 @@ from __future__ import print_function
 
 from . import backgrounds, classes, items, skills, spells
 
-import copy, inspect, math, random
+import inspect, random
 
 log=False
 placed_entities=set()
 
-def rn(m): return random.randint(0, m-1)
+def rn(m):
+	'random number in [0, m)'
+	return random.randint(0, m-1)
+
 def maybe(unlikeliness=2): return not rn(unlikeliness)
+
 def swap(list, i, j): x=list[i]; list[i]=list[j]; list[j]=x
 
 def pick_n(list, n):
+	import copy
 	list=copy.deepcopy(list)
 	result=[]
 	for i in range(n):
@@ -21,6 +26,7 @@ def pick_n(list, n):
 	return result
 
 def pick(list, n=1):
+	'return a pick from list, or a list of picks from list if n is not 1'
 	if n==1: return list[rn(len(list))]
 	return pick_n(list, n)
 
@@ -68,6 +74,10 @@ def log_attr_set(self, attr, value):
 		))
 
 def add(object, member, value, method):
+	'''\
+object.member=method(object.member, value)
+useful for accumulating a value in a member you aren't sure exists yet
+'''
 	if hasattr(object, member): value=method(getattr(object, member), value)
 	setattr(object, member, value)
 
@@ -76,6 +86,7 @@ def plus(x, y): return x+y
 def plus_string(x, y): return x+'+'+y
 def dict_add(x, y): return dict(x, **y)
 def spell_add(x, y):
+	'add two spell lists together, spell lists are like spell_list[level][i]'
 	r=[[] for i in range(9)]
 	for i in range(9):
 		if i<len(x): r[i]=x[i]
@@ -83,17 +94,22 @@ def spell_add(x, y):
 	return r
 
 def set_methods(e, c):
+	'copy methods of c onto e'
 	for name, member in inspect.getmembers(c):
 		if inspect.ismethod(member): setattr(e, name, member)
 
 def get(x, condition):
+	'get the first element in x that fulfills condition'
 	for i in x:
 		if condition(i): return i
 	return None
 
-def split_roll_request(request): return request.split('+')
+def split_roll_request(request):
+	'split by +'
+	return request.split('+')
 
 def split_type(request):
+	'get damage type if it exists, else return empty string'
 	x=request.split()
 	if len(x)>1: return x[1]
 	return ''
@@ -106,6 +122,7 @@ def number_and_type(request):
 	return number, type
 
 def dice_sides_type(request):
+	'split roll request into dice, sides, and type'
 	dice=1
 	type=''
 	x=request.split('d')
@@ -120,6 +137,7 @@ def typical_roll(sides, roll, critical_hit=20, critical_miss=1):
 	return roll
 
 class AttackRoll:
+	'Class whose instances can be called roll(on_roll=instance) to store critical hit or miss.'
 	def __init__(self, critical_hit=20, critical_miss=1):
 		self.critical=0
 		self.critical_hit=critical_hit
@@ -131,9 +149,16 @@ class AttackRoll:
 		return typical_roll(sides, roll, self.critical_hit, self.critical_miss)
 
 def roll(request, vantage=0, on_roll=typical_roll):
+	'''make a roll (ex: 3d4+4 FIRE)
+with advantage (vantage<0) or disadvantage (vantage>0)
+and customizable on_roll behavior (default typical_roll)
+'''
+
+	#print intent
 	print(request, end=': ')
 	if vantage>0: print('with advantage')
 	if vantage<0: print('with disadvantage')
+	#helpers
 	def inner(request, vantage):
 		x=[]
 		for i in split_roll_request(request):
@@ -147,13 +172,18 @@ def roll(request, vantage=0, on_roll=typical_roll):
 		print(x, end=' --> ')
 		return x
 	def total(x): return sum([sum(i[1]) for i in x])
+	#first roll
 	a=inner(request, vantage)
+	#vantage
 	if vantage:
+		#second roll
 		b=inner(request, vantage)
 		if vantage<0 and total(b)<total(a): a=b
 		if vantage>0 and total(b)>total(a): a=b
+	#on_roll
 	for i in a:
 		if 'd' in i[0]: i[1]=on_roll(dice_sides_type(i[0])[1], i[1])
+	#convert to {type: amount}, show, and return
 	import collections
 	x=collections.defaultdict(int)
 	t=''
@@ -172,6 +202,8 @@ def d20(): return roll('d20')
 def modifier(stat): return (stat-10)//2
 
 class Entity:
+	'Base class that creates some aliases for common attributes, logging, and some helper methods.'
+
 	def __getattr__(self, attr):
 		if attr=='str': return self.strength
 		if attr=='dex': return self.dexterity
@@ -382,6 +414,7 @@ class Entity:
 		placed_entities.add(self)
 
 	def distance(self, x, y, z=0):
+		import math
 		return math.sqrt((self.x-x)**2+(self.y-y)**2+(self.z-z)**2)
 
 	def check(self, skill, vantage=0):
