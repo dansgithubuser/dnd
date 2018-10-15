@@ -2,7 +2,7 @@ from __future__ import print_function
 
 from . import backgrounds, classes, items, skills, spells
 
-import inspect, random
+import inspect, random, os
 
 log=False
 placed_entities=set()
@@ -475,6 +475,7 @@ class Entity:
 		self.carrying_load()
 
 def entities_from_log(file_name, modules={}):
+	if not os.path.exists(file_name): return {}
 	import creatures, re
 	with open(file_name) as file:
 		entities={}

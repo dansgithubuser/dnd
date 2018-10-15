@@ -1,4 +1,16 @@
 from .base import *
+from . import backgrounds
+from . import classes
+from . import creatures
+from . import items
+from . import languages
+from . import names
+from . import races
+from . import skills
+from . import special_qualities
+from . import spells
+from . import test
+from . import tools
 
 traveling={
 	'slow'  : ['200 ft/min', '2 mi/h', '18 mi/day', 'may stealth'],
@@ -125,17 +137,4 @@ concentration_breaks={
 	'environment': "The DM might also decide that certain environmental phenomena, such as a wave crashing over you while you're on a storm-tossed ship, require you to succeed on a DC 10 constitution saving throw to maintain concentration on a spell.",
 }
 
-__all__=[
-	'backgrounds',
-	'classes',
-	'creatures',
-	'items',
-	'languages',
-	'names',
-	'races',
-	'skills',
-	'special_qualities',
-	'spells',
-	'test',
-	'tools',
-]+[i for i in locals().keys() if not i.startswith('_')]
+__all__=[i for i in locals().keys() if not i.startswith('_')]
