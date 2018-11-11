@@ -477,3 +477,58 @@ def goblin():
 		'tooth',
 	]
 	return base.pick(a)+base.pick(b)
+
+def dwarf_town():
+	prefixes=[
+		'copper',
+		'alber',
+		'glas', 'gold',
+		'ham',
+		'odin',
+		'silver',
+	]
+	infixes=[
+		'ar',
+		'cal',
+		'fer',
+		'il',
+		'kin',
+		's',
+		'tin',
+	]
+	suffixes=[
+		'bard', 'burg',
+		'den', 'ding',
+		'gin',
+		'helm', 'hill',
+		'lock',
+		'mine',
+		'ness',
+		'rig', 'rock',
+		'stone',
+		'ton',
+		'vein',
+	]
+	result=base.pick(prefixes)
+	if base.maybe(4): result+=base.pick(infixes)
+	result+=base.pick(suffixes)
+	return result
+
+def gnome_town():
+	prefixes=[
+		'chumba',
+		'humper',
+		'smolgas',
+		'rumpel',
+		'thimble', 'tinker', 'toddle', 'trundle', 'tuber',
+		'wagga', 'wattle', 'winkle', 'wollon', 'woy',
+	]
+	suffixes=[
+		'bed', 'burrow',
+		'dink',
+		'garden',
+		'lawn',
+		'pillow',
+		'shire',
+	]
+	return base.pick(prefixes)+base.pick(suffixes)
