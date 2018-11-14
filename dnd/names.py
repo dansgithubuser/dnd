@@ -449,6 +449,54 @@ def dwarf(gender):
 	if last.endswith('eer'): last=last[:-2]+last[-1]
 	return unpack_qs(first+' '+last)
 
+def tiefling(gender=None): return human(gender, normal=True)
+
+def gnome(gender=None):
+	return base.pick([
+		'al', 'alfo',
+		'bo',
+		'chum',
+		'nick',
+		'rump',
+		'smol',
+		'thump',
+		'watt', 'wink',
+	])+base.pick([
+		'ba', 'ber',
+		'el',
+		'gas',
+		'zo',
+	])+' '+base.pick([
+		'bogden', 'boddle',
+		'dergel', 'dodder', 'dunder',
+		'folko',
+		'gogo',
+		'humperdink',
+		'jumper',
+		'knackle',
+		'nackle', 'ningel',
+		'pumpkin',
+		'ramble',
+		'scheppen', 'stiltskin',
+		'tinkle',
+		'virgil', 'vosso',
+		'wackle',
+		'yacko',
+		'zozo',
+	])
+
+def dragonborn(gender=None):
+	result=''
+	if base.maybe(): result+=base.pick('cdfhklmnprstvyz')
+	syllables=[
+		'ar', 'aur', 'ax',
+		'ex',
+		'ian', 'id', 'il', 'ith', 'ix',
+		'us',
+	]
+	result+=''.join(base.pick_n(syllables, base.rn((2, 5))))
+	return result
+
 def goblin():
 	a=[
 		'al',

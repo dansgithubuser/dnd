@@ -38,6 +38,7 @@ class Elf(Gendered):
 		if kwargs.get('new', False): self.choices={
 			'age': (100, 750),
 			'height': (5, 6),
+			'weight': (100, 145),
 		}
 
 class HighElf(Elf):
@@ -48,7 +49,6 @@ class HighElf(Elf):
 		if kwargs.get('new', False): self.choices.update({
 			'cantrip': 'one wizard cantrip',
 			'language': 'one extra language',
-			'weight': (100, 145),
 		})
 
 class WoodElf(Elf):
@@ -82,6 +82,12 @@ class HillDwarf(Dwarf):
 		self.wisdom+=1
 		self.special_qualities+=['dwarven_toughness']
 
+class MountainDwarf(Dwarf):
+	def __init__(self, **kwargs):
+		Dwarf.__init__(self, **kwargs)
+		self.strength+=2
+		self.proficiencies+=['light_armor', 'medium_armor']
+
 class Dragonborn(Gendered):
 	def __init__(self, **kwargs):
 		Gendered.__init__(self, **kwargs)
@@ -114,10 +120,6 @@ class Gnome(Gendered):
 			'age': (40, 350),
 			'height': (3, 4),
 			'weight': (40, 40),
-			'draconic ancestry': [
-				'black', 'blue', 'brass', 'bronze', 'copper', 'gold', 'green',
-				'red', 'silver', 'white',
-			],
 		}
 
 class RockGnome(Gnome):
@@ -126,6 +128,14 @@ class RockGnome(Gnome):
 		self.proficiencies=['tinkers_tools']
 		self.constitution+=1
 		self.special_qualities+=['artificers_lore']
+
+class ForestGnome(Gnome):
+	def __init__(self, **kwargs):
+		Gnome.__init__(self, **kwargs)
+		self.dexterity+=1
+		self.spells=[[] for i in range(9)]
+		self.spells[0].append('minor_illusion')
+		self.special_qualities+=['speak_with_small_beasts']
 
 class Tiefling(Gendered):
 	def __init__(self, **kwargs):

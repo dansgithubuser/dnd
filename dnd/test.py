@@ -24,8 +24,8 @@ def test():
 	import inspect
 	for i in [i[1] for i in inspect.getmembers(creatures) if inspect.isclass(i[1])]:
 		i().test()
-	for i in [i[0] for i in inspect.getmembers(classes) if inspect.isclass(i[1])]:
-		for j in [j[1] for j in inspect.getmembers(races) if inspect.isclass(j[1])]:
-			if i.startswith('_'): continue
-			print(i, j)
-			base.create_character(base.random_heroic_stats(), j, {i: 20}).show()
+	for c_name, c in [(i[0], i[1]) for i in inspect.getmembers(classes) if inspect.isclass(i[1])]:
+		for r_name, r in [(i[0], i[1]) for i in inspect.getmembers(races) if inspect.isclass(i[1])]:
+			if c_name.startswith('_'): continue
+			print(c_name, r_name)
+			base.create_character(base.random_heroic_stats(), r, {c: 20}).show()

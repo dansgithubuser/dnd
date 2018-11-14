@@ -8,8 +8,11 @@ log=False
 placed_entities=set()
 
 def rn(m):
-	'random number in [0, m)'
-	return random.randint(0, m-1)
+	'''\
+if m is an integer, random number in [0, m)
+if m is a tuple, random number in [m[0], m[1]]'''
+	if type(m)==int: return random.randint(0, m-1)
+	elif type(m)==tuple: return random.randint(m[0], m[1])
 
 def maybe(unlikeliness=2): return not rn(unlikeliness)
 
@@ -521,8 +524,8 @@ class Group:
 
 	def __getitem__(self, i): return self.entities[i]
 
-def create_character(stats, race, classes_, background=backgrounds.Generic):
-	x='''class Character(race, {}, background):
+def create_character(stats, race, classes, background=backgrounds.Generic):
+	x='''class Character(race, *classes, background):
 		def __init__(self):
 			self.strength={strength}
 			self.dexterity={dexterity}
@@ -531,13 +534,10 @@ def create_character(stats, race, classes_, background=backgrounds.Generic):
 			self.wisdom={wisdom}
 			self.charisma={charisma}
 			race.__init__(self, new=True)
-			for c, l in classes_.items(): getattr(classes, c).init(self, l, new=True)
-			background.init(self, new=True)'''
-	g={'race': race, 'classes_': classes_, 'classes': classes, 'background': background}
-	exec(
-		x.format(','.join(['classes.'+i for i in classes_.keys()]), **stats),
-		g
-	)
+			for c, l in classes.items(): c.init(self, l, new=True)
+			background.init(self, new=True)'''.format(**stats)
+	g={'race': race, 'classes': classes, 'background': background}
+	exec(x, g)
 	return g['Character']()
 
 def random_heroic_stats():

@@ -1,5 +1,6 @@
 from .base import *
 from . import backgrounds
+from . import characters
 from . import classes
 from . import creatures
 from . import items
