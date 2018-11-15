@@ -2,7 +2,7 @@ from __future__ import print_function
 
 from . import backgrounds, classes, items, skills, spells
 
-import inspect, random, os
+import inspect, random, os, pprint
 
 log=False
 placed_entities=set()
@@ -56,6 +56,10 @@ def timestamp(ambiguous=True):
 	if not ambiguous: format+='-%b'
 	format+='-%d %H:%M:%S.%f}'
 	return format.format(datetime.datetime.now()).lower()
+
+def to_ft_in(ft):
+	i=int(ft)
+	return '''{}'{}"'''.format(i, int((ft-i)*12))
 
 def key(x, default, *indices):
 	try:
@@ -222,6 +226,11 @@ class Entity:
 
 	def __setattr__(self, attr, value): log_attr_set(self, attr, value)
 
+	def race(self):
+		for i in type(self).mro():
+			if i.__module__.endswith('races'):
+				return i.__name__
+
 	def set_stats(self, strength, dexterity, constitution, intelligence, wisdom, charisma):
 		self.strength=strength
 		self.dexterity=dexterity
@@ -237,7 +246,6 @@ class Entity:
 			if not hasattr(self, 'hp'): self.hp=self.max_hp
 
 	def show(self, do_print=True):
-		import pprint
 		def numbered_section(i): return '{:01}'.format(i)
 		def divine_key(attribute):
 			name=attribute[0]
@@ -264,6 +272,67 @@ class Entity:
 		))
 		if do_print: print(x)
 		return x
+
+	def show_simple(self):
+		f='''\
+{name}
+{gender} {race}
+
+str: {str} ({str_mod})
+dex: {dex} ({dex_mod})
+con: {con} ({con_mod})
+int: {int} ({int_mod})
+wis: {wis} ({wis_mod})
+cha: {cha} ({cha_mod})
+
+age: {age}
+height: {height}
+weight: {weight} lbs
+skin: {skin}
+hair: {hair}
+eyes: {eyes}
+
+proficiencies:
+{proficiencies}
+languages:
+{languages}
+cantrips:
+other:
+
+speed: {speed}
+hp: {hp}
+armor class: {ac}
+attacks:
+
+inventory:
+
+backstory:
+
+choices: {choices}
+'''
+		print(f.format(
+			name=self.name,
+			gender='Male' if self.gender=='m' else 'Female',
+			race=self.race(),
+			str=self.str, str_mod=modifier(self.str),
+			dex=self.dex, dex_mod=modifier(self.dex),
+			con=self.con, con_mod=modifier(self.con),
+			int=self.int, int_mod=modifier(self.int),
+			wis=self.wis, wis_mod=modifier(self.wis),
+			cha=self.cha, cha_mod=modifier(self.cha),
+			age=self.age,
+			height=to_ft_in(self.height),
+			weight=self.weight,
+			skin=self.skin_color,
+			hair=self.hair_color,
+			eyes=self.eye_color,
+			proficiencies=''.join(['\t{}\n'.format(i) for i in self.proficiencies]),
+			languages=''.join(['\t{}\n'.format(i) for i in self.languages]),
+			speed=self.speed,
+			hp=self.hp,
+			ac=self.ac,
+			choices=pprint.pformat(self.choices),
+		))
 
 	def roll_stats(self):
 		self.max_hp=roll(self.hit_dice)

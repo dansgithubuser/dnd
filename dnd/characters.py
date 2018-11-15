@@ -56,8 +56,9 @@ def create_random_character():
 	#create
 	result=base.create_character(stats, race, {c: 1})
 	#physical
+	result.gender=base.pick('mf')
 	result.age=base.rn(result.choices['age'])
-	result.height=base.rn(tuple(i*10 for i in result.choices['height']))/10
+	result.height=base.rn(tuple(i*12 for i in result.choices['height']))/12
 	result.weight=base.rn(result.choices['weight'])
 	#skin
 	if isinstance(result, races.Dragonborn):
@@ -75,7 +76,7 @@ def create_random_character():
 			'black', 'brown', 'tan', 'white',
 		])
 	#hair
-	if isinstance(result, races.Dragonborn): pass
+	if isinstance(result, races.Dragonborn): result.hair_color=None
 	elif isinstance(result, races.Tiefling):
 		if base.maybe():
 			result.hair_color=base.pick([

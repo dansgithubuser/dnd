@@ -1,0 +1,167 @@
+Axilithaur the Scaled Spellweaver
+female dragonborn
+
+str: 13 (+1)
+dex: 14 (+2)
+con: 11 ( 0)
+int: 12 (+1)
+wis: 13 (+1)
+cha: 18 (+4)
+
+age: 35
+height: 8'0"
+weight: 250 lbs
+skin: green
+eyes: purple
+
+proficiencies:
+	weapons: dagger, dart, sling, quarterstaff, light crossbow
+	skills: deception, persuasion, intimidation, stealth
+	saving throws: con, cha
+	tools: alchemist's tools, glassblower's tools
+languages: common, draconic
+cantrips: light, firebolt, message
+
+speed: 30
+hp: 6
+armor class: 12
+attacks:
+	quarterstaff: +3 atk, 1d8+1 dmg
+	firebolt: +6 atk, 1d10 dmg, 120 ft range
+
+inventory:
+	quarterstaff
+	2 rations
+	5 gp
+
+backstory:
+	There's a lot going on in the world. This hasn't always been true. You're comfortable either way. You have confidence in your ability to evoke your will. You always did, and this is how you became a sorceror. Your less-scrawny siblings have some disdain for what you are, but, like many dragonborn, you were never close with them.
+
+
+Eldirgloeth Olivefold the Practiced Forester
+male wood-elf
+
+str:  4 (-3)
+dex: 16 (+3)
+con: 14 (+2)
+int: 13 (+1)
+wis: 17 (+3)
+cha: 14 (+2)
+
+age: 717
+height: 6'0"
+weight: 134 lbs
+skin: black
+hair: black
+eyes: brown
+
+proficiencies:
+	weapons: all
+	armor: light, medium, shield
+	skills: perception, animal handling, survival, nature, insight, stealth
+	saving throws: dex, str
+	tools: cartographer's, carpenter's
+languages: elvish, common
+
+speed: 35
+hp: 12
+armor class: 14
+attacks:
+	longbow: +5 atk, 1d8+3 dmg
+
+inventory:
+	5 gp
+	leather armor
+	3 rations
+	longbow
+
+backstory:
+	You're a wood-elf, not a high-elf from Tilmindeth, but non-elves don't know the difference. You're old. You fondly recall the strength you had in your youth, but you don't miss it. What you lack in youthful strength you make up in practiced mind and body.
+
+
+Takdain Goremite the Powerful and Stubborn
+male mountain dwarf
+
+str: 18 (4)
+dex: 14 (2)
+con: 13 (1)
+int: 15 (2)
+wis:  8 (-1)
+cha: 12 (1)
+
+age: 312
+height: 4'5"
+weight: 150 lbs
+skin: brown
+hair: black
+eyes: blue
+
+proficiencies:
+	weapons: all
+	armor: all
+	skills: athletics, history, investigation, religion
+	tools: brewer's, smith's, mason's
+	saving throws: str, con
+languages: common, dwarvish
+
+speed: 25
+hp: 11
+armor class: 18
+attacks:
+	warhammer: +6 atk, 1d8+4 dmg
+	light crossbow: +4 atk, 1d8+2 dmg
+
+inventory:
+	7 gp
+	3 rations
+	breastplate
+	shield
+	warhammer
+	light crossbow
+
+backstory:
+	You're getting on in your years, but you're more spry than most think at first sight. You use brute force to solve many problems. If it doesn't work, you use more brute force, because now it's personal.
+
+
+Winkba Bogden
+female rock gnome
+
+str: 12 (1)
+dex: 18 (4)
+con: 15 (2)
+int:  8 (-1)
+wis: 12 (1)
+cha: 15 (2)
+
+age: 114
+height: 3'0"
+weight: 40 lbs
+skin: white
+hair: auburn
+eyes: brown
+
+proficiencies:
+	weapons: simple, hand crossbow, longsword, rapier, shortsword
+	armor: light
+	skills: acrobatics, sleight of hand, stealth, intimidation, performance, persuasion
+	tools: tinker's, potter's, thief's
+	saving throws: dex int
+languages: common gnomish undercommon
+
+speed: 25
+hp: 10
+armor class: 15
+attacks:
+	rapier: +6 atk, 1d8+4 dmg
+	shortbow: +6 atk, 1d6+4 dmg
+
+inventory:
+	8 gp
+	8 rations
+	thief's tools
+	leather armor
+	rapier
+	shortbow
+
+backstory:
+	If you were a tool in a shed, you'd literally be the sharpest. But not metaphorically. Your natural gnomish curiosity is still there, but your explorations are limited by your wit. Somewhat of a delinquent, you find pleasure using your physical talent to outsmart others. You never steal what'll be missed.
