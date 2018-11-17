@@ -72,7 +72,7 @@ class Dwarf(Gendered):
 		if kwargs.get('new', False): self.choices={
 			'age': (50, 350),
 			'height': (4, 5),
-			'weight': (150, 150),
+			'weight': (130, 170),
 			'tool proficiency': ['smiths_tools', 'brewers_supplies', 'masons_tools'],
 		}
 
@@ -100,7 +100,7 @@ class Dragonborn(Gendered):
 		if kwargs.get('new', False): self.choices={
 			'age': (15, 80),
 			'height': (6, 8),
-			'weight': (250, 250),
+			'weight': (175, 325),
 			'draconic ancestry': [
 				'black', 'blue', 'brass', 'bronze', 'copper', 'gold', 'green',
 				'red', 'silver', 'white',
@@ -119,7 +119,7 @@ class Gnome(Gendered):
 		if kwargs.get('new', False): self.choices={
 			'age': (40, 350),
 			'height': (3, 4),
-			'weight': (40, 40),
+			'weight': (35, 45),
 		}
 
 class RockGnome(Gnome):
