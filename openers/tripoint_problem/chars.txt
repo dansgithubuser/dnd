@@ -165,3 +165,80 @@ inventory:
 
 backstory:
 	If you were a tool in a shed, you'd literally be the sharpest. But not metaphorically. Your natural gnomish curiosity is still there, but your explorations are limited by your wit. Somewhat of a delinquent, you find pleasure using your physical talent to outsmart others. You never steal what'll be missed.
+
+Aside Hust the Savant Spellsmith
+male wood-elf
+
+str: 12 (1)
+dex: 15 (2)
+con: 14 (2)
+int: 15 (2)
+wis: 13 (1)
+cha: 7 (-2)
+
+age: 505
+height: 5'0"
+weight: 121 lbs
+skin: tan
+hair: black
+eyes: brown
+
+proficiencies:
+	weapons: longsword, shortsword, shortbow, longbow, dagger, dart, sling, quarterstaff, light crossbow
+	skills: perception
+	saving throws: wis, int
+languages: common elvish
+cantrips: mending, ray of frost, mage hand
+
+speed: 35
+hp: 8
+armor class: 12
+attacks:
+	longbow: +4 atk, 1d8+2 dmg
+	ray of frost: +5 atk, 1d8 dmg, range 60, reduce speed by 10
+
+inventory:
+	4 gp, 3 rations, longbow
+
+backstory:
+	You're really good at spells, not so good at people. You want everyone to be happy, but engaging directly with this has always ended in misunderstanding. Your approach to the world, then, is to practice your craft -- spells -- and let others decide what they want. If it seems right, you help, otherwise you don't.
+
+Torsa Stalgrotter the Stonespeaker
+female hill dwarf
+
+str: 14 (2)
+dex:  8 (-2)
+con: 17 (3)
+int: 13 (1)
+wis: 18 (4)
+cha: 10 (0)
+
+age: 185
+height: 4'0"
+weight: 142 lbs
+skin: tan
+hair: auburn
+eyes: brown
+
+proficiencies:
+	weapons: battleaxe, handaxe, light hammer, warhammer, club, dagger, dart, javelin, mace, quarterstaff, scimitar, sickle, sling, spear
+	armor: light, medium, shield
+	tools: herbalism kit, flute, smith's
+	saving throws: int, wis
+languages: common dwarvish
+cantrips: common, dwarvish, sylvan
+
+speed: 25
+hp: 11
+armor class: 12
+attacks:
+	battleaxe: +4 atk, 1d8+2 dmg
+	produce flame: +6 atk, 1d8 dmg, range 30
+
+inventory:
+	battleaxe shield breastplate
+	2 gp
+	8 rations
+
+backstory:
+	Growing up in a smith family, you always had some extra sense of the materials being operated on. Eventually you spoke with a stone spirit. Now you act as one with nature. You bring concentration and precision to what you do; you abhor haste.
