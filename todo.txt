@@ -18,6 +18,9 @@ speech jammer
 	muddlemages - pranksters/thieves
 
 =====OTHER=====
+tavern names
+randomly-generated physicality
+
 dynamic resolution semantics generator
 	generate a scope, be able to generate unexplored details as they are explored
 	example
