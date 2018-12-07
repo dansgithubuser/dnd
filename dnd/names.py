@@ -1,5 +1,7 @@
 from . import base
 
+import random
+
 vowels='aeiouy'
 friendly_consonants='bcdfghjklmnprstvwz'
 soft='aefhilorsuvwyz'
@@ -580,3 +582,83 @@ def gnome_town():
 		'shire',
 	]
 	return base.pick(prefixes)+base.pick(suffixes)
+
+def tavern():
+	def adjective(): return random.choice([
+		'admirable', 'all-seeing',
+		'babbling', 'ballistic', 'blind', 'bottomless',
+		"captain's", 'conniving', 'corny', 'crafty',
+		'daring', 'dining', 'dirty', 'disasterous', 'drunk',
+		'eerie', 'electric', 'elegant',
+		'furry', 'fuzzy',
+		'gentle', 'gobbling',
+		'healthy', 'handsome',
+		'intelligent', 'interesting',
+		'jumping', 'jealous',
+		'kempt', 'keen', 'kingly', 'knightly',
+		'lazy', 'leaping',
+		'magic', 'mellow', 'muddled', 'mysterious',
+		'naked', 'naughty',
+		'orange', 'opportune', 'one-eyed',
+		'pleasant', 'posh', 'punctual',
+		'quiet', 'quaint', 'questionable',
+		'rotten', 'rowdy', 'raunchy', 'rambunctious',
+		'salty', 'sleazy', 'spring', 'steady', 'stoic',
+		'timely', 'timid', 'tipsy', 'twisted',
+		'unique', 'unkempt',
+		'voluptuous', 'virtuous',
+		'well-mannered', 'wild', 'wishful', 'woken',
+		'yawning', 'youthful',
+		'zealous', 'zesty',
+	])
+	def animal(): return random.choice([
+		'aardvark', 'ant', 'apple', 'alchemist',
+		'bard', 'banana', 'bagder', 'bat', 'boar', 'bottle', 'bucket',
+		'carnation', 'chicken', 'coyote',
+		'dandelion', 'dingo', 'dog', 'dragon', 'daffodil',
+		'elephant', 'echidna', 'eel',
+		'flamingo', 'fox', 'flower',
+		'goose', 'gander', 'gosling', 'grape',
+		'hare', 'hamster',
+		'ibis', 'iguana',
+		'jackal', 'jackalope', 'jellyfish',
+		'kangaroo', 'kiwi', 'knight',
+		'llama', 'lion', 'lizard', 'lily',
+		'mango', 'mole', 'monkey', 'moose', 'mouse',
+		'narwhal', 'nautilus', 'newt', 'nightingale',
+		'octopus', 'olive', 'ostrich', 'ox', 'oyster',
+		'parrot', 'peacock', 'penguin', 'pheasant', 'philosopher', 'puffin', 'pumpkin', 'peach', 'pear', 'pickle',
+		'quail', 'quetzal',
+		'rabbit', 'raccoon', 'ram', 'rat', 'raven', 'rooster', 'rose',
+		'seahorse', 'serpent', 'snake', 'sorcerer', 'spider', 'sunflower',
+		'teapot', 'thief', 'tortoise', 'toucan', 'tulip', 'turtle',
+		'unicorn',
+		'vole', 'vulture',
+		'walrus', 'warthog', 'weasel', 'whale', 'witch', 'wizard', 'warlock',
+		'yak',
+		'zebra',
+	])
+	def place(): return random.choice([
+		'abbey',
+		'bar',
+		'chair',
+		'den',
+		'nest',
+		'pub',
+		'room', 'roost',
+		'saloon',
+		'tavern',
+		'waterhole',
+	])
+	def noun():
+		if base.maybe():
+			return animal()
+		else:
+			return place()
+	generators=[
+		lambda: 'the {} {}'.format(adjective(), noun()),
+		lambda: 'the {} and the {}'.format(animal(), noun()),
+		lambda: 'the {} {} {}s'.format(random.randint(3, 7), adjective(), animal()),
+		lambda: 'the {} {} {}'.format(adjective(), animal(), place()),
+	]
+	return random.choice(generators)()
