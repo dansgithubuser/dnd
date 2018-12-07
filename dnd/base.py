@@ -155,16 +155,17 @@ class AttackRoll:
 		if roll[0]>=self.critical_hit : self.critical= 1
 		return typical_roll(sides, roll, self.critical_hit, self.critical_miss)
 
-def roll(request, vantage=0, on_roll=typical_roll):
+def roll(request, vantage=0, on_roll=typical_roll, quiet=False):
 	'''make a roll (ex: 3d4+4 FIRE)
 with advantage (vantage<0) or disadvantage (vantage>0)
 and customizable on_roll behavior (default typical_roll)
 '''
 
 	#print intent
-	print(request, end=': ')
-	if vantage>0: print('with advantage')
-	if vantage<0: print('with disadvantage')
+	if not quiet:
+		print(request, end=': ')
+		if vantage>0: print('with advantage')
+		if vantage<0: print('with disadvantage')
 	#helpers
 	def inner(request, vantage):
 		x=[]
@@ -176,7 +177,7 @@ and customizable on_roll behavior (default typical_roll)
 					[random.randint(1, sides) for i in range(dice)],
 				])
 			else: x.append((i, [number_and_type(i)[0]]))
-		print(x, end=' --> ')
+		if not quiet: print(x, end=' --> ')
 		return x
 	def total(x): return sum([sum(i[1]) for i in x])
 	#first roll
@@ -202,7 +203,7 @@ and customizable on_roll behavior (default typical_roll)
 	if len(x)==1 and not items[0][0]: x=items[0][1]
 	elif len(x)==2 and '' in x.keys(): x={[i for i in x.keys() if i][0]: sum([i for i in x.values()])}
 	else: x=dict(x)
-	print(x)
+	if not quiet: print(x)
 	return x
 
 def d20(): return roll('d20')
@@ -332,6 +333,32 @@ choices: {choices}
 			hp=self.hp,
 			ac=self.ac,
 			choices=pprint.pformat(self.choices),
+		))
+
+	def appearance(self):
+		f='''\
+{gender} {race}
+age: {age}
+height: {height}
+weight: {weight} lbs
+skin: {skin}
+hair: {hair}
+eyes: {eyes}
+
+wearing: {wearing}
+'''
+		wearing=None
+		if hasattr(self, 'wearing'): wearing=self.wearing
+		print(f.format(
+			gender=self.gender,
+			race=self.race(),
+			age=self.age,
+			height=to_ft_in(self.height),
+			weight=self.weight,
+			skin=self.skin_color,
+			hair=self.hair_color,
+			eyes=self.eye_color,
+			wearing=wearing,
 		))
 
 	def roll_stats(self):
@@ -612,13 +639,13 @@ def create_character(stats, race, classes, background=backgrounds.Generic):
 def random_heroic_stats():
 	s=['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma']
 	while True:
-		r={j: sum(sorted([roll('d6') for i in range(4)])[1:]) for j in s}
+		r={j: sum(sorted([roll('d6', quiet=True) for i in range(4)])[1:]) for j in s}
 		if sum([v for k, v in r.items()])>=72: break
 	return r
 
 def random_typical_stats():
 	s=['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma']
 	while True:
-		r={j: sum([roll('d6') for i in range(3)]) for j in s}
+		r={j: sum([roll('d6', quiet=True) for i in range(3)]) for j in s}
 		if sum([v for k, v in r.items()])>=60: break
 	return r
