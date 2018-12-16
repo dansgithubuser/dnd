@@ -138,4 +138,90 @@ concentration_breaks={
 	'environment': "The DM might also decide that certain environmental phenomena, such as a wave crashing over you while you're on a storm-tossed ship, require you to succeed on a DC 10 constitution saving throw to maintain concentration on a spell.",
 }
 
+def get_suggestions():
+	concepts=[
+		#plants
+		'apple', 'apricot',
+		'bean',
+		'corn',
+		'daffodil',
+		'fungus',
+		'lotus', 'lily',
+		'mandragora',
+		'olive', 'orchid',
+		'potato',
+		'rose', 'rice',
+		'sunflower', 'sugarcane',
+		'tree',
+		'vine',
+		'wheat',
+		#animals
+		'boar',
+		'crab',
+		'dragon',
+		'eagle', 'elephant',
+		'fish', 'frog',
+		'goat',
+		'horse',
+		'lion',
+		'monkey',
+		'ox',
+		'pheasant',
+		'rat', 'rabbit', 'raven',
+		'serpent', 'scorpion', 'spider',
+		'tiger', 'turtle',
+		'wolf',
+		#colors
+		'red', 'orange', 'yellow', 'green', 'blue', 'violet',
+		'black', 'white', 'grey',
+		#items
+		'sword', 'hammer', 'axe', 'staff', 'scepter', 'spade', 'pick',
+		'shield', 'helm',
+		'gem', 'platinum', 'gold', 'silver', 'copper',
+		'leather', 'steel', 'silk', 'fleece',
+		'rope', 'paper', 'oil',
+		#classes
+		'fighter', 'wizard', 'cleric', 'rogue', 'sorcerer', 'warlock',
+		'paladin', 'monk', 'barbarian', 'ranger', 'druid', 'bard',
+		'alchemist',
+		#races
+		'human', 'dwarf', 'elf', 'gnome', 'dragonborn', 'tiefling', 'orc',
+		'goblin', 'kobold', 'giant', 'angel', 'demon', 'sylph',
+		'half',
+		#small groups
+		'earth', 'water', 'wind', 'fire', 'magic',
+		'true', 'false',
+		'male', 'female',
+		'chaos', 'order',
+		'greed', 'love', 'hate',
+		'patience', 'judgment',
+		'family', 'other',
+		'war', 'peace',
+		'victory', 'failure',
+		'unknown', 'unknowable', 'infinite', 'normal', 'subtle', 'all',
+		'tower', 'mine', 'road', 'bridge', 'tunnel',
+		'sun', 'star', 'moon',
+		'mountain', 'swamp', 'plains', 'forest', 'island', 'snow',
+		'strength', 'dexterity', 'constitution',
+		'intelligence', 'widsom', 'charisma',
+		#misc
+		'age',
+		'blood', 'bread', 'broken',
+		'crown', 'control',
+		'death', 'destiny', 'door',
+		'experiment',
+		'fued', 'fool',
+		'growth',
+		'machine',
+		'pact', 'parasite',
+		'secret', 'shelter', 'sure', 'statue', 'sport',
+		'trade', 'temporary', 'twin',
+		'vessel',
+	]
+	for i in range(5):
+		for j in range(5):
+			print(' '*random.randint(1, 8), end='')
+			print(random.choice(concepts), end='')
+		print()
+
 __all__=[i for i in locals().keys() if not i.startswith('_')]
