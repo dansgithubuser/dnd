@@ -12,6 +12,7 @@ from . import special_qualities
 from . import spells
 from . import test
 from . import tools
+from . import weave
 
 traveling={
 	'slow'  : ['200 ft/min', '2 mi/h', '18 mi/day', 'may stealth'],
