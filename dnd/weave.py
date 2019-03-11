@@ -61,15 +61,187 @@ From there, we need a way for the DM to transform the name of a spell, using the
 This can be implemented as a simple web application.
 '''
 
+import copy
+import json
 import math
 import random
+import types
 
 #=====spoken language to ciphertext=====#
-#simple mapping from "rune" to number based on secret
+onsets = [
+    'b',
+    'd',
+    'f',
+    'g',
+    'h',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'p',
+    'r',
+    's',
+    'sh',
+    't',
+    'th',
+    'v',
+    'z',
+    'zh',
+]
+
+nuclei = 'aeiou'
+
+codas = [
+    '',
+    'b',
+    'd',
+    'f',
+    'g',
+    'k',
+    'l',
+    'm',
+    'n',
+    'ng',
+    'p',
+    'r',
+    's',
+    'sh',
+    't',
+    'th',
+    'v',
+    'z',
+    'zh',
+]
+
+def number_to_rune(number, secret):
+    onset = secret.onsets[number % 8]
+    number //= 8
+    nucleus = secret.nuclei[number % 4]
+    number //= 4
+    coda = secret.codas[number % 8]
+    return onset + nucleus + coda
+
+def rune_to_number(rune, secret):
+    for nucleus in nuclei:
+        if nucleus in rune: break
+    onset, coda = rune.split(nucleus)
+    result = secret.codas.index(coda)
+    result *= 4
+    result += secret.nuclei.index(nucleus)
+    result *= 8
+    result += secret.onsets.index(onset)
+    return result
+
+def ciphertext_to_runes(ciphertext, secret):
+    return [number_to_rune(i, secret) for i in ciphertext]
+
+def runes_to_ciphertext(runes, secret):
+    return [rune_to_number(i, secret) for i in runes]
 
 #=====ciphertext to plaintext=====#
-#each of these transformations consume some ciphertext and produce some plaintext
-#the set of transformations used and the possible plaintexts yielded by each transformation is based on the secret
+#defines which spell areas are easily discoverable
+def coarse(ciphertext, secret):
+    n = ciphertext[0]
+    l = len(secret.coarse)
+    text = secret.coarse[n % l]
+    text = [i + j * (n // l) for i, j in zip(text, secret.generation)]
+    return text
+
+#-----fine tuning-----#
+def select_and_tune(ciphertext, secret, i, text, forward=True):
+    g = ciphertext[0] // len(secret.coarse) + 1
+    m = ciphertext[i]
+    x = secret.noise(i - 1, ciphertext) % (16 * i)
+    v = (m % 16) * (x + 1) + g - 7
+    v *= 1 if forward else -1
+    text[m // 16] += v
+
+def circle(ciphertext, secret, i, text, forward=True):
+    g = ciphertext[0] // len(secret.coarse) + 1
+    m = ciphertext[i]
+    x = secret.noise(i - 1, ciphertext) % (4 * i)
+    v = g + x
+    v >>= (m >> 4 & 0b11)
+    v *= 1 if forward else -1
+    offset = m // 64 * 4
+    mask = 1
+    for j in range(offset, min(offset + 4, len(text))):
+        text[j] += v * (1 if (mask & m) else -1)
+        mask <<= 1
+
+def binary(ciphertext, secret, i, text, forward=True, depth=0, start=0):
+    if depth >= 4: return
+    g = ciphertext[0] // len(secret.coarse) + 1
+    m = ciphertext[i] >> (2 * depth)
+    x = secret.noise(i - 1, ciphertext) % (16 * i)
+    v = (m & 1) * (g + x)
+    v *= 1 if forward else -1
+    middle = start + (8 >> depth)
+    end = start + (16 >> depth)
+    if m & 2:
+        for j in range(start, middle): text[j] += v
+        binary(ciphertext, secret, i, text, forward, depth + 1, start)
+    else:
+        for j in range(middle, end): text[j] += v
+        binary(ciphertext, secret, i, text, forward, depth + 1, middle)
+
+subproblems = [select_and_tune, circle, binary]
+
+#-----transformation-----#
+def ciphertext_to_plaintext(ciphertext, secret):
+    text = coarse(ciphertext, secret)
+    for i in range(1, len(ciphertext)):
+        subproblem = subproblems[secret.subproblems[(i - 1) % len(secret.subproblems)]]
+        subproblem(ciphertext, secret, i, text)
+    return text
+
+def spell_distance(goal, other):
+    result = 0
+    for i, j in zip(goal, other):
+        if type(i) == int:
+            result += abs(i - j)
+        else:
+            if i == 'x': continue
+            l = [int(j) for j in i.split(':')]
+            lo, hi = l[0:2]
+            d = 0
+            if j < lo: d += lo - j
+            if j > hi: d += j - hi
+            if len(l) > 2: d *= int(l[2])
+            result += d
+    return result
+
+def plaintext_to_ciphertext(plaintext, secret):
+    c_min = []
+    p_min = None
+    d_min = math.inf
+    for j in range(256):
+        c = [j]
+        p = coarse(c, secret)
+        d = spell_distance(plaintext, p)
+        if d < d_min:
+            c_min = c
+            p_min = p
+            d_min = d
+    for i in range(2 * len(secret.subproblems)):
+        c_min_prev = c_min
+        p_min_prev = p_min
+        for j in range(256):
+            c = c_min_prev + [j]
+            subproblem = subproblems[secret.subproblems[i % len(secret.subproblems)]]
+            p = copy.copy(p_min_prev)
+            subproblem(c, secret, i + 1, p)
+            d = spell_distance(plaintext, p)
+            if d < d_min:
+                c_min = c
+                p_min = p
+                d_min = d
+        if len(c_min) <= i + 1:
+            break
+        if spell_distance(plaintext, ciphertext_to_plaintext(c_min, secret)) == 0:
+            break
+    return c_min
 
 #=====plaintext to spell effect=====#
 #here we list features of a spell
@@ -106,6 +278,7 @@ transfigurations = [
 
 extras = {
     'force': [
+        ('your weight doubles', -1),
         ('you exert up to 10 pounds of force (any direction) on the target', 0),
         ('target is pushed 10 feet away from you', 0),
         ('target is knocked prone', 1),
@@ -114,13 +287,12 @@ extras = {
         ('mage armor is cast on the target', 1),
         ('shield is cast on the target', 1),
         ('unseen servant is cast at the target', 1),
+        ('you may cast arcane lock on the target', 2),
         ('enlarge reduce is cast on the target', 2),
         ('knock is cast on the target', 2),
         ('levitate is cast on the target', 2),
         ('spider climb is cast on the target', 2),
-        ('blink is cast on the target', 3),
         ('fly is cast on the target', 3),
-        ('magic circle is cast on the target', 3),
         ('phantom steed is cast at the target', 3),
         ("a force wall similar to tiny hut is created at the spell's boundary", 3),
         ('arcane hand is cast at the target', 5),
@@ -129,6 +301,7 @@ extras = {
         ('forcecage is cast on the target', 7),
     ],
     'fire': [
+        ('you gain a level of exhaustion until you cool down', -1),
         ('you may light a candle, torch, or campfire within the spell area', 0),
         ('you slightly increase or reduce flames within range', 0),
         ('you may cast continual flame instead', 2),
@@ -136,6 +309,7 @@ extras = {
         ('this spell obscures vision', 1),
     ],
     'lightning': [
+        ("this spell's damage is also applied to the caster", -1),
         ('target knows which way is magnetic North', 0),
         ('target cannot take reactions for a round', 0),
         ('call lightning is cast on the target', 3),
@@ -203,6 +377,7 @@ extras = {
         ('target has advantage on death saving throws', 1),
         ('target regains maximum number of hit points possible from any healing', 1),
         ('haste is cast on the target', 3),
+        ('magic circle is cast on the target', 3),
         ('protection from energy is cast on the target', 3),
         ('remove curse is cast on the target', 3),
         ('death ward is cast on the target', 4),
@@ -220,6 +395,7 @@ extras = {
         ('mind blank is cast on the target', 8),
     ],
     'cold': [
+        ('you gain a level of exhaustion until you warm up', -1),
         ("target's speed is reduced by 10 feet for a round", 0),
         ('ice storm is cast at the target', 4),
         ('this spell freezes water like freezing sphere', 2),
@@ -260,6 +436,7 @@ extras = {
         ('true resurrection is cast on the target', 9),
     ],
     'acid': [
+        ('an item you are wearing becomes corroded similar to black pudding', -1),
         ('grease is cast on the target', 1),
         ('target takes 2d4 acid damage at the end of its turn', 1),
         ('web is cast on the target', 2),
@@ -272,6 +449,7 @@ extras = {
         ('cloudkill is cast at the target', 5),
     ],
     'psychic': [
+        ('you cannot taste until your next long rest', -1),
         ('you may create an instantaneous, harmless sensory effect', 0),
         ('target has disadvantage on its next attack', 0),
         ('animal friendship is cast on the target', 1),
@@ -311,6 +489,7 @@ extras = {
         ('weird is cast on the target', 9),
     ],
     'radiant': [
+        ('you cannot lie for the duration of the spell', -1),
         ('target may add a d4 to a skill check', 0),
         ('you gain advantage on your next attack against the target', 0),
         ('you understand all written language', 1),
@@ -338,6 +517,7 @@ extras = {
         ('attacks against target have disadvantage', 2),
     ],
     'wind': [
+        ('you cannot breathe air for the duration of the spell', -1),
         ('you learn what the weather will be for the next 24 hours', 0),
         ('target is knocked prone', 3),
         ('you may snuff a candle within range', 0),
@@ -350,6 +530,7 @@ extras = {
         ('storm of vengeance is cast at the target', 9),
     ],
     'water': [
+        ('you gain a level of exhaustion until you drink water', -1),
         ('you may cast create or destroy on the target', 1),
         ('target is knocked prone', 2),
         ('fog cloud is cast on the target', 1),
@@ -467,13 +648,14 @@ misc = [
     ('you are paralyzed until your next long rest', -1),
     ('you are stunned for 1 round', -1),
     ('an entity within 5 feet of a target can also be affected', 0),
-    ('this spell does not have to follow a straight line (cannot be used to increase number of targets)', 0),
+    ('this spell does not have to follow a straight line', 0),
     ('this spell can be cast through up to 3 feet of wood, 1 foot of stone, 1 inch of metal, or thin lead', 0),
     ('you may reduce the intensity of this spell', 0),
     ('target gains no benefit from cover for saving throw', 0),
     ('shillelagh is cast on the target', 0),
-    ('alarm is cast on the target', 0),
-    ('this spell cannot miss', 0),
+    ('this spell pierces targets', 1),
+    ('alarm is cast on the target', 1),
+    ('this spell cannot miss', 1),
     ('add 1 to each die roll', 0),
     ('spell may be cast as a ritual', 0),
     ('you may modify directions specified in this spell', 1),
@@ -482,7 +664,6 @@ misc = [
     ("your weapon deals an additional 1d4 of this spell's damage type", 1),
     ('you may cast identify', 1),
     ("you may cast find familiar instead; the familiar must associated with this spell's element", 1),
-    ('you may cast arcane lock on the target', 2),
     ("you create a blade similar to flame blade, which has this spell's effect instead of doing 3d6 fire damage", 2),
     ('you may move the affected area up to 30 feet, or rotate it any number of degrees, as a bonus action', 1),
     ('you cast this spell into an object, similar to magic mouth, except the object dispels after an hour', 2),
@@ -495,6 +676,7 @@ misc = [
     ('an extradimensional space, as in rope trick, is created at the target', 2),
     ('you can see into the Ethereal Plane', 2),
     ('you cast this spell into a spectral weapon like spiritual weapon; the weapon acts as though this spell was casted with 1s rolled (20s for saving throws)', 2),
+    ('blink is cast on the target', 3),
     ('clairvoyance is cast on the target', 3),
     ('counterspell is cast on the target', 3),
     ('dispel magic is cast on the target', 3),
@@ -543,14 +725,17 @@ misc = [
     ('time stop is cast', 9),
     ('wish is cast', 9),
     ("you may redistribute this spell's damage as you choose", 7),
-    ('this spell can be cast at a higher level, adding a damage die per level above; if it is a cantrip, add a damage die at your 5th, 11th, and 17th level', 0),
     ('for the duration, your 9th level spell slots can cast spells of any level', 9),
-    ('your target may be in a different plane', 9),
+    ('targets may be in a different planes', 10),
     ('you can choose which targets within the area are affected', 1),
     ('targets in multiple shapes are affected multiple times', 3),
+    ('regain all spell slots', 11),
+    ('this spell may be cast with a level 9 slot', 0),
 ]
 
-def select(l, g): return l[next(g) % len(l)]
+def select(l, s):
+    if isinstance(s, types.GeneratorType): s = next(s)
+    return l[s % len(l)]
 
 def clamp(x, lo=None, hi=None):
     if lo is not None: x = max(x, lo)
@@ -561,17 +746,18 @@ def plaintext_to_english(plaintext):
     g = (i for i in plaintext + [0 for i in range(100)])
     spell = []
     #element
-    if next(g) % 2:
-        element = select(transfigurations, g)
+    e = next(g) % (2 * len(elements) + len(transfigurations))
+    if e < 2 * len(elements):
+        element = elements[e // 2]
+        if e % 2: element = opposites[element]
     else:
-        element = select(elements, g)
-        if next(g) % 2: element = opposites[element]
+        element = transfigurations[e - 2 * len(elements)]
     spell.append('element: {}'.format(element))
     #damage
     damage_die = select([4, 6, 8, 10, 12], g)
     damage_dice = next(g) % {
         4: 5,
-        6: 21,
+        6: 41,
         8: 11,
         10: 11,
         12: 5,
@@ -589,7 +775,7 @@ def plaintext_to_english(plaintext):
         spell.append('target takes {}d{} {} damage'.format(damage_dice, damage_die, damage_type))
     #range
     rng = select([
-        0, 5, 30, 60, 90, 120, 160, 300, 600,
+        0, 5, 30, 60, 90, 120, 150, 300, 600,
         5e3, 5e4, 5e5, 5e6, 5e7,
         math.inf
     ], g)
@@ -599,15 +785,19 @@ def plaintext_to_english(plaintext):
     shape_size = 0
     if shape in ['cylinder', 'sphere', 'cube']:
         shape_size = select([
-            0, 5, 10, 15, 20, 30, 60, 90, 120, 160, 300, 600,
+            0, 5, 10, 15, 20, 30, 40, 60, 90, 120, 150, 300, 600,
             5e3, 5e4, 5e5, 5e6, 5e7,
             math.inf
         ], g)
         spell.append('shape: {} foot {}'.format(shape_size, shape))
-    else: spell.append('shape: {}'.format(shape))
+    else:
+        next(g)
+        spell.append('shape: {}'.format(shape))
     if shape == 'cone': shape_size = rng
-    #targets
-    targets = 1 + next(g) % 10
+    #targets, number of extras
+    x = next(g)
+    n_extras = x % 4
+    targets = 1 + (x // 4) % 10
     if targets > 1:
         spell.append('spell has up to {} targets'.format(targets))
     #duration
@@ -633,7 +823,9 @@ def plaintext_to_english(plaintext):
             spell.append('duration: {} hours'.format(duration / 60))
         else:
             spell.append('duration: {} days'.format(duration / 60 / 24))
-    else: spell.append('duration: {}'.format(duration))
+    else:
+        next(g)
+        spell.append('duration: {}'.format(duration))
     #casting time
     casting_time = select(casting_times, g)
     if casting_time[0] == 'long':
@@ -650,17 +842,19 @@ def plaintext_to_english(plaintext):
             spell.append('casting time: {} minutes'.format(casting_time))
         else:
             spell.append('casting time: {} hours'.format(casting_time / 60))
-    else: spell.append('casting time: {}'.format(casting_time[0]))
+    else:
+        next(g)
+        spell.append('casting time: {}'.format(casting_time[0]))
     #delivery
     delivery = select(deliveries, g)
     spell.append(delivery)
     #extras
-    n = next(g) % 4
-    for i in range(n):
-        if next(g) % 2:
-            spell.append(select(misc, g))
+    for i in range(n_extras):
+        x = next(g)
+        if x % 4:
+            spell.append(select(misc, 3 * x // 4))
         else:
-            spell.append(select(extras[element], g))
+            spell.append(select(extras[element], x // 4))
     #level
     value = damage_die * damage_dice
     if type(duration) == int and not concentration: targets *= duration
@@ -674,16 +868,58 @@ def plaintext_to_english(plaintext):
     value = max(1, value - 10)
     feature_levels = [i[1] for i in spell if type(i) != str and len(i) > 1] + [0]
     feature_level = max(0, (sum(feature_levels) + max(feature_levels)) / 2)
+    if rng > 200 or shape_size > 30: feature_level = max(1, feature_level)
     value += targets * (4 ** feature_level - 1)
-    level = int(math.log(value) / math.log(4))
+    level = int(math.log(value) / math.log(5))
     if element == 'healing': level += 1
     spell.append('this is a level {} spell'.format(level))
     #major defects
     if any([i == -2 for i in feature_levels]):
-        spell.append('casting this spell a second time kills the caster')
+        spell.append('casting this spell a second time kills the caster and triples damage, range, and shape size')
     #done!
     spell = [i if type(i) == str else i[0] for i in spell]
     return spell
+
+#=====secret=====#
+default_coarse = (
+    [[i, 0, 0, 0, 2] + [0] * 11 for i in range(2 * len(elements) + len(transfigurations))]
+)
+
+default_generation = [0, 0, 1, 1, 1] + [0] * 11
+
+default_subproblems = [0, 1, 2]
+
+class Secret:
+    def __init__(self,
+        coarse=default_coarse,
+        generation=default_generation,
+        subproblems=default_subproblems,
+        bud=None,
+    ):
+        self.onsets = random.sample(onsets, 8)
+        self.nuclei = random.sample(nuclei, 4)
+        self.codas = random.sample(codas, 8)
+        self.bud = bud or random.randint(0, 2 ** 64)
+        self.coarse = coarse
+        self.generation = generation
+        self.subproblems = subproblems
+
+    def noise(self, noisiness, ciphertext):
+        result = 0
+        k = 0
+        for i in range(noisiness):
+            result += sum(ciphertext)
+            result %= 256
+            x = self.bud & (1 << (k % 64))
+            ciphertext = [(x and j % 2 << 7) + (j >> 1) for j in ciphertext]
+            k += 1
+        return result
+
+    def serialize(self):
+        return json.dumps(self.__dict__)
+
+    def deserialize(self, s):
+        self.__dict__ = json.loads(s)
 
 #=====helpers=====#
 def describe_spell(plaintext):
@@ -703,9 +939,26 @@ When another distribued spell is applied at a target, its effects are applied wi
 Spells with longer durations apply their entire effects each round.
 When another spell is cast, its effect lasts one round,
 so effects do not compound, and last as long as this spell.
+
+Cylinders heights are limited by the spell's range.
+So, a coincidental cylinder can be as high as the spell's range,
+while a distant cylinder cannot be very high.
+
+Cantrips add a damage die at your 5th, 11th, and 17th level.
+Spells of 1st or higher level can be cast at a higher level, adding a damage die per level above.
 '''
     )
 
-def random_spell(plaintext=None):
-    if not plaintext: plaintext = [random.randint(0, 256) for i in range(20)]
+def random_spell(plaintext=[]):
+    while len(plaintext) < 16: plaintext.append(random.randint(0, 256))
     return plaintext
+
+dummy_secret = Secret(bud=16668964828708556369)
+
+def boomerang(plaintext, secret=dummy_secret):
+    while len(plaintext) < 16: plaintext.append('x')
+    print(plaintext)
+    ciphertext = plaintext_to_ciphertext(plaintext, secret)
+    print(ciphertext)
+    plaintext = ciphertext_to_plaintext(ciphertext, secret)
+    describe_spell(plaintext)
