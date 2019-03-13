@@ -61,6 +61,7 @@ From there, we need a way for the DM to transform the name of a spell, using the
 This can be implemented as a simple web application.
 '''
 
+import collections
 import copy
 import json
 import math
@@ -443,7 +444,7 @@ extras = {
     ],
     'poison': [
         ('you are poisoned', -1),
-        ('you may cast detect poison and disease', 1),
+        ('you detect poison and disease', 1),
         ('protection from poison is cast on the target', 2),
         ('stinking cloud is cast at the target', 3),
         ('cloudkill is cast at the target', 5),
@@ -493,7 +494,7 @@ extras = {
         ('target may add a d4 to a skill check', 0),
         ('you gain advantage on your next attack against the target', 0),
         ('you understand all written language', 1),
-        ('you may cast detect evil and good', 1),
+        ('you detect evil and good', 1),
         ('protection from evil and good is cast on the target', 1),
         ('arcanists magic aura is cast on the target', 2),
         ('augury is cast', 2),
@@ -660,9 +661,9 @@ misc = [
     ('spell may be cast as a ritual', 0),
     ('you may modify directions specified in this spell', 1),
     ('target must subtract a d4 from their next attack roll or saving throw', 1),
-    ('you may cast detect magic', 1),
+    ('you detect magic', 1),
     ("your weapon deals an additional 1d4 of this spell's damage type", 1),
-    ('you may cast identify', 1),
+    ('you cast identify on the target', 1),
     ("you may cast find familiar instead; the familiar must associated with this spell's element", 1),
     ("you create a blade similar to flame blade, which has this spell's effect instead of doing 3d6 fire damage", 2),
     ('you may move the affected area up to 30 feet, or rotate it any number of degrees, as a bonus action', 1),
@@ -725,8 +726,8 @@ misc = [
     ('time stop is cast', 9),
     ('wish is cast', 9),
     ("you may redistribute this spell's damage as you choose", 7),
-    ('for the duration, your 9th level spell slots can cast spells of any level', 9),
-    ('targets may be in a different planes', 10),
+    ('if you cast this at 9th level, your 9th level spell slots can cast spells of any level', 9),
+    ('targets may be in different planes', 10),
     ('you can choose which targets within the area are affected', 1),
     ('targets in multiple shapes are affected multiple times', 3),
     ('regain all spell slots', 11),
@@ -742,9 +743,10 @@ def clamp(x, lo=None, hi=None):
     if hi is not None: x = min(x, hi)
     return x
 
-def plaintext_to_english(plaintext):
+def plaintext_to_dict(plaintext):
     g = (i for i in plaintext + [0 for i in range(100)])
-    spell = []
+    spell = collections.OrderedDict()
+    feature_levels = [0]
     #element
     e = next(g) % (2 * len(elements) + len(transfigurations))
     if e < 2 * len(elements):
@@ -752,7 +754,7 @@ def plaintext_to_english(plaintext):
         if e % 2: element = opposites[element]
     else:
         element = transfigurations[e - 2 * len(elements)]
-    spell.append('element: {}'.format(element))
+    spell['element'] = element
     #damage
     damage_die = select([4, 6, 8, 10, 12], g)
     damage_dice = next(g) % {
@@ -763,7 +765,7 @@ def plaintext_to_english(plaintext):
         12: 5,
     }[damage_die]
     if element == 'healing':
-        spell.append('target heals {}d{} hit points'.format(damage_dice, damage_die, element))
+        spell['heal'] = '{}d{}'.format(damage_dice, damage_die, element)
     else:
         damage_type = {
             'light': 'radiant',
@@ -772,38 +774,38 @@ def plaintext_to_english(plaintext):
             'water': 'bludgeoning',
             'earth': 'bludgeoning',
         }.get(element, element)
-        spell.append('target takes {}d{} {} damage'.format(damage_dice, damage_die, damage_type))
+        spell['damage'] = '{}d{} {}'.format(damage_dice, damage_die, damage_type)
     #range
     rng = select([
-        0, 5, 30, 60, 90, 120, 150, 300, 600,
+        0, 5, 10, 15, 20, 30, 40, 60, 90, 100, 120, 150, 300, 600,
         5e3, 5e4, 5e5, 5e6, 5e7,
         math.inf
     ], g)
-    spell.append('range: {} feet'.format(rng))
     #shape
     shape = select(shapes, g)
     shape_size = 0
-    if shape in ['cylinder', 'sphere', 'cube']:
+    if shape in ['line', 'cylinder', 'sphere', 'cube']:
         shape_size = select([
-            0, 5, 10, 15, 20, 30, 40, 60, 90, 120, 150, 300, 600,
+            0, 5, 10, 15, 20, 30, 40, 60, 90, 100, 120, 150, 300, 600,
             5e3, 5e4, 5e5, 5e6, 5e7,
             math.inf
         ], g)
-        spell.append('shape: {} foot {}'.format(shape_size, shape))
+        spell['shape'] = '{} foot {}'.format(shape_size, shape)
     else:
         next(g)
-        spell.append('shape: {}'.format(shape))
+        spell['shape'] = shape
+    if shape in ['self', 'touch']: rng = 0
     if shape == 'cone': shape_size = rng
+    spell['range'] = rng
     #targets, number of extras
     x = next(g)
     n_extras = x % 4
     targets = 1 + (x // 4) % 10
-    if targets > 1:
-        spell.append('spell has up to {} targets'.format(targets))
+    if targets > 1: spell['targets'] = targets
     #duration
     concentration = next(g) % 2
-    if concentration: spell.append('spell requires concentration')
     duration = select(durations, g)
+    if concentration and duration != 'instantaneous': spell['concentration'] = True
     if duration == 'long':
         duration = select([
             1, 10, 60,
@@ -817,15 +819,15 @@ def plaintext_to_english(plaintext):
             30 * 24 * 60,
             365 * 24 * 60,
         ], g)
-        if duration < 60:
-            spell.append('duration: {} minutes'.format(duration))
-        elif duration < 24 * 60:
-            spell.append('duration: {} hours'.format(duration / 60))
+        if duration <= 60:
+            spell['duration'] = '{} minutes'.format(duration)
+        elif duration <= 24 * 60:
+            spell['duration'] = '{} hours'.format(duration // 60)
         else:
-            spell.append('duration: {} days'.format(duration / 60 / 24))
+            spell['duration'] = '{} days'.format(duration // 60 // 24)
     else:
         next(g)
-        spell.append('duration: {}'.format(duration))
+        spell['duration'] = duration
     #casting time
     casting_time = select(casting_times, g)
     if casting_time[0] == 'long':
@@ -839,45 +841,64 @@ def plaintext_to_english(plaintext):
             24 * 60,
         ], g)
         if casting_time < 60:
-            spell.append('casting time: {} minutes'.format(casting_time))
+            spell['casting time'] = '{} minutes'.format(casting_time)
         else:
-            spell.append('casting time: {} hours'.format(casting_time / 60))
+            spell['casting time'] = '{} hours'.format(casting_time // 60)
     else:
         next(g)
-        spell.append('casting time: {}'.format(casting_time[0]))
+        spell['casting time'] = casting_time[0]
+        feature_levels.append(casting_time[1])
     #delivery
     delivery = select(deliveries, g)
-    spell.append(delivery)
+    spell['delivery'] = delivery
     #extras
+    if n_extras: spell['extra'] = []
     for i in range(n_extras):
         x = next(g)
         if x % 4:
-            spell.append(select(misc, 3 * x // 4))
+            extra = select(misc, 3 * x // 4)
         else:
-            spell.append(select(extras[element], x // 4))
+            extra = select(extras[element], x // 4)
+        spell['extra'].append(extra[0])
+        feature_levels.append(extra[1])
     #level
-    value = damage_die * damage_dice
-    if type(duration) == int and not concentration: targets *= duration
-    dim = 0
-    if rng != 0:
-        if shape in ['line']: dim = 1
-        if shape in ['cone', 'cylinder', 'sphere', 'cube']: dim = 3
-    targets *= clamp((rng / 10 + shape_size + 30) / 20, 1, 2 ** 128) ** dim
-    value *= targets
-    if type(casting_time) == int: value /= casting_time
-    value = max(1, value - 10)
-    feature_levels = [i[1] for i in spell if type(i) != str and len(i) > 1] + [0]
+    damage = damage_die * damage_dice
+    if rng == math.inf: rng = 5e27
+    if shape_size == math.inf: shape_size = 5e27
+    dim = {#(shape_size, rng, multiplier)
+        'self': [0, 0, 1],
+        'touch': [0, 0, 1],
+        'line': [1, 1, 1],
+        'cone': [1, 1, 1 / 2],
+        'cylinder': [2, 0, math.pi],
+        'sphere': [2, 0, math.pi],
+        'cube': [2, 0, 1],
+    }[shape]
+    if shape == 'line' and shape_size == 0: dim[1] == 0
+    area = (shape_size // 5) ** dim[0] * (rng // 5) ** dim[1] * dim[2]
+    hits = (math.log(targets, 2) + 1) * (int(area) // 120 + 1)
+    if type(duration) == int:
+        if concentration:
+            hits *= 2
+        else:
+            hits *= duration * 10
+    if type(casting_time) == int:
+        hits /= casting_time * 10
+        hits = max(hits, 0.5)
+    if delivery == 'saving throw half': damage *= 1.5
     feature_level = max(0, (sum(feature_levels) + max(feature_levels)) / 2)
     if rng > 200 or shape_size > 30: feature_level = max(1, feature_level)
-    value += targets * (4 ** feature_level - 1)
-    level = int(math.log(value) / math.log(5))
+    value = hits * (damage + 2.3 ** feature_level - 1) * ((rng + 149) // 150 + 1) / 2
+    if value > 12:
+        level = int(math.log(value / 12, 1.6))
+    else:
+        level = 0
     if element == 'healing': level += 1
-    spell.append('this is a level {} spell'.format(level))
+    spell['level'] = level
     #major defects
     if any([i == -2 for i in feature_levels]):
-        spell.append('casting this spell a second time kills the caster and triples damage, range, and shape size')
+        spell['extra'].append('casting this spell a second time kills the caster and triples damage, range, and shape size')
     #done!
-    spell = [i if type(i) == str else i[0] for i in spell]
     return spell
 
 #=====secret=====#
@@ -922,12 +943,7 @@ class Secret:
         self.__dict__ = json.loads(s)
 
 #=====helpers=====#
-def describe_spell(plaintext):
-    print(plaintext)
-    english = plaintext_to_english(plaintext)
-    for line in english: print(line)
-    print(
-'''
+universal_description = '''\
 "Target" ultimately refers to the entities contained within the spell area.
 In the context of multiple targets, it refers to an entity or a shape.
 For example, a linear spell with multiple targets creates multiple lines, one per specified target.
@@ -935,6 +951,7 @@ A spherical spell with multiple targets creates multiple spheres within range, a
 When another spell is applied on a target, the effects are applied on each entity targeted by the spell.
 When another localized spell is applied at a target, its effects are applied at each entity within the spell area.
 When another distribued spell is applied at a target, its effects are applied within the spell area.
+The caster is not targeted by a spell with 0 range.
 
 Spells with longer durations apply their entire effects each round.
 When another spell is cast, its effect lasts one round,
@@ -947,9 +964,27 @@ while a distant cylinder cannot be very high.
 Cantrips add a damage die at your 5th, 11th, and 17th level.
 Spells of 1st or higher level can be cast at a higher level, adding a damage die per level above.
 '''
-    )
 
-def random_spell(plaintext=[]):
+def describe_spell(plaintext):
+    while len(plaintext) < 16: plaintext.append(0)
+    print(plaintext)
+    d = plaintext_to_dict(plaintext)
+    for k, v in d.items(): print('{}: {}'.format(k, v))
+
+def random_spell(plaintext=[], level=None):
+    if level is not None:
+        while True:
+            p = random_spell(plaintext)
+            s = plaintext_to_dict(p)
+            if s['level'] == level:
+                return p
+    def parse(i):
+        if type(i) == int: return i
+        if i == 'x': return random.randint(0, 256)
+        if ':' in i:
+            lo, hi = [int(j) for j in i.split(':')]
+            return random.randint(lo, hi)
+    plaintext = [parse(i) for i in plaintext]
     while len(plaintext) < 16: plaintext.append(random.randint(0, 256))
     return plaintext
 
@@ -962,3 +997,55 @@ def boomerang(plaintext, secret=dummy_secret):
     print(ciphertext)
     plaintext = ciphertext_to_plaintext(ciphertext, secret)
     describe_spell(plaintext)
+
+def test_spell_levels():
+    def summarize(plaintext, name):
+        d = plaintext_to_dict(plaintext)
+        print('{} ({})'.format(d['level'], name))
+    '''             element (+ opposites, transfigs)
+                       dice type
+                          dice                        5                    10
+                             range (0, 5, 10, 15, 20, 30, 40, 60, 90, 100, 120, 150, 300, 600, 5e3...
+                                shape (self, touch, line, cone, cylinder, sphere, cube)
+                                |  shape size                             5
+                                      targets, n_extras = x // 4, x % 4
+                                |        concentration
+                                            duration (inst, round, long)   7
+                                |        |     long (1m 10m 1h 2h 3h 4h 6h 8h 1d 7d 30d 1y)
+                                                  casting time
+                                |        |        |  long
+                                                        delivery (attack, s.t. full, s.t. half)
+                                |        |        |        extra
+                                                              extra
+                                |        |        |              extra'''
+
+    print('-----cantrips')
+    summarize([2, 3, 1, 10, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'firebolt')#1d10, s.t. full -> 10
+    summarize([13, 4, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'poison spray')#1d12, s.t. full -> 12
+    print('-----level 1')
+    summarize([2, 1, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'burning hands')#3d6, 15 cone -> 18 * 4.5 * 3/2
+    summarize([8, 2, 2, 0, 6, 3, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'thunderwave')#2d8, 15 cube -> 16 * 9 * 3/2
+    print('-----level 2')
+    summarize([2, 1, 2, 7, 5, 1, 0, 1, 2, 0, 0, 0, 2, 0, 0, 0], 'flaming sphere')#2d6, 5 sphere -> 12 * 3 * 3/2
+    summarize([2, 1, 2, 10, 2, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'scorching ray')#6d6, attack -> 36
+    summarize([8, 2, 3, 7, 5, 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'shatter')#3d8, 10 sphere -> 24 * 12 * 3/2
+    print('-----level 3')
+    summarize([2, 1, 8, 11, 5, 4, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'fireball')#8d6, 20 sphere -> 48 * 48 * 3/2
+    summarize([4, 1, 8, 9, 2, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'lightning bolt')#8d6, 100x5 line -> 48 * 20 * 3/2
+    print('-----level 4')
+    summarize([11, 2, 8, 5, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'blight')#8d8 -> 64 * 3/2
+    summarize([3, 2, 5, 12, 4, 4, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'ice storm')#2d8 + 4d6, 20 cyl -> 40 * 48 * 3/2
+    print('-----level 5')
+    summarize([13, 2, 5, 10, 5, 4, 0, 1, 2, 1, 0, 0, 2, 0, 0, 0], 'cloudkill')#5d8, 20 sphere, conc -> 40 * 48 * 
+    summarize([3, 2, 8, 7, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'cone of cold')#
+    print('-----level 6')
+    summarize([11, 1, 8, 11, 5, 7, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'circle of death')#
+    summarize([0, 1, 23, 7, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'disintegrate')#10d6 + 40, s.t. full -> 140
+    summarize([6, 2, 6, 7, 2, 1, 0, 1, 2, 0, 0, 0, 2, 0, 0, 0], 'sunbeam')#
+    print('-----level 7')
+    summarize([11, 1, 19, 7, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'finger of death')#
+    print('-----level 8')
+    summarize([2, 2, 10, 11, 5, 4, 0, 1, 2, 0, 0, 0, 2, 0, 0, 0], 'incendiary cloud')#
+    summarize([6, 1, 12, 11, 5, 7, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'sunburst')#
+    print('-----level 9')
+    summarize([2, 1, 40, 14, 5, 6, 12, 0, 0, 0, 0, 0, 2, 0, 0, 0], 'meteor swarm')#
