@@ -303,24 +303,24 @@ extras = {
     ],
     'fire': [
         ('you gain a level of exhaustion until you cool down', -1),
-        ('you may light a candle, torch, or campfire within the spell area', 0),
-        ('you slightly increase or reduce flames within range', 0),
+        ('you may light a candle, torch, or campfire', 0),
+        ('you may slightly increase or reduce flames', 0),
         ('you may cast continual flame instead', 2),
         ('heat metal is cast on the target', 2),
-        ('this spell obscures vision', 1),
+        ('vision is obscured at the target', 1),
     ],
     'lightning': [
         ("this spell's damage is also applied to the caster", -1),
         ('target knows which way is magnetic North', 0),
         ('target cannot take reactions for a round', 0),
         ('call lightning is cast on the target', 3),
-        ("targets within 5 feet of the spell's area are also affected", 1),
+        ("anything within 5 feet of a target may also be affected", 1),
         ('flammable objects are ignited', 1),
         ('this spell chains as in chain lightning', 2),
     ],
     'light': [
-        ('light is created within range', 0),
-        ('light is created within 20 feet of the target (dim for additional 20)', 0),
+        ('light is created at the target', 0),
+        ('the target creates light for 20 feet, dim for additional 20', 0),
         ('you create a small visual illusion at the target', 0),
         ('you create an arbitrarily-shaped light source at the target', 0),
         ('you change the color of nearby light sources', 0),
@@ -332,18 +332,16 @@ extras = {
         ('blur is cast on the target', 2),
         ('target becomes visible if it is invisible', 1),
         ('darkvision is cast on the target', 2),
-        ('invisibility is cast on the target', 2),
         ('mirror image is cast on the target', 2),
         ('a shapechanger makes its saving throw with disadvantage', 1),
         ('target can see invisible creatures', 2),
         ('darkness created by an equal or lower level spell overlapping this spell is dispelled', 0),
-        ('target is incapacitated and has speed 0', 3),
+        ('hypnotic pattern is cast at the target', 3),
         ('major image is cast on the target', 3),
-        ('greater invisibility is cast on the target', 4),
         ('mislead is cast on the target', 5),
         ('seeming is cast on the target', 4),
         ('programmed illusion is cast at the target', 6),
-        ("targets within 5 feet of the spell's area are also affected", 1),
+        ("anything within 5 feet of the spell's area may also be affected", 1),
         ('light created by this spell is sunlight', 2),
         ('mirage arcane is cast at the target', 7),
         ('project image is cast at the target', 7),
@@ -357,7 +355,7 @@ extras = {
         ('target is deafened', 1),
         ('target gains +5 to stealth checks', 1),
         ('brittle targets have disadvantage on the saving throw', 1),
-        ('target is silenced and immune to thunder damage', 2),
+        ('silence is cast at the target', 2),
     ],
     'healing': [
         ('this spell has no effects on constructs or undead', -1),
@@ -405,9 +403,13 @@ extras = {
     ],
     'dark': [
         ('you are blinded until your next long rest', -1),
-        ('darkness is created within range', 2),
-        ('darkness is created within 15 feet of the target', 2),
+        ('darkness is cast at the target', 2),
         ('target gains +5 to stealth checks', 1),
+        ('invisibility is cast on the target', 2),
+        ('light created by an equal or lower level spell overlapping this spell is dispelled', 0),
+        ('dispel magic is cast on illusions at the target', 2),
+        ('greater invisibility is cast on the target', 4),
+        ('mislead is cast on the target', 5),
     ],
     'necrotic': [
         ("this spell can't reduce a target's hit points below 1", -1),
@@ -420,7 +422,7 @@ extras = {
         ('bestow curse is cast on the target', 3),
         ('revivify is cast on the target', 3),
         ('speak with dead is cast on the target', 3),
-        ('you gain half damage dealt', 2),
+        ('you gain hit points equal to half damage dealt', 2),
         ('plants make saving throws with disadvantage and take maximum damage', 1),
         ('contagion is cast on the target', 5),
         ('raise dead is cast on the target', 5),
@@ -430,7 +432,7 @@ extras = {
         ('target falls unconscious', 3),
         ("target's hit point maximum is affected as in harm", 2),
         ('magic jar is cast on the target', 6),
-        ('this spell may raise zombies as finger of death', 3),
+        ('this spell may raise zombies like finger of death', 3),
         ('resurrection is cast on the target', 7),
         ('clone is cast on the target', 8),
         ('astral projection is cast on the target', 9),
@@ -472,7 +474,7 @@ extras = {
         ('confusion is cast on the target', 4),
         ('dominate beast is cast on the target', 4),
         ('hallucinatory terrain is cast at the target', 4),
-        ("when this target ends its turn frightened of you, repeat this spell's damage", 1),
+        ("when this target ends its turn frightened of you, repeat damage this spell dealt to it most recently", 1),
         ('dominate person is cast on the target', 5),
         ('dream is cast on the target', 5),
         ('geas is cast on the target', 5),
@@ -482,7 +484,7 @@ extras = {
         ('telepathic bond is cast on the target', 5),
         ('irresistible dance is cast on the target', 6),
         ('mass suggestion is cast on the target', 6),
-        ('target suffers one of the effects of symbol', 7),
+        ('target suffers one of the effects of symbol', 5),
         ('antipathy sympathy is cast on the target', 8),
         ('dominate monster is cast on the target', 8),
         ('feeblemind is cast on the target', 8),
@@ -490,7 +492,7 @@ extras = {
         ('weird is cast on the target', 9),
     ],
     'radiant': [
-        ('you cannot lie for the duration of the spell', -1),
+        ('you cannot lie', -1),
         ('target may add a d4 to a skill check', 0),
         ('you gain advantage on your next attack against the target', 0),
         ('you understand all written language', 1),
@@ -498,7 +500,7 @@ extras = {
         ('protection from evil and good is cast on the target', 1),
         ('arcanists magic aura is cast on the target', 2),
         ('augury is cast', 2),
-        ('find traps is cast', 2),
+        ('find traps is cast at the target', 2),
         ('locate object is cast', 2),
         ('tongues is cast on the target', 3),
         ('you may cast divination', 4),
@@ -795,12 +797,13 @@ def plaintext_to_dict(plaintext):
         next(g)
         spell['shape'] = shape
     if shape in ['self', 'touch']: rng = 0
+    else: spell['range'] = rng
     if shape == 'cone': shape_size = rng
-    spell['range'] = rng
     #targets, number of extras
     x = next(g)
     n_extras = x % 4
     targets = 1 + (x // 4) % 10
+    if shape == 'self': targets = 1
     if targets > 1: spell['targets'] = targets
     #duration
     concentration = next(g) % 2
@@ -850,7 +853,20 @@ def plaintext_to_dict(plaintext):
         feature_levels.append(casting_time[1])
     #delivery
     delivery = select(deliveries, g)
-    spell['delivery'] = delivery
+    if shape != 'self' or element != 'healing' or damage_dice:
+        d = delivery
+        if 'saving throw' in delivery:
+            ability = {
+                'force': 'str',
+                'necrotic': 'con',
+                'poison': 'con',
+                'psychic': 'wis',
+                'radiant': 'cha',
+                'wind': 'str',
+                'water': 'str',
+            }.get(element, 'dex')
+            d = ability + ' ' + d
+        spell['delivery'] = d
     #extras
     if n_extras: spell['extra'] = []
     for i in range(n_extras):
@@ -956,6 +972,7 @@ The caster is not targeted by a spell with 0 range.
 Spells with longer durations apply their entire effects each round.
 When another spell is cast, its effect lasts one round,
 so effects do not compound, and last as long as this spell.
+Unless an effect's duration is specifically described, all effects end when the spell does.
 
 Cylinders heights are limited by the spell's range.
 So, a coincidental cylinder can be as high as the spell's range,
@@ -963,6 +980,8 @@ while a distant cylinder cannot be very high.
 
 Cantrips add a damage die at your 5th, 11th, and 17th level.
 Spells of 1st or higher level can be cast at a higher level, adding a damage die per level above.
+
+Caster and target may agree to forego attack rolls and saving throws.
 '''
 
 def describe_spell(plaintext):
