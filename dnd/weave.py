@@ -875,7 +875,9 @@ def plaintext_to_dict(plaintext):
             extra = select(misc, 3 * x // 4)
         else:
             extra = select(extras[element], x // 4)
-        spell['extra'].append(extra[0])
+        prefix = '*' if extra[1] > 0 else '†'
+        prefix *= abs(extra[1])
+        spell['extra'].append(prefix + extra[0])
         feature_levels.append(extra[1])
     #level
     damage = damage_die * damage_dice
