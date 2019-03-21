@@ -259,11 +259,11 @@ elements = [
 ]
 
 opposites = {
-    'force': 'force',
+    'force': 'antiforce',
     'fire': 'cold',
-    'lightning': 'lightning',
+    'lightning': 'antilightning',
     'light': 'dark',
-    'thunder': 'thunder',
+    'thunder': 'antithunder',
     'healing': 'necrotic',
 }
 
@@ -279,7 +279,7 @@ transfigurations = [
 
 extras = {
     'force': [
-        ('your weight doubles', -1),
+        ('you are knocked prone', -1),
         ('you exert up to 10 pounds of force (any direction) on the target', 0),
         ('target is pushed 10 feet away from you', 0),
         ('target is knocked prone', 1),
@@ -588,6 +588,14 @@ extras = {
     ],
 }
 
+extras['antiforce'] = extras['force']
+extras['antiforce'][2] = ('target is pushed 10 feet toward you', 0)
+extras['antilightning'] = extras['lightning']
+extras['antithunder'] = extras['thunder']
+extras['antithunder'][2] = ("target's voice is up to 3 times quieter", 0)
+extras['antithunder'][4] = ('target is pushed 10 feet toward you', 0)
+extras['antithunder'][6] = ('target has -5 to stealth checks', 1)
+
 casting_times = [
     ('action', 0),
     ('bonus', 1),
@@ -770,8 +778,11 @@ def plaintext_to_dict(plaintext):
         spell['heal'] = '{}d{}'.format(damage_dice, damage_die, element)
     else:
         damage_type = {
+            'antiforce': 'force',
+            'antilightning': 'lightning',
             'light': 'radiant',
             'dark': 'force',
+            'antithunder': 'thunder',
             'wind': 'bludgeoning',
             'water': 'bludgeoning',
             'earth': 'bludgeoning',
@@ -858,6 +869,7 @@ def plaintext_to_dict(plaintext):
         if 'saving throw' in delivery:
             ability = {
                 'force': 'str',
+                'antiforce': 'str',
                 'necrotic': 'con',
                 'poison': 'con',
                 'psychic': 'wis',
