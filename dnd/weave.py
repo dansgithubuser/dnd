@@ -943,11 +943,12 @@ def plaintext_to_dict(plaintext):
     return spell
 
 #=====secret=====#
-default_coarse = (
-    [[i, 0, 0, 0, 2] + [0] * 11 for i in range(2 * len(elements) + len(transfigurations))]
-)
+default_coarse = [
+    [i, 0, 1, 5, 2] + [0] * 8 + [(i * j + 61) % 256 for j in [5, 7, 11]]
+    for i in range(2 * len(elements) + len(transfigurations))
+]
 
-default_generation = [0, 0, 1, 1, 1] + [0] * 11
+default_generation = [0, 1, 1, 1, 0, 1] + [0] * 7 + [1, 2, 3]
 
 default_subproblems = [0, 1, 2]
 
