@@ -982,7 +982,7 @@ class Secret:
         return json.dumps(self.__dict__)
 
     def deserialize(self, s):
-        self.__dict__ = json.loads(s)
+        self.__dict__ = {k: v for k, v in json.loads(s).items() if k in Secret().__dict__}
         return self
 
 #=====helpers=====#
