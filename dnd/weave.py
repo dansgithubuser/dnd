@@ -983,6 +983,7 @@ class Secret:
 
     def deserialize(self, s):
         self.__dict__ = json.loads(s)
+        return self
 
 #=====helpers=====#
 universal_description = '''\
