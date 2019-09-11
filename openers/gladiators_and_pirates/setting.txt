@@ -1,0 +1,19 @@
+Our party consists of champion gladiators who perform in the colosseum in Mars. They live in Banting, a short ferry ride from Mars. Mars is more or less a ghost town when an event at the colosseum isn't happening, just a few hermits live there permanently. Banting is also easily accessible by boat from the capital, Emilis.
+
+There are nonhuman establishments in the area as well, though they tend to keep to themselves. In the forest near Banting is Sharenloft, where wood elves and high elves live together; the wood elves on the ground working the surrounding forest, and the high elves who handle governmental affairs. In the Tridelhorn mountain live the dwarves of Hamlock. The grey dragon Equifax nests atop the Tridelhorn. A goblin establishment just east of the Tridelhorn runs raids on traders going from the capital to Banting.
+
+After a show, after a party, after recovering, it is night. Suddenly there is a wind and thunder strikes. Our heros awaken and peer outside. A purple light is visible in the east. It is cast by a ship with torn sails, that waits eerily. At the town hall, the farmer named Roymond Flynn is panicked and describes people in cloaks digging up his farm. The ship carries pirates, and one among them is an eldritch necromancer, who raised the skeletons digging for an artifact long lost but finally found.
+
+goals:
+	pursue magic pirates
+	kill undead raised by magic pirates
+	purchase a ship
+	help randos
+		exiled dwarf at the bridge
+		farmers' wildlife problems
+			dire-rabbits (jackalopes?)
+		ferryman's wildlife problems
+		assassinate someone for the royalty
+		overthrow the royalty for the sewer people
+		investigate sylph for the elves
+	collecting artifacts for Equifax

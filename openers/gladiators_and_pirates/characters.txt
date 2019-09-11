@@ -1,0 +1,213 @@
+===== Artha Hodgins - paladin =====
+Female Human
+
+str: 11 (0)
+dex: 17 (3)
+con: 12 (1)
+int: 11 (0)
+wis: 11 (0)
+cha: 19 (4)
+
+age: 35
+height: 5'2"
+weight: 128 lbs
+skin: brown
+hair: blonde
+eyes: brown
+
+skill proficiencies:
+	insight
+	history
+
+languages:
+	common
+	dwarven
+
+speed: 30
+hp: 11
+armor class: 16
+
+items:
+	rapier (1d8 finesse)
+	longbow (1d8)
+	chain mail
+	rope
+	ink, quill, parchment
+	110 gold
+
+public background:
+You've lived in Banting your whole life. Quincy is a particularly good friend.
+
+private background:
+You often visit Hamlock, the dwarven establishment in the Tridelhorn, to get your equipment repaired.
+
+===== Benetoct Fenzene - ranger =====
+Male Human
+
+str: 14 (2)
+dex: 12 (1)
+con: 12 (1)
+int: 12 (1)
+wis: 15 (2)
+cha: 14 (2)
+
+age: 53
+height: 6'0"
+weight: 155 lbs
+skin: white
+hair: brown
+eyes: yellow
+
+skill proficiencies:
+	perception
+	survival
+
+languages:
+	common
+	elven
+
+speed: 30
+hp: 11
+armor class: 15
+
+items:
+	shortsword (1d6)
+	longbow (1d8)
+	scale mail
+	rope
+	2 hp potions (2d4+2)
+	120 gold
+
+public background:
+You're familiar with the elves that live in Sharenloft in the forest near Banting. You started out helping Banting farmers manage wildlife that threatened their crops.
+
+===== Quincy Marcellos - rogue =====
+Male Human
+
+str: 12 (1)
+dex: 15 (2)
+con: 16 (3)
+int: 14 (2)
+wis: 11 (0)
+cha: 13 (1)
+
+age: 46
+height: 5'9"
+weight: 107 lbs
+skin: white
+hair: grey
+eyes: brown
+
+skill proficiencies:
+	acrobatics
+	stealth
+
+languages:
+	common
+	undercommon
+
+speed: 30
+hp: 11
+armor class: 13
+
+items:
+	shortsword (1d6 finesse)
+	shortbow (1d6)
+	leather armor
+	rope
+	crowbar
+	100 gold
+
+public background:
+You've lived in Banting your whole life. Artha is a particularly good friend of yours. You grew up poor.
+
+private background:
+You know your way around some of the lower parts of Hamlock, the dwarven establishment in the Tridelhorn.
+
+===== Mithax - fighter =====
+Male Dragonborn
+
+str: 18 (4)
+dex: 10 (0)
+con: 14 (2)
+int: 12 (1)
+wis: 14 (2)
+cha: 15 (2)
+
+age: 74
+height: 6'6"
+weight: 199 lbs
+skin: gold
+hair: None
+eyes: yellow
+
+skill proficiencies:
+	athletics
+	deception
+
+languages:
+	common
+	draconic
+
+speed: 30
+hp: 12
+armor class: 16
+
+items:
+	pike (1d10 reach)
+	chain mail (disadvantage on stealth)
+	rope
+	lantern
+	80 gold
+
+public background:
+You hate running, jumping, and most of all when people dodge your pike. When you were young you went abroad in search of glory.
+
+private:
+You've spoken with the dragon Equifax who lives atop the Tridelhorn. She sent you in search of an artifact in Banting, created by an ancient people that lived underground.
+
+===== Katerina Eggins - sorceror =====
+Female Human
+
+str: 13 (1)
+dex: 13 (1)
+con: 18 (4)
+int: 14 (2)
+wis: 13 (1)
+cha: 15 (2)
+
+age: 59
+height: 5'9"
+weight: 154 lbs
+skin: white
+hair: white
+eyes: blue
+
+skill proficiencies:
+	persuasion
+	intimidation
+
+languages:
+	common
+	sylvan
+
+speed: 30
+hp: 10
+armor class: 11
+
+items:
+	quarterstaff (1d8)
+	2 vials of alchemist's fire
+	rope
+	90 gold
+
+cantrips:
+	firebolt (1d10)
+	light
+	prestidigitation
+
+public background:
+You discovered magic later in life. You used to live a more normal life working as a political representative in the capital.
+
+private background:
+You once experimented with necromancy. After feeling what you think was your soul being pulled from your body, you panicked. If you concentrate, you can feel your soul being pulled southeast.
