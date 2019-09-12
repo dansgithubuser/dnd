@@ -262,7 +262,8 @@ human_first_female=[
 	'zoe', 'zelda',
 ]
 
-def human(gender, normal=False):
+def human(gender=None, normal=False):
+	if gender==None: gender=random.choice('mf')
 	if gender=='m': first=human_first_male
 	else: first=human_first_female
 	if gender=='m':
@@ -327,7 +328,8 @@ def elf():
 	last =remove_weird(last1+last2)
 	return unpack_qs(first+' '+last)
 
-def dwarf(gender):
+def dwarf(gender=None):
+	if gender==None: gender=random.choice('mf')
 	if gender=='m':
 		first1=[
 			'ad', 'alber',
