@@ -3,6 +3,7 @@ from . import backgrounds
 from . import characters
 from . import classes
 from . import creatures
+from . import encounters
 from . import items
 from . import languages
 from . import names
