@@ -156,6 +156,7 @@ human_last=[
 	'filiberto', 'fausto', 'felton', 'figg', 'finnigan', 'flint', 'fletcher',
 	'ferrari', 'fonzone', 'forbes', 'fahrenbacher', 'flaherty', 'feron',
 	'foxley', 'farmer', 'farnsworth', 'fitzpatrick', 'flockhart', 'flynn',
+	'fraxedas',
 	'granville', 'genesis', 'goldstein', 'galbraith', 'gainsborough', 'gozney',
 	'gozard', 'graves', 'glass', 'gatsby',
 	'hobert', 'harland', 'hayden', 'hadcock', 'hixley', 'haddock', 'hodgins',
