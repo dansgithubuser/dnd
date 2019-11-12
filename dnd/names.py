@@ -218,7 +218,7 @@ human_first_male=[
 	'luigi', 'lincoln', 'lee',
 	'marcel', 'malcolm', 'milhous', 'michael', 'marcus',
 	'nathaniel', 'neville', 'nigel',
-	'oswald', 'octavio',
+	'oswald', 'octavio', 'ogden', 'osmund',
 	'pierre', 'percy', 'patrick', 'peter', 'phineas',
 	'qentin', 'qincy',
 	'raymond', 'reginald', 'roger', 'rabastan', 'rudolph', 'rodolphus', 'robert',
