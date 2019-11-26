@@ -226,4 +226,8 @@ def get_suggestions():
 			print(random.choice(concepts), end='')
 		print()
 
+house_rules = {
+	'dual wielding is stupid': "mechanically, a free hand acts as if it is holding a copy of the player's weapon",
+}
+
 __all__=[i for i in locals().keys() if not i.startswith('_')]
