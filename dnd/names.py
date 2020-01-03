@@ -204,7 +204,7 @@ human_last=[
 
 human_first_male=[
 	'abner', 'albert', 'alfonso', 'arnold', 'abraham', 'anthony', 'augustus',
-	'barney', 'boris', 'benedict', 'bartholomew', 'barnaby',
+	'barney', 'boris', 'benedict', 'bartholomew', 'barnaby', 'benjamin',
 	'constantine', 'cornelius', 'craig', 'cedrick', 'cid', 'claude', 'colin',
 	'clyde', 'cameron', 'chad', 'caleb','cadmus',
 	'dennis', 'dimitri', 'david', 'douglas', 'dexter', 'dedalus',
@@ -265,16 +265,18 @@ human_first_female=[
 
 def human(gender=None, normal=False):
 	if gender==None: gender=random.choice('mf')
-	if gender=='m': first=human_first_male
-	else: first=human_first_female
 	if gender=='m':
-		first=base.pick(first)
-		if not normal: first=humanify(first, 'o', friendly_consonants)
+		first=human_first_male
 	else:
-		first=base.pick(first)
-		if not normal: first=humanify(first, 'ai', 'ai')
+		first=human_first_female
+	first=base.pick(first)
+	if not normal:
+		if gender=='m':
+			first=humanify(first, 'o', friendly_consonants)
+		else:
+			first=humanify(first, 'ai', 'ai')
 	last=base.pick(human_last)
-	if not normal: last=humanify(last, base.pick('aeiou'), friendly_consonants)
+	if not normal: last=humanify(last[:-1], base.pick('aeiou'), friendly_consonants)+last[-1]
 	if base.maybe(32): last=base.pick(['van', 'von'])+' '+last
 	return unpack_qs(first+' '+last)
 

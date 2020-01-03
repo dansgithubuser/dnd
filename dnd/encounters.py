@@ -50,7 +50,7 @@ listing = [
     enc('a map to a legendary treasure', 'QUEST'),
     enc('a legendary vessel of magical power', 'ITEM'),
     enc('a coalescence of magic', 'ITEM'),
-    enc('a lich', 'BIG_BAG'),
+    enc('a lich', 'BIG_BAD'),
     enc('humanoid wolves infested by magic wasps', 'COMBAT OUTDOORS'),
     enc('billdads (beaver with kangaroo legs and hawk beak)', 'COMBAT OUTDOORS'),
     enc('nogtails (pig with long legs)', 'COMBAT OUTDOORS'),
