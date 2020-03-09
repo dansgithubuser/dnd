@@ -644,7 +644,7 @@ def tavern():
 		'zebra', 'zealot', 'zombie',
 	])
 	def place(): return random.choice([
-		'abbey', 'alehouse',
+		'abbey', 'alehouse', 'attic',
 		'bar', 'brewhouse',
 		'club', 'canteen',
 		'den', 'drinkery',
