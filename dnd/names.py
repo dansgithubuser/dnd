@@ -206,7 +206,7 @@ human_first_male=[
 	'abner', 'albert', 'alfonso', 'arnold', 'abraham', 'anthony', 'augustus',
 	'barney', 'boris', 'benedict', 'bartholomew', 'barnaby', 'benjamin',
 	'constantine', 'cornelius', 'craig', 'cedrick', 'cid', 'claude', 'colin',
-	'clyde', 'cameron', 'chad', 'caleb','cadmus',
+	'clyde', 'cameron', 'chad', 'caleb','cadmus', 'clarence',
 	'dennis', 'dimitri', 'david', 'douglas', 'dexter', 'dedalus',
 	'edward', 'edmund', 'ezekiel', 'edison', 'elliot', 'emilio', 'ernie',
 	'fernando', 'finn', 'frank',
