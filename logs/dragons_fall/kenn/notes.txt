@@ -1,0 +1,124 @@
+goals
+	general
+		adventure
+		money for home
+		interest in nature
+		prevent end of world
+	what comes after drokkar's death?
+		dream of obsidian mask opposed to my patron
+			ancient conflict before dragons
+				Unifier brings lands of Leona together
+				general of Unifier wears mask, uses staff, and comes back after being killed
+					mask sustains wearer
+					staff distributes life
+		is the Leonin quartermaster a cultist?
+
+knowledge
+	dragons
+		drokkar
+			red
+			dead
+				cultists
+				8 ritual sites
+					2 interrupted
+					crimson robe leader
+					manastone(?) spike missing
+					near large manastone deposit
+				compensation for 2 interrupted ritual sites
+		venova
+			white
+			attempt on life by cultists
+			pacifist
+		the devourer
+			green
+			six-legged
+			wirewood
+	species
+		Leonin
+			can be dicks
+			not all trustworthy
+			prideful, warlike
+		gnomes
+			cool
+		dragonborn
+			many seem to be Redscapes
+		elves
+			Livenwild
+			take characteristics of the land they spend time on
+			The Ailethon Games
+	organizations
+		Ironrite Mining Company
+			dwarves
+			Drumlin
+		Redscapes
+			many in league with cultists
+		cultists
+			evil
+			masks
+				leader masks
+				slave masks
+	characters
+		Reginald
+			halfling
+			redscapes killed mining group
+		Keanu
+			brother
+			wearing Emberhost helm
+				opposes Unifier
+		dwarves
+			Drumlin
+				is a bit of a sneak
+				showed me the engine
+			Rumthor
+				makes scrolls
+		gnomes
+			Talish
+			Kalish
+				married(?) to Talish
+			Potash
+				died
+		Redscapes
+			all dragonborn
+			100s of members
+			no morals
+			blue
+				killed
+				decapitated head interrogated
+					connection to Black Tower
+					preparation for deliverance
+			Selesh
+				silver
+				blue dragonborn reports to her(?)
+			red
+				Selesh reports to him(?)
+		cultists
+			red-cloaked castor
+				humanoid, not dragonborn
+			brown-cloaked castors
+		Leonin
+			quartermaster
+				sketchy
+				a cultist?
+			General Kaldran
+				sketchy?
+			Leoric Bronzetail
+				not sketchy
+				looking for honor for Bronzetail tribe
+	places
+		United Isles
+			One-Canoe Island
+				home
+		Shattered Peaks
+			Drokkar
+		Leona
+			Leonin
+			Razorglass fields
+			SunMane
+				Venova
+		Black Tower
+			ebony mask
+			4 ebony rods
+		Wirewood
+			vines enroach on Shattered Peaks and Leona now that Drokkar is dead
+			giant terminates keeping vines at bay
+			Livenwild
