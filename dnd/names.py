@@ -739,3 +739,35 @@ def dog():
 		'wolf', 'walker',
 	]
 	return random.choice(human_first_male+human_first_female)+' '+random.choice(prefixes)+random.choice(suffixes)
+
+def potty():
+	prefixes = [
+		'ball',
+		'little-',
+	]
+	affixes = [
+		'ass',
+		'boner', 'barf', 'butt', 'block',
+		'crap', 'cock', 'cocker', 'crotch', 'clam',
+		'dick',
+		'fart', 'fondle', 'fondler',
+		'jerk', 'jam',
+		'munch', 'muncher',
+		'piss',
+		'shit', 'snot', 'suck', 'slop', 'slopper',
+		'turd',
+	]
+	suffixes = [
+		'balls', 'bag', 'bagger', 'bucket', 'bowl', 'belch',
+		'crapper',
+		'dicker',
+		'farter',
+		'guzzler',
+		'hole', 'head',
+		'sucker', 'shitter', 'smear', 'sniffer', 'scratch',
+		'wad',
+	]
+	result=random.choice(prefixes+affixes)+random.choice(affixes+suffixes)
+	result=result.replace('sss', 'ss-s')
+	result=result.replace('ttt', 'tt-t')
+	return result
