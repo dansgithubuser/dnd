@@ -12,8 +12,15 @@ goals
 					mask sustains wearer
 					staff distributes life
 		is the Leonin quartermaster a cultist?
+	Laboratoire the Halfling needs stuff to reanimate Drokkar
+	spells
+		infravision
+		identify handwriting
 
 knowledge
+	key
+		ebony mask
+			hidden in Iagoth, in Mary the Death Knight's labyrinth safe
 	dragons
 		drokkar
 			red
@@ -25,6 +32,7 @@ knowledge
 					manastone(?) spike missing
 					near large manastone deposit
 				compensation for 2 interrupted ritual sites
+				soul not where it should be
 		venova
 			white
 			attempt on life by cultists
