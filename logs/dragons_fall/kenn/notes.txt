@@ -13,14 +13,24 @@ goals
 					staff distributes life
 		is the Leonin quartermaster a cultist?
 	Laboratoire the Halfling needs stuff to reanimate Drokkar
+	Kehaka is a warlock
 	spells
 		infravision
 		identify handwriting
+		truth
+	potions
+		healing
 
 knowledge
 	key
 		ebony mask
 			hidden in Iagoth, in Mary the Death Knight's labyrinth safe
+		4 ebony stakes
+			take life, store in mask or use in staff
+			gave off weird void fog at assembly
+			planned to be used in Draconic plane to open rift to home plane
+				by killing free dragons and chaining them to will of an eldritch god
+				rift opened prematurely, allowing free dragons to escape and prepare for 1500 years
 	dragons
 		drokkar
 			red
@@ -66,13 +76,17 @@ knowledge
 				leader masks
 				slave masks
 	characters
-		Reginald
-			halfling
-			redscapes killed mining group
-		Keanu
-			brother
-			wearing Emberhost helm
-				opposes Unifier
+		players
+			Keanu
+				brother
+				wearing Emberhost helm
+					opposes Unifier
+			Reginald
+				halfling
+				redscapes killed mining group
+			Belle
+				blue tiefling monk
+				likes turtles
 		dwarves
 			Drumlin
 				is a bit of a sneak
@@ -112,10 +126,20 @@ knowledge
 			Leoric Bronzetail
 				not sketchy
 				looking for honor for Bronzetail tribe
+		Aven
+			Kehaka
+				blackfeather
+					original inhabitants of assembly
 	places
 		United Isles
 			One-Canoe Island
 				home
+			The Assembly
+				Indrix
+				floating islands
+					blue manastone
+				upward river
+				statue cameras
 		Shattered Peaks
 			Drokkar
 		Leona
@@ -125,8 +149,9 @@ knowledge
 				Venova
 		Black Tower
 			ebony mask
-			4 ebony rods
+			4 ebony stakes
 		Wirewood
 			vines enroach on Shattered Peaks and Leona now that Drokkar is dead
+				cultists spotted in the tangle
 			giant terminates keeping vines at bay
 			Livenwild
