@@ -11,13 +11,15 @@ goals
 				general of Unifier wears mask, uses staff, and comes back after being killed
 					mask sustains wearer
 					staff distributes life
-		is the Leonin quartermaster a cultist?
+		look for ritual sites on magical layline intersections
 	Laboratoire the Halfling needs stuff to reanimate Drokkar
 	Kehaka is a warlock
+		a cultist?
 	spells
 		infravision
 		identify handwriting
 		truth
+		farhearing
 	potions
 		healing
 
@@ -31,6 +33,8 @@ knowledge
 			planned to be used in Draconic plane to open rift to home plane
 				by killing free dragons and chaining them to will of an eldritch god
 				rift opened prematurely, allowing free dragons to escape and prepare for 1500 years
+		magical laylines weakened near where quartermaster was doing cult stuff
+			laylines prevent beings from crossing planes
 	dragons
 		drokkar
 			red
@@ -155,3 +159,12 @@ knowledge
 				cultists spotted in the tangle
 			giant terminates keeping vines at bay
 			Livenwild
+		8 manastone spikes / ritual sites
+			2 interrupted
+				us
+				Alethea
+			1 destroyed by us
+			1 found by us outside quartermaster's base, spent
+	world
+		magical laylines
+			teleportation highways
