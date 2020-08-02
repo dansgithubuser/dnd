@@ -165,6 +165,8 @@ knowledge
 				Alethea
 			1 destroyed by us
 			1 found by us outside quartermaster's base, spent
+		North
+			Belle from here
 	world
 		magical laylines
 			teleportation highways
