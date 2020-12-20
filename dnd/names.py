@@ -595,7 +595,7 @@ def tavern():
 		"captain's", 'conniving', 'crafty', 'calm', 'cool',
 		'daring', 'dining', 'dirty', 'disasterous', 'drunken',
 		'eerie', 'elegant',
-		'furry', 'fuzzy', 'fluffy',
+		'furry', 'fuzzy', 'fluffy', 'flopping',
 		'gentle', 'gobbling',
 		'healthy', 'handsome',
 		'intelligent', 'interesting',
@@ -622,7 +622,7 @@ def tavern():
 		'chicken', 'coyote', 'cardinal', 'crow',
 		'dingo', 'dog', 'dragon', 'duck',
 		'elephant', 'eel', 'eagle',
-		'fox', 'frog', 'falcon',
+		'fox', 'frog', 'falcon', 'fish',
 		'goose', 'gander', 'gosling',
 		'hare', 'hog', 'hawk', 'hound',
 		'iguana',
@@ -656,7 +656,7 @@ def tavern():
 	])
 	def object(): return random.choice([
 		'apple', 'acorn',
-		'bottle', 'bucket', 'bassoon', 'broomstick',
+		'bottle', 'bucket', 'bassoon', 'broomstick', 'bastard',
 		'cello', 'cauldron', 'carnation', 'cucumber', 'chair',
 		'dandelion', 'daffodil',
 		'empire',
