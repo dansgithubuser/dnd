@@ -55,6 +55,12 @@ knowledge
 			green
 			six-legged
 			wirewood
+		indrix
+			blue
+			trade
+		mothra?
+			black
+			dead
 	species
 		Leonin
 			can be dicks
