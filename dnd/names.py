@@ -147,7 +147,7 @@ human_last=[
 	'colton', 'cortez', 'clark', 'cole', 'corner', 'cresswell', 'crouch',
 	'corbin', 'caddock', 'caesar', 'cornell', 'costello', 'church', 'cantor',
 	'cisco', 'cranston', 'creighton', 'crockford', 'cromar', 'colville',
-	'cumberbatch', 'cyphus',
+	'cumberbatch', 'cyphus', 'capulong',
 	'deangelo', 'del', 'delbert', 'davies', 'dempster', 'daingerfield', 'doyle',
 	'drake', 'dalrymple', 'dethloff', 'drysdale', 'darington', 'duff',
 	'dumberrill', 'dunderdale',
@@ -263,13 +263,18 @@ human_first_female=[
 	'zoe', 'zelda',
 ]
 
+human_first_unisex = [
+	'eden',
+	'happy',
+]
+
 def human(gender=None, normal=False):
 	if gender==None: gender=random.choice('mf')
 	if gender=='m':
 		first=human_first_male
 	else:
 		first=human_first_female
-	first=base.pick(first)
+	first=base.pick(first+human_first_unisex)
 	if not normal:
 		if gender=='m':
 			first=humanify(first, 'o', friendly_consonants)
