@@ -16,10 +16,16 @@ goals
 	Kehaka is a warlock
 		a cultist?
 	spells
-		infravision
-		identify handwriting
-		truth
-		farhearing
+		BoAS
+			tiny hut
+			water walking
+			water breathing
+			commune
+		invent
+			infravision
+			identify handwriting
+			truth
+			farhearing
 	potions
 		healing
 
@@ -118,6 +124,8 @@ knowledge
 				decapitated head interrogated
 					connection to Black Tower
 					preparation for deliverance
+			another blue
+				blew himself up while grappled by earth elemental outside monk fort
 			Selesh
 				silver
 				blue dragonborn reports to her(?)
