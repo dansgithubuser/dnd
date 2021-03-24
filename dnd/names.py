@@ -776,3 +776,27 @@ def potty():
 	result=result.replace('sss', 'ss-s')
 	result=result.replace('ttt', 'tt-t')
 	return result
+
+def bird_town():
+	prefixes=[
+		'crow',
+		'feather',
+		'gaggle',
+		'murder',
+		'pretty',
+		'raven', 'raptor',
+		'talon', 'tit', 'touca',
+		'wing',
+	]
+	suffixes=[
+		'cliff',
+		'fly', 'fall',
+		'haven', 'home', 'heights',
+		'loft',
+		'nest',
+		'perch', 'peak',
+		'roost', 'rocca',
+		'tree',
+		'view',
+	]
+	return base.pick(prefixes)+base.pick(suffixes)

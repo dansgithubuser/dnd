@@ -1,0 +1,16 @@
+themes:
+- promiscuous penguins
+- drug cartel
+- something with robots
+- neurodivergent vs neurotypical conflict
+- forests and deserts
+
+secrets:
+- aarakocra live in titloft on the southern island
+- wood elf cartel centered on collecting and pushing magic mushrooms
+	- aarakocra are a big customer
+	- dwarves a big customer
+- ancient robots buried in the desert
+- high elves (neurodivergent) vs wood elves (neurotypical) in the forest
+	- fighting for access to magic mushrooms, which can help with anxiety
+- the grey dragon linux ranges the mountains
