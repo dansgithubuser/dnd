@@ -1,0 +1,38 @@
+Oratha Mulcaster - Sorceror lvl 2
+Female Human
+
+str: 10
+dex: 11
+con: 10
+int: 13 (+1)
+wis: 16 (+3)
+cha: 18 (+4)
+
+ac: 13
+initiative: 0
+speed: 30
+hp: 12
+
+age: 74
+height: 5'9"
+weight: 200
+skin: black
+hair: black
+eyes: brown
+
+proficiencies (+2): 
+	saving throws: con, cha
+	skills: arcana, insight
+	language: common, draconic, dwarvish
+
+features:
+	draconic bloodline
+	font of magic
+
+spells:
+	cantrips: light, mage hand, mending, fire bolt
+	level 1: magic missile, charm person, detect magic
+
+details:
+	https://www.dndbeyond.com/classes/sorcerer
+	https://www.dndbeyond.com/sources/basic-rules/spells#SorcererSpells

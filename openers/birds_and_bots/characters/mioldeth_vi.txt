@@ -1,0 +1,40 @@
+Mioldeth Vi - Sorecerer lvl 3
+Male Wood Elf
+
+str:  7 (-2)
+dex: 15 (+2)
+con: 10
+int: 15 (+2)
+wis: 17 (+3)
+cha: 18 (+4)
+
+ac: 12 (15 w mage armor)
+initiaitive: +2
+speed: 35
+hp: 14
+
+age: 123
+height: 5'9"
+weight: 110
+eyes: green
+skin: tan
+hair: black
+
+proficiencies (+2):
+	saving throws: con, cha
+	skills: deception, arcana, perception
+	language: common, elvish
+
+features:
+	darkvision
+	fey ancestry
+		magic cannot put to sleep
+		advantage on saving throws against being charmed
+	trance
+	font of magic
+	metamagic - distant spell
+
+spells
+	acid splash, mage hand, mending, shocking grasp
+	level 1: magic missile, false life, mage armor
+	level 2: invisibility

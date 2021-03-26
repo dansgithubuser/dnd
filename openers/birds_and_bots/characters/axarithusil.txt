@@ -1,0 +1,41 @@
+Axarithusil - Ranger lvl 2
+Male Dragonborn
+
+str: 10
+dex: 13 (+1)
+con: 10
+int: 16 (+3)
+wis: 16 (+3)
+cha: 10
+
+ac: 12
+initiative: +1
+speed: 30
+hp: 16
+
+age: 19
+height: 6'2"
+weight: 150
+skin: blue
+eyes: blue
+
+proficiencies (+2): 
+	saving throws: str, dex
+	skills: investigation, nature, stealth
+	language: common, draconic
+
+items:
+	leather armor
+	longbow (+5; 1d8+1)
+
+features:
+	favored enemy: beasts
+	natural explorer: forest
+	fighting style: archery
+
+spells:
+	level 1: cure wounds, fog cloud
+
+details:
+	https://www.dndbeyond.com/classes/ranger
+	https://www.dndbeyond.com/sources/basic-rules/spells#RangerSpells

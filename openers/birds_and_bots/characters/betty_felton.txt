@@ -1,0 +1,48 @@
+Betty Felton - Rogue lvl 2
+Female Tiefling
+
+str: 11
+dex: 16 (+3)
+con: 10
+int: 17 (+3)
+wis: 12 (+1)
+cha: 15 (+2)
+
+ac: 14
+initiative: +3
+speed: 30
+hp: 13
+
+age: 24
+height: 4'9"
+weight: 100
+skin: orange
+hair: black
+eyes: hazel
+
+proficiencies (+2): 
+	saving throws: dex, int
+	skills: acrobatics (expert), deception (expert), performance, sleight of hand
+	tools: thieves' tools
+	language: common, infernal
+
+items:
+	rapier (+5; 1d8+3)
+	shortbow (+5; 1d6+3)
+	leather armor
+	thieves' tools
+
+features:
+	darkvision
+	hellish resistance
+	sneak attack
+	thieves' cant
+	cunning action
+
+spells:
+	cantrips: thaumaturgy
+
+details:
+	https://www.dndbeyond.com/sources/basic-rules/races#Tiefling
+	https://www.dndbeyond.com/classes/rogue
+	https://www.dndbeyond.com/spells/thaumaturgy

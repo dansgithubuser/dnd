@@ -1,0 +1,35 @@
+Robot
+
+str: 20 (+5)
+dex: 10
+con: 20 (+5)
+int: 14 (+2)
+wis:  6 (-2)
+cha:  4 (-3)
+
+ac: 20
+initiative: 0
+speed: 30
+hp: 70
+
+age: 297
+height: 12'0"
+weight: 4000
+skin: rock
+eyes: blue
+
+proficiencies (+2): 
+	saving throws: str, con
+	skills: perception
+	language: understands undercommon
+
+attacks:
+	slam x2 (+7; 2d6 + 5)
+
+features:
+	resists nonmagical damage
+	immune to poison, psychic
+	condition immunities: charmed, exhaustion, frightened, poisoned
+
+details:
+	https://www.dndbeyond.com/classes/ranger

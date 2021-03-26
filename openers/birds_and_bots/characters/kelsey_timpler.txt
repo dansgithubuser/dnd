@@ -1,0 +1,44 @@
+Kelsey Timpler - Paladin lvl 2
+Female Human
+
+str: 11
+dex: 19 (+4)
+con: 14 (+2)
+int: 13 (+1)
+wis:  9 (-1)
+cha: 15 (+2)
+
+ac: 16 (18 w shield)
+initiative: +4
+speed: 30
+hp: 20
+
+age: 54
+height: 5'8"
+weight: 140
+skin: tan
+hair: black
+eyes: brown
+
+proficiencies (+2): 
+	saving throws: wis, cha
+	skills: persuasion, religion
+	languages: common
+
+items:
+	longbow (+6; 1d8+4)
+	rapier (+6; 1d8+4)
+	leather armor, shield
+
+features:
+	divine sense
+	lay on hands
+	defense
+	divine smite
+
+spells:
+	level 1: cure wounds, command, heroism
+
+details:
+	https://www.dndbeyond.com/classes/paladin
+	https://www.dndbeyond.com/sources/basic-rules/spells#PaladinSpells

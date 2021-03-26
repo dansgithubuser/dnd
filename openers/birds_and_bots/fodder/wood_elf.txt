@@ -1,0 +1,36 @@
+Wood Elf - Ranger lvl 1
+
+str:  8 (-1)
+dex: 16 (+3)
+con: 15 (+2)
+int: 10
+wis: 14 (+2)
+cha: 12 (+1)
+
+ac: 14
+initiative: +3
+speed: 35
+hp: 12
+
+age: 50 - 350
+height: 5'9" - 6'5"
+weight: 100 - 150
+skin: tan, white, brown, black
+eyes: brown, blue, green
+
+proficiencies (+2): 
+	saving throws: str, dex
+	skills: athletics, nature, stealth
+	language: common, elvish
+
+items:
+	leather armor
+	longbow (+7; 1d8+3)
+
+features:
+	favored enemy: beasts
+	natural explorer: forest
+	fighting style: archery
+
+details:
+	https://www.dndbeyond.com/classes/ranger

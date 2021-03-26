@@ -12,7 +12,7 @@ secrets:
 	- dwarves a big customer
 - ancient robots buried in the desert
 - high elves (neurodivergent) vs wood elves (neurotypical) in the forest
-	- fighting for access to magic mushrooms, which can help with anxiety
+	- want back access to magic mushrooms, which can help with anxiety
 - the grey dragon linux ranges the mountains
 
 hook:
@@ -62,20 +62,91 @@ background information:
 		- mayor
 			- Oswald Blumfield
 	- magic mushrooms
-		- grow in forest
+		- grow in forest, on boxelders (maples are more common)
 		- can be refined into
 			- cast-any-spell-potion
 				- lasts about an hour
 				- you still need slots
 			- bad trip potion
 				- can be combined with a suggestion-type spells to compel drinker to do specific things
+			- infinite-slots potion
+			- uninterruptible-concentration potion
+			- throwing potion
+				- causes hallucinations, disadvantage attack rolls
+
+on races:
+	- humans are most common, followed by dwarves and elves
+	- humans are by far the least racist + most welcoming toward other races
+	- only humans have sexism
+	- half-breeds are infertile
+	- dragonborn come from the desert
+	- tieflings are rare; their parents and children are usually are human
+	- orcs don't have a word for love, and only one word for sex
+		- a man's value is judged in part by number of children, double-score for half-humans
+	- goblins have a fast and exponential reproductive cycle, a couple years to maturity, most goblins are twins
+		- they don't value life like other races
+		- live about 4 years on average; up to 30 in captivity
 
 timeline:
 	- today is May 2nd, 297 of the 10th common era
 	- April 22nd - Winifrid is tempted w magic mushrooms
 	- April 23rd
-		- just after midnight: Horbert is killed in his sleep, then Bartholomew
+		- just after midnight:
+			- Horbert is killed in his sleep by Thenger and Mioldeth
+			- Thenger kills Bartholomew in his sleep
 		- Ruzolph goes to visit Horbert, sees he is dead, and flees
 	- April 24th
 		- election is conducted
 		- Winifrid is put on the ballot despite not being able to accept the nomination
+
+encouters:
+	- near mountains: the grey dragon Linux
+	- in water: sea serpent
+	- in desert
+		- jackalope
+		- Winifrid
+	- pelton's rest
+		- Ruzolph
+	- on way to trombad:
+		- dead horse w black-feathered arrows, charred goblins
+		- in horsebags:
+			- 40 gp
+			- ancient scrolls written in undercommon
+			- notes on ancient scrolls
+				- some phonetic explanations of undercommon words
+					- awake
+					- sleep
+					- <password>
+					- sudo
+					- follow
+					- attack
+					- go
+					- use
+					- drop
+					- stop
+	- delmar:
+		- mayor oswald blumfield
+		- farmers
+		- sheriff
+		- apothecary
+	- trombad:
+		- titmouse aarakocra + human shroom pusher
+		- dwarf + human shroom pusher
+		- police
+		- quentin fan
+		- wholesome farmers
+		- cleric guild
+		- quentin thenger
+	- forest:
+		- goblins
+			- bugbear that speaks common
+		- wood elf shroom farm
+			- near the river a bit north of trombad
+			- trombad human workers
+			- wood elves
+				- guards
+				- manager
+			- tree enclosures
+				- main enclosure where Mioldeth lives
+		- high elf tree
+			- near the river a bit north of shroom farm

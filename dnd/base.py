@@ -227,6 +227,19 @@ class Entity:
 
 	def __setattr__(self, attr, value): log_attr_set(self, attr, value)
 
+	def __repr__(self):
+		lines = []
+		if hasattr(self, 'name'): lines.append(self.name)
+		gender_race = []
+		if hasattr(self, 'gender'): gender_race.append(self.gender)
+		if self.race(): gender_race.append(self.race())
+		if gender_race: lines.append(' '.join(gender_race))
+		if hasattr(self, 'str'):
+			lines.append(f'{self.str} {self.dex} {self.con} {self.int} {self.wis} {self.cha}')
+		if hasattr(self, 'choices'):
+			lines.append(pprint.pformat(self.choices))
+		return '<' + ''.join(['\n\t' + i for i in lines]) + '\n>'
+
 	def race(self):
 		for i in type(self).mro():
 			if i.__module__.endswith('races'):

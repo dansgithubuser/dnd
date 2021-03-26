@@ -1,0 +1,40 @@
+Thorrich Lawfuljutt - Fighter lvl 2
+Male Mountain Dwarf
+
+str: 18 (+4)
+dex: 10
+con: 16 (+3)
+int: 12 (+1)
+wis:  8 (-1)
+cha:  9 (-1)
+
+ac: 18
+initiative: 0
+speed: 25
+hp: 22
+
+age: 218
+height: 4'3"
+weight: 170
+skin: white
+hair: red
+eyes: hazel
+
+proficiencies (+2): 
+	saving throws: str, con
+	skills: athletics, animal handling
+	language: common, dwarvish
+
+items:
+	warhammer (+6; 1d8+6)
+	chain mail, shield
+
+features:
+	darkvision, dwarven resilience, stonecunning
+	dueling
+	second wind
+	action surge
+
+details:
+	https://www.dndbeyond.com/races/dwarf
+	https://www.dndbeyond.com/classes/fighter

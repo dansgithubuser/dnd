@@ -1,0 +1,41 @@
+Elliot Haden - Wizard lvl 2
+Male Human
+
+str:  9 (-1)
+dex:  9 (-1)
+con: 14 (+2)
+int: 16 (+3)
+wis: 17 (+3)
+cha:  8 (-1)
+
+ac: 9
+initiative: -1
+speed: 30
+hp: 14
+
+age: 37
+height: 6'0"
+weight: 150
+skin: white
+hair: blonde
+eyes: blue
+
+proficiencies (+2): 
+	saving throws: int, wis
+	skills: arcana, history
+	language: common, elvish
+
+features:
+	arcane recovery
+	arcane tradition: evocation
+		sculpt spells
+
+spells:
+	cantrips: ray of frost, message, shocking-grasp
+	level 1:
+		prepared: feather fall, floating disk, grease, sleep, thunderwave
+		known: find familiar, identify, alarm
+
+details:
+	https://www.dndbeyond.com/classes/wizard
+	https://www.dndbeyond.com/sources/basic-rules/spells#WizardSpells

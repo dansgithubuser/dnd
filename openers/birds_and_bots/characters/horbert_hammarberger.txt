@@ -1,0 +1,45 @@
+Horbert Hammarberger - Paladin lvl 3
+Male Human
+
+str: 19 (+4)
+dex: 12 (+1)
+con: 15 (+2)
+int: 13 (+1)
+wis: 13 (+1)
+cha: 14 (+2)
+
+ac: 16 (18 w shield)
+initiative: +1
+speed: 30
+hp: 20
+
+age: 37
+height: 6'4"
+weight: 270
+skin: white
+hair: red
+eyes: blue
+
+proficiencies (+2): 
+	saving throws: wis, cha
+	skills: athletics, persuasion
+	languages: common
+
+items:
+	warhammer (+4; 1d8+6)
+	chain mail, shield
+
+features:
+	divine sense
+	lay on hands
+	dueling
+	divine smite
+	divine health
+	oath of devotion
+
+spells:
+	level 1: cure wounds, command, heroism
+
+details:
+	https://www.dndbeyond.com/classes/paladin
+	https://www.dndbeyond.com/sources/basic-rules/spells#PaladinSpells

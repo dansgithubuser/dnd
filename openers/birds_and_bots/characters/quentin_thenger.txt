@@ -1,0 +1,40 @@
+Quentin Thenger - Rogue lvl 3
+Male Human
+
+str: 15 (+2)
+dex: 16 (+3)
+con: 13 (+1)
+int: 14 (+2)
+wis: 15 (+2)
+cha: 11
+
+ac: 14
+initiative: +3
+speed: 30
+hp: 15
+
+age: 53
+height: 6'0"
+weight: 150
+skin: white
+hair: blonde
+eyes: brown
+
+proficiencies (+2): 
+	saving throws: dex, int
+	skills: deception, insight, perception, stealth
+	languages: common
+
+items:
+	longbow (+5; 1d8+3)
+	rapier (+5; 1d8+3)
+	leather armor
+
+features:
+	sneak attack (2d6)
+	thieves' cant
+	cunning action (dash, disengage, hide)
+	assassin
+		assassinate
+			advantage on attack rolls against creatures that haven't taken a turn
+			hits on surprised creatures are critical

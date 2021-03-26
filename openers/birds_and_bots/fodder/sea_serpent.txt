@@ -1,0 +1,20 @@
+Sea Serpent
+
+str: 16 (+3)
+dex: 10
+con: 16 (+3)
+int:  6 (-2)
+wis: 10
+cha:  4 (-3)
+
+ac: 13
+initiative: 0
+speed: 60
+hp: 28
+
+skin: blue
+eyes: yellow
+
+attacks:
+	bite: (+5; 2d6, dc 10 poison)
+	shock: (+2; 2d6 in 20 ft radius, half on dc 10 con saving throw)
