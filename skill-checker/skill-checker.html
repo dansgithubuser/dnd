@@ -1,0 +1,148 @@
+<div style="display: flex">
+  <div class="col">
+    <h1>ability modifiers</h1>
+    <table>
+      <tr><td>str</td><td><input id="m-str" type="number" value=0 min=-5 max=5 size=1></td></tr>
+      <tr><td>dex</td><td><input id="m-dex" type="number" value=0 min=-5 max=5 size=1></td></tr>
+      <tr><td>con</td><td><input id="m-con" type="number" value=0 min=-5 max=5 size=1></td></tr>
+      <tr><td>int</td><td><input id="m-int" type="number" value=0 min=-5 max=5 size=1></td></tr>
+      <tr><td>wis</td><td><input id="m-wis" type="number" value=0 min=-5 max=5 size=1></td></tr>
+      <tr><td>cha</td><td><input id="m-cha" type="number" value=0 min=-5 max=5 size=1></td></tr>
+    </table>
+    <h1>proficiency bonus</h1>
+    <input id="bonus" type="number" value=2 min=2 max=6 size=1>
+  </div>
+  <div class="col">
+    <h1>skills</h1>
+    <table>
+      <tr><th>name</th><th>proficient</th><th>expert</th><th>check!</th></tr>
+      <tr><td>athletics (str)      </td><td><input id="p-ath" type="checkbox"></td><td><input id="e-ath" type="checkbox"></td><td><input type="button" onclick="check('ath')"></td></tr>
+      <tr><td>acrobatics (dex)     </td><td><input id="p-acr" type="checkbox"></td><td><input id="e-acr" type="checkbox"></td><td><input type="button" onclick="check('acr')"></td></tr>
+      <tr><td>sleight of hand (dex)</td><td><input id="p-soh" type="checkbox"></td><td><input id="e-soh" type="checkbox"></td><td><input type="button" onclick="check('soh')"></td></tr>
+      <tr><td>stealth (dex)        </td><td><input id="p-stl" type="checkbox"></td><td><input id="e-stl" type="checkbox"></td><td><input type="button" onclick="check('stl')"></td></tr>
+      <tr><td>arcana (int)         </td><td><input id="p-arc" type="checkbox"></td><td><input id="e-arc" type="checkbox"></td><td><input type="button" onclick="check('arc')"></td></tr>
+      <tr><td>history (int)        </td><td><input id="p-his" type="checkbox"></td><td><input id="e-his" type="checkbox"></td><td><input type="button" onclick="check('his')"></td></tr>
+      <tr><td>investigation (int)  </td><td><input id="p-inv" type="checkbox"></td><td><input id="e-inv" type="checkbox"></td><td><input type="button" onclick="check('inv')"></td></tr>
+      <tr><td>nature (int)         </td><td><input id="p-nat" type="checkbox"></td><td><input id="e-nat" type="checkbox"></td><td><input type="button" onclick="check('nat')"></td></tr>
+      <tr><td>religion (int)       </td><td><input id="p-rel" type="checkbox"></td><td><input id="e-rel" type="checkbox"></td><td><input type="button" onclick="check('rel')"></td></tr>
+      <tr><td>animal handling (wis)</td><td><input id="p-ani" type="checkbox"></td><td><input id="e-ani" type="checkbox"></td><td><input type="button" onclick="check('ani')"></td></tr>
+      <tr><td>insight (wis)        </td><td><input id="p-ins" type="checkbox"></td><td><input id="e-ins" type="checkbox"></td><td><input type="button" onclick="check('ins')"></td></tr>
+      <tr><td>medicine (wis)       </td><td><input id="p-med" type="checkbox"></td><td><input id="e-med" type="checkbox"></td><td><input type="button" onclick="check('med')"></td></tr>
+      <tr><td>perception (wis)     </td><td><input id="p-prc" type="checkbox"></td><td><input id="e-prc" type="checkbox"></td><td><input type="button" onclick="check('prc')"></td></tr>
+      <tr><td>survival (wis)       </td><td><input id="p-sur" type="checkbox"></td><td><input id="e-sur" type="checkbox"></td><td><input type="button" onclick="check('sur')"></td></tr>
+      <tr><td>deception (cha)      </td><td><input id="p-dec" type="checkbox"></td><td><input id="e-dec" type="checkbox"></td><td><input type="button" onclick="check('dec')"></td></tr>
+      <tr><td>intimidation (cha)   </td><td><input id="p-int" type="checkbox"></td><td><input id="e-int" type="checkbox"></td><td><input type="button" onclick="check('int')"></td></tr>
+      <tr><td>performance (cha)    </td><td><input id="p-prf" type="checkbox"></td><td><input id="e-prf" type="checkbox"></td><td><input type="button" onclick="check('prf')"></td></tr>
+      <tr><td>persuasion (cha)     </td><td><input id="p-prs" type="checkbox"></td><td><input id="e-prs" type="checkbox"></td><td><input type="button" onclick="check('prs')"></td></tr>
+    </table>
+  </div>
+  <div class="col">
+    <h1>results</h1>
+    <table id="results"></table>
+  </div>
+</div>
+
+<script>
+
+const results = [];
+
+function e(id) {
+  return document.getElementById(id);
+}
+
+function v(id) {
+  return e(id).value;
+}
+
+function leftPad(s, width, c) {
+  return width > s.length
+    ? new Array(width - s.length + 1).join(c) + s
+    : s;
+}
+
+function timestamp() {
+  const now = new Date();
+  const h = leftPad(now.getHours(), 2, '0');
+  const m = leftPad(now.getMinutes(), 2, '0');
+  const s = leftPad(now.getSeconds(), 2, '0');
+  return `${h}:${m}:${s}`;
+}
+
+function capitalize(s) {
+  return s[0].toUpperCase() + s.slice(1);
+}
+
+function check(skill) {
+  const roll = Math.floor(Math.random() * 20) + 1;
+  const [ability, name] = {
+    ath: ['str', 'athletics'],
+    acr: ['dex', 'acrobatics'],
+    soh: ['dex', 'sleight of hand'],
+    stl: ['dex', 'stealth'],
+    arc: ['int', 'arcana'],
+    his: ['int', 'history'],
+    inv: ['int', 'investigation'],
+    nat: ['int', 'nature'],
+    rel: ['int', 'religion'],
+    ani: ['wis', 'animal handling'],
+    ins: ['wis', 'insight'],
+    med: ['wis', 'medicine'],
+    prc: ['wis', 'perception'],
+    sur: ['wis', 'survival'],
+    dec: ['cha', 'deception'],
+    int: ['cha', 'intimidation'],
+    prf: ['cha', 'performance'],
+    prs: ['cha', 'persuasion'],
+  }[skill];
+  const mod = parseInt(v(`m-${ability}`), 10);
+  const pro = e(`p-${skill}`).checked;
+  const exp = e(`e-${skill}`).checked;
+  const bonus = v('bonus');
+  let msg = `You roll a 20-sided dice and it lands <b>${roll}</b>.<br>`;
+  if (roll === 1) {
+    msg += 'You rolled a<br><b class="result">natural 1</b>';
+  } else if (roll === 20) {
+    msg += 'You rolled a<br><b class="result">natural 20</b>';
+  } else {
+    msg += `<b>${capitalize(name)}</b> is based on <b>${ability}</b>, so you get <b>${mod >= 0 ? '+' : ''}${mod}</b>.<br>`;
+    if (exp) {
+      msg += `You are <b>expert</b> in <b>${name}</b> so you get double your proficiency bonus, <b>+${bonus * 2}</b>.<br>`;
+    } else if(pro) {
+      msg += `You are <b>proficient</b> in <b>${name}</b> so you get <b>+${bonus}</b>.<br>`;
+    }
+    msg += `In total you have<br><b class="result">${roll + mod + bonus * (exp ? 2 : 0) * (pro || exp ? 1 : 0)}</b><br>`;
+  }
+  results.unshift(`<tr><td>${timestamp()}</td><td style="text-align: left">${msg}</td></tr>`);
+  if (results.length > 5) results.pop();
+  e('results').innerHTML = results.join('');
+}
+
+</script>
+
+<style>
+
+.col {
+  padding: 1rem;
+  border: 1px dotted grey;
+}
+
+.result {
+  font-size: 24;
+}
+
+td, th {
+  border: 1px dotted grey;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input {
+  align-self: center;
+}
+
+</style>
