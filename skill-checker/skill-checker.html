@@ -14,7 +14,7 @@
   </div>
   <div class="col">
     <h1>skills</h1>
-    <table>
+    <table class="check-table">
       <tr><th>name</th><th>proficient</th><th>expert</th><th>check!</th></tr>
       <tr><td>athletics (str)      </td><td><input id="p-ath" type="checkbox"></td><td><input id="e-ath" type="checkbox"></td><td><input type="button" onclick="check('ath')"></td></tr>
       <tr><td>acrobatics (dex)     </td><td><input id="p-acr" type="checkbox"></td><td><input id="e-acr" type="checkbox"></td><td><input type="button" onclick="check('acr')"></td></tr>
@@ -35,6 +35,15 @@
       <tr><td>performance (cha)    </td><td><input id="p-prf" type="checkbox"></td><td><input id="e-prf" type="checkbox"></td><td><input type="button" onclick="check('prf')"></td></tr>
       <tr><td>persuasion (cha)     </td><td><input id="p-prs" type="checkbox"></td><td><input id="e-prs" type="checkbox"></td><td><input type="button" onclick="check('prs')"></td></tr>
     </table>
+    <h1>other</h1>
+    <table class="check-table">
+      <tr><td>str</td><td><input id="p-str" type="checkbox"></td><td></td><td><input type="button" onclick="check('str')"></td></tr>
+      <tr><td>dex</td><td><input id="p-dex" type="checkbox"></td><td></td><td><input type="button" onclick="check('dex')"></td></tr>
+      <tr><td>con</td><td><input id="p-con" type="checkbox"></td><td></td><td><input type="button" onclick="check('con')"></td></tr>
+      <tr><td>int</td><td><input id="p-int" type="checkbox"></td><td></td><td><input type="button" onclick="check('wis')"></td></tr>
+      <tr><td>wis</td><td><input id="p-wis" type="checkbox"></td><td></td><td><input type="button" onclick="check('int')"></td></tr>
+      <tr><td>cha</td><td><input id="p-cha" type="checkbox"></td><td></td><td><input type="button" onclick="check('cha')"></td></tr>
+    </table>
   </div>
   <div class="col">
     <h1>results</h1>
@@ -54,7 +63,8 @@ function v(id) {
   return e(id).value;
 }
 
-function leftPad(s, width, c) {
+function leftPad(x, width, c) {
+  const s = `${x}`;
   return width > s.length
     ? new Array(width - s.length + 1).join(c) + s
     : s;
@@ -93,10 +103,16 @@ function check(skill) {
     int: ['cha', 'intimidation'],
     prf: ['cha', 'performance'],
     prs: ['cha', 'persuasion'],
+    str: ['str', null],
+    dex: ['dex', null],
+    con: ['con', null],
+    int: ['int', null],
+    wis: ['wis', null],
+    cha: ['cha', null],
   }[skill];
   const mod = parseInt(v(`m-${ability}`), 10);
   const pro = e(`p-${skill}`).checked;
-  const exp = e(`e-${skill}`).checked;
+  const exp = (e(`e-${skill}`) || {}).checked;
   const bonus = v('bonus');
   let msg = `You roll a 20-sided dice and it lands <b>${roll}</b>.<br>`;
   if (roll === 1) {
@@ -104,16 +120,24 @@ function check(skill) {
   } else if (roll === 20) {
     msg += 'You rolled a<br><b class="result">natural 20</b>';
   } else {
-    msg += `<b>${capitalize(name)}</b> is based on <b>${ability}</b>, so you get <b>${mod >= 0 ? '+' : ''}${mod}</b>.<br>`;
+    if (name) {
+      msg += `<b>${capitalize(name)}</b> is based on <b>${ability}</b>, so you get <b>${mod >= 0 ? '+' : ''}${mod}</b>.<br>`;
+    } else {
+      msg += `Your <b>${ability}</b> ability modifier is <b>${mod}</b>, so you get <b>${mod >= 0 ? '+' : ''}${mod}</b>.<br>`;
+    }
     if (exp) {
       msg += `You are <b>expert</b> in <b>${name}</b> so you get double your proficiency bonus, <b>+${bonus * 2}</b>.<br>`;
     } else if(pro) {
-      msg += `You are <b>proficient</b> in <b>${name}</b> so you get <b>+${bonus}</b>.<br>`;
+      if (name) {
+        msg += `You are <b>proficient</b> in <b>${name}</b> so you get <b>+${bonus}</b>.<br>`;
+      } else {
+        msg += `With <b>proficiency</b> you get <b>+${bonus}</b>.<br>`;
+      }
     }
-    msg += `In total you have<br><b class="result">${roll + mod + bonus * (exp ? 2 : 0) * (pro || exp ? 1 : 0)}</b><br>`;
+    msg += `In total you have<br><b class="result">${roll + mod + bonus * (exp ? 2 : 1) * (pro || exp ? 1 : 0)}</b><br>`;
   }
   results.unshift(`<tr><td>${timestamp()}</td><td style="text-align: left">${msg}</td></tr>`);
-  if (results.length > 5) results.pop();
+  if (results.length > 7) results.pop();
   e('results').innerHTML = results.join('');
 }
 
@@ -137,12 +161,24 @@ td, th {
   text-align: center;
 }
 
+table.check-table > tbody > tr > td:first-child {
+  width: 12rem;
+}
+
+table.check-table > tbody > tr > td:nth-child(n+2) {
+  width: 6rem;
+}
+
 table {
   border-collapse: collapse;
 }
 
 input {
   align-self: center;
+}
+
+#results > tbody > :nth-child(n+2) {
+  color: grey;
 }
 
 </style>
