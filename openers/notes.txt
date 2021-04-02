@@ -1,0 +1,69 @@
+A Formula for a Successful First Session
+
+1. Greater Setting
+You don't need to repeat these steps between sessions.
+Build it over time.
+
+1.1 Start with a general fantasy setting
+Start building a world that is the intersection of both D&D and LoTR.
+You can assume players know this stuff.
+
+1.2 Add headcanon
+Build a more detailed greater setting that you like.
+Some of this should be conveyed before roleplaying starts to help flesh out the world, and ease into engagement with it.
+
+My own set follows.
+
+On races:
+- Humans are most common, followed by dwarves and elves.
+- Humans are by far the least racist and most welcoming toward other races.
+- Only humans have sexism.
+- Half-breeds are infertile.
+- Dragonborn come from the desert.
+- Tieflings are rare; their parents and children are usually are human.
+- Orcs don't have a word for love, and only one word for sex
+	- A man's value is judged in part by number of children, double-score for half-humans.
+- Goblins have a fast and exponential reproductive cycle, a couple years to maturity, most goblins are twins.
+	- They don't value life like other races.
+	- Live about 4 years on average; up to 30 in captivity.
+
+On magic:
+- There are many planes.
+- We inhabit the "prime material plane" -- but the name is arbitrary.
+- Planes, concepts, and ultimate deities are synonyms.
+- "The Weave" is the interface magicians access to reach into different planes, thus performing magic.
+	- Most magicians understand this either intuitively or theoretically, but few both.
+
+1.3 Random Encounters
+Accumulate a set of random encounters. For example:
+- Dead horses.
+- A dragon who loves treasure.
+- Goblins!
+- Raccoon drank all the potions in the apothecary.
+- A teleportation circle.
+
+2. Backstory
+Get ideas from the players.
+Digest them into a set of in-world situations the players can engage with.
+Create a conflict, and a hook for the players to follow to get involved.
+Make a public map of the area the conflict is happening in.
+
+3. Plot
+Give the hook to the characters and the map to the players.
+The characters don't have a map, they just each have knowledge of the area they live in, and that is what the map represents.
+The characters are allowed to investigate to understand the conflict and justify a combat.
+Sprinkle random encounters into the exploration.
+
+4. Characters
+Create characters; one more than the number of players.
+Let the players pick characters.
+Have each player add one unique public thing to their character.
+Have each player add one unique private thing to their character.
+Explain skill proficiencies and work out how to roll checks.
+Work out their signature attack and how to roll it with them.
+Have them describe how they look to each other.
+
+5. Combat
+Have stat blocks for each type of creature.
+When a combat occurs, have a stat block in initiative order for each creature in the combat.
+Have a battle map so you can remember each action taken -- it's no fun when a player has to repeat something they did, or silently accept that you forgot about it.
