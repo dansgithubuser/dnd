@@ -59,6 +59,7 @@ Create characters; one more than the number of players.
 Let the players pick characters.
 Have each player add one unique public thing to their character.
 Have each player add one unique private thing to their character.
+Have players work out what unique connections their characters share. They are _not_ strangers.
 Explain skill proficiencies and work out how to roll checks.
 Work out their signature attack and how to roll it with them.
 Have them describe how they look to each other.
