@@ -13,11 +13,13 @@ goals
 					staff distributes life
 		look for ritual sites on magical layline intersections
 	Laboratoire the Halfling needs stuff to reanimate Drokkar
-	Kehaka is a warlock
+	Kehaka (she) is a warlock
 		a cultist?
 	spells
+		learn at level up
+			evard's black tentacles (area effect)
+			sending (talk to chiara)
 		BoAS
-			tiny hut
 			water walking
 			water breathing
 			commune
@@ -28,6 +30,7 @@ goals
 			farhearing
 	potions
 		healing
+			learned
 
 knowledge
 	key
