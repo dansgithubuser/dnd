@@ -44,6 +44,15 @@ knowledge
 				rift opened prematurely, allowing free dragons to escape and prepare for 1500 years
 		magical laylines weakened near where quartermaster was doing cult stuff
 			laylines prevent beings from crossing planes
+		8 manastone spikes / ritual sites
+			1. potash the gnome
+			2. interrupted by Alethea
+			3. destroyed by us in forest
+			4. found by us outside quartermaster's base, spent
+			5. destroyed by us in monk trial area
+			6. under the assembly, used
+			7. land of the dead
+			8. remains...
 	dragons
 		drokkar
 			red
@@ -176,12 +185,6 @@ knowledge
 				cultists spotted in the tangle
 			giant terminates keeping vines at bay
 			Livenwild
-		8 manastone spikes / ritual sites
-			2 interrupted
-				us
-				Alethea
-			1 destroyed by us
-			1 found by us outside quartermaster's base, spent
 		North
 			Belle from here
 			Monastery
