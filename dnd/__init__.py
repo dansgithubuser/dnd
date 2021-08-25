@@ -230,4 +230,13 @@ house_rules = {
 	'dual wielding is stupid': "mechanically, a free hand acts as if it is holding a copy of the player's weapon",
 }
 
+difficulty_classes = [
+	(5, ['child']),
+	(10, ['adult']),
+	(15, ['professional']),
+	(20, ['hero (lvl 1-10)']),
+	(25, ['hero (lvl 11-16)']),
+	(30, ['god']),
+]
+
 __all__=[i for i in locals().keys() if not i.startswith('_')]
