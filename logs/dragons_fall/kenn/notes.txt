@@ -1,4 +1,18 @@
 goals
+	power up for fight against nemesis
+		mobility
+			teleport circle sigils
+			plane research
+		stealth
+			lichdom
+		research
+			Tome of Leadership and Influence
+		item collection
+			robe of the archmagi
+			rod of the pact keeper
+			ring of protection
+			illusionist's bracers
+			boots of elvenkind
 	general
 		adventure
 		money for home
