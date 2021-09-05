@@ -1,0 +1,63 @@
+Shia LaBeouf
+human lich
+entertainer/cannibal
+bard (whispers) 20
+
+str 10
+dex 20
+con 12
+int 14
+wis 10
+cha 20
+
+skills:
+acrobatics (expert)
+arcana (expert)
+deception (expert)
+performance
+stealth (expert)
+disguise kit
+cook's utensils
+singing, flute, bagpipes
+
+saving throws: dex, cha
+
+languages: common, deep speech
+
+items:
+knife (1d4 slashing)
+greataxe
+hand crossbow
+studded leather
+
+features:
+bardic inspiration (d12)
+jack of all trades
+song of rest (d12)
+psychic blades
+words of terror
+font of inspiration
+countercharm
+mantle of whispers
+shadow lore
+superior inspiration
+slasher
+lich:
+	damage resistances: cold, lightning, necrotic
+	damage immunities: poison
+	condition immunities: charmed, exhaustion, frightened, paralyzed, poisoned
+	truesight
+	legendary resistance (3/day)
+	rejuvenation
+	undead nature
+
+spells
+cantrips: vicions mockery, prestidigitation, minor illusion, message
+level 1: charm person, cure wounds, feather fall
+level 2: blindness/deafness, crown of madness
+level 3: dispel magic, feign death, Counterspell
+level 4: dimension door, greater invisibility
+level 5: dominate person, geas, greater restoration, Contagion
+level 6: disintegrate
+level 7: forcecage, symbol, regenerate, Divine Word, Soul Cage
+level 9: Wish, Imprisonment
