@@ -178,3 +178,13 @@ scholars_pack=[
 	'backpack', 'book_of_lore', 'ink', 'pen', {'parchment': 10}, 'bag_of_sand',
 	'knife',
 ]
+
+# house rules for more interesting nonmagical weapons
+weapon_mods=[
+	'req_str_12', 'req_str_14', 'req_str_16', 'req_str_18', 'req_str_20',
+	'req_dex_12', 'req_dex_14', 'req_dex_16', 'req_dex_18', 'req_dex_20',
+	'd4', 'd6', 'd8', 'd10', 'd12',
+	'extra_die',
+	'crit_on_19', 'crit_on_18',
+	'extra_crit_die_1', 'extra_crit_die_2', 'extra_crit_die_3',
+]
