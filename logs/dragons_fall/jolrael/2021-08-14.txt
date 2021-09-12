@@ -13,7 +13,7 @@ making plans w drumlin, rumthor, bartok, and boarscar
 		leonin retook land from tangle
 		wants dwarven resources to take and rebuild
 	go to sunmane to request boarscar land back
-		and to request army to go to chern
+		instead: request army and take chern back for dwarves
 			leonin should see and be motivated by the prospect of achieving glory
 			chern is an underground city
 			chern is overrun w goblins + kobolds from below
