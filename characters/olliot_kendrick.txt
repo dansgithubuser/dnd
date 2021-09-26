@@ -1,0 +1,43 @@
+Olliot Kendrick
+human
+armored caster
+fighter 2, wizard 5 (school of abjuration)
+
+str 14
+dex 11
+con 14
+int 18
+wis 11
+cha 13
+
+skills
+	arcana
+	insight
+	medicine
+	perception
+	survival
+	vehicles (land)
+
+saving throws: str, con
+languages: common, elvish, primordial
+
+items
+	plate mail
+	shield, +2
+	longsword, +2
+	wand of the war mage, +2
+
+features
+	war caster
+	defense
+	2nd wind
+	action surge
+	arcane recovery
+	wizardly quill
+	awakened spellbook
+
+spells
+	cantrips: fire bolt, light, mage hand, mending
+	level 1: absorb elements, feather fall, find familiar, floating disk, fog cloud, grease, shield, snare
+	level 2: misty step, see invisibility, warding wind, web
+	level 3: animate dead, fireball, counterspell, dispel magic
