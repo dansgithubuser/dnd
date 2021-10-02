@@ -1,0 +1,61 @@
+Velma Fletcher
+Wood Elf
+Bounty Hunter
+Rogue 20 (Assassin)
+
+str 12
+dex 20
+con 12
+int 12
+wis 16
+cha 8
+
+skills
+	arcobatics (expert)
+	athletics
+	insight (expert)
+	investigation (bg)
+	sleight of hand
+	stealth (bg, expert)
+	perception (elf, expert)
+	thieves' tools
+	forgery kit (bg)
+	land vehicles (bg)
+
+saving throws: dex, int
+languages: common, elvish
+
+items
+	longbow +3
+	luck blade
+	studded leather +3
+	thieves' tools
+
+features
+	darkvision
+	fey ancestry
+	mask of the wild
+
+	false identity
+
+	sneak attack
+	thieves' cant
+	cunning action
+	assassinate
+	uncanny dodge
+	evasion
+	infiltration expertise
+	reliable talent
+	impostor
+	blindsense
+	slippery mind
+	death strike
+	elusive
+	stroke of luck
+
+feats
+	fighting initiate - archery
+	athlete
+	mobile
+	sharpshooter
+	skulker
