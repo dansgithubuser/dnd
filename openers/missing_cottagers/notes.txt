@@ -1,0 +1,64 @@
+cottage-land
+	dweller listing
+		the questgiver's family
+			Ernio Dunf (questgiver)
+				tan, black hair, brown eyes, 5'10"
+			Olympia Dunf (wife)
+				white, brown hair, brown eyes, 5'2"
+			Michael Dunf (missing son, 6 yr)
+				white, brown hair, blue eyes
+			Heidi Dunf (daughter, 2 yr)
+				white, blonde, brown eyes
+		the chronologist
+			Ursula Pummerburger
+			older woman, white, white hair, hazel eyes
+			lives alone
+			husband died a little while ago
+				Harro Pummerburger
+			kids moved out
+		Theodore Arblaster
+			anthropologist
+			friends w the bug-eyed family
+			Esther Arblaster
+				housewife
+			3 kids moved out (25, 24, 21)
+		the bug-eyed family
+			brown, tall, big
+			been inbreeding at the cottage forever
+			not great at speaking
+			have their own grunting language
+			relatively unique diet
+				roots
+				insects
+				honey
+			have been preyed upon by the cannibal
+
+self-sufficient village
+	Shymouth (SHIH-muth)
+	farmers
+	fishers
+	cobbler
+	weaver
+	potter
+	apothecary
+	priest (generic lawful/good/celestial)
+	ranger/lumberjack
+	drunk
+		Constantine Froxidas
+		has seen the cannibal
+			northwest of Silverton
+
+chronologist's listing
+	221 Oct 12 - Michael Dunf, hunting/trapping to the west
+	220 Oct  1 - Harro Pummerburger, going into town for supplies
+	218 May 22 - Ammi Froxidas, Elliot Froxidas; the drunk's family
+
+secrets
+	the cannibal's cottage is directly south of the turn in the road, between the south of the hill and the north of the lake.
+	there is a ghost town in the center of the hills in the south
+		New Silverton
+		it was a mining town
+		there are still ores to mine
+		cannibal ate them all
+	there is a cave entrance on the west of the northern hill
+		curves north, goes for 10 miles, and leads to a dwarven establishment that neighbors Arguquar
