@@ -62,3 +62,114 @@ secrets
 		cannibal ate them all
 	there is a cave entrance on the west of the northern hill
 		curves north, goes for 10 miles, and leads to a dwarven establishment that neighbors Arguquar
+
+the cannibal
+	human lich
+	entertainer/cannibal
+	bard (whispers) 20
+
+	hp 123
+	speed 30
+
+	str 10
+	dex 20
+	con 12
+	int 14
+	wis 10
+	cha 20
+
+	skills
+		proficiency bonus: 6
+		acrobatics (expert)
+		arcana (expert)
+		deception (expert)
+		performance
+		stealth (expert)
+		disguise kit
+		cook's utensils
+		singing, flute, bagpipes
+
+	saving throws: dex, cha
+
+	languages: common, deep speech
+
+	items
+		knife (1d4+5 slashing)
+		greataxe (1d12 slashing)
+		hand crossbow (1d6+5 piercing)
+		studded leather (ac 18)
+
+	features
+		bardic inspiration (d12 x5)
+		jack of all trades (1/2 proficiency bonus to nonproficient skills)
+		song of rest (regain d12 hp at short rest)
+		psychic blades (bardic inspriation -> 8d6 psychic damage added to weapon attack)
+		words of terror (speak to humanoid alone for 1 min, frightened 1 hr)
+		font of inspiration (regain bardic inspiration from short rest)
+		countercharm (1 round performance, adv against frightened or charmed)
+		mantle of whispers (humanoid dies within 30 ft, disguise as dead person for 1 hr)
+		shadow lore (action, 30ft, blackmail, dominated for 8 hr, or until attacked)
+		superior inspiration (gain bardic inspiration if empty when rolling initiative)
+		slasher (reduce speed by 10 ft, crit causes disadvantage on attack rolls)
+		lich
+			damage resistances: cold, lightning, necrotic
+			damage immunities: poison
+			condition immunities: charmed, exhaustion, frightened, paralyzed, poisoned
+			truesight (120 ft)
+			legendary resistance (3/day)
+			rejuvenation
+			turn resistance
+			soul sacrifices
+			undead nature
+
+	spells
+		cantrips: vicions mockery, prestidigitation, minor illusion, message
+		level 1 (4 slots): charm person, cure wounds
+		level 2 (3 slots): blindness/deafness
+		level 3 (3 slots): dispel magic, glyph of warding, sending, Counterspell
+		level 4 (3 slots): dimension door, Blight
+		level 5 (3 slots): dominate person, dream, greater restoration, synaptic static
+		level 6 (2 slots): disintegrate, mass suggestion, Move Earth
+		level 7 (2 slots): forcecage, symbol, regenerate, Divine Word
+		level 8 (1 slots)
+		level 9 (1 slots): Power Word Kill, Imprisonment
+
+	lair
+		perimeter around cottage
+			hills with passes
+				each pass has a bear trap w glyph of warding sending
+		cottage
+			door is always open
+			fire is always lit
+			cannibal is sharpening axe unless he is doing something else
+		labyrinth
+			below the ground, accessible by Move Earth
+			very tight curved passage (like a labyrinth)
+				about 100 ft diameter
+				approx 1000 ft of distance to center
+				difficult terrain
+				so ~3 minutes to traverse while dashing
+			three symbols (9th level, death) just before getting to the center of the labyrinth
+
+	battle tactics
+		follow 30 ft
+		sprint on all fours
+		blood on his face, blood everywhere
+			usually his own blood
+		brandish knife
+		lurk in shadows
+		sharpen axe, doesn't hear your enter (the cottage)
+		feign death
+		crossbow to head, death in his eyes
+		dodges every swipe
+		decapitate
+
+	battle w low level party
+		divine word from from hidden
+
+	battle w high level party
+		forcecage from afar
+		mass suggestion -> we must be quiet and hide from the evil in the forest
+		dominate person -> we must be quiet and hide from the evil in the forest
+		synaptic static
+		psychic blade and blight

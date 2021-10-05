@@ -1,0 +1,115 @@
+cannibal vs
+	Kenn Ohnekanus
+	Keanu Ohnekanus
+	Pin Rocksmasher
+	Titus of Draven
+
+pre-initiative
+	party avoids bear trap
+	Kenn flies above, plan is to stay out of range as others go in close
+	others climb, get to cottage
+	Titus quietly sneaks in
+	surprise: grapples cannibal
+		success
+
+initiative
+	cannibal 15
+	Kenn 6
+	Titus 4
+	Keanu 3
+	Pin 1
+
+cannibal
+	mass suggestion: we must be quiet and hide from the evil in the forest
+		Titus: fail
+		Keanu: fail
+		Pin: fail
+	doesn't know about Kenn
+
+Kenn doesn't know anything is wrong
+
+cannibal forceage on Keanu
+	Pin tries to identify the spell
+		nat 20 on arcana check -> staying still is not reasonable
+
+Kenn doesn't know anything is wrong
+
+Pin tries to grapple cannibal
+	fail
+	Titus thinks Pin is not doing well at being quiet
+	Keanu thinks Pin is not doing well at being quiet
+
+cannibal
+	dominate person on Pin
+		fails
+
+Kenn figures something went wrong
+	scries on Keanu
+		cannibal has truesight
+
+Pin
+	7th level spiritual weapon
+	hit, 21 force dmg (102 remaining)
+	Titus no longer charmed
+	Keanu thinks Pin is not doing well at being quiet
+
+cannibal
+	5th level synaptic static (7, 6, 5, 5)
+		Titus 25 psychic dmg (97 remaining), muddled thoughts
+		Pin 25 psychic dmg (82 remaining), muddled thoughts
+
+Kenn
+	close distance to the cabin, out of sight, honing toward commotion
+
+Titus
+	rage
+	3 attacks: hit, miss, hit
+		22 dmg (80 remaining)
+
+Pin
+	spiritual weapon hit, 22 force damage (58 remaining)
+
+cannibal
+	dominate person on Titus (7, 6, 5, 5, 5)
+		success
+
+Kenn
+	eldritch blast on cannibal
+		3 hits
+		31 force damage (27 remaining)
+			concentration maintained
+	fly 60 ft away
+
+Titus
+	attack Pin
+		one hit
+		16 dmg (66 remaining)
+
+Pin
+	spiritual weapon hit
+		11 force damage (16 remaining)
+			concentration maintained
+
+cannibal
+	power word kill on Pin (9, 7, 6, 5, 5, 5)
+
+Kenn
+	close distance to the cabin, out of sight, honing toward commotion
+
+Titus
+	protect cannibal from the evil in the forest
+
+cannibal
+	8th level cure wounds (9, 8, 7, 6, 5, 5, 5)
+	regain 42 hp (58 remaining)
+
+Kenn
+	eldritch blast on cannibal, Titus covering
+		3 hits despite disadvantage
+		23 force damage (35 remaining)
+			concentration breaks
+	fly 60 ft away
+
+Titus
+	3 attacks, 3 hits
+		38 damage (dead)

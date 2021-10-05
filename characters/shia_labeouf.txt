@@ -49,15 +49,46 @@ lich:
 	truesight
 	legendary resistance (3/day)
 	rejuvenation
+	turn resistance
+	soul sacrifices
 	undead nature
 
 spells
 cantrips: vicions mockery, prestidigitation, minor illusion, message
-level 1: charm person, cure wounds, feather fall
-level 2: blindness/deafness, crown of madness
-level 3: dispel magic, feign death, Counterspell
-level 4: dimension door, greater invisibility
-level 5: dominate person, geas, greater restoration, Contagion
-level 6: disintegrate
-level 7: forcecage, symbol, regenerate, Divine Word, Soul Cage
-level 9: Wish, Imprisonment
+level 1: charm person, cure wounds
+level 2: blindness/deafness
+level 3: dispel magic, glyph of warding, sending, Counterspell
+level 4: dimension door, Blight
+level 5: dominate person, dream, greater restoration, synaptic static
+level 6: disintegrate, mass suggestion, Move Earth
+level 7: forcecage, symbol, regenerate, Divine Word
+level 9: Power Word Kill, Imprisonment
+
+lair
+perimeter around cottage
+	hills with passes
+		each pass has a bear trap w glyph of warding sending
+cottage
+	door is always open
+	fire is always lit
+	cannibal is sharpening axe unless he is doing something else
+labyrinth
+	below the ground, accessible by Move Earth
+	very tight curved passage (like a labyrinth)
+		about 100 ft diameter
+		approx 1000 ft of distance to center
+		difficult terrain
+		so ~3 minutes to traverse while dashing
+	three symbols (9th level, death) just before getting to the center of the labyrinth
+
+battle tactics
+follow 30 ft
+sprint on all fours
+blood on his face, blood everywhere
+brandish knife
+lurk in shadows
+sharpen axe, doesn't hear your enter (the cottage)
+feign death
+crossbow to head, death in his eyes
+dodges every swipe
+decapitate
