@@ -1,0 +1,57 @@
+Cameron Kornell
+Human
+Outlander
+Fighter 3 (Battlemaster), Ranger 4 (Hunter), Wizard 2 (Divination)
+
+str 16
+dex 13
+con  8
+int 16
+wis 15
+cha 10
+
+skills
+	athletics (bg)
+	survival (bg)
+	insight
+	perception
+	flute (bg)
+
+saving throws: str, con
+languages: common, dwarvish, elvish, orcish
+
+items
+	javelin +1, returning
+	breastplate +1
+	shield +1
+
+features
+	background
+		wanderer
+	fighter
+		fighting style: archery
+		second wind
+		action surge
+		combat superiority
+		student of war
+	ranger
+		favored enemies: human, orc
+		natural explorer: forest
+		fighting style: defense
+		horde breaker
+		primeval awareness
+	wizard
+		arcane recovery
+		divination savant
+		portent
+
+feats
+	sharpshooter
+
+spells
+	cantrips: gust, light, mage hand
+	level 1 (4): alarm, cure wounds, detect magic, feather fall, hunter's mark, shield, sleep, unseen servant
+	level 2 (3): blindness/deafness, misty step
+
+leveling plans:
+	up dex + wis
