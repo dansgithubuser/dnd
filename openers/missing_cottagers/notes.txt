@@ -173,3 +173,6 @@ the cannibal
 		dominate person -> we must be quiet and hide from the evil in the forest
 		synaptic static
 		psychic blade and blight
+
+	if defeated and rejuvenated
+		starts causing nightmares on the party with dream spell
