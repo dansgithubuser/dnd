@@ -97,7 +97,7 @@ the cannibal
 		knife (1d4+5 slashing)
 		greataxe (1d12 slashing)
 		hand crossbow (1d6+5 piercing)
-		studded leather (ac 18)
+		studded leather (ac 17)
 
 	features
 		bardic inspiration (d12 x5)
