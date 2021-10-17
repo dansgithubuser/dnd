@@ -1,0 +1,210 @@
+david
+	Sam Jai lvl 3 Halfling Rogue
+	T-zut Sai lvl 13 Orc Barb
+		hp 135
+		ac 16
+		st str 4 dex 3 con 9 int 0 wis 1 cha 1
+	T-zut is Sam's mentor
+jonathan
+	Zana Timbers lvl 2 Gnome Druid
+	Runt lvl 13 Firbolg Monk
+		hp 116
+		ac 18
+		st str 4 dex 10 con 2 int 1 wis 3 cha 2
+	Runt saved Zana, got hurt, Zana saved Runt
+jon
+	Arnold lvl 3 Goliath Bard
+	Danny lvl 13 Mountain Dwarf Fighter
+		hp 121
+		ac 20
+		st str 9 dex 2 con 8 int 0 wis 1 cha -1
+	adoptive brothers
+		have a sending stone pair
+
+arnold notices bear trap
+zana disarms
+continue past
+
+cannibal following behind
+initiative
+	sam 15
+	arnold 14
+	cannibal 11
+	zana 5
+sam
+	hide - stealth 17
+arnold
+	tries wand of paralysis
+cannibal
+	divine word
+		zana dead
+		arnold blinded, deafened, and stunned for 1 hour
+	closes distance
+		sam attacks
+sam
+	attack, disengage, move 25 ft away
+cannibal
+	kill sam w psychic blades
+	eat arnold's brain
+
+danny convinces party to go avenge arnold
+1 day to get there
+foggy afternoon
+investigate bear trap, it is reset
+
+Runt proceeds hidden in the trees (25)
+T-zut flanks and approaches quietly (14)
+Danny walks along the path
+
+notice tracks end, see where fight happened, no bodies or items left behind
+Runt climbs tree and spots cottage with fire lit inside
+proceed
+
+Runt gets onto the roof
+T-zut positions himself just to the side of the main door
+Danny "My name is Danny, you killed my brother, prepare to die"
+	no response
+	repeats
+	repeats a third time
+Runt gets a visual thru a hole in the roof
+	man sharpening ax
+Danny walks in and gets eyes on the cannibal
+
+initiative
+	danny 24
+	t-zut 22
+	runt 20
+	cannibal 18
+
+danny
+	attack with greatax
+		16 miss
+		13 miss
+		8 miss
+t-zut
+	rage
+	attack
+		16 dmg (107 remaining)
+runt
+	drop in behind
+	attack
+		10 dmg (97 remaining)
+		6 dmg (91 remaining)
+	hidden step (invisible until next turn, step away)
+cannibal
+	move so all three are on same side
+		danny gets opportunity attack
+			7 dmg (84 remaining)
+	synaptic static
+		30 dmg
+		all fail save
+danny
+	attack
+		13 dmg (71 remaining)
+		miss
+		12 dmg (59 remaining)
+	didn't save for synaptic static
+t-zut
+	attack
+		13 dmg (46 remaining)
+		16 dmg (30 remaining)
+		miss
+	move to block door
+runt
+	run and kick in face
+		11 dmg (19 remaining)
+		14 dmg (5 remaining)
+		13 nonlethal dmg (down)
+
+find sam and runt body's strung up in another room, like a butcher's shop; arnold and items nowhere to be found
+
+wake up cannibal
+dimension door away
+runt fly in a direction to try to catch, but wrong direction
+t-zut buries sam and zana
+
+Runt and t-zut identify move-earth door
+start digging
+
+night
+cannibal regenerates (1 hour, hp and eyes restored)
+t-zut digging
+danny sleep
+runt watch
+cannibal uses dream to nightmare danny
+	one level of exhaustion
+	4 slots taken to try everyone + succeed on danny
+cannibal long rests
+
+next morning
+t-zut sleep (ring of mind shielding)
+danny digging
+runt watch
+	no exhaustion
+
+afternoon
+runt short rest
+runt dig
+t-zut on watch
+danny sleeping w ring
+	away from the cabin
+
+cannibal nonchalantly approaches
+t-zut spots
+	signals to runt, stops digging
+		hides
+cannibal goes into cottage
+cannibal starts undigging
+
+runt sneaks to cottage and sets it on fire
+cannibal notices fire, looks around, finds nothing, goes back to undigging
+
+night
+danny finishes long rest
+cannibal still undigging
+
+all three moving in to catch
+	runt hidden
+	t-zut hidden
+	danny hidden
+initiative
+	cannibal 25
+	danny 23
+	t-zut 17
+	runt 8
+suprise round
+	danny
+		attack
+			16 dmg (106 remaining)
+			miss
+			17 dmg (89 remaining)
+	t-zut
+		rage
+		attack
+			21 dmg (68 remaining)
+			12 dmg (56 remaining)
+	runt
+		ready action: attack cannibal if he comes toward
+cannibal
+	mass suggestion: sit still, stay quiet
+		danny - failed save
+		t-zut - mindless rage
+danny - sitting still
+t-zut
+	says to danny: it's your brother, are you gonna stay still??
+		danny makes save
+	attack
+		16 dmg (40 remaining)
+		15 dmg (25 remaining)
+runt
+	fly in
+		13 dmg (12 remaining)
+		8 dmg
+		8 dmg (down)
+
+uncover labyrinth
+	investigation checks:
+		runt: 15
+		t-zut: 15
+		danny: 11
+	dead
