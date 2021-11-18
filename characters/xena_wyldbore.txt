@@ -1,0 +1,38 @@
+Xena Wyldbore
+Human (female)
+Acolyte
+Fighter 5 (champion)
+Cleric 3 (war domain)
+
+str 9
+dex 18
+con 14
+int 12
+wis 16
+cha 10
+
+skills
+	insight (bg)
+	perception (cls)
+	survival (cls)
+
+saving throws: str, con
+languages: common, celestial, undercommon, abyssal
+
+items
+	longbow +1
+	studded leather +1
+
+features
+	shelter of the faithful
+	fighting style: archery
+	second wind
+	action surge
+	improved critical
+	extra attack
+	war priest
+	channel divinity: turn undead
+	channel divinity: guided strike
+
+spells
+	cantrips: guidance, light, mending
