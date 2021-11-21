@@ -13,6 +13,7 @@ from . import special_qualities
 from . import spells
 from . import test
 from . import tools
+from . import treasure
 from . import weave
 
 traveling={
