@@ -33,7 +33,7 @@ def random_tone():
 
 def random_vocalization():
 	return base.pick([
-		'crusty', 'stage_whisper', 'wheezy',
+		'crusty', 'stage_whisper', 'wheezy', 'always_out_of_breath',
 	])
 
 def random_misc():
