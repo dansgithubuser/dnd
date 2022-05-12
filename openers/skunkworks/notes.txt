@@ -1,0 +1,41 @@
+===== TRIGGERS =====
+When party arrives where dead deity should be:
+- There is a gigantic humanoid-shaped void in the rock.
+	- This is unexpected. The deity should be here.
+- Where the humanoid's heart would be, there is an invisible teleportation sphere.
+	- Whatever this is, it looks like an invitation.
+	- Could be the work of a radical deity.
+
+When the party goes through the teleportation sphere:
+- They arrive in a different plane.
+- Island with central peak, waterfall, greenery
+- Sun above central peak.
+- Above looks like sky.
+- Horizon and below looks like space.
+	- If you fall off the island, you teleport back to where you fell off.
+- If you die, you regain full health, slots, etc..
+- Planar travel is blocked.
+
+If the party gets the attention of the sun:
+- The sun opens, revealing an eye.
+- Minions pour out of the eye like tears.
+
+If the party sneaks into the sun:
+- They get a surprise round.
+- All the minions are in a bunch.
+
+If the party deconcepts the sun:
+- They appear back in the humanoid-shaped void, and the teleportation sphere is gone.
+- Ultracleaner should be applied to a pile of ash that has appeared at the bottom of the humanoid-shaped void.
+
+===== DETAILS =====
+----- radical deity -----
+A deity that is known, but has no worshipers, is in a state of limbo. Given enough time, they can become a "radical deity", which does not obey the Central Dogma. Instead, the deity obeys some unknowable ideals. All beings that enjoy order, including those who prey on it -- i.e. all entities that are not radical deities -- benefit from the deconception of any radical deity. Multi has a standing "deconcept on sight" order for radical deities, but it hasn't yet come into play. Deconception is always planned in advance.
+
+===== TODO =====
+- island encounter & map
+	- sun (radical deity)
+	- minions (small dragons?)
+
+- mine map
+- Entry-level party chars
