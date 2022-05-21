@@ -18,7 +18,7 @@ When the party goes through the teleportation sphere:
 
 If the party gets the attention of the sun:
 - The sun opens, revealing an eye.
-- Minions pour out of the eye like tears. (2 major minions, 60 minor minions)
+- Minions pour out of the eye like tears. (3 major minions, 60 minor minions)
 	- minor minions act as 3 groups of 20
 	- mob attack
 		- 20 / (d20 roll required to hit) = attacks per swarm
