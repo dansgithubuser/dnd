@@ -21,7 +21,7 @@ If the party gets the attention of the sun:
 - Minions pour out of the eye like tears. (3 major minions, 60 minor minions)
 	- minor minions act as 3 groups of 20
 	- mob attack
-		- 20 / (d20 roll required to hit) = attacks per swarm
+		- (individuals in swarm) / (d20 roll required to hit) = attacks per swarm
 
 If the party sneaks into the sun:
 - They get a surprise round.
@@ -39,6 +39,7 @@ A deity that is known, but has no worshipers, is in a state of limbo. Given enou
 sun (radical deity)
 	- truesight
 	- no HP; only deconcepting
+	- ac 22
 	- dealing damage causes minions to die (10 hp per minion)
 	- damage immunity: fire, poison, radiant
 	- damage resistance: slashing, piercing, bludgeoning from nonmagical nonsilvered weapons
@@ -55,6 +56,7 @@ sun (radical deity)
 
 major minion (big dragon/phoenix)
 	- 100 hp
+	- ac 22
 	- fly 120 ft, ground 20 ft
 	- str 22, dex 26, con 25, int 10, wis 21, cha 21
 	- damage immunity: fire, poison
@@ -63,6 +65,7 @@ major minion (big dragon/phoenix)
 	- fly, flyby
 	- 2 attacks, +13 to hit, 2d8+8 fire/slashing damage
 	- fiery sphere
+		- 2d6 fire dmg per turn
 		- recharge 6
 		- 4th level, concentration, 90ft range, conjuration
 		- 5 ft radius
@@ -71,6 +74,7 @@ major minion (big dragon/phoenix)
 
 minor minion (small dragon/phoenix)
 	- 10 hp
+	- ac 18
 	- fly 120 ft, ground 20 ft
 	- str 19, dex 26, con 25, int 2, wis 21, cha 18
 	- damage immunity: fire
