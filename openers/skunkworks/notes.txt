@@ -18,7 +18,10 @@ When the party goes through the teleportation sphere:
 
 If the party gets the attention of the sun:
 - The sun opens, revealing an eye.
-- Minions pour out of the eye like tears.
+- Minions pour out of the eye like tears. (3 major minions, 60 minor minions)
+	- minor minions act as 3 groups of 20
+	- mob attack
+		- (individuals in swarm) / (d20 roll required to hit) = attacks per swarm
 
 If the party sneaks into the sun:
 - They get a surprise round.
@@ -32,10 +35,57 @@ If the party deconcepts the sun:
 ----- radical deity -----
 A deity that is known, but has no worshipers, is in a state of limbo. Given enough time, they can become a "radical deity", which does not obey the Central Dogma. Instead, the deity obeys some unknowable ideals. All beings that enjoy order, including those who prey on it -- i.e. all entities that are not radical deities -- benefit from the deconception of any radical deity. Multi has a standing "deconcept on sight" order for radical deities, but it hasn't yet come into play. Deconception is always planned in advance.
 
+===== STATS =====
+sun (radical deity)
+	- truesight
+	- no HP; only deconcepting
+	- ac 22
+	- dealing damage causes minions to die (10 hp per minion)
+	- damage immunity: fire, poison, radiant
+	- damage resistance: slashing, piercing, bludgeoning from nonmagical nonsilvered weapons
+	- damage vulnerability: cold
+	- condition immunity: exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, stunned
+	- cone of sight
+		- counterspell may be cast as a reaction on spells casted in the cone
+		- dc 21 con save or 4d6 fire/radiant damage and blinded until start of sun's next turn
+		- detect thoughts at will, any range
+		- minor illusion at will, any range
+		- mage hand at will, any range
+	- invisibility at will
+	- summon major minion (recharge 6)
+
+major minion (big dragon/phoenix)
+	- 100 hp
+	- ac 22
+	- fly 120 ft, ground 20 ft
+	- str 22, dex 26, con 25, int 10, wis 21, cha 21
+	- damage immunity: fire, poison
+	- damage resistance: slashing, piercing, bludgeoning from nonmagical nonsilvered weapons
+	- damage vulnerability: cold
+	- fly, flyby
+	- 2 attacks, +13 to hit, 2d8+8 fire/slashing damage
+	- fiery sphere
+		- 2d6 fire dmg per turn
+		- recharge 6
+		- 4th level, concentration, 90ft range, conjuration
+		- 5 ft radius
+		- dc 16 dex save or restrained (end of targets turn, resave)
+		- move up to 30ft as action
+
+minor minion (small dragon/phoenix)
+	- 10 hp
+	- ac 18
+	- fly 120 ft, ground 20 ft
+	- str 19, dex 26, con 25, int 2, wis 21, cha 18
+	- damage immunity: fire
+	- fly, flyby
+	- 1 attack, +3 to hit, 2d6+2 fire/slashing damage
+
 ===== TODO =====
-- island encounter & map
-	- sun (radical deity)
-	- minions (small dragons?)
+- island map
+	- central peak allows nonfliers to get to sun
+	- other peaks allow nonfliers to get to minions
+- test encounter
 
 - mine map
 - Entry-level party chars
