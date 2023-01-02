@@ -1,0 +1,8 @@
+===== Local Wizard =====
+name: Pigeonhawk
+actual name: Smartilarkbast
+appearance: long dirty grey hair and beard, grey eyes, white-grey translucent skin, grey robes, crooked wooden staff, barefoot
+behavior: cranky, acts crazy
+smell: generally musty smell, but breath smells like chocolate
+
+As a 20th level wizard, he must abide many rules accumulated through his career, so he needs adventurers to do his bidding from time to time.
