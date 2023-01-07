@@ -1,0 +1,37 @@
+Phineas Stotherfield - Paladin lvl 1
+Male Human
+
+str: 16 (+3)
+dex:  8 (-1)
+con: 12 (+1)
+int: 12 (+1)
+wis: 12 (+1)
+cha: 18 (+4)
+
+proficiencies (+2):
+	saving throws: wis, cha
+	skills: ahtletics, persuasion, insight, medicine
+	weapons: all
+	armor: all
+	tools: smith's tools
+	languages: Common, Elvish, Celestial
+
+armor class: 18
+speed: 30
+hp: 11
+
+items:
+	morningstar
+	javelin (5)
+	shield
+	chain mail
+	priest's pack
+
+features: divine sense, lay on hands
+
+age: 30
+height: 5'11"
+weight: 179 lbs
+skin: tan
+hair: black
+eyes: brown

@@ -1,9 +1,2 @@
-make notes on Fenristan
-make map of general area
-make characters
-gives players
-	- notes on Fenristan
-	- hook
-	- the characters
 build locations
 build encounters

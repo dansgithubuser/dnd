@@ -1,0 +1,45 @@
+Michael Stockwell - Bard lvl 1
+Male Tiefling
+
+str: 12 (+1)
+dex: 12 (+1)
+con: 16 (+3)
+int: 12 (+1)
+wis:  8 (-1)
+cha: 18 (+4)
+
+proficiencies (+2):
+	saving throws: dex, cha
+	skills: performance, persuasion, investigation, animal handling, acrobatics
+	weapons: hand crossbow, longsword, rapier, shortsword, club, dagger, greatclub, handaxe, javelin, light hammer, mace, quarterstaff, sickle, spear, light crossbow, dart, shortbow, sling
+	armor: light armor
+	tools: horn, lyre, viol, forgery kit, painter's supplies
+	languages: Common, Infernal
+
+armor class: 12
+speed: 30
+hp: 11
+
+items:
+	dagger
+	longsword
+	leather armor
+	horn (musical instrument)
+	perfume
+	soap
+	fine clothes
+	writing supplies (ink & paper)
+	sealing wax
+
+features: bardic inspiration, darkvision
+
+age: 24
+height: 5'2"
+weight: 107 lbs
+skin: blue
+hair: white
+eyes: blue
+
+spells (4 known):
+	cantrips: prestidigitation, vicious mockery
+	lvl 1 (2 slots): charm person, faerie fire, healing word, heroism

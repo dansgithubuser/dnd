@@ -1,0 +1,36 @@
+Smolba Dunder - Ranger lvl 1
+Female Forest Gnome
+
+str:  9 (-1)
+dex: 16 (+3)
+con: 16 (+3)
+int: 10 (+0)
+wis: 14 (+2)
+cha: 10 (+0)
+
+proficiencies (+2):
+	saving throws: dex, str
+	skills: animal handling, insight, perception, stealth, survival
+	weapons: all
+	armor: light armor, medium armor, shield
+	tools: cartographer's tools, glassblower's tools
+	languages: Common, Gnomish
+
+armor class: 14
+speed: 25
+hp: 13
+
+items:
+    longbow
+    leather armor
+    crowbar, hammer, piton (10), 50 ft rope
+    potion of water breathing
+
+features: favored enemy (orc, goblin), natural explorer (forest), darkvision, gnome cunning, speak with small beasts
+
+age: 249
+height: 3'9"
+weight: 35 lbs
+skin: white
+hair: black
+eyes: brown
