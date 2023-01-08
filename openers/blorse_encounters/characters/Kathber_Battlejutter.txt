@@ -1,0 +1,42 @@
+Kathber Battlejutter - Cleric lvl 1
+Female Hill Dwarf
+
+str: 13 (+1)
+dex:  8 (-1)
+con: 16 (+3)
+int: 12 (+1)
+wis: 19 (+4)
+cha:  7 (-2)
+
+proficiencies (+2):
+	saving throws: wis, cha
+	skills: insight, medicine, perception, survival
+	weapons: battleaxe, handaxe, light hammer, warhammer, club, dagger, greatclub, javelin, mace, quarterstaff, sickle, spear, light crossbow, dart, shortbow, sling
+	armor: all
+	tools: water vehicles, navigator's tools, brewer's supplies
+	languages: Common, Dwarvish
+
+armor class: 18
+speed: 25
+hp: 11
+
+items:
+	warhammer
+	shield
+	chain mail
+	potion of stone giant strength
+
+features: divine domain (life), darkvision, dwarven resilience, stonecunning, dwarven toughness, ritual casting, disciple of life
+
+age: 158
+height: 4'3"
+weight: 145 lbs
+skin: brown
+hair: grey
+eyes: blue
+
+spells:
+	cantrips: guidance, sacred flame, thaumaturgy
+	lvl 1 (2 slots):
+		prepared (5): detect magic, detect poison and disease, guiding bolt, sanctuary, shield of faith
+		divine domain: bless, cure wounds

@@ -1,0 +1,36 @@
+Saleth Navy Eve - Fighter lvl 1
+Male Wood Elf
+
+str: 17 (+3)
+dex: 17 (+3)
+con: 15 (+2)
+int:  8 (-1)
+wis:  7 (-2)
+cha: 13 (+1)
+
+proficiencies (+2):
+	saving throws: str, con
+	skills: perception, athletics, acrobatics, persuasion, performance
+	weapons: all
+	armor: all
+	tools: water vehicles, pan flute
+	languages: Common, Elvish
+
+armor class: 18
+speed: 35
+hp: 12
+
+items:
+	longsword
+	longbow
+	leather armor
+	shield
+
+features: fighting style (dueling), second wind, darkvision, fey ancestry, trance, mask of the wild
+
+age: 659
+height: 5'6"
+weight: 105 lbs
+skin: brown
+hair: white
+eyes: brown

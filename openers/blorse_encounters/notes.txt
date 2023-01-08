@@ -1,0 +1,66 @@
+Blorse Encounters of the 4th Kind
+
+===== Theme Suggestions =====
+- Norse mythology (specifically Yormungandr and Fenrir), Mountains, Oceans/Sailing, and finally HAMMER (< take this one however you want)
+- We're adventurers in midgard off to find yggdrasil...? But get entirely sidetracked by shenanigans
+- I think it would be cool if the characters at one point were able to break the 4th wall, or enter into our world
+
+===== Theme Research =====
+- Yormungandr and Fenrir
+	- Fenrir
+		- child of Loki and Angrboda
+		- sibling of Hel and World Serpent (Jormungandr)
+		- foretold to kill Odin in Ragnarok
+	- Jormungandr
+		- big sea serpent
+		- lives in the world sea
+		- encircles earth (midgard)
+		- bites own tail
+		- when it releases its tail, Ragnarok will begin
+	- Hel
+		- presides over underworld (also named Hel)
+		- receives a portion of the dead
+
+===== Theme Translation =====
+- We're adventurers in midgard off to find yggdrasil...? But get entirely sidetracked by shenanigans
+	-> the Worldtree grants access to different planes
+	-> is a legend
+	-> the adventurers found some hint of its existence and location
+		-> snowfall lands in a pattern, displaying a map
+- I think it would be cool if the characters at one point were able to break the 4th wall, or enter into our world
+	-> this and the previous one make me think of the adventurers walking down an old abandoned mineshaft, and finding a debug room behind a magic door
+- Yormungandr and Fenrir
+	-> these probably work best as backstory/nations/politics
+	-> Fenristan is a big island inhabited by humanoid wolf natives and humans
+	-> The Jormungangr are seafaring orcs that make traveling in the ocean difficult
+- Mountains
+	-> Fenristan has a large mountain range
+		-> dwarves in the mountain range
+- Oceans/Sailing
+	-> We will need some points of interest that are not on Fenristan
+	-> New Hel contains an academy particularly known for necromancy
+		-> side quest: amateur necromancy
+	-> Bunch of smaller unnamed islands with Jormungangr and random goods
+		-> a teleportation circle to an ancient abandoned mine with magical hammers
+	-> an elf island
+	-> a dragon lives on one of the islands
+- HAMMER
+	-> one of the characters should fight with a hammer
+	-> there should be a hammer in the debug room
+
+===== Map =====
+----- Extra -----
+- humanoid wolf natives generally live in the northern forest of Fenristan
+
+===== DM-only knowledge of map =====
+- northwest island: orcs
+- northeast island: dragon
+- east islands: orcs
+- snowfall points to south southeast, a bit beyond map
+
+===== Debug Room =====
+- check if players want to run as if in combat
+- room allows each character to make one wish
+- when a character makes a 2nd wish, roll to succeed
+	- on a fail, room disappears
+- characters are not allowed 3rd wishes

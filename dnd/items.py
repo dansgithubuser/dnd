@@ -142,6 +142,8 @@ martial_weapons=[
 	'net'
 ]
 
+weapons=simple_weapons+martial_weapons
+
 burglars_pack=[
 	'backpack', 'ball_bearings', 'string', 'bell', {'candle': 5}, 'crowbar',
 	'hammer', {'piton': 10}, 'hooded_lantern', {'oil': 2}, {'rations': 5},

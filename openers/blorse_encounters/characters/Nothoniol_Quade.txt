@@ -1,0 +1,38 @@
+Nothoniol Quade - Wizard lvl 1
+Male Human
+
+str: 12 (+1)
+dex: 13 (+1)
+con: 17 (+3)
+int: 16 (+3)
+wis: 14 (+2)
+cha:  7 (-2)
+
+proficiencies (+2):
+	saving throws: wis, int
+	skills: arcana, religion, history, nature
+	weapons: dagger, dart, sling, quarterstaff, light crossbow
+	languages: Common, Elvish, Draconic, Undercommon
+
+armor class: 11
+speed: 30
+hp: 9
+
+items:
+	quarterstaff
+	writing supplies (ink & paper)
+
+features: arcane recovery, ritual casting
+
+age: 40
+height: 5'0"
+weight: 147 lbs
+skin: white
+hair: white
+eyes: green
+
+spells:
+	cantrips: ray of frost, light, mage hand
+	lvl 1 (2 slots):
+		prepared (4): magic missile, mage armor, grease, jump
+		known (6): feather fall, grease, jump, magic missile, mage armor, sleep

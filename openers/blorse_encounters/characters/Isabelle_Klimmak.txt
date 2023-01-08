@@ -1,0 +1,43 @@
+Isabelle Klimmak - Rogue lvl 1
+Female Human
+
+str: 13 (+1)
+dex: 19 (+4)
+con: 10 (+0)
+int: 12 (+1)
+wis: 10 (+0)
+cha: 14 (+2)
+
+proficiencies (+2):
+	saving throws: dex, int
+	skills: acrobatics, deception, sleight of hand, stealth (expertise), intimidation, investigation
+	weapons:
+		hand crossbow, longsword, rapier, shortsword, club, dagger, greatclub, handaxe, javelin,
+		light hammer, mace, quarterstaff, sickle, spear, light crossbow, dart, shortbow, sling
+	armor: light armor
+	tools: thieves tools, water vehicles, navigator's tools
+	languages: Common, Orc
+
+armor class: 15
+speed: 30
+hp: 8
+
+items:
+    leather armor, dagger (2), rapier, shortbow
+    thieves tools
+    10 ft string
+    bag of 1000 ball bearings
+    crowbar
+    hammer
+    10 pitons
+    hooded lantern
+    50 ft rope
+
+features: expertise (stealth), sneak attack, thieves cant
+
+age: 73
+height: 5'3"
+weight: 159 lbs
+skin: black
+hair: brown
+eyes: brown
