@@ -1,0 +1,14 @@
+New Hel Academy
+	known for necromancy
+	library
+		map collection
+
+amateur necromancy
+	- orcs have stolen an ancient book of death from the academy
+	- small encampment on southeast island
+	- when confrontend, broken-summon
+		- roll a d4:
+		- 1: ancient horses and humans
+		- 2: an elder demon
+		- 3: circle of death
+		- 4: roll twice, make sure options are different (can stack to 3 rolls, ie all of the above)

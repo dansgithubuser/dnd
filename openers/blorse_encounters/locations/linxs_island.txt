@@ -1,0 +1,11 @@
+The adult brass dragon Linx slumbers in the northeast island, in ruins made by humans long ago.
+
+While Linx sleeps, she has a passive perception of 18.
+If Linx wakes, she will attack the party until they surrender.
+Linx will forgive the trespass in exchange for treasure or promise of treasure (worth 1000 gold equivalent or more).
+
+Linx treasure contains:
+- 15000 gp
+- 1400 pp
+- 5 works of arg worth 250 gp each
+- vorpal longsword

@@ -1,0 +1,12 @@
+bowmakers
+	performance check or equivalent:
+		25+ or natural 20: oathbow
+		20+: +2 magical longbow or shortbow
+		15+: 1d12 longbow, requires 16 str, 1d10 longbow, requires 14 str, +1 magical longbow or shortbow
+		10+: longbow or shortbow of silvering
+arrowmakers
+	performance check of equivalent:
+		25+ or natural 20: custom arrow
+		20+: arrow of slaying
+		15+: arrow of element (+2d4 element)
+		10+: +1 arrows

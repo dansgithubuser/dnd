@@ -1,0 +1,12 @@
+The Gander's Bucket - main inn & tavern
+The Walrus - sketchier tavern
+sailboat rental - 1 gold per day
+horse rental - 1 silver per day
+farms - potatos, carrots, corn, beans, wheat, rice, peanut, sunflower, hay, hemp, horse, sheep, goat, pig, chicken
+brewery
+apothecary
+blacksmith
+wizard's tower
+mayor's house
+sheriff's office
+general store

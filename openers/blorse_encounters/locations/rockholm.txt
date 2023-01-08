@@ -1,0 +1,17 @@
+main entrance
+	- two guards
+	- suspicious of half-orcs
+hammersmiths
+rock council
+	- 5 dwarves that represent their clans
+		- Liftryd Copperbrower (f)
+			- hammersmiths
+		- Amlen Packfoot (m)
+			- transporters
+		- Amja Brassdigger (f)
+			- miners
+		- Dakar Rumfix (m)
+			- brewers
+		- Vend Rockfister (m)
+			- miners
+below: duergar

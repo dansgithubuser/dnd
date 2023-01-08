@@ -1,0 +1,11 @@
+The debug room is completely white except for the entrance, which leads back to the abandoned mine, and a 4x3 rectangle opposite the entrance.
+The room is a square with 20 ft sides and soft walls that are impossible to see.
+
+The rectangle is the debug console.
+
+When players figure out what the debug console is:
+- check if players want to run as if in combat
+- each character may make one wish
+- when a character makes a 2nd wish, roll to succeed
+	- on a fail, players are ejected and room disappears
+- characters are not allowed 3rd wishes (same outcome as roll fail)

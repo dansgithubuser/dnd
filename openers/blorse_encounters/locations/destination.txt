@@ -1,0 +1,11 @@
+The snowfall omen points to an island south southeast of fenristan, about twice as far as Florfinthel.
+
+At the island: orc encounter
+
+A cave entrance leads to an abandoned mine, which connects the Worldtree. The orcs have found the Worldtree and damaged it.
+
+investigation: the orcs have put an illusion to hide the cave entrance
+trap: a tripwire releases poisonous gas in the mine. the gas does 1d8 per round and must be manually dissipated.
+debug room: right before the worldtree chamber, a passage has a magic door open on its side. The room inside looks completely white, but doesn't shed light beyond the door.
+
+boss at worldtree: intellect devourer and 3 gazers
