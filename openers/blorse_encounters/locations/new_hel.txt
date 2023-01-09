@@ -12,3 +12,7 @@ amateur necromancy
 		- 2: an elder demon
 		- 3: circle of death
 		- 4: roll twice, make sure options are different (can stack to 3 rolls, ie all of the above)
+
+reward possibilities:
+	scrolls, esp. revivify
+	free map copy

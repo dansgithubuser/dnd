@@ -1,0 +1,25 @@
+an orc sailboat harpoons the player's boat and attaches itself
+4 orcs board the players boat, and 2 stay on their boat and throw javelins
+crossing the gap between the boats is a dc 10 acrobatics check, otherwise you go overboard
+boats are 30 ft long and 10 ft wide
+gap is 0-5 ft
+
+orc berserker (4)
+	hp: 11
+	ac: 13
+	speed: 30
+	aggressive: as bonus action, move to visible hostile creature
+	greataxe: +5, 1d12+3
+	acrobatics: +3
+
+orc thrower (2)
+	hp: 10
+	ac: 13 (15 with cover)
+	speed: 30
+	javelin: +5, 1d6+3
+	acrobatics: +1
+
+when ransacking the orc ship:
+50 gp gem
+30 gp
++1 greataxe

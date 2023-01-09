@@ -1,0 +1,59 @@
+bottom of elevator is a 20x20 ft room
+three narrow passages: left, forward, right
+left
+	cave-in
+		beyond the cave-in: teleportation circle
+forward - another branch
+	left
+		leads to top of large chamber with many duergar in it
+			has staircase down
+			too many duergar to handle
+	straight
+		intersect a natural cave w a waterfall, treacherous terrain
+right
+	mushroom farm
+
+fight:
+	likely in a narrow passage
+		if A wants to move, should delay their movement
+		if B wants to move where A is, A and B swap places
+	duergar x2
+		hp: 10
+		ac: 16 (scale mail & shield)
+		speed: 25
+		advantage on st against poison, spell, illusion, charm, paralyze
+		sunlight sensitivity
+		war pick: +4, 1d8+2
+		invisibility (once per short rest)
+	duergar hammerer
+		hp: 12
+		ac: 17
+		speed: 20
+		advantage on st against poison, spell, illusion, charm, paralyze
+		sunlight sensitivity
+		double dmg to objects & structures
+		hammer: +5, 2d6+3
+	duergar mind master
+		hp: 8
+		ac: 14
+		speed: 25
+		advantage on st against poison, spell, illusion, charm, paralyze
+		sunlight sensitivity
+		mind-poison dagger: +5, 1d4+3 piercing + 1d6 psychic
+		invisibility (once per short rest)
+		mind mastery:
+			target 1 visible creature within 60 ft
+			dc 12 int st
+			use reaction to make one weapon attack against another visible creature
+				or move 10 ft
+			if immune to charm, cannot affect
+
+reward:
+	hammer of healing (1 charge per day)
+	hammers of worth (totaling 1000 gp)
+	hammer of fish command
+	+1 warhammer
+	hammer of cure poison (1 charge per day)
+	hammer of cure disease (1 charge per day)
+	hammer of slipperiness (throw to cast grease where it lands)
+	hammer of heroism (1 charge per day)

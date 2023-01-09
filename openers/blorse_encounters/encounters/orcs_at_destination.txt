@@ -1,0 +1,26 @@
+these orcs rush the players the moment their boat is docked
+the mages stay back and take cover behind rocks
+
+orc berserker (3)
+	hp: 11
+	ac: 13
+	speed: 30
+	aggressive: as bonus action, move to visible hostile creature
+	greataxe: +5, 1d12+3
+
+orc mage
+	hp: 11
+	ac: 13
+	speed: 30
+	aggressive: as bonus action, move to visible hostile creature
+	sleep (1): within 20 ft of a point, 5d8 hp worth of sleep (starting w lowest)
+	shocking grasp: +4, 1d8
+
+orc mage chief
+	hp: 21
+	ac: 16
+	speed: 30
+	aggressive: as bonus action, move to visible hostile creature
+	shocking grasp: +4, 1d8
+	magic missile (2): 3 darts, 1d4+1 dmg
+	battle cry (once): give allies advantage on their next attack

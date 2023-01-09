@@ -15,3 +15,5 @@ rock council
 		- Vend Rockfister (m)
 			- miners
 below: duergar
+	dwarf offers to buy a drink per duergar ear
+	gives directions to elevator that goes even further down

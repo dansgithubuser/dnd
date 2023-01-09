@@ -1,0 +1,26 @@
+gazers (3)
+	hp: 13
+	ac: 13
+	speed: 30 (hover)
+	2 random rays per turn, range 60 ft, target must be visible:
+		dazing ray: wis 12 st or charmed one turn, half speed & disadvantage on attack rolls
+		fear ray: wis 12 st or frightened ont turn
+		frost ray: dex 12 st or 3d6 cold
+		telekinetic ray: str 12 st or move 30 ft away from gazer
+intellect devourer
+	hp: 21
+	ac: 12
+	speed: 40
+	resist normal dmg
+	immune: blind
+	blindsight 60 ft
+	multiattack:
+		claw: +4, 2d4+2 slashing
+		devour intellect: dc 12 int st or 2d10 psychic and if 3d6 > int, set int to 0 and stun until regain 1 int
+	body thief:
+		int contest w incapacitated (stunned) target
+		within 5 ft
+		not protected by protection from evil and good
+		if win, teleport into target skull and gain control of body
+			retains mental scores and characteristics
+			knows everything player knew (ie can speak as player and cast spells)

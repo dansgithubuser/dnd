@@ -1,0 +1,22 @@
+goblin archer (2)
+	hp: 5
+	ac: 13
+	speed: 30
+	bow: +4, 1d4+2 piercing, 60 ft
+
+goblin grunt (4)
+	hp: 6
+	ac: 15
+	speed: 30
+	club: +4, 1d4+2 crushing
+
+wolfkind (3)
+	hp: 9
+	ac: 13
+	speed: 30
+	produce flame: +5, 1d8, 30 ft
+	shillelaghed quarterstaff: +5, 1d8+3
+	cure wounds
+	thunderwave
+
+the wolfkind offer a 2 potions of healing for helping

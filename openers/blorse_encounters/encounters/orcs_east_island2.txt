@@ -1,0 +1,19 @@
+the players have a chance to surprise these orcs, who are sleeping around the fire, having eaten a horse
+
+orc berserker (3)
+	hp: 11
+	ac: 13
+	speed: 30
+	aggressive: as bonus action, move to visible hostile creature
+	greataxe: +5, 1d12+3
+
+orc chief
+	hp: 21
+	ac: 16
+	speed: 30
+	aggressive: as bonus action, move to visible hostile creature
+	greataxe: +6, 2d8+4
+	battle cry (once): give allies advantage on their next attack
+
+when ransacking:
+boots of elvenkind

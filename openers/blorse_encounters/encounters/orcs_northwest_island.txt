@@ -1,0 +1,10 @@
+these orcs rush the players the moment their boat has docked
+
+orc berserker (2)
+	hp: 11
+	ac: 13
+	speed: 30
+	aggressive: as bonus action, move to visible hostile creature
+	greataxe: +5, 1d12+3
+
+reward: 50 gp gem

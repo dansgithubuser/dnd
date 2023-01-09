@@ -1,0 +1,19 @@
+the players are (potentially) surprised from the top of a hill with a slanted path up
+the thrower stays at the top, starting with the lightning bolt
+the berserkers run down the mountain
+	dc 10 acrobatics (+3) to see if they go prone
+
+orc berserker (3)
+	hp: 11
+	ac: 13
+	speed: 30
+	aggressive: as bonus action, move to visible hostile creature
+	greataxe: +5, 1d12+3
+
+orc thrower w javelin of lightning
+	hp: 10
+	ac: 13 (15 with cover)
+	speed: 30
+	javelin of lightning: +5, 1d6+3
+		lightning in line, 4d6, dc 13 dex cuts in half
+		target: +5 to hit, 4d6

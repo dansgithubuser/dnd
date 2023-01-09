@@ -1,9 +1,0 @@
-build encounters
-	- duergar below rockholm
-		- teleportation circle to ancient abandoned mine with magical hammers
-	- wolfkind fighting goblins
-	- northwest island orcs
-	- east island 1 orcs
-	- east island 2 orcs
-	- orcs at sea
-	- orcs at destination
