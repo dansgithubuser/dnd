@@ -750,34 +750,49 @@ def dog():
 
 def potty():
     prefixes = [
-        'ball',
+        'ball', 'big-',
+        'dirt', 'dingle', 'dunce', 'dim',
+        'fug',
         'little-',
+        'nip', 'nim', 'nit', 'nin',
+        'ug',
     ]
     affixes = [
         'ass',
-        'boner', 'barf', 'butt', 'block',
-        'crap', 'cock', 'cocker', 'crotch', 'clam',
+        'boner', 'barf', 'butt', 'block', 'bum', 'bottom',
+        'crap', 'cock', 'crotch', 'clam', 'crud', 'cud', 'corn', 'crum',
         'dick',
-        'fart', 'fondle', 'fondler',
-        'jerk', 'jam',
-        'munch', 'muncher',
+        'fart', 'fondle',
+        'gobble',
+        'jerk', 'jam', 'junk',
         'piss',
-        'shit', 'snot', 'suck', 'slop', 'slopper',
-        'turd',
+        'rod',
+        'shit', 'snot', 'suck', 'slop',
+        'turd', 'thunder', 'toss', 'trash',
+        'wank',
     ]
     suffixes = [
-        'balls', 'bag', 'bagger', 'bucket', 'bowl', 'belch',
-        'crapper',
-        'dicker',
-        'farter',
+        'balls', 'bag', 'bagger', 'bucket', 'bowl', 'belch', 'berry',
+        'crapper', 'chunk', 'compoop',
+        'dicker', 'dong', 'dope',
+        'farter', 'fondler',
         'guzzler',
         'hole', 'head',
-        'sucker', 'shitter', 'smear', 'sniffer', 'scratch',
-        'wad',
+        'munch',
+        'nugget',
+        'sucker', 'shitter', 'smear', 'sniffer', 'scratch', 'spank', 'smack',
+        'wad', 'wit', 'wipe',
+    ]
+    postfixes = [
+        'o',
+        's',
+        'us',
     ]
     result=random.choice(prefixes+affixes)+random.choice(affixes+suffixes)
     result=result.replace('sss', 'ss-s')
     result=result.replace('ttt', 'tt-t')
+    if random.random() < 0.5:
+        result += random.choice(postfixes)
     return result.capitalize()
 
 def bird_town():
