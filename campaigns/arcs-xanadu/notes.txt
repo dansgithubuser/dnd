@@ -1,0 +1,57 @@
+I wanted to start a group at work. There's likeminded people and we're already often in the same spot at the same time.
+I figured it'd be best to start with a series of one-shots to see what the group liked, before committing to something longer.
+I had found that in lighter games like Honey Heist, it was easy to make strong character choices in the game, like sacrificing yourself or betraying the party.
+So I wondered about a one-shot where the character is completed with the _completion_ of their arc held in mind, and the goal to make it happen in the single session.
+As a twist, the DM would attempt to make all character completion arcs become fulfilled in the same moment (at the climax of the session).
+Additionally, the DM can play with prophecy because they uniquely know how each character will complete their arc.
+
+We created characters together to encourage strong connections between the characters.
+I want each character to feel connected to the plot, but I find it tiresome to play that justification as session 1.
+Rather, seems to fit better out-of-character at session 0.
+
+characters
+	Marcus the Gnomish Rogue (Stephen Cashen)
+	Eren the Elven Druid (Ryk Wolf)
+	Geff the Charming Bard (Matthew Silverman)
+	Zander the Paracurious Ranger (Zander Milroy)
+
+relationships
+	Geff and Zander are friends
+	Zander read Eren's books, they met while Zander was looking for ghosts, Eren gives Zander a magic rock that Zander can call Eren with
+	Marcus the Gnome frequents the human city and is also a friend of Geff and Zander
+
+hook
+	Marcus has been exiled from his garden and must go on a pilgrimage to be forgiven.
+	He must enter the northern forest and find Oldgarden, the ancestral home of his people, and commune with the sacred spirit.
+	He enlists the help of his friends, advertising oddities that are interesting to each.
+
+history of the forest
+	magical leyline (like an active volcano)
+	elves & dragons
+	gnomes (build town, cathedral, catacombs)
+	beholder
+	wizard's brother kills beholder
+
+scenario chronology
+	forest
+		4 goblins, can be reasoned with
+		old wizard
+			waiting 10k years for chance to get past barrier
+			knows history of forest, and where to find the divine beast
+			to get past barrier: don't blink
+			wizard sneezes
+		invisible giant spider
+	abandoned town
+		a book that answers questions
+			players can ask chatgpt questions
+	cathedral
+	catacombs
+		mimic
+	cave
+	lake
+
+	lake dragon eats stephen, stephen becomes ghost
+	ryk sees dragon, ryk shapeshifts into dragon and divines pattern of resurrection
+		ryk can shapeshift -> can proceed beyond lvl 1
+	zander sees a ghost
+	matt tattoos stephen ghost with magic pattern & ink and revises him
