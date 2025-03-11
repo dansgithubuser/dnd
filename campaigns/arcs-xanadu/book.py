@@ -15,3 +15,5 @@ Althidon's Prophecy: The tides of trouble grow near, the elder chaos Xalatan sha
 Ornthalas' Prophecy: The smallfolk reborn, the elf reinvited. Guulgarden shall yield the Way.
 Rinder's Prophecy: The sun blinks. The leylines move. The humans arrive. Their failure becomes their sight.
 ''')
+
+llm.serve(book)
