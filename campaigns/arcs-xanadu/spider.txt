@@ -1,0 +1,35 @@
+ac 14
+hp 26
+speed 30, climb
+
+str 14 (+2)
+dex 16 (+3)
+con 12 (+1)
+int  2 (-4)
+wis 11
+cha  4 (-3)
+
+stealth +7
+blindsight 10 ft
+darkvision 60 ft
+
+spider climb
+web sense
+web walker
+innate invisibility
+
+bite +5, 1d8+3 pierce, dc 11 con, 1d4 poison
+If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way.
+
+web (recharge 5-6) +5, range 30/60 ft, on hit, target is restrained. DC 12 str to escape. Or 5 dmg @ ac 10 to destroy webbing (vuln fire; immun bludge, poison, psychic).
+
+
+===== relevant conditions =====
+Restrained
+- Speed is 0 and can’t increase.
+- Attack rolls against you have Advantage, and your attack rolls have Disadvantage.
+- You have Disadvantage on Dexterity saving throws.
+
+Invisible
+If you’re Invisible when you roll Initiative, you have Advantage on the roll.
+Attack rolls against you have Disadvantage, and your attack rolls have Advantage.
