@@ -16,4 +16,4 @@ Ornthalas' Prophecy: The smallfolk reborn, the elf reinvited. Guulgarden shall y
 Rinder's Prophecy: The sun blinks. The leylines move. The humans arrive. Their failure becomes their sight.
 ''')
 
-llm.serve(book)
+llm.serve(book, port=9000)

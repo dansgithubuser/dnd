@@ -9,6 +9,7 @@ We created characters together to encourage strong connections between the chara
 I want each character to feel connected to the plot, but I find it tiresome to play that justification as session 1.
 Rather, seems to fit better out-of-character at session 0.
 
+===== session 0 =====
 characters
 	Marcus the Gnomish Rogue (Stephen Cashen)
 	Eren the Elven Druid (Ryk Wolf)
@@ -25,33 +26,42 @@ hook
 	He must enter the northern forest and find Oldgarden, the ancestral home of his people, and commune with the sacred spirit.
 	He enlists the help of his friends, advertising oddities that are interesting to each.
 
+===== session 1 =====
 history of the forest
 	magical leyline (like an active volcano)
 	elves & dragons
-	gnomes (build town, cathedral, catacombs)
+	gnomes (build town, library, catacombs)
 	beholder
 	wizard's brother kills beholder
 
 scenario chronology
 	forest
-		4 goblins, can be reasoned with
+		4 goblins at a campfire, can be reasoned with
+			1d4 healing potion, some gold
 		old wizard
-			waiting 10k years for chance to get past barrier
+			cannot enter the garden because Xalatan would drive him insane
+			can bring down the barrier to let them in
 			knows history of forest, and where to find the divine beast
-			to get past barrier: don't blink
-			wizard sneezes
-		invisible giant spider
+			wants his brother's remains
+				offers a bag of holding with a coffin inside
+			can be convinced to give party these magic items:
+				ring of poison resistance
+				ring of shooting stars
+				ring of water walking
+				ring of x-ray vision
 	abandoned town
+		house mimic
+			illusion of woman that invites them to eat, sleep for the night
+	library
 		a book that answers questions
-			players can ask chatgpt questions
-	cathedral
+			players can ask llm questions
 	catacombs
-		mimic
+		invisible giant spider
 	cave
 	lake
 
-	lake dragon eats stephen, stephen becomes ghost
-	ryk sees dragon, ryk shapeshifts into dragon and divines pattern of resurrection
-		ryk can shapeshift -> can proceed beyond lvl 1
+	lake dragon eats Marcus, Marcus becomes ghost
+	Eren sees dragon, Eren shapeshifts into dragon and divines pattern of resurrection
+		Eren can shapeshift -> can proceed beyond lvl 1
 	zander sees a ghost
-	matt tattoos stephen ghost with magic pattern & ink and revises him
+	Geff tattoos Marcus ghost with magic pattern & ink and revises him
