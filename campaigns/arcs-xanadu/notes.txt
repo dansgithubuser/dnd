@@ -34,34 +34,38 @@ history of the forest
 	beholder
 	wizard's brother kills beholder
 
+available rewards
+	1d4 healing potions
+	gold
+	ring of poison resistance
+	ring of shooting stars
+	ring of water walking
+	ring of x-ray vision
+	in Oldgarden
+		a book that answers questions
+			players can ask llm questions
+
 scenario chronology
 	forest
-		4 goblins at a campfire, can be reasoned with
-			1d4 healing potion, some gold
+		4 goblins at a campfire
+			bone necklace
 		old wizard
-			cannot enter the garden because Xalatan would drive him insane
+			cannot enter the garden because Xalatan's presence would drive him insane
 			can bring down the barrier to let them in
 			knows history of forest, and where to find the divine beast
 			wants his brother's remains
 				offers a bag of holding with a coffin inside
-			can be convinced to give party these magic items:
-				ring of poison resistance
-				ring of shooting stars
-				ring of water walking
-				ring of x-ray vision
 	abandoned town
 		house mimic
 			illusion of woman that invites them to eat, sleep for the night
-	library
-		a book that answers questions
-			players can ask llm questions
 	catacombs
 		invisible giant spider
+			cave-in caused big puddle in adjacent chamber, so spider can be "seen"
 	cave
+		3 eldritch elf trees
 	lake
-
-	lake dragon eats Marcus, Marcus becomes ghost
-	Eren sees dragon, Eren shapeshifts into dragon and divines pattern of resurrection
-		Eren can shapeshift -> can proceed beyond lvl 1
-	zander sees a ghost
-	Geff tattoos Marcus ghost with magic pattern & ink and revises him
+		lake dragon eats Marcus, Marcus becomes ghost
+		Eren sees dragon, Eren shapeshifts into dragon and divines pattern of resurrection
+			Eren can shapeshift -> can proceed beyond lvl 1
+		zander sees a ghost
+		Geff tattoos Marcus ghost with magic pattern & ink and revises him

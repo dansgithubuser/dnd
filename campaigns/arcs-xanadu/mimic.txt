@@ -13,8 +13,10 @@ damage immunity: acid
 condition immunity: prone
 darkvision 60 ft
 
-bed grappling dc 13 str, disadvantage
+bed grappling dc 13 str, disadvantage (re adhesive)
 grappler (attack advantage on grappled)
-digest: +5, 1d4 acid damage
+digest: +5, 1d8 acid damage
+project image (dc 15)
 
+blanket: ac 0, hp 1 (slash or burn; immune to others)
 door: ac 10, hp 10

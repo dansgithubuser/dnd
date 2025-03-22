@@ -18,7 +18,7 @@ web sense
 web walker
 innate invisibility
 
-bite +5, 1d8+3 pierce, dc 11 con, 1d4 poison
+bite +5, 1d8+3 pierce, dc 11 con, 2d8 poison
 If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way.
 
 web (recharge 5-6) +5, range 30/60 ft, on hit, target is restrained. DC 12 str to escape. Or 5 dmg @ ac 10 to destroy webbing (vuln fire; immun bludge, poison, psychic).
@@ -33,3 +33,10 @@ Restrained
 Invisible
 If you’re Invisible when you roll Initiative, you have Advantage on the roll.
 Attack rolls against you have Disadvantage, and your attack rolls have Advantage.
+
+Paralyzed
+A paralyzed creature is incapacitated and can't move or speak.
+    An incapacitated creature can't take actions or reactions.
+The creature automatically fails Strength and Dexterity saving throws.
+Attack rolls against the creature have advantage.
+Any attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature.

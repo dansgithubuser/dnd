@@ -1,0 +1,9 @@
+1 hp
+10 ac
+
+controls 3 goblins
+	goblins use necrotic touch (1d8 necrotic, can't regain hp)
+	goblins turn to dust if eldritch elf tree killed
+	goblins turn to dust if shown bone necklace
+
+Some of the elves that stayed in Oldgarden were corrupted by Xalatan's presence. Upon Xalatan's death, they captured goblins, encircled Xalatan's place of death, and took root, eventually sprouting eyestalks from their heads.
