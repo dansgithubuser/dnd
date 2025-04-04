@@ -9,9 +9,11 @@ def create_npc(system_message):
     context.__enter__()
     return model, context
 
-def serve(model, port=8000):
+def serve(model, password, port=8000):
     class Handler(BaseHTTPRequestHandler):
         def do_POST(self):
+            if self.headers.get('Authorization') != password:
+                return
             content_length = int(self.headers['Content-Length'])
             question = self.rfile.read(content_length).decode()
             answer = model.generate(question)
