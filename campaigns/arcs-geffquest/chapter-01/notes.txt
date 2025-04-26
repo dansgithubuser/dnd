@@ -14,12 +14,12 @@ characters
 	Marcus the Gnomish Rogue (Stephen Cashen)
 	Eren the Elven Druid (Ryk Wolf)
 	Geff the Charming Bard (Matthew Silverman)
-	Geoff the Paracurious Ranger (Zander Milroy)
+	Jeoff the Paracurious Ranger (Zander Milroy)
 
 relationships
-	Geff and Geoff are friends
-	Geoff read Eren's books, they met while Geoff was looking for ghosts, Eren gives Geoff a magic rock that Geoff can call Eren with
-	Marcus the Gnome frequents the human city and is also a friend of Geff and Geoff
+	Geff and Jeoff are friends
+	Jeoff read Eren's books, they met while Jeoff was looking for ghosts, Eren gives Jeoff a magic rock that Jeoff can call Eren with
+	Marcus the Gnome frequents the human city and is also a friend of Geff and Jeoff
 
 hook
 	Marcus has been exiled from his garden and must go on a pilgrimage to be forgiven.

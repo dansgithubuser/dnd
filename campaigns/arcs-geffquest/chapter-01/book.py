@@ -20,7 +20,7 @@ Elves were the first to identify the magical leyline intersection and establishe
 
 Several prophecies have been made in Guulgarden.
 Lafarallin's Prophecy: When the sun rises tall once more, shall the long-ears tire of their stay in the garden, the small folk will arrive and continue the stewardship. But, shall one dragon remain, the divine beast of Guulgarden.
-Althidon's Prophecy: The tides of trouble grow near, the elder chaos Xalatan shall suckle the leylines. The small folk must leave. But chaos cannot win, and the human knight shall claim a lonely victory.
+Althidon's Prophecy: The tides of trouble grow near, the eldritch overseer Xalatan shall suckle the leylines. The small folk must leave. But the old rules cannot be, and the human knight shall claim a lonely victory.
 Ornthalas' Prophecy: The smallfolk reborn, the elf reinvited. Guulgarden shall yield the Way.
 Rinder's Prophecy: The sun blinks. The leylines move. The humans arrive. Their failure becomes their sight.
 ''')
