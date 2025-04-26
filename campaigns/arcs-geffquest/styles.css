@@ -1,0 +1,17 @@
+body {
+  background-color: #aa8866;
+  width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: #000088;
+}

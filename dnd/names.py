@@ -797,6 +797,7 @@ def potty():
 
 def bird_town():
     prefixes=[
+        'breeze',
         'crow',
         'feather',
         'gaggle',
@@ -804,18 +805,22 @@ def bird_town():
         'pretty',
         'raven', 'raptor',
         'talon', 'tit', 'touca',
-        'wing',
+        'wind', 'wing',
     ]
     suffixes=[
         'cliff',
+        'dive',
         'fly', 'fall',
         'haven', 'home', 'heights',
+        'inwing',
         'loft',
         'nest',
-        'perch', 'peak',
+        'perch', 'peak', 'port',
         'roost', 'rocca',
-        'tree',
+        'tower', 'tree',
+        'underwing',
         'view',
+        'wing',
     ]
     return base.pick(prefixes).capitalize()+base.pick(suffixes)
 
