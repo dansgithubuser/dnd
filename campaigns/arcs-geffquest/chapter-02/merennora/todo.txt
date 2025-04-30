@@ -1,0 +1,13 @@
+lineage creator
+	params
+		clans
+		clan affinity
+		inbreediness
+		age
+		name
+		max pop
+		disaster frequency
+
+beef
+
+elf with gay lisp

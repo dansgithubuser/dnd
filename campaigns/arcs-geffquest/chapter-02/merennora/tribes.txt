@@ -1,30 +1,32 @@
-<link rel="stylesheet" href="styles.css">
-
-<a href="index.html">Index</a>
-
-<h1>Merennora</h2>
-<img src="merennora.jpg" class="map"/>
-
-<h2>Cranberry Tribe</h2>
+===== Cranberry Tribe =====
 Particularly in tune with fruit bearing plants in the area. Famous for their cranberry wine.
 
-<h2>Lake Pack</h2>
+beekeepers
+
+===== Lake Pack =====
 Particularly fond of the water and fish. Pearls from the region are often sought by magicians.
 
-<h2>Bowyers</h2>
+- medicinal seaweed: water breathing
+
+===== Bowyers =====
 Tree dwellers that will the trees into shapes of their design. They create bows from fallen branches. The Fletchers were previously a separate tribe. The Fletchers herd geese and collect dropped feathers.
 
-<h2>Lightfoot Tribe</h2>
+===== Lightfoot Tribe =====
 Trappers with no enemies.
 
-<h2>Sandelves</h2>
+===== Sandelves =====
 The body is the temple, and the temple shall be full of the best smokes the plants in the region have to offer.
 
-<h2>Moonshadow Tribe</h2>
+Available Drugs:
+- see a vision of the future
+- scrying
+- water breathing
+
+===== Moonshadow Tribe =====
 Moon watchers and astronomers. Glassmakers. They spend the daytime in caves, away from the sunlight.
 
-<h2>Fawncrickets</h2>
+===== Fawncrickets =====
 Sibling tribe to Mooserider and particularly fond of the fauna in the area. Deer herders.
 
-<h2>Mooseriders</h2>
-Sibling tribe to Fawncrickets and particularly fond of the fauna in the area. Bonding with a moose is associated with adulthood.
+===== Mooseriders =====
+Sibling tribe to Fawncrickets and particularly fond of the fauna in the area. Bonding with a moose is associated with adulthood. 
