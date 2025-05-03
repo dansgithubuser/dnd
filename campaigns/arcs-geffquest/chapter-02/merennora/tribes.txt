@@ -1,21 +1,52 @@
 ===== Cranberry Tribe =====
 Particularly in tune with fruit bearing plants in the area. Famous for their cranberry wine.
 
-beekeeper clan
+----- clans -----
+gatherers
+winemakers
+beekeepers
+sailors
+musicians
 
 ===== Lake Pack =====
 Particularly fond of the water and fish. Pearls from the region are often sought by magicians.
 
+----- clans -----
+divers
+seaherbalists
 - medicinal seaweed: water breathing
+sculptors
 
 ===== Bowyers =====
 Tree dwellers that will the trees into shapes of their design. They create bows from fallen branches. The Fletchers were previously a separate tribe. The Fletchers herd geese and collect dropped feathers.
 
+----- clans -----
+bowyers
+fletchers
+inkmakers
+papermakers
+librarians
+traders
+painters
+architects
+
 ===== Lightfoot Tribe =====
 Trappers with no enemies.
 
+----- clans -----
+gatherers
+sailors
+novelists
+dancers
+
 ===== Sandelves =====
 The body is the temple, and the temple shall be full of the best smokes the plants in the region have to offer.
+
+----- clans -----
+shamans
+mycologists
+gatherers
+sculptors
 
 Available Drugs:
 - see a vision of the future
@@ -25,8 +56,25 @@ Available Drugs:
 ===== Moonshadow Tribe =====
 Moon watchers and astronomers. Glassmakers. They spend the daytime in caves, away from the sunlight.
 
+----- clans -----
+astronomers
+glassmakers
+traders
+musicians
+
 ===== Fawncrickets =====
 Sibling tribe to Mooserider and particularly fond of the fauna in the area. Deer herders.
 
+----- clans -----
+herders
+gatherers
+musicians
+dancers
+
 ===== Mooseriders =====
 Sibling tribe to Fawncrickets and particularly fond of the fauna in the area. Bonding with a moose is associated with adulthood. 
+
+----- clans -----
+gatherers
+musicians
+dancers

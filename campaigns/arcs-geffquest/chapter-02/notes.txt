@@ -3,12 +3,13 @@
 	Geff spending time with his family
 		geff is annoying and oblivious, but loves his family and they love him back
 		3 older siblings, 3 younger siblings, all successful
-			Ornold - mason
-			Hilari - musician
-			Lolcolm - potter
-			Garrot - calligrapher
-			Loo - brewer
-			Edword - musician
+			Ornold (38) - mason
+			Hilari (36) - musician
+			Lolcolm (33) - potter
+			Geff (32)
+			Garrot (30) - calligrapher
+			Loo (27) - brewer
+			Edword (25) - musician
 	Marcus
 		Nickzo Nackle - Newgarden priest - believes that Marcus's failures will become his strengths
 quest hook
@@ -22,4 +23,20 @@ gather the party
 	Jeoff is too traumatized to rejoin
 	His Grandma Effy is concerned for the party's wellbeing and joins
 		Effy has known Geff since he was young
-figure how to get there
+figure how to get to merennora
+
+at merennora
+	the fog is thick
+	greeted by lightfoot or cranberry tribe sailors
+investigate the problem
+	information available from:
+		hermit
+		library
+	the tribes distrust each other and the forest knows it
+		as the elves care for the forest, the forest cares for the elves
+		the forest is calling for help
+	each secret unearthed can restore trust either by
+		solving a problem
+		removing doubt
+	once enough trust has been restored, the fog lifts and the forest starts to mend
+		BTS: -10 trust, need to get to 0

@@ -118,7 +118,7 @@ def create(
                 if random.random() < overpopulation_avoidance:
                     break
             female.last_pregnancy_date = year
-            child = Person.child(name_generator, year, male, female)
+            child = Person.child(name_generator, year, female, male)
             male.children.append(child)
             female.children.append(child)
             people.append(child)

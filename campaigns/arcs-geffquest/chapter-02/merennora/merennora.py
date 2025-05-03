@@ -16,6 +16,60 @@ tribes = [
     'Mooserider',
 ]
 
+jobs = {
+    'Cranberry': [
+        'gatherer',
+        'winemaker',
+        'beekeeper',
+        'sailor',
+        'musician',
+    ],
+    'Lake-elf': [
+        'diver',
+        'seaherbalist',
+        'sculptor',
+    ],
+    'Bowyer': [
+        'bowyer',
+        'fletcher',
+        'inkmaker',
+        'papermaker',
+        'librarian',
+        'trader',
+        'painter',
+        'architect',
+    ],
+    'Lightfoot': [
+        'gatherer',
+        'sailor',
+        'novelist',
+        'dancer',
+    ],
+    'Sandelf': [
+        'shaman',
+        'mycologist',
+        'gatherer',
+        'sculptor',
+    ],
+    'Moonshadow': [
+        'astronomer',
+        'glassmaker',
+        'trader',
+        'musician',
+    ],
+    'Fawncrickets': [
+        'herder',
+        'gatherers',
+        'musicians',
+        'dancers',
+    ],
+    'Mooserider': [
+        'gatherer',
+        'musician',
+        'dancer',
+    ],
+}
+
 lineage_kwargs = dict(
     longevity=750,
     reproductive_age_range=range(100, 650),
@@ -46,6 +100,8 @@ year = 750
 while year < 2232:
     # progress
     years = random.randint(8, 16)
+    if year + years > 2232:
+        years = 2232 - year
     tribes = {
         tribe_name: dnd.lineage.create(
             initial_population=tribe_lineage,
@@ -83,8 +139,16 @@ for person in total_lineage:
 import dansplotcore as dpc
 dpc.plot(dict(immigration_distribution), primitive=dpc.p.Line())
 
+for person in total_lineage:
+    tribe = person.name.split()[-1]
+    if 2232 - person.birth_date > 100:
+        person.job = random.choice(jobs[tribe])
+    else:
+        person.job = '-'
+
 person_html_template='''
 {name} ({gender})<br>
+vocation: {job}<br>
 born: {birth_date}<br>
 died: {death_date}<br>
 mother: <a href="{mother_i}.html">{mother_name}</a><br>
@@ -112,6 +176,7 @@ for person in total_lineage:
         ])
         f.write(person_html_template.format(
             name=person.name,
+            job=person.job,
             gender=person.gender.upper(),
             birth_date=person.birth_date,
             death_date=person.death_date or '-',
