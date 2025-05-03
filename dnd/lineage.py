@@ -40,6 +40,9 @@ class Person:
             last_pregnancy_date=birth_date,
         )
 
+    def __repr__(self):
+        return self.name
+
     def alive(self):
         return self.death_date == None
 

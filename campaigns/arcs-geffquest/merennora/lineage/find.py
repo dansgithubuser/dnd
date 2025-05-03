@@ -12,7 +12,7 @@ args = parser.parse_args()
 for path in os.listdir('.'):
     with open(path) as f:
         lines = f.readlines()
-    lines = [line.strip() for line in lines]
+    lines = [line.strip().replace('<br>', '') for line in lines]
     lines = [line for line in lines if line]
     name = lines[0]
     vocation = lines[1]
@@ -27,6 +27,6 @@ for path in os.listdir('.'):
         if args.vocation not in vocation.lower():
             continue
     if not args.dead_ok:
-        if 'died: -' not in died:
+        if died != 'died: -':
             continue
-    print(path, name)
+    print(f'{path:10} {name:40} {born:10} {died:10} {vocation:20}')

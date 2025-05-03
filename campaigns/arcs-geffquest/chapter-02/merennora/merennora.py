@@ -1,6 +1,7 @@
 import dnd
 
 import collections
+import pprint
 import random
 
 random.seed(0)
@@ -207,3 +208,18 @@ for person in total_lineage:
         ))
         for immigration in getattr(person, 'immigrations', []):
             f.write(immigration_html_template.format(**immigration))
+
+female_partners = collections.defaultdict(list)
+male_partners = collections.defaultdict(set)
+for person in total_lineage:
+    if not person.mother or not person.father:
+        continue
+    female_partners[person.mother.i].append((person.birth_date, person.father))
+    male_partners[person.father.i].add(person.mother.i)
+for female, partners in female_partners.items():
+    if len(partners) != 2: continue
+    if any([not partner.alive() for _, partner in partners]): continue
+    if all([len(male_partners[partner.i]) != 1 for _, partner in partners]): continue
+    print(total_lineage[female], female)
+    for date, partner in partners:
+        print('\t', date, partner, partner.i)

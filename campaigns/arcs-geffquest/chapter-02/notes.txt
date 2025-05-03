@@ -18,19 +18,21 @@ quest hook
 		Vague on details, but can be poked about:
 			No natural reason.
 			Magical fix intractible because the source is unknown.
-		Recommends visiting the hermit
 gather the party
 	Jeoff is too traumatized to rejoin
 	His Grandma Effy is concerned for the party's wellbeing and joins
 		Effy has known Geff since he was young
 figure how to get to merennora
 
-at merennora
+at merennora (the year is 2232)
 	the fog is thick
-	greeted by lightfoot or cranberry tribe sailors
+	greeted by lightfoot or cranberry tribe sailor
+		either has gay lisp
+		4242.html  Tidithinlith Darm Lightfoot (M)          born: 2048 died: -    vocation: sailor
+		836.html   Thiblimil Duneligh Cranberry (M)         born: 1561 died: -    vocation: sailor
 investigate the problem
 	information available from:
-		hermit
+		people
 		library
 	the tribes distrust each other and the forest knows it
 		as the elves care for the forest, the forest cares for the elves
@@ -40,3 +42,9 @@ investigate the problem
 		removing doubt
 	once enough trust has been restored, the fog lifts and the forest starts to mend
 		BTS: -10 trust, need to get to 0
+	leads:
+		werewolf
+		forest fire
+		Ethotheel is missing
+		geese eaten
+		lights in the sky
