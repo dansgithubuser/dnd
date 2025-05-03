@@ -16,6 +16,17 @@ tribes = [
     'Mooserider',
 ]
 
+tribe_names = {
+    'Cranberry': 'Cranberry Tribe',
+    'Lake-elf': 'Lake Pack',
+    'Bowyer': 'Bowyers',
+    'Lightfoot': 'Lightfoot',
+    'Sandelf': 'Sandelves',
+    'Moonshadow': 'Moonshadow',
+    'Fawncrickets': 'Fawncrickets',
+    'Mooserider': 'Mooserider',
+}
+
 jobs = {
     'Cranberry': [
         'gatherer',
@@ -75,6 +86,7 @@ lineage_kwargs = dict(
     reproductive_age_range=range(100, 650),
     reproductive_cooldown=50,
     overpopulation_avoidance=0.99,
+    disaster_avoidance=0.99,
     base_death_rate=1e-4,
     max_population=200,
     overpopulated_death_rate=1e-3,
@@ -125,7 +137,7 @@ while year < 2232:
             tribes[b].append(immigrant)
             if not hasattr(immigrant, 'immigrations'):
                 immigrant.immigrations = []
-            immigrant.immigrations.append({'year': year, 'destination': b})
+            immigrant.immigrations.append({'year': year, 'destination': tribe_names[b]})
 
 total_lineage = []
 for tribe in tribes.values():
@@ -139,6 +151,13 @@ for person in total_lineage:
 import dansplotcore as dpc
 dpc.plot(dict(immigration_distribution), primitive=dpc.p.Line())
 
+infant_deaths = 0
+for person in total_lineage:
+    if not person.alive():
+        if person.death_date - person.birth_date <= 1:
+            infant_deaths += 1
+print('infant deaths:', infant_deaths)
+
 for person in total_lineage:
     tribe = person.name.split()[-1]
     if 2232 - person.birth_date > 100:
@@ -146,7 +165,7 @@ for person in total_lineage:
     else:
         person.job = '-'
 
-person_html_template='''
+person_html_template='''\
 {name} ({gender})<br>
 vocation: {job}<br>
 born: {birth_date}<br>
@@ -158,11 +177,11 @@ children:<br>
 {children}<br>
 '''
 
-child_html_template='''
+child_html_template='''\
 <a href="{i}.html">{name} ({birth_date})</a><br>
 '''
 
-immigration_html_template='''
+immigration_html_template='''\
 immigrated to {destination} in {year}<br>
 '''
 

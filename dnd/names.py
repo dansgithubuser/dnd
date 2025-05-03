@@ -324,7 +324,7 @@ def elf():
     if base.maybe(): first2=vowelify(first2, base.pick('ei'))
     first=first1+first2
     bad_endings=[
-        'age', 'ase', 'b', 'c', 'd', 'g', 'j', 'k', 'm', 'o', 'p', 'q', 't', 'u', 'v', 'w', 'x', 'z',
+        'age', 'ase', 'b', 'c', 'd', 'de', 'g', 'j', 'k', 'm', 'o', 'p', 'q', 't', 'u', 'v', 'w', 'x', 'z',
         'be', 'ke', 'me', 'ne', 'pe', 'qe', 'te', 've', 'we',
     ]
     if any(first.endswith(i) for i in bad_endings):

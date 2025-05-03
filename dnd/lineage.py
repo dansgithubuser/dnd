@@ -77,6 +77,7 @@ def create(
     reproductive_age_range,
     reproductive_cooldown,
     overpopulation_avoidance,
+    disaster_avoidance,
     base_death_rate,
     max_population,
     overpopulated_death_rate,
@@ -116,6 +117,9 @@ def create(
                 continue
             if len(alive) > max_population:
                 if random.random() < overpopulation_avoidance:
+                    break
+            if disaster_death_rate:
+                if random.random() < disaster_avoidance:
                     break
             female.last_pregnancy_date = year
             child = Person.child(name_generator, year, female, male)
