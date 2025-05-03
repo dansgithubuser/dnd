@@ -21,7 +21,7 @@ def transform(name, kernel):
     import inspect
     result=''
     for i in range(len(name)):
-        a=len(inspect.getargspec(kernel).args)
+        a=len(inspect.getfullargspec(kernel).args)
         if   a==1: result+=kernel(name[i])
         elif a==2: result+=kernel(name, i)
         elif a==3: result+=kernel(
@@ -324,7 +324,7 @@ def elf():
     if base.maybe(): first2=vowelify(first2, base.pick('ei'))
     first=first1+first2
     bad_endings=[
-        'b', 'c', 'd', 'g', 'j', 'k', 'm', 'o', 'p', 'q', 't', 'u', 'v', 'w', 'x', 'z',
+        'age', 'ase', 'b', 'c', 'd', 'g', 'j', 'k', 'm', 'o', 'p', 'q', 't', 'u', 'v', 'w', 'x', 'z',
         'be', 'ke', 'me', 'ne', 'pe', 'qe', 'te', 've', 'we',
     ]
     if any(first.endswith(i) for i in bad_endings):

@@ -5,8 +5,10 @@
 quest hook
 	Figure who would keep Erenn up-to-date on the goings-on of his homeland
 	Erenn gets word from home that the forest is decaying.
-		No natural reason.
-		Magic intractible because the source is unknown.
+		Vague on details, but can be poked about:
+			No natural reason.
+			Magical fix intractible because the source is unknown.
+		Recommends visiting the hermit
 gather the party
 	Jeoff is too traumatized to rejoin
 	His Grandma Effy is concerned for the party's wellbeing and joins

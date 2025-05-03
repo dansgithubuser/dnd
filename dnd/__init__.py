@@ -7,6 +7,7 @@ from . import creatures
 from . import encounters
 from . import items
 from . import languages
+from . import lineage
 from . import names
 from . import races
 from . import skills
