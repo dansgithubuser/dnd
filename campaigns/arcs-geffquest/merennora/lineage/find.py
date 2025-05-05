@@ -7,7 +7,12 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--clan')
 parser.add_argument('--vocation')
 parser.add_argument('--dead-ok', action='store_true')
+parser.add_argument('--age-min', type=int)
+parser.add_argument('--age-max', type=int)
+parser.add_argument('--gender')
 args = parser.parse_args()
+
+year = 2232
 
 for path in os.listdir('.'):
     with open(path) as f:
@@ -28,5 +33,15 @@ for path in os.listdir('.'):
             continue
     if not args.dead_ok:
         if died != 'died: -':
+            continue
+    age = year - int(born.split()[1])
+    if args.age_min:
+        if age < args.age_min:
+            continue
+    if args.age_max:
+        if age > args.age_max:
+            continue
+    if args.gender:
+        if name.split()[-1][1].lower() != args.gender.lower():
             continue
     print(f'{path:10} {name:40} {born:10} {died:10} {vocation:20}')

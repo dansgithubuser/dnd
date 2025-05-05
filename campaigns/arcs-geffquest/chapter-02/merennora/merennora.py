@@ -144,6 +144,9 @@ total_lineage = []
 for tribe in tribes.values():
     total_lineage.extend(tribe)
 
+erenn = total_lineage[4170]
+erenn.name = erenn.name.replace('Eal', 'Erenn')
+
 dnd.lineage.plot(total_lineage, 750)
 immigration_distribution = collections.defaultdict(int)
 for person in total_lineage:
