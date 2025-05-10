@@ -4,7 +4,7 @@ import argparse
 import os
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--clan')
+parser.add_argument('--tribe')
 parser.add_argument('--vocation')
 parser.add_argument('--dead-ok', action='store_true')
 parser.add_argument('--age-min', type=int)
@@ -25,8 +25,8 @@ for path in os.listdir('.'):
     died = lines[3]
     mother = lines[4]
     father = lines[5]
-    if args.clan:
-        if args.clan not in name.lower():
+    if args.tribe:
+        if args.tribe not in name.lower():
             continue
     if args.vocation:
         if args.vocation not in vocation.lower():
