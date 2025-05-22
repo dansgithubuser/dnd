@@ -6,7 +6,7 @@ import os
 parser = argparse.ArgumentParser()
 parser.add_argument('--server', action='store_true')
 parser.add_argument('--server-password', default=None)
-parser.add_argument('--server-port', default=8000)
+parser.add_argument('--server-port', type=int, default=8000)
 args = parser.parse_args()
 
 book, ctx = llm.create_npc('''\
