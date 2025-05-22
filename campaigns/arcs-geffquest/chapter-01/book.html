@@ -1,0 +1,32 @@
+<script>
+
+function add_to_log(text) {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(text));
+  const log = document.getElementById('log');
+  log.appendChild(div);
+}
+
+async function submit() {
+  const question = document.getElementById('question').value;
+  add_to_log('<<< ' + question);
+  const query_params = new URLSearchParams(window.location.search);
+  const password = query_params.get('password');
+  const rsp = await fetch('https://dnd.dansonlinepresence.com', {
+    method: 'POST',
+    headers: { Authorization: password },
+    body: question,
+  });
+  const answer = await rsp.text();
+  add_to_log('>>> ' + answer);
+}
+
+</script>
+
+<div>
+  <textarea id="question" cols=80 rows=4 ></textarea>
+</div>
+<div>
+  <button onclick="submit()">submit</button>
+</div>
+<div id="log"></div>
