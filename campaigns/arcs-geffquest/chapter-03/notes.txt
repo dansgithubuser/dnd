@@ -1,0 +1,66 @@
+===== reward for helping elves =====
+- the magic here is layered. there are truths and lies in truths and lies
+	- for the non-elves: always look for the deeper truth
+	- for the non-elves: when you catch a lie, what new conclusion did you make? who wants you to think it?
+- the forest indicates a secret pain deep in the earth, meant for you
+
+comment to erenn: what is natural and what is magic?
+
+===== effy vision =====
+- deity appears as her mother's mother, another cleric
+- my child
+- you have endured so much. it will never be in vain.
+- to succeed, you must know your actions have meaning
+- I will show you something now. some of it may be uncomfortable. are you ready?
+
+- in a forest, with party
+- each is a group of fireflies
+- must choose one: man, woman, angel, demon?
+
+- deep in a cave, tunneling into the wall. you are many arms and picks. its hard to breathe
+- a flash, and you're through
+- pre-explore the sub-dungeon encounter
+
+- a flash, you're somewhere else
+- eyes peer through cracks
+- you realize they are your friends, you want to go where they will take you
+- you're in a void and begin to suffocate
+- wake up
+
+===== travel encounter =====
+witch - insight that magic is just a suggestion
+demon - a deal. if turned down, channel divinity can break the egg
+	if taken, party gets a wish
+angel - effy can preprogram spells (outside combat only)
+milk wizard - explosive "milk"
+
+===== dungeon =====
+- natural cave, sheltered abandoned camp, thieves' cant -> rogue dwarf crew
+- a ladder down
+- chamber, encounter
+- a ladder down
+- a lower chamber
+	- dead dwarf
+	- burnt crates, diamond gems (total worth 264 gp)
+- another ladder down
+- carbon monoxide
+	- headache, weakness, dizziness, nausea, shortness of breath, confusion, blurred vision, sleepiness, loss of muscle control, loss of consciousness
+	- con save
+		- 15 dizzy
+		- 10 exhausted -> disadvantage on ability checks
+		- 5 vomit
+		- 2 loss of muscle control -> -2 to str + dex checks
+		- 1 loss of consciousness
+- a lowest chamber
+	- 6 more dead dwarves, picks
+		- potion of strength (23, 1h)
+		- giant slayer
+	- an unfinished tunnel
+
+===== sub dungeon =====
+encounter
+
+treasure:
+370 pp
+brooch of shielding
+cloak of elvenkind

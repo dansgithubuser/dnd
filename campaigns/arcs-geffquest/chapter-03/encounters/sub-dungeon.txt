@@ -1,0 +1,92 @@
+===== night hag =====
+if the fight turns bad, will send the too-big egg to the moon, then planeshift away
+
+Armor Class 17 (natural armor)
+Hit Points 112 (15d8 + 45)
+Speed 30 ft.
+
+STR 18 (+4) DEX 15 (+2) CON 16 (+3) INT 16 (+3) WIS 14 (+2) CHA 16 (+3)
+Skills Deception +7, Insight +6, Perception +6, Stealth +6
+Damage Resistances Cold, Fire; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks that aren't Silvered
+Condition Immunities Charmed
+Senses Darkvision 120 ft., Passive Perception 16
+Languages Abyssal, Common, Infernal, Primordial
+Challenge 5 (1,800 XP)
+Proficiency Bonus +3
+
+spellcasting cha
+at will: detect magic, magic missile (3d4+3, 120 ft)
+2/day each:
+	planeshift (self)
+	ray of enfeeblement
+	sleep
+
+magic resistance
+
+claws +7, 2d8+4 slash
+etherealness
+
+===== barbed devil =====
+Armor Class 15 (natural armor)
+Hit Points 110 (13d8 + 52)
+Speed 30 ft.
+
+STR 16 (+3) DEX 17 (+3) CON 18 (+4) INT 12 (+1) WIS 14 (+2) CHA 14 (+2)
+
+Saving Throws STR +6, CON +7, WIS +5, CHA +5
+Skills Deception +5, Insight +5, Perception +8
+Damage Resistances Cold; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks that aren't Silvered
+Damage Immunities Fire, Poison
+Condition Immunities Poisoned
+Senses Darkvision 120 ft., Passive Perception 18
+Languages Infernal, Telepathy 120 ft.
+Challenge 5 (1,800 XP)
+Proficiency Bonus +3
+
+Barbed Hide. At the start of each of its turns, the barbed devil deals 5 (1d10) piercing damage to any creature grappling it.
+Devil's Sight. Magical darkness doesn't impede the devil's darkvision.
+Magic Resistance. The devil has advantage on saving throws against spells and other magical effects.
+
+Multiattack. The devil makes three melee attacks: one with its tail and two with its claws. Alternatively, it can use Hurl Flame twice.
+Claw. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage.
+Tail. Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage.
+Hurl Flame. Ranged Spell Attack: +5 to hit, range 150 ft., one target. Hit: 10 (3d6) fire damage. If the target is a flammable object that isn't being worn or carried, it also catches fire.
+
+===== cultist minion x8 =====
+darkvision
+Dark Devotion. The fanatic has advantage on saving throws against being charmed or frightened.
+scimitar +3, 1d6+1
+hold person
+
+===== couatl =====
+a "prosthetic" glowing light instead of a head
+	originally the watcher of the leylines
+	to be eaten by "the destroyers", beheaded, survived, rewarded with prosthetic mind
+chained in place; chain stats:
+	1 hp, 20 ac
+	for nonmagical attacks: disadvantage, threshold 20
+	immune to poison, psy, etc.
+	thieves tools work
+
+hp 97
+ac 19
+spd 30, 90 fly
+
+str 16 dex 20 con 17 int 18 wis 20 cha 18
+saving throws con, wis, cha
+
+res radiant
+immune psy; bludge, pierce, slashing (nonmagical)
+
+truesight 120
+telepathy 120
+proficiency +2
+
+3/day:
+if effy has bless prepared: bless
+if released: cure wounds, lesser restoration, shield
+
+shielded mind: immune to scrying, detect thoughts, etc
+
+bite +8 1d6+5 pierce (magic), dc 13 con or poison + unconscious for 24h
+constrict (reach) +6 2d6+3 bludge (magic), grappled + restrained (dc 15)

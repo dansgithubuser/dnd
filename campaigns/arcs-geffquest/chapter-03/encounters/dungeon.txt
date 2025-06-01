@@ -1,0 +1,42 @@
+===== troll =====
+Fearsome green-skinned giants
+
+Armor Class 15 (natural armor)
+Hit Points 84 (8d10 + 40)
+Speed 30 ft.
+
+STR 18 (+4) DEX 13 (+1) CON 20 (+5) INT 7 (-2) WIS 9 (-1) CHA 7 (-2)
+
+Skills Perception +2
+Senses Darkvision 60 ft., Passive Perception 12
+Languages Giant
+Challenge 5 (1,800 XP)
+Proficiency Bonus +3
+
+Keen Smell. The troll has advantage on Wisdom (Perception) checks that rely on smell.
+Regeneration. The troll regains 10 hit points at the start of its turn. If the troll takes acid or fire damage, this trait doesn't function at the start of the troll's next turn. The troll dies only if it starts its turn with 0 hit points and doesn't regenerate.
+
+Multiattack. The troll makes three attacks: one with its bite and two with its claws.
+Bite. Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 7 (1d6 + 4) piercing damage.
+Claw. Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage.
+
+===== grick =====
+This wormlike monstrosity blends in with the rock of the caverns it haunts. When prey comes near, its barbed tentacles unfurl to reveal its hungry, snapping beak.
+
+Armor Class 14 (natural armor)
+Hit Points 27 (6d8)
+Speed 30 ft., climb 30 ft.
+
+STR 14 (+2) DEX 14 (+2) CON 11 (+0) INT 3 (-4) WIS 14 (+2) CHA 5 (-3)
+
+Damage Resistances Bludgeoning, Piercing, and Slashing from Nonmagical Attacks
+Senses Darkvision 60 ft., Passive Perception 12
+Languages --
+Challenge 2 (450 XP)
+Proficiency Bonus +2
+
+Stone Camouflage. The grick has advantage on Dexterity (Stealth) checks made to hide in rocky terrain.
+
+Multiattack. The grick makes one attack with its tentacles. If that attack hits, the grick can make one beak attack against the same target.
+Tentacles. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 2) slashing damage.
+Beak. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.
