@@ -18,13 +18,13 @@ spellcasting cha
 at will: detect magic, magic missile (3d4+3, 120 ft)
 2/day each:
 	planeshift (self)
-	ray of enfeeblement
+	ray of enfeeblement (concentration, 1/2 dmg on strength-based weapon attacks)
 	sleep
 
 magic resistance
 
 claws +7, 2d8+4 slash
-etherealness
+etherealness (go to/from ethereal plane)
 
 ===== barbed devil =====
 Armor Class 15 (natural armor)

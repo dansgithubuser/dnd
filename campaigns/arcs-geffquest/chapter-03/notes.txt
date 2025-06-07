@@ -1,3 +1,15 @@
+===== ezideeth has fled =====
+ezideeth: https://dansgithubuser.github.io/dnd/campaigns/arcs-geffquest/merennora/lineage/3048.html
+ethotheel (missing): https://dansgithubuser.github.io/dnd/campaigns/arcs-geffquest/merennora/lineage/3048.html
+tideil (common lover): https://dansgithubuser.github.io/dnd/campaigns/arcs-geffquest/merennora/lineage/8736.html
+
+ezideeth has fled to the north, following the south side of the river heading northwest from cranberry
+	he convinced himself that ethotheel was the werewolf
+	but the werewolf was bees
+	and there's adventurers about
+	he admits what he did and accepts self-exile
+if the party can't figure out how to find ezideeth, the forest will guide them with a spirit wolf
+
 ===== reward for helping elves =====
 - the magic here is layered. there are truths and lies in truths and lies
 	- for the non-elves: always look for the deeper truth
@@ -6,32 +18,7 @@
 
 comment to erenn: what is natural and what is magic?
 
-===== effy vision =====
-- deity appears as her mother's mother, another cleric
-- my child
-- you have endured so much. it will never be in vain.
-- to succeed, you must know your actions have meaning
-- I will show you something now. some of it may be uncomfortable. are you ready?
-
-- in a forest, with party
-- each is a group of fireflies
-- must choose one: man, woman, angel, demon?
-
-- deep in a cave, tunneling into the wall. you are many arms and picks. its hard to breathe
-- a flash, and you're through
-- pre-explore the sub-dungeon encounter
-
-- a flash, you're somewhere else
-- eyes peer through cracks
-- you realize they are your friends, you want to go where they will take you
-- you're in a void and begin to suffocate
-- wake up
-
 ===== travel encounter =====
-witch - insight that magic is just a suggestion
-demon - a deal. if turned down, channel divinity can break the egg
-	if taken, party gets a wish
-angel - effy can preprogram spells (outside combat only)
 milk wizard - explosive "milk"
 
 ===== dungeon =====
@@ -48,14 +35,18 @@ milk wizard - explosive "milk"
 	- con save
 		- 15 dizzy
 		- 10 exhausted -> disadvantage on ability checks
-		- 5 vomit
-		- 2 loss of muscle control -> -2 to str + dex checks
+		- 5 vomit (1 dmg)
+		- 2 loss of muscle control -> -1d4 to str + dex checks
 		- 1 loss of consciousness
 - a lowest chamber
 	- 6 more dead dwarves, picks
 		- potion of strength (23, 1h)
-		- giant slayer
+		- giant slayer (sword)
 	- an unfinished tunnel
+		- can be finished with the picks on the ground
+			- dc str 20 immediately dissipates CO
+			- dc str 15 x 4 dissipates CO
+			- some time to make it passable
 
 ===== sub dungeon =====
 encounter
