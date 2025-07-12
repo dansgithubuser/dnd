@@ -1,0 +1,96 @@
+effy has dream of dark figure in fire with dragonlike wings
+establish rough direction where ezideeth went
+erenn sees golden wolf at night
+	confirms which direction ezideeth is in
+	erenn asks for anything else
+		indicates deep pain nearby
+find ezideeth, he admits wrongdoing
+	erenn knows he doesn't regret what he did
+milk wizard transactions with marcus
+	- demonstrates 1 explosive milk (80d6 fire dmg)
+	- buy 5 explosive milk (100 gp)
+	- buy variety pack (10 milk, 100 gp)
+converse with bowyer leader, receive reward
+go to abandoned rogue dwarf camp
+go down ladder
+
+marcus 18
+geff 15
+erenn 13
+worms 10
+effy 7
+
+mother 84 75 +80 76 +81 77 +82 62 39 34 31 24 18 9 14 8 dead
+kid a (closest) 27 22 17 7 2 dead
+kid b (middle) 27 22 8 dead
+kid c (furthest) 27 22
+
+1. marcus atk kid a (closest)
+2. geff vicious mocks kid a (closest) but fails
+3. (oops) worms atk, middle camouflages
+4. erenn goes to mother and atks
+	middle opportunity atks and comes out of camo
+	atk mother, miss
+5. effy casts sacred flame on closest
+	2 radiant dmg
+
+6. marcus guiding bolt kid b (middle)
+	hit, 14 dmg
+7. geff suggestion to kid c to atk mom
+	(note: this is impossible because the worm cannot understand marcus)
+8. erenn atks mom (erenn is a giant wolf spider), hits
+	4 pierce -> 2; 7 psn; 9 dmg total
+9. worms
+	kid c atks mom, miss
+	kid a moves to mom
+		opportunity atk from marcu, 10 dmg
+		atks erenn
+			multiatk (2 atks)
+			5 force dmg from geff spell
+	kid b misses
+	mother atks, misses
+		regain 5 hp
+10. effy guiding bolt kid b
+	kid b dead
+
+11. marcus sneak atk & smite kid a
+	hit, 21 dmg (5 dmg from smite transferred to kid c)
+	compel duel on mom (bonus)
+12. geff tries to vicious mock mom but fails
+13. erenn atks mom, misses
+14. worms
+	kid c atk mom, 4 dmg (1 hit)
+	mom atk marcus, bunch of dmg (not down)
+15. effy, casts bless
+
+16. marcus lay on hands self
+	cunning action hide
+17. geff does tales of the phanton on marcus
+18. erenn conjure animals -> cave bear
+	cave bear atk (1 hit) -> 9 pierce (break compelled duel)
+19. worms
+	kid miss mom
+	mom misses erenn
+20. effy guiding bolt mom, miss
+
+21. marcus invisible, sneak attack mom, hits
+	12 pierce, 7 rad, 7 necrotic (20 dmg total)
+22. geff dissonant whispers on mom -> 23 psychic dmg
+	must move away
+	opp atk from erenn -> 6 pierce
+	opp atk from marcus -> 11 pierce
+23. erenn - freedom of the waves
+	fail str save on mom worm -> 15 bludge dmg and prone
+	cave bear atk mom -> 1 hit -> 12 slash, 18 slash
+24. worms
+	kid atks mom, misses
+	mom does bunch of dmg to bear (bear still up)
+25. effy misses
+
+26. marcus sneak atk 12 pierce
+27. geff dissonant whispers (succeeds), 10 psy -> kills mom
+28. firebolt (miss)
+29. worm atks marcus
+30. effy guiding bolt on kid (miss)
+
+the worm goes in geff's brain
