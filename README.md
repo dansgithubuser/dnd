@@ -35,6 +35,9 @@ Open D&D 5e resources.
 ## openers
 One-shot-sized setups with open endings. Intended to yield a few sessions, and possibility to evolve into a long-running campaign if the setting feels right.
 
+## presenter
+Show maps to players, simpler than MapTool.
+
 ## print
 Words intended for print/web. Aimed at new players.
 
