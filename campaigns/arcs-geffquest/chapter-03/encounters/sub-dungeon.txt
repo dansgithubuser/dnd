@@ -56,7 +56,7 @@ Hurl Flame. Ranged Spell Attack: +5 to hit, range 150 ft., one target. Hit: 10 (
 darkvision
 Dark Devotion. The fanatic has advantage on saving throws against being charmed or frightened.
 scimitar +3, 1d6+1
-hold person
+hold person (concentration 1 min, 60 ft, wisdom dc 12)
 
 ===== couatl =====
 a "prosthetic" glowing light instead of a head

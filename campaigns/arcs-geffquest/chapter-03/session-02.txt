@@ -1,0 +1,57 @@
+effy cast protection from poision on geff, marcus
+marcus use an explosive milk to break thru unfinished tunnel
+
+====== sub dungeon battle ======
+initiative:
+	effy: 20
+	marcus: 14
+	enemies: 13
+	erenn: 12/13
+	coautl: (19)
+	geff: 12
+
+barbed devil 14
+
+effy: sacred flame on barbed devil, miss
+marcus: smite barbed devil, hit, 15 dmg
+
+barbed devil: atk marcus
+cultists: hold person on marcus
+
+bears: attack chains, fail
+erenn: starry whip on chains, success
+
+coautl: bless on geff, effy, marcus
+
+geff: dissonant whispers on barbed devil
+
+
+effy: spririt guardians, run to barbed devil, 9 radiant dmg
+marcus: paralyzed
+
+cultists: 2 fail hold person on marcus, 1 succeeds
+	on geff, fail x2, success
+	on effy, fail
+barbed devil: atk marcus, move to effy (coaut atk of opp 7 dmg; 6 dmg from spirit guardians), claw miss
+
+bears atk barbed devil: 11, 13, 6, miss
+erenn: earth tremors
+
+coautl: cure wounds on marcus
+geff: paralyzed
+
+
+effy: 11 dmg atk opp from barb devil, spirit guardians on 4 cultists, spirit guardians because barb devil leaves area -> 6 dmg, lesser restoration on geff
+marcus: miss to atk barbed devil, cunnin action disengage, run away
+
+cultists atk bears: 12 dmg to bear 1
+barbed devil: 14 dmg
+
+erenn: shapeshift into bear
+3 bears atk barbed devil: 10
+
+couatl: kills a cultist
+geff: dissonant whispers on barbed devil, 5 dmg, must move away from geff
+	bear 1: miss
+	bear 2: 12 dmg
+	erenn bear: 12 dmg (dead)
