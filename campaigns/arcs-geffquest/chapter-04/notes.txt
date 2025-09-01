@@ -1,24 +1,61 @@
 After their trip to Merennora, the adventurers rest up. However, things brewed while they were away. Further, they have gained notoriety.
 
 ===== merennora =====
+----- Cralravian -----
+explains about the leylines being here, not above the lake in Merennora
+	"the magic here is layered"
+	says the place was called "Sthilideth Hallow" by elves, a long time ago
+Gives Erenn a scale, like a magic communication rock.
+
 ----- spirit wolf (erenn) -----
-spirit wolf brings erenn down a valley, to a meadow with many colorful flowers
+befone dawn, spirit wolf brings erenn down a valley, to a meadow with many colorful flowers
+dawn
 beyond the meadow are giant sequoia trees
 erenn is struck with a powerful moment of beauty and sadness
-	among elves, this is relatively common reaction to meadows and big trees
+	among elves, this is relatively common reaction to meadows
 	nonetheless, the emotions feel bigger than usual, suggesting erenn may be being influenced
 	the spirit wolf is gone, but can be brought back if desired
-
------ Cralravian -----
-Gives Erenn a magic communication rock.
+	if erenn attempts to go into the forest, the spirit wolf reappears
+		"druid. where does magic end and nature begin?"
+		"for now, magic ends here. come back when you know the truth."
+		the sequoias and the wolf disappear in a blink
 
 ----- vibelta -----
 gives a magic communication rock to geff
-fetch quest for geff
-wants something that would be weird to talk about with another elf (including erenn)
-"I feel like a precentennial" when having trouble to even express the taboo herself
+fetch quest for geff:
+	dragons eat rocks to help digestion
+	"I feel like a precentennial" when having trouble to even express the taboo herself
+	sometimes a dragon's magical breath, or the means to make it, their stomach, interacts with the rocks, producing gems
+	it's taboo to ask for a rock taken from the earth, even if by a dragon did it
+		and especially because it's dragon poop and technically the dragon's property
+		wouldn't talk about it with other elves, even erenn
+	add to her rock collection
+
+===== geff's family =====
+starting to be impressed by geff's accomplishments
+Hilari asks if Geff can invent a lute that can be played with thought
+
+===== erenn's druid grove =====
+There is a sick tree in high-elf territory
+The high-elves can't fix it, and they won't let a non-high-elf in
+The tree is of moderate cultural importance
+Touching the tree causes temporary paralysis, so they leave it alone
+
+===== marcus received a callstone from the milkwizard =====
+- marcus finds a rock in his pocket
+- it smells like (fresh) milk
 
 ===== oldgarden =====
+----- Nickzo Nackle -----
+Three elves have arrived to replace the three that died.
+Goblins are attacking, now that the force field is gone.
+The gnomes want the elves to help, (all elves are good fighters, right?), but they won't fight unless there's a threat to the watcher.
+
+----- raccoons ate all the ingredients at the apothecary -----
+- one of the raccoons cannot move, because it ate too much
+- apothecary abandoned
+- the other raccoons steal food and anyone who tries to shoo them away sees bright lights and feels as if they were in a dream until the raccoons finish and leave
+
 ----- Axilarus -----
 if lights in the sky are mentioned, axilarus is displeased (about the lights)
 	axilarus has begun to see lights above oldgarden
@@ -27,29 +64,77 @@ if leylines are mentiond:
 	brings up Rinder's prophecy: The sun blinks. The leylines move. The humans arrive. Their failure becomes their sight.
 	mentions that the egg was there when Guulgarden was established
 
------ Nickzo Nackle -----
-some friction between gnomes and elves?
+===== effy's nightmare =====
+describe nightmare to effy. leave space for her to react, even though it's mostly on-rails
 
------ racoons ate all the ingredients at the apothecary -----
+walking in a cave very similar to the last
+jeoff is with you
+but he isn't - he shouldn't be - it's dangerous here
+(pause)
+you are a bunch of buzzing, blinking lights
+through cracks in the walls, you see faintly glowing eyes. they move in sets of 6, no 7... no 8...
+jeoff says: look gramma. they're my friends! he disappears
+you feel a pull. you can go where jeoff went
+(do you go?)
+(if refuses) _they're your friends_
+brought to a new place, suffocating, lights like stars...
+you wake up
 
-===== jeoff =====
-- what does jeoff want?
-- what does effy want for jeoff?
+===== politics =====
+The Lord of Gethbridge seeks an audience with the party.
+	Lord of Gethbridge talks like his mouth is full of chocolate
+Tells them to establish a base and a mailing address.
 
-- jeoff notices a figure is tailing him?
-	- what would someone want with jeoff? or effy?
-
-- jeoff takes an interest in astronomy?
-	- lights in the sky over oldgarden
+Please keep in mind. Quests from the dwarves of Bauxheim and anyone further afield should be analyzed critically. If you further someone else's political agenda, it could shift the balance of power.
 
 ===== mailing address =====
------ random quests -----
-- goblins
+----- quest: gray dwarf kidnappers -----
+In Bauxheim, a clan of gray dwarves is pushing up and ransoming miners.
+	(secret) The gray dwarves want someone who isn't cared for (no response to the ransom) for a blood ritual.
+
+---- quest: teleportation circle -----
+From the seagull sailor clan of Windinwing
+A few years ago, an abandoned teleportation circle was discovered on one of th small islands Southeast of Windinwing.
+The island was subtly branded a boring kind of dangerous so no one would mess with the circle.
+What should be done with the circle?
+
+----- quest: red dragon -----
+A dragonborn from Kixiditharu's Roost (West of Bauxheim) writes in. We have a Dracolongius to kill the red dragon Carianax, but no one ready to take the risk. You can have the findings in the trove, save for the ones from the Roost.
+	(secret) there is an imprisoned phoenix in the trove
+
+----- quest: lvl 2 fighter can't take off armor -----
+cursed armor
+it's good armor, but I can't live like this
+will come to you
+
+----- looking to offload subprime magic items -----
+600 gp for the lot
+an intelligent wand
+a map with an X on it
+scroll of power word kill
+a sword that grants a spell slot on crit
+	when a spell slot is granted, roll a d10. If the spell slot is greater than the roll, the sword explodes
+arrow of multiplication
+tattered necronomicon
 
 ===== hirelings =====
 ----- tank -----
------ if mailing address established, some other hirelings available -----
+Delgar Rummite (m) Mountain Dwarf
+lvl 4 fighter
+3 gp/day, 10% of simple earnings
 
-===== marcus received a callstone from the milkwizard =====
-- marcus finds a rock in his pocket
-- it smells like (fresh) milk
+----- if mailing address established, some other hirelings available -----
+Visber Tindweller (f) Mountain Dwarf
+lvl 6 ranger
+str 14 dex 15 con 13 int 14 wis 16 cha 15
+discount: equal buy-in
+
+Dedalus Mycock (m) tiefling
+lvl 4 warlock
+str 10 dex 7 con 13 int 14 wis 13 cha 18
+2 gp/day, dibs on magic items related to lightning, positive optics
+
+Aglill Tilime (f) high elf
+lvl 1 rogue
+str 9 dex 20 con 16 int 14 wis 7 cha 10
+free, looking for experience, done with high-elf culture

@@ -1,0 +1,49 @@
+--- raccoon that ate a bunch of potions ---
+x4
+
+hp 3, ac 10
+
+0
+acid splash (2 creatures within 5 ft of each other, 1d6 acid)
+ray of frost (1d8 cold, speed reduced by 10)
+shocking grasp (1d8 lit, no reactions)
+
+1 (2)
+grease
+sleep
+animate-rodent
+	creates an undead squirrel/rat/mouse/rabbit
+		10ac, 1hp, +0 to hit, 1d4 dmg
+
+2 (2)
+enlarge
+	casts on undead rodent
+		adv attacks
+		2d4 extra dmg
+	concentration
+
+3 (1)
+misty step
+counterspell
+fly
+invisibility
+hypnotic pattern
+
+
+--- raccoon that ate too many potions ---
+cannot move, stuck in the apothecary
+
+hp 50, ac 10
+
+1 (2)
+shield
+
+2 (2)
+blindness-deafness
+
+3 (2)
+fear
+fireball
+
+4 (1)
+banishment
