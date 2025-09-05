@@ -1,0 +1,36 @@
+marcus buys subprime magic items
+marcus hires delgar rummite to protect oldgarden from goblins & raccoons
+go to abandoned teleport circle
+	two-way portal, teleport can be cast as a ritual by any full-caster as a ritual
+	marcus detects faint evil presence
+	effy casts augury: woe and some weal: you may be able to use the teleporter in the same way the evil beings did
+
+encounter beyond the portal:
+	dark forest, ambient light from the ground, fireflies, everything is fiends
+	erenn finds a path a just "north" of the circle
+	marcus and effy follow it east, find an empty campsite with lit campfire, find 10 gp in the tent, then keep walking east
+	3 bulezau, 1 cambion
+		cambion fails to charm geff
+		cambion charms erenn, tells him to walk south
+		initiatives:
+			erenn: 16
+			geff: 15
+			effy: 15
+			marcus: 9
+			enemies: 7
+		shatter - 23 dmg to bulezau 1, 11 to 2 and 3
+		3 rounds until effy and marcus back (they hear shatter)
+		shatter - 10 dmg to bulezau 1, 2, 3 (19, 31, 31)
+		geff and effy still running
+		cambion and bulezaus attack geff
+		effy healing words geff
+		geff faints
+		effy spirit guardians on all enemies
+			goat 2 succeeds wis st
+			cambion: 66
+			goats: 3, 23, 15
+		marcus compelled duel on cambion
+			cambion saves (still affected)
+			arrow misses
+		enemies leave
+		marcus lay-on-hands geff, revive & cure disease
