@@ -1,3 +1,5 @@
+----- session 1 -----
+
 marcus buys subprime magic items
 marcus hires delgar rummite to protect oldgarden from goblins & raccoons
 go to abandoned teleport circle
@@ -34,3 +36,11 @@ encounter beyond the portal:
 			arrow misses
 		enemies leave
 		marcus lay-on-hands geff, revive & cure disease
+
+----- end -----
+The cambion's plan is to steal two charisma ability points from Erenn.
+To do so, it will bring Erenn to a stream, sprinkle water on both their heads, embrace (grapple) him, cut Erenn across the face, and lick the blood.
+	The scar left by the cut is cursed and cannot be healed with spells below 5th level.
+It will cast planeshift on itself immediately after, to the next level of hell.
+
+----- session 2 -----
