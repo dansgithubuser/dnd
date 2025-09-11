@@ -113,8 +113,9 @@ an intelligent wand
 a map with an X on it
 scroll of power word kill
 a sword that grants a spell slot on crit
-	when a spell slot is granted, roll a d10. If the spell slot is greater than the roll, the sword explodes
+	(when a spell slot is granted, roll a d10. If the spell slot is greater than the roll, the sword explodes)
 arrow of multiplication
+	(it multiplies the thing you hit it with)
 tattered necronomicon
 
 ===== hirelings =====
