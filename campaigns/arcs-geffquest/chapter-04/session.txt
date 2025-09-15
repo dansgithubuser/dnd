@@ -1,0 +1,84 @@
+----- session 1 -----
+marcus buys subprime magic items
+marcus hires delgar rummite to protect oldgarden from goblins & raccoons
+go to abandoned teleport circle
+	two-way portal, teleport can be cast as a ritual by any full-caster as a ritual
+	marcus detects faint evil presence
+	effy casts augury: woe and some weal: you may be able to use the teleporter in the same way the evil beings did
+
+encounter beyond the portal:
+	dark forest, ambient light from the ground, fireflies, everything is fiends
+	erenn finds a path a just "north" of the circle
+	marcus and effy follow it east, find an empty campsite with lit campfire, find 10 gp in the tent, then keep walking east
+	3 bulezau, 1 cambion
+		cambion fails to charm geff
+		cambion charms erenn, tells him to walk south
+		initiatives:
+			erenn: 16
+			geff: 15
+			effy: 15
+			marcus: 9
+			enemies: 7
+		shatter - 23 dmg to bulezau 1, 11 to 2 and 3
+		3 rounds until effy and marcus back (they hear shatter)
+		shatter - 10 dmg to bulezau 1, 2, 3 (19, 31, 31)
+		geff and effy still running
+		cambion and bulezaus attack geff
+		effy healing words geff
+		geff faints
+		effy spirit guardians on all enemies
+			goat 2 succeeds wis st
+			cambion: 66
+			goats: 3, 23, 15
+		marcus compelled duel on cambion
+			cambion saves (still affected)
+			arrow misses
+		enemies leave
+		marcus lay-on-hands geff, revive & cure disease
+
+----- end -----
+The cambion's plan is to steal two charisma ability points from Erenn.
+To do so, it will bring Erenn to a stream, sprinkle water on both their heads, embrace (grapple) him, cut Erenn across the face, and lick the blood.
+	The scar left by the cut is cursed and cannot be healed with spells below 5th level.
+It will cast planeshift on itself immediately after, to the next level of hell.
+
+----- session 2 -----
+retcon: geff died (re bulezau disease), effy revivified
+
+party tracks erenn but can't catch up
+cambion executes plan
+erenn runs back to party, party followed some of the way but lost tracks
+party goes back through portal and destroys it
+
+get drunk with sailors at the sailor tavern in windinwing (except effy, just 1 drink)
+marcus calls the milkman and trades power word kill scroll for milk of wish
+gives to erenn
+all fall asleep and forget (except effy)
+erenn wake up with potion with invisible milk in it
+effy explains what it is
+heals scar (it is physically still there, but no longer fiendish)
+
+marcus gives tattered necronomicon to effy for safekeeping, she puts a glyph of warding on it
+
+erenn buys sailor books about sea creatures and cryptids
+go to x on map, which keeps moving around
+erenn figures that it's an animal
+effy identifies magic map, cross-checks with erenn & sea cryptids book, figure it's the cryptosaur (depicted statically on regular athabaska map)
+kleeck tracks the x on the map and they intersect it
+effy put krill cakes in the water
+the cryptosaur emerges, starts eating cakes
+erenn speaks with animals
+name is ya[aaa]ridian
+talks about leylines shifting 22608 moons ago and bad times (no much food) 155340 moons ago
+grants wishes from a limited repertoire:
+	- geff learns fly
+	- erenn cannot have disadvantage on arcana checks related to the leylines
+photo (scry onto rock):
+	selfie perspective from boat, effy holding camera, marcus
+	yaridian, erenn, geff (with lifejacket made of aarakocra feathers), kleeck, alvin in water
+
+help the fighter with the armor stuck on
+	effy case remove curse
+	gives them the now-normal plate armor
+		they sell
+buy some nonmagic items
