@@ -1,0 +1,44 @@
+===== allies =====
+Tensa
+	new prophet
+	Sherry Arblaster
+	lvl 19 divination wizard
+	special ability: estimate chance of success of a battle plan
+
+Alfred the Protector
+	Tensa's brother and protector
+	lvl 11 fighter, hoplite
+
+Ingrid Stotherfild
+	assassin rogue 20 warlock 7
+
+Ados Stotherfild
+	lvl 11 fighter, dueler
+	maybe a legendary figure
+
+Melvin
+	lvl 17 warlock
+	special ability: (practiced wish) all allies add 1d4 fire damage to all weapon hits
+
+2 dragons
+
+1k archers
+1k cavalry
+8k fighters
+
+castle
+	catacombs
+
+===== enemies =====
+Ex
+	The Fallen Prophet
+	Louis Causar
+	special ability: mass raise dead
+
+10k undead
+
+undead dragon
+
+lieutenants
+
+3 undead giants

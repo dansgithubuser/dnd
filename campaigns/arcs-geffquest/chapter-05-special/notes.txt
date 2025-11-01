@@ -2,6 +2,7 @@ halloween special
 doomsday scenario
 flashback to at least one ancestor of present party
 	marcus's ancestor
+		and brother?
 with relevance to current party that is revealed to players while playing
 
 inspirations:
@@ -27,6 +28,11 @@ concrete idea:
 			they sacrifice the link between planes to defeat it
 			marcus's ancestor is orphaned from his family on (our) earth
 	14 years later
+	hook:
+		The Fallen Prophet, Ex, continues his southward conquest and is soon to arrive at Castle Tellus.
+		Following the delusions of his death-vision, he has amassed undead equaling the forces allied to protect the castle.
+		However, the successor prophet Tensa and your clear minds can shift the battle to come in your favor.
+		You and the other heroes of the realm must create and execute a plan to weather the seige and defeat Ex.
 	necroprophet stuff happens, gameplay
 		necroprophet describes enough of what's coming that marcus's ancestor figures there might be a way to get back
 		necroprophet casts a spell that ensures everyone in the area will find their way to the leylines upon death
@@ -47,5 +53,4 @@ justifications/notes:
 	the supernova allows the destroyers to link the link between planes to their network
 
 todo:
-	get a player to be with macrus in the prolog, but not orphaned
 	gameplay
