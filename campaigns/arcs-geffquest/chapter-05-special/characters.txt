@@ -22,9 +22,16 @@ Melvin
 
 2 dragons
 
-1k archers
-1k cavalry
-8k fighters
+1k archers, commoners
+	split into 10 groups of 100, each led by a lord
+	at least 200 ft wide
+1k cavalry, unarmored
+	unique fighting style that does not require any particular organization
+	100 sq ft
+8k commoners with spears
+	split into 8 units
+		each unit is 100 sq ft
+		info: each unit further divided into 10 groups of 100, with each 100 commoners led by a mounted & armored knight
 
 castle
 	catacombs
@@ -36,6 +43,7 @@ Ex
 	special ability: mass raise dead
 
 10k undead
+	split into 10 units
 
 undead dragon
 
