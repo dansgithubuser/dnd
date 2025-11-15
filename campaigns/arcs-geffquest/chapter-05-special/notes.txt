@@ -38,7 +38,7 @@ concrete idea:
 		necroprophet casts a spell that ensures everyone in the area will find their way to the leylines upon death
 	epilog:
 		marcus's ancestor opens the gate back home
-		instead of going anywhere, destroyers come through and blot out the sun, charm marcus's ancestor, teleport him out (to watch & suffocate), then supernova the sun
+		instead of going anywhere, destroyers come through and blot out the sun, charm marcus's ancestor, teleport him out (to watch & suffocate), then turn the sun into a black hole
 		OR
 		marcus's ancestor doesn't open the gate back home
 		upon death, enters the leylines and feels the presence of his family

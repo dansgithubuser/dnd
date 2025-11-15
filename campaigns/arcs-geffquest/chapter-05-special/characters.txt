@@ -14,11 +14,24 @@ Ingrid Stotherfild
 
 Ados Stotherfild
 	lvl 11 fighter, dueler
-	maybe a legendary figure
+	prophecy:
+		a true warrior born of snow
+		in the wake of dragons, will end the fight (the fight will end?), but lose the son (sun?)
+	there was an Ados ~5k years ago who:
+		born of snow
+		plunged his sword into a dragon's neck, assimilating its breath magic
+		defeated "the darkness", but lost his lover in the process
+		some say he plunged his sword into his lover, and defeated a dark dragon
+	recently infatuated with Marjoria
 
 Melvin
 	lvl 17 warlock
-	special ability: (practiced wish) all allies add 1d4 fire damage to all weapon hits
+	special ability: (practiced wish) one unit add 3 fire damage to all weapon hits
+
+Marjoria O'Neill
+	dragon mother
+	recently infatuated with Ados
+	if killed, the living dragons rampage the scene of her death and leave
 
 2 dragons
 
