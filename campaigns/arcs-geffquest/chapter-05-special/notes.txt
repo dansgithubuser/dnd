@@ -51,6 +51,3 @@ justifications/notes:
 			for example, using magic to unlink the link between planes causes it to nullify itself and its contents
 	shortly after the supernova, destroyers go to our earth and end the 13th common era
 	the supernova allows the destroyers to link the link between planes to their network
-
-todo:
-	gameplay
