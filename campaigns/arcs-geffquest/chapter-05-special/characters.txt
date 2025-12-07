@@ -1,0 +1,65 @@
+===== allies =====
+Tensa
+	new prophet
+	Sherry Arblaster
+	lvl 19 divination wizard
+	special ability: estimate chance of success of a battle plan
+
+Alfred the Protector
+	Tensa's brother and protector
+	lvl 11 fighter, hoplite
+
+Ingrid Stotherfild
+	assassin rogue 20 warlock 7
+
+Ados Stotherfild
+	lvl 11 fighter, dueler
+	prophecy:
+		a true warrior born of snow
+		in the wake of dragons, will end the fight (the fight will end?), but lose the son (sun?)
+	there was an Ados ~5k years ago who:
+		born of snow
+		plunged his sword into a dragon's neck, assimilating its breath magic
+		defeated "the darkness", but lost his lover in the process
+		some say he plunged his sword into his lover, and defeated a dark dragon
+	recently infatuated with Marjoria
+
+Melvin
+	lvl 17 warlock
+	special ability: (practiced wish) one unit add 3 fire damage to all weapon hits
+
+Marjoria O'Neill
+	dragon mother
+	recently infatuated with Ados
+	if killed, the living dragons rampage the scene of her death and leave
+
+2 dragons
+
+1k archers, commoners
+	split into 10 groups of 100, each led by a lord
+	at least 200 ft wide
+1k cavalry, unarmored
+	unique fighting style that does not require any particular organization
+	100 sq ft
+8k commoners with spears
+	split into 8 units
+		each unit is 100 sq ft
+		info: each unit further divided into 10 groups of 100, with each 100 commoners led by a mounted & armored knight
+
+castle
+	catacombs
+
+===== enemies =====
+Ex
+	The Fallen Prophet
+	Louis Causar
+	special ability: mass raise dead
+
+10k undead
+	split into 10 units
+
+undead dragon
+
+lieutenants
+
+3 undead giants
