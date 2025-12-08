@@ -1,0 +1,4 @@
+treasure:
+oil of sharpness. +2, to a weapon for an hour, or up to 5 pieces of ammunition. In a vial that refills itself each day
+necklace of intellect (int=19 while wearing)
+dynamite
