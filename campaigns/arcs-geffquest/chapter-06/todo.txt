@@ -1,3 +1,0 @@
-encounter: borked automaton
-map: sigirroeth
-map: aboleth settlement
