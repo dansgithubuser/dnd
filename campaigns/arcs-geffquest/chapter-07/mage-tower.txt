@@ -1,0 +1,38 @@
+The mage tower has a main floor, where four wizards and a shield guardian can be found. They will not permit the adventurers entry, and act threatened by the war. They just want to study. If the adventurers break in, the wizards will attack.
+
+lvl 7 wizards
+hp: 30
+ac: 14
+slots: 4, 3, 3, 1
+3:counterspell, dispel, fireball, lightning bolt, slow
+2:hold person, shatter
+1:magic missile, shield
+0:firebolt
+
+wiz 1
+4:black tentacles (conjure)
+
+wiz 2
+4:blight (necro)
+
+wiz 3
+4:phantasmal killer (illusion)
+
+wiz 4
+4:wall of fire (evocation)
+
+
+basement
+A relatively bare basement has a trench with spikes at the bottom. Two more trenches on either side are hidden by permanent illusions (that can be dispelled). Falling into or moving aroudn in a trench deals 3d8 slashing damage, and inflicts a poison condition that deals 1d8 poison damage until healed. Across is a way down to the catacombs
+
+
+catacombs
+The catacombs contain children's bodies and body parts. A table holds a body being experimented upon.
+
+
+body
+The body of the tower contains mundane accomodations
+
+
+top
+The top of the tower contains the control room of the bird network. Wild birds can be used as remote spell focuses to spy and intervene.

@@ -1,0 +1,53 @@
+Bird shows up, gives Geff Althion's letter, and disappears.
+
+Eren checks the written records in Sigirroeth to see how fast deterioration happens, establishes that infection is obvious when it happens.
+
+Effy magically detects disease to see that the party is not infected. Effy tries lesser restoration, but doesn't work; figures that afflicted must be willing to be healed.
+
+Eren finds a record of a tentacly whale creature, before the infection starts.
+
+Effy uses sending to communicate with Yaridian, who says to go south and find a sinkhole.
+
+Snooze.
+
+Put on the caps of deep water and head south, find a sinkhole. See skyscraper-looking intelligently-made structures. After a while, a whale-like tentacly creature moves from one structure to another.
+
+Head back to Merennora. They relay the information to a Merennoran doctor.
+
+Head to Akola. Attend Hilari's concert.
+
+Geff uses suggest to pass border patrol. Find a main village and go to main building. Talk to leader. Egg asks what they do for fun, they say hunt deer. They attend a hunting party. Egg shoot two deer at once and impress huntress Xea. They eat a deer together.
+
+Eren notices that the drugs dealers are a distinct human subrace from the Akolans and Doshkans. They pass without a trace to track a drug dealer back to a cave. Talking with one of them, they are told a mage guild is benefiting from the war, taking children.
+
+They go to the wizard tower. Suggest to get a tour, but the other 3 aren't tricked. Egg takes a surprise action surge.
+
+Thunderwave, 16 dmg, wiz 3 and 4 save.
+Force cube 4.
+
+wiz 1 30 
+wiz 2 30 14 0
+wiz 3 30 22 2 0
+wiz 4 30 22 2 0
+
+initiative:
+effy 19
+geff 17
+wizzes & shield guardian 14
+eren 12
+egg 1
+
+effy cast guardian of faith on wiz2,3,4
+wiz 2 down
+
+geff casts shatter on wiz3,4
+
+they continue the tour, see bottom and top
+when tour ends, suggestion completes, egg does 2 dmg to wiz1, geff does 8 dmg & causes wiz1 to run away
+	opp attks:
+		egg 5 (23)
+		geff 12 (11)
+	eren makes black bears and they eat him
+	effy does sacred flame
+
+eren buries the children
