@@ -1,3 +1,6 @@
+make a map
+
+
 arc plan - what's the goal with the overarching story?
 	party discovers the cultist level
 	party prevents the egg escape plan when attacking cultists and investigates the too-big egg
@@ -8,3 +11,8 @@ session plan
 create the setting
 	ecology for preserved?
 	ecology for cultist?
+
+monsters todo:
+	slime (underdark)
+	owlbear (flies onto ship?)
+	evil druid
