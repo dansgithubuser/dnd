@@ -1,18 +1,12 @@
-make a map
-
-
-arc plan - what's the goal with the overarching story?
-	party discovers the cultist level
-	party prevents the egg escape plan when attacking cultists and investigates the too-big egg
-session plan
-	what are the characters trying to achieve by going to leylines?
-	what's the first quest?
-		preserved are being sacrificed to an evil being pretending to be deity?
-create the setting
-	ecology for preserved?
-	ecology for cultist?
-
-monsters todo:
+web app for tuners
+elaborate each borough
+	ecology
+random encounter table
 	slime (underdark)
-	owlbear (flies onto ship?)
-	evil druid
+	cloaker (underdark)
+	elementals
+	hezrou
+	phase spider
+	roper
+	stone giant
+cultist borough

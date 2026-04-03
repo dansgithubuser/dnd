@@ -1,32 +1,35 @@
 session plan
-	- marcus's dream
-	- what can egg achieve w teleport & planeshift?
-	- conversation with Axilarus
-		- (what does the party remember? based on how much they know, set DC to find out what Axilarus suggests)
+	- Marcus's dream
+	- what can Egg achieve w teleport & planeshift?
+	- planning convo (with Axilarus?)
+		- review what the party knows about leylines
+			- (secretly) establish if they know the cave north of merennora contained a too-big egg
 		- DC starts at 20
 		- if they remember that:
 			- Axilarus is suspicious of egg, -5 DC
 			- because it was there _before_ the leylines shifted, -5 DC
+			- if they include Axilarus in the convo, then above two points are brought up by him
 			- connect to north of merennora, -10 DC
+		- Axilarus suggests:
+			- talk to Cralravian, carefully
+			- search for a too-big egg at the leyline intersection
 
 	- travel to leyline intersection
 	- effy's powers are gone lol
 		- make zander justify it and figure out a solution
+	- owlbears attack ship
 
-	- explore "dungeon overworld"
+	- explore the overworld
+		- dolphins
+		- hydra near storm
+		- dwarves
+		- iceberg
+		- elves to the north, if need a new boat
+		- maybe a demon teleport circle on one of the small islands
 
-	- geff gets kidnapped lol
+	- explore dungeon
+		- use dwarf crew to dig around in level 1
+
+	- maybe geff gets kidnapped lol
 		- make neutral/evil characters for the other players to play
 		- two kobolds and a quaggoth
-
-
-setting ideas:
-	- dolphins
-	- a race of people "preserved" (abducted) by a demigod that has since died
-	- connection to the underdark
-		kobolds
-	- an ice dragon?
-	- cultist level, big egg, like north of merennora
-	- a rough map
-	- need a dwarf crew to dig to access various spot
-	- overworld is the carved site of a spell used to kill a god
