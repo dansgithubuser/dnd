@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+  <input type="range" min="0" max="1" step="any" id="slider">
+  <p id="reading"/>
+</body>
+<script>
+  //const url = "http://127.0.0.1:8000/"
+  const url = "https://fastapi-render-test-d2oe.onrender.com/"
+  const slider = document.getElementById("slider");
+  const reading = document.getElementById("reading");
+  const params = new URLSearchParams(document.location.search);
+  const glyph = params.get("glyph")
+
+  function add_reading(r) {
+    reading.textContent = r;
+  }
+
+  fetch(url + glyph + "?setting=-1").then(async (rsp) => {
+    const data = await rsp.json();
+    slider.value = data.setting;
+    add_reading(data.reading);
+  });
+
+  setInterval(
+    () => {
+      fetch(url + glyph + `?setting=${slider.value}`).then(async (rsp) => {
+        const data = await rsp.json();
+        add_reading(data.reading);
+      });
+    },
+    3000,
+  );
+</script>
+</html>
